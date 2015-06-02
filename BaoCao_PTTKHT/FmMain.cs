@@ -46,5 +46,35 @@ namespace BaoCao_PTTKHT
             FmQuanLyGiangDay a = new FmQuanLyGiangDay();
             a.Show();
         }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            FmQuanLyGiaoVien a = new FmQuanLyGiaoVien();
+            a.Show();
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            FmQuanLyMonHoc a = new FmQuanLyMonHoc();
+            a.Show();
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            FmQuanLyMonHocTienQuyet a = new FmQuanLyMonHocTienQuyet();
+            a.Show();
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            FmQuanLyDangKyHocPhan a = new FmQuanLyDangKyHocPhan();
+            a.Show();
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            FmQuanLy a = new FmQuanLy();
+            a.Show();
+        }
     }
 }

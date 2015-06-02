@@ -51,11 +51,41 @@
     <Compile Include="FmMain.Designer.cs">
       <DependentUpon>FmMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="FmQuanLy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FmQuanLy.Designer.cs">
+      <DependentUpon>FmQuanLy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FmQuanLyDangKyHocPhan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FmQuanLyDangKyHocPhan.Designer.cs">
+      <DependentUpon>FmQuanLyDangKyHocPhan.cs</DependentUpon>
+    </Compile>
     <Compile Include="FmQuanLyLop.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FmQuanLyLop.Designer.cs">
       <DependentUpon>FmQuanLyLop.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FmQuanLyGiaoVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FmQuanLyGiaoVien.Designer.cs">
+      <DependentUpon>FmQuanLyGiaoVien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FmQuanLyMonHocTienQuyet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FmQuanLyMonHocTienQuyet.Designer.cs">
+      <DependentUpon>FmQuanLyMonHocTienQuyet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FmQuanLyMonHoc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FmQuanLyMonHoc.Designer.cs">
+      <DependentUpon>FmQuanLyMonHoc.cs</DependentUpon>
     </Compile>
     <Compile Include="FmQuanLySinhVien.cs">
       <SubType>Form</SubType>
@@ -86,8 +116,23 @@
     <EmbeddedResource Include="FmMain.resx">
       <DependentUpon>FmMain.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FmQuanLy.resx">
+      <DependentUpon>FmQuanLy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FmQuanLyDangKyHocPhan.resx">
+      <DependentUpon>FmQuanLyDangKyHocPhan.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FmQuanLyLop.resx">
       <DependentUpon>FmQuanLyLop.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FmQuanLyGiaoVien.resx">
+      <DependentUpon>FmQuanLyGiaoVien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FmQuanLyMonHocTienQuyet.resx">
+      <DependentUpon>FmQuanLyMonHocTienQuyet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FmQuanLyMonHoc.resx">
+      <DependentUpon>FmQuanLyMonHoc.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FmQuanLySinhVien.resx">
       <DependentUpon>FmQuanLySinhVien.cs</DependentUpon>

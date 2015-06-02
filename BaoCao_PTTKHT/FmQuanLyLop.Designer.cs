@@ -38,28 +38,28 @@
             this.tabSV = new DevComponents.DotNetBar.TabItem(this.components);
             this.slidePanel3 = new DevComponents.DotNetBar.Controls.SlidePanel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.buttonX7 = new DevComponents.DotNetBar.ButtonX();
             this.buttonX6 = new DevComponents.DotNetBar.ButtonX();
-            this.buttonX5 = new DevComponents.DotNetBar.ButtonX();
-            this.buttonX4 = new DevComponents.DotNetBar.ButtonX();
             this.buttonX3 = new DevComponents.DotNetBar.ButtonX();
-            this.buttonX2 = new DevComponents.DotNetBar.ButtonX();
-            this.buttonX1 = new DevComponents.DotNetBar.ButtonX();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.comboBox5 = new System.Windows.Forms.ComboBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
             this.slidePanel1 = new DevComponents.DotNetBar.Controls.SlidePanel();
             this.tabLop = new DevComponents.DotNetBar.TabItem(this.components);
+            this.label3 = new System.Windows.Forms.Label();
+            this.buttonX2 = new DevComponents.DotNetBar.ButtonX();
+            this.buttonX1 = new DevComponents.DotNetBar.ButtonX();
+            this.buttonX7 = new DevComponents.DotNetBar.ButtonX();
+            this.buttonX5 = new DevComponents.DotNetBar.ButtonX();
+            this.buttonX4 = new DevComponents.DotNetBar.ButtonX();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.comboBox5 = new System.Windows.Forms.ComboBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
             this.slidePanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.slidePanel3.SuspendLayout();
@@ -148,18 +148,6 @@
             this.panel2.Size = new System.Drawing.Size(1362, 71);
             this.panel2.TabIndex = 5;
             // 
-            // buttonX7
-            // 
-            this.buttonX7.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.buttonX7.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.buttonX7.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonX7.Location = new System.Drawing.Point(978, 18);
-            this.buttonX7.Name = "buttonX7";
-            this.buttonX7.Size = new System.Drawing.Size(143, 37);
-            this.buttonX7.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.buttonX7.TabIndex = 6;
-            this.buttonX7.Text = "LƯU";
-            // 
             // buttonX6
             // 
             this.buttonX6.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
@@ -172,30 +160,6 @@
             this.buttonX6.TabIndex = 5;
             this.buttonX6.Text = "XÓA";
             // 
-            // buttonX5
-            // 
-            this.buttonX5.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.buttonX5.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.buttonX5.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonX5.Location = new System.Drawing.Point(205, 18);
-            this.buttonX5.Name = "buttonX5";
-            this.buttonX5.Size = new System.Drawing.Size(143, 37);
-            this.buttonX5.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.buttonX5.TabIndex = 4;
-            this.buttonX5.Text = "SỬA";
-            // 
-            // buttonX4
-            // 
-            this.buttonX4.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.buttonX4.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.buttonX4.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonX4.Location = new System.Drawing.Point(12, 18);
-            this.buttonX4.Name = "buttonX4";
-            this.buttonX4.Size = new System.Drawing.Size(143, 37);
-            this.buttonX4.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.buttonX4.TabIndex = 3;
-            this.buttonX4.Text = "THÊM";
-            // 
             // buttonX3
             // 
             this.buttonX3.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
@@ -207,6 +171,62 @@
             this.buttonX3.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.buttonX3.TabIndex = 2;
             this.buttonX3.Text = "THOÁT";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.textBox3);
+            this.groupBox2.Controls.Add(this.label3);
+            this.groupBox2.Controls.Add(this.comboBox2);
+            this.groupBox2.Controls.Add(this.label2);
+            this.groupBox2.Controls.Add(this.comboBox1);
+            this.groupBox2.Controls.Add(this.label1);
+            this.groupBox2.Controls.Add(this.comboBox5);
+            this.groupBox2.Controls.Add(this.label8);
+            this.groupBox2.Controls.Add(this.textBox1);
+            this.groupBox2.Controls.Add(this.label11);
+            this.groupBox2.Controls.Add(this.textBox2);
+            this.groupBox2.Controls.Add(this.label12);
+            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox2.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox2.Location = new System.Drawing.Point(0, 0);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(1362, 196);
+            this.groupBox2.TabIndex = 4;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "LỚP HỌC";
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(141, 19);
+            this.textBox2.Multiline = true;
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(224, 33);
+            this.textBox2.TabIndex = 1;
+            // 
+            // slidePanel1
+            // 
+            this.slidePanel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.slidePanel1.Location = new System.Drawing.Point(0, 0);
+            this.slidePanel1.Name = "slidePanel1";
+            this.slidePanel1.Size = new System.Drawing.Size(1362, 66);
+            this.slidePanel1.TabIndex = 4;
+            this.slidePanel1.Text = "slidePanel1";
+            this.slidePanel1.UsesBlockingAnimation = false;
+            // 
+            // tabLop
+            // 
+            this.tabLop.Name = "tabLop";
+            this.tabLop.Text = "ĐIỂM LỚP HỌC";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Times New Roman", 14.25F);
+            this.label3.Location = new System.Drawing.Point(912, 81);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(54, 21);
+            this.label3.TabIndex = 15;
+            this.label3.Text = "Sỉ số:";
             // 
             // buttonX2
             // 
@@ -232,28 +252,49 @@
             this.buttonX1.TabIndex = 0;
             this.buttonX1.Text = "TÌM KIẾM";
             // 
-            // groupBox2
+            // buttonX7
             // 
-            this.groupBox2.Controls.Add(this.textBox3);
-            this.groupBox2.Controls.Add(this.label3);
-            this.groupBox2.Controls.Add(this.comboBox2);
-            this.groupBox2.Controls.Add(this.label2);
-            this.groupBox2.Controls.Add(this.comboBox1);
-            this.groupBox2.Controls.Add(this.label1);
-            this.groupBox2.Controls.Add(this.comboBox5);
-            this.groupBox2.Controls.Add(this.label8);
-            this.groupBox2.Controls.Add(this.textBox1);
-            this.groupBox2.Controls.Add(this.label11);
-            this.groupBox2.Controls.Add(this.textBox2);
-            this.groupBox2.Controls.Add(this.label12);
-            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox2.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(0, 0);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(1362, 196);
-            this.groupBox2.TabIndex = 4;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "LỚP HỌC";
+            this.buttonX7.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.buttonX7.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.buttonX7.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonX7.Location = new System.Drawing.Point(978, 18);
+            this.buttonX7.Name = "buttonX7";
+            this.buttonX7.Size = new System.Drawing.Size(143, 37);
+            this.buttonX7.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.buttonX7.TabIndex = 6;
+            this.buttonX7.Text = "LƯU";
+            // 
+            // buttonX5
+            // 
+            this.buttonX5.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.buttonX5.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.buttonX5.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonX5.Location = new System.Drawing.Point(205, 18);
+            this.buttonX5.Name = "buttonX5";
+            this.buttonX5.Size = new System.Drawing.Size(143, 37);
+            this.buttonX5.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.buttonX5.TabIndex = 4;
+            this.buttonX5.Text = "SỬA";
+            // 
+            // buttonX4
+            // 
+            this.buttonX4.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.buttonX4.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.buttonX4.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonX4.Location = new System.Drawing.Point(12, 18);
+            this.buttonX4.Name = "buttonX4";
+            this.buttonX4.Size = new System.Drawing.Size(143, 37);
+            this.buttonX4.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.buttonX4.TabIndex = 3;
+            this.buttonX4.Text = "THÊM";
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(1026, 19);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(224, 30);
+            this.comboBox2.TabIndex = 14;
             // 
             // textBox3
             // 
@@ -264,24 +305,6 @@
             this.textBox3.Size = new System.Drawing.Size(224, 33);
             this.textBox3.TabIndex = 16;
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Times New Roman", 14.25F);
-            this.label3.Location = new System.Drawing.Point(912, 81);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(54, 21);
-            this.label3.TabIndex = 15;
-            this.label3.Text = "Sỉ số:";
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(1026, 19);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(224, 30);
-            this.comboBox2.TabIndex = 14;
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -291,6 +314,24 @@
             this.label2.Size = new System.Drawing.Size(82, 21);
             this.label2.TabIndex = 13;
             this.label2.Text = "Môn học:";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Times New Roman", 14.25F);
+            this.label8.Location = new System.Drawing.Point(464, 31);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(69, 21);
+            this.label8.TabIndex = 9;
+            this.label8.Text = "Học kỳ:";
+            // 
+            // comboBox5
+            // 
+            this.comboBox5.FormattingEnabled = true;
+            this.comboBox5.Location = new System.Drawing.Point(580, 19);
+            this.comboBox5.Name = "comboBox5";
+            this.comboBox5.Size = new System.Drawing.Size(224, 30);
+            this.comboBox5.TabIndex = 10;
             // 
             // comboBox1
             // 
@@ -310,24 +351,6 @@
             this.label1.TabIndex = 11;
             this.label1.Text = "Khoa:";
             // 
-            // comboBox5
-            // 
-            this.comboBox5.FormattingEnabled = true;
-            this.comboBox5.Location = new System.Drawing.Point(580, 19);
-            this.comboBox5.Name = "comboBox5";
-            this.comboBox5.Size = new System.Drawing.Size(224, 30);
-            this.comboBox5.TabIndex = 10;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Times New Roman", 14.25F);
-            this.label8.Location = new System.Drawing.Point(464, 31);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(69, 21);
-            this.label8.TabIndex = 9;
-            this.label8.Text = "Học kỳ:";
-            // 
             // textBox1
             // 
             this.textBox1.Location = new System.Drawing.Point(141, 74);
@@ -346,14 +369,6 @@
             this.label11.TabIndex = 2;
             this.label11.Text = "Tên lớp:";
             // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(141, 19);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(224, 33);
-            this.textBox2.TabIndex = 1;
-            // 
             // label12
             // 
             this.label12.AutoSize = true;
@@ -363,21 +378,6 @@
             this.label12.Size = new System.Drawing.Size(67, 21);
             this.label12.TabIndex = 0;
             this.label12.Text = "Mã lớp:";
-            // 
-            // slidePanel1
-            // 
-            this.slidePanel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.slidePanel1.Location = new System.Drawing.Point(0, 0);
-            this.slidePanel1.Name = "slidePanel1";
-            this.slidePanel1.Size = new System.Drawing.Size(1362, 66);
-            this.slidePanel1.TabIndex = 4;
-            this.slidePanel1.Text = "slidePanel1";
-            this.slidePanel1.UsesBlockingAnimation = false;
-            // 
-            // tabLop
-            // 
-            this.tabLop.Name = "tabLop";
-            this.tabLop.Text = "ĐIỂM LỚP HỌC";
             // 
             // FmQuanLyLop
             // 
@@ -410,12 +410,7 @@
         private DevComponents.DotNetBar.TabItem tabSV;
         private DevComponents.DotNetBar.Controls.SlidePanel slidePanel3;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.ComboBox comboBox5;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label label12;
         private DevComponents.DotNetBar.Controls.SlidePanel slidePanel1;
         private DevComponents.DotNetBar.TabItem tabLop;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
@@ -423,18 +418,23 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn TenLop;
         private System.Windows.Forms.DataGridViewTextBoxColumn HocKy;
         private System.Windows.Forms.Panel panel2;
-        private DevComponents.DotNetBar.ButtonX buttonX7;
         private DevComponents.DotNetBar.ButtonX buttonX6;
+        private DevComponents.DotNetBar.ButtonX buttonX3;
+        private System.Windows.Forms.Label label3;
+        private DevComponents.DotNetBar.ButtonX buttonX7;
         private DevComponents.DotNetBar.ButtonX buttonX5;
         private DevComponents.DotNetBar.ButtonX buttonX4;
-        private DevComponents.DotNetBar.ButtonX buttonX3;
         private DevComponents.DotNetBar.ButtonX buttonX2;
         private DevComponents.DotNetBar.ButtonX buttonX1;
         private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox comboBox5;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label12;
     }
 }
