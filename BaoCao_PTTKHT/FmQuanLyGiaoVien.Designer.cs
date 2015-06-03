@@ -32,6 +32,7 @@
             this.slidePanel1 = new DevComponents.DotNetBar.Controls.SlidePanel();
             this.slidePanel3 = new DevComponents.DotNetBar.Controls.SlidePanel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
@@ -61,7 +62,6 @@
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.tabLop = new DevComponents.DotNetBar.TabItem(this.components);
             this.tabSV = new DevComponents.DotNetBar.TabItem(this.components);
-            this.textBox3 = new System.Windows.Forms.TextBox();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MaGV = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TenGV = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -127,7 +127,16 @@
             this.groupBox1.Size = new System.Drawing.Size(1346, 189);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "SINH VIÊN";
+            this.groupBox1.Text = "GIÁO VIÊN";
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(1055, 87);
+            this.textBox3.Multiline = true;
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(262, 33);
+            this.textBox3.TabIndex = 22;
             // 
             // textBox2
             // 
@@ -215,9 +224,9 @@
             this.label5.Font = new System.Drawing.Font("Times New Roman", 14.25F);
             this.label5.Location = new System.Drawing.Point(952, 103);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(80, 21);
+            this.label5.Size = new System.Drawing.Size(77, 21);
             this.label5.TabIndex = 9;
-            this.label5.Text = "Trình độ:";
+            this.label5.Text = "Cấp bậc:";
             // 
             // comboBox1
             // 
@@ -422,14 +431,6 @@
             this.tabSV.Name = "tabSV";
             this.tabSV.Text = "ĐIỂM SINH VIÊN";
             // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(1055, 87);
-            this.textBox3.Multiline = true;
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(262, 33);
-            this.textBox3.TabIndex = 22;
-            // 
             // dataGridViewTextBoxColumn1
             // 
             this.dataGridViewTextBoxColumn1.HeaderText = "STT";
@@ -465,7 +466,7 @@
             // 
             // TrinhDo
             // 
-            this.TrinhDo.HeaderText = "TRÌNH ĐỘ";
+            this.TrinhDo.HeaderText = "CẤP BẬC";
             this.TrinhDo.Name = "TrinhDo";
             // 
             // ChucVu
@@ -485,7 +486,7 @@
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "FmQuanLyGiaoVien";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "QUẢN LÝ SINH VIÊN";
+            this.Text = "QUẢN LÝ GIÁO VIÊN";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.slidePanel3.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);

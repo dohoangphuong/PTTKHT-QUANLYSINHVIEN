@@ -1,4 +1,4 @@
-namespace BaoCao_PTTKHT
+﻿namespace BaoCao_PTTKHT
 {
     partial class FmQuanLy
     {
@@ -43,10 +43,10 @@ namespace BaoCao_PTTKHT
             this.itemContainer1 = new DevComponents.DotNetBar.ItemContainer();
             this.metroTileItem1 = new DevComponents.DotNetBar.Metro.MetroTileItem();
             this.metroTileItem2 = new DevComponents.DotNetBar.Metro.MetroTileItem();
-            this.metroTileItem3 = new DevComponents.DotNetBar.Metro.MetroTileItem();
             this.metroTileItem4 = new DevComponents.DotNetBar.Metro.MetroTileItem();
-            this.metroTileItem5 = new DevComponents.DotNetBar.Metro.MetroTileItem();
             this.metroTileItem6 = new DevComponents.DotNetBar.Metro.MetroTileItem();
+            this.metroTileItem3 = new DevComponents.DotNetBar.Metro.MetroTileItem();
+            this.metroTileItem5 = new DevComponents.DotNetBar.Metro.MetroTileItem();
             this.metroShell1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -179,6 +179,7 @@ namespace BaoCao_PTTKHT
             // 
             // itemPanel1
             // 
+            this.itemPanel1.BackColor = System.Drawing.Color.White;
             // 
             // 
             // 
@@ -187,6 +188,7 @@ namespace BaoCao_PTTKHT
             this.itemPanel1.ContainerControlProcessDialogKey = true;
             this.itemPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.itemPanel1.DragDropSupport = true;
+            this.itemPanel1.ForeColor = System.Drawing.Color.Black;
             this.itemPanel1.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
             this.itemContainer1});
             this.itemPanel1.LayoutOrientation = DevComponents.DotNetBar.eOrientation.Vertical;
@@ -217,6 +219,7 @@ namespace BaoCao_PTTKHT
             // 
             this.metroTileItem1.Name = "metroTileItem1";
             this.metroTileItem1.SymbolColor = System.Drawing.Color.Empty;
+            this.metroTileItem1.Text = "QUẢN LÝ HỌC SINH";
             this.metroTileItem1.TileColor = DevComponents.DotNetBar.Metro.eMetroTileColor.Green;
             // 
             // 
@@ -233,16 +236,6 @@ namespace BaoCao_PTTKHT
             // 
             this.metroTileItem2.TileStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             // 
-            // metroTileItem3
-            // 
-            this.metroTileItem3.Name = "metroTileItem3";
-            this.metroTileItem3.SymbolColor = System.Drawing.Color.Empty;
-            this.metroTileItem3.TileColor = DevComponents.DotNetBar.Metro.eMetroTileColor.Green;
-            // 
-            // 
-            // 
-            this.metroTileItem3.TileStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            // 
             // metroTileItem4
             // 
             this.metroTileItem4.Name = "metroTileItem4";
@@ -253,16 +246,6 @@ namespace BaoCao_PTTKHT
             // 
             this.metroTileItem4.TileStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             // 
-            // metroTileItem5
-            // 
-            this.metroTileItem5.Name = "metroTileItem5";
-            this.metroTileItem5.SymbolColor = System.Drawing.Color.Empty;
-            this.metroTileItem5.TileColor = DevComponents.DotNetBar.Metro.eMetroTileColor.Green;
-            // 
-            // 
-            // 
-            this.metroTileItem5.TileStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            // 
             // metroTileItem6
             // 
             this.metroTileItem6.Name = "metroTileItem6";
@@ -272,6 +255,26 @@ namespace BaoCao_PTTKHT
             // 
             // 
             this.metroTileItem6.TileStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            // 
+            // metroTileItem3
+            // 
+            this.metroTileItem3.Name = "metroTileItem3";
+            this.metroTileItem3.SymbolColor = System.Drawing.Color.Empty;
+            this.metroTileItem3.TileColor = DevComponents.DotNetBar.Metro.eMetroTileColor.Green;
+            // 
+            // 
+            // 
+            this.metroTileItem3.TileStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            // 
+            // metroTileItem5
+            // 
+            this.metroTileItem5.Name = "metroTileItem5";
+            this.metroTileItem5.SymbolColor = System.Drawing.Color.Empty;
+            this.metroTileItem5.TileColor = DevComponents.DotNetBar.Metro.eMetroTileColor.Green;
+            // 
+            // 
+            // 
+            this.metroTileItem5.TileStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             // 
             // FmQuanLy
             // 

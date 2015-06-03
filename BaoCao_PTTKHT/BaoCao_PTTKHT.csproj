@@ -111,6 +111,18 @@
     <Compile Include="FmQuanLyGiangDay.Designer.cs">
       <DependentUpon>FmQuanLyGiangDay.cs</DependentUpon>
     </Compile>
+    <Compile Include="FmThongTinDangKyHocPhanHieuChinh.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FmThongTinDangKyHocPhanHieuChinh.Designer.cs">
+      <DependentUpon>FmThongTinDangKyHocPhanHieuChinh.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FmThongTinDangKyHocPhan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FmThongTinDangKyHocPhan.Designer.cs">
+      <DependentUpon>FmThongTinDangKyHocPhan.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FmMain.resx">
@@ -145,6 +157,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FmQuanLyGiangDay.resx">
       <DependentUpon>FmQuanLyGiangDay.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FmThongTinDangKyHocPhanHieuChinh.resx">
+      <DependentUpon>FmThongTinDangKyHocPhanHieuChinh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FmThongTinDangKyHocPhan.resx">
+      <DependentUpon>FmThongTinDangKyHocPhan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

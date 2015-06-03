@@ -384,7 +384,7 @@
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "FmQuanLyMonHoc";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "QUẢN LÝ SINH VIÊN";
+            this.Text = "QUẢN LÝ MÔN HỌC";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.slidePanel3.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);

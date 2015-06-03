@@ -15,5 +15,11 @@ namespace BaoCao_PTTKHT
         {
             InitializeComponent();
         }
+
+        private void buttonX1_Click(object sender, EventArgs e)
+        {
+            FmThongTinDangKyHocPhanHieuChinh a = new FmThongTinDangKyHocPhanHieuChinh();
+            a.Show();
+        }
     }
 }

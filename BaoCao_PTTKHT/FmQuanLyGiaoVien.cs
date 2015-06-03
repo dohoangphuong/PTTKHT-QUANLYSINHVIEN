@@ -26,5 +26,10 @@ namespace BaoCao_PTTKHT
         {
 
         }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }

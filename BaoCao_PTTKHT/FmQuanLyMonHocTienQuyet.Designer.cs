@@ -32,6 +32,8 @@
             this.slidePanel1 = new DevComponents.DotNetBar.Controls.SlidePanel();
             this.slidePanel3 = new DevComponents.DotNetBar.Controls.SlidePanel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -60,8 +62,6 @@
             this.HinhThuc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabLop = new DevComponents.DotNetBar.TabItem(this.components);
             this.tabSV = new DevComponents.DotNetBar.TabItem(this.components);
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.slidePanel3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -108,6 +108,22 @@
             this.groupBox2.TabIndex = 6;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "CHỌN MÔN HỌC TIÊN QUYẾT";
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(152, 84);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(229, 30);
+            this.comboBox2.TabIndex = 24;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(152, 37);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(229, 30);
+            this.comboBox1.TabIndex = 23;
             // 
             // label9
             // 
@@ -375,22 +391,6 @@
             this.tabSV.Name = "tabSV";
             this.tabSV.Text = "ĐIỂM SINH VIÊN";
             // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(152, 37);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(229, 30);
-            this.comboBox1.TabIndex = 23;
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(152, 84);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(229, 30);
-            this.comboBox2.TabIndex = 24;
-            // 
             // FmQuanLyMonHocTienQuyet
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -403,7 +403,7 @@
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "FmQuanLyMonHocTienQuyet";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "QUẢN LÝ SINH VIÊN";
+            this.Text = "QUẢN LÝ MÔN HỌC TIÊN QUYẾT";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.slidePanel3.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);

@@ -16,7 +16,7 @@ namespace BaoCao_PTTKHT
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FmQuanLy());
+            Application.Run(new FmMain());
         }
     }
 }

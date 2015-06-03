@@ -76,5 +76,17 @@ namespace BaoCao_PTTKHT
             FmQuanLy a = new FmQuanLy();
             a.Show();
         }
+
+        private void button11_Click(object sender, EventArgs e)
+        {
+            FmThongTinDangKyHocPhan a = new FmThongTinDangKyHocPhan();
+            a.Show();
+        }
+
+        private void button12_Click(object sender, EventArgs e)
+        {
+            FmThongTinDangKyHocPhanHieuChinh a = new FmThongTinDangKyHocPhanHieuChinh();
+            a.Show();
+        }
     }
 }
