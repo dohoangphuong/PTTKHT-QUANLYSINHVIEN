@@ -8,10 +8,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace BaoCao_PTTKHT.Properties
-{
-
-
+namespace BaoCao_PTTKHT.Properties {
+    using System;
+    
+    
     /// <summary>
     ///   A strongly-typed resource class, for looking up localized strings, etc.
     /// </summary>
@@ -22,49 +22,125 @@ namespace BaoCao_PTTKHT.Properties
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Resources
-    {
-
+    internal class Resources {
+        
         private static global::System.Resources.ResourceManager resourceMan;
-
+        
         private static global::System.Globalization.CultureInfo resourceCulture;
-
+        
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal Resources()
-        {
+        internal Resources() {
         }
-
+        
         /// <summary>
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager
-        {
-            get
-            {
-                if ((resourceMan == null))
-                {
+        internal static global::System.Resources.ResourceManager ResourceManager {
+            get {
+                if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("BaoCao_PTTKHT.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
             }
         }
-
+        
         /// <summary>
         ///   Overrides the current thread's CurrentUICulture property for all
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture
-        {
-            get
-            {
+        internal static global::System.Globalization.CultureInfo Culture {
+            get {
                 return resourceCulture;
             }
-            set
-            {
+            set {
                 resourceCulture = value;
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to select * from sys.tables where        ///exists (select * from sys.tables where name = &apos;BANGDIEM&apos;)         ///and exists (select * from sys.tables where name = &apos;CHITIETBANGDIEM&apos;)         ///and exists (select * from sys.tables where name = &apos;CHITIETLOPHOC&apos;)         ///and exists (select * from sys.tables where name = &apos;DIEM&apos;)         ///and exists (select * from sys.tables where name = &apos;GIANGVIEN&apos;)         ///and exists (select * from sys.tables where name = &apos;HOCKY&apos;)         ///and exists (select * from sys.tables where name = &apos;KHOA&apos;)         ///and exists (select * from sys.tables where [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string CheckTable {
+            get {
+                return ResourceManager.GetString("CheckTable", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to USE [PlaceHolder]
+        ///GO
+        ///
+        ///create table NAMHOC
+        ///(
+        ///	MaNamHoc int primary key,
+        ///	NamHoc nvarchar(9) not null,
+        ///)
+        ///
+        ///create table HOCKY
+        ///(
+        ///	MaHocKy int primary key,
+        ///	HocKy nvarchar(10) not null,
+        ///)
+        ///
+        ///create table KHOA
+        ///(
+        ///	MaKhoa int primary key,
+        ///	TenKhoa nvarchar(30) not null,
+        ///)
+        ///
+        ///create table LOP
+        ///(
+        ///	MaLop int primary key,
+        ///	TenLop nvarchar(30) not null,
+        ///	MaKhoa int FOREIGN KEY REFERENCES Khoa(MaKhoa) ON DELETE CASCADE,
+        ///)
+        ///
+        ///create table SINHVIEN
+        ///(
+        ///	MSSV varchar(10) primary key,
+        ///	TenSinhVien nvarc [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string CreateDatabase {
+            get {
+                return ResourceManager.GetString("CreateDatabase", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to USE [PlaceHolder]
+        ///GO
+        ///
+        ///SET DATEFORMAT DMY.
+        /// </summary>
+        internal static string InitData {
+            get {
+                return ResourceManager.GetString("InitData", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to --region Drop Existing Procedures
+        ///
+        ///IF OBJECT_ID(N&apos;[dbo].[usp_InsertBangdiem]&apos;) IS NOT NULL
+        ///	DROP PROCEDURE [dbo].[usp_InsertBangdiem]
+        ///
+        ///IF OBJECT_ID(N&apos;[dbo].[usp_UpdateBangdiem]&apos;) IS NOT NULL
+        ///	DROP PROCEDURE [dbo].[usp_UpdateBangdiem]
+        ///
+        ///IF OBJECT_ID(N&apos;[dbo].[usp_InsertUpdateBangdiem]&apos;) IS NOT NULL
+        ///	DROP PROCEDURE [dbo].[usp_InsertUpdateBangdiem]
+        ///
+        ///IF OBJECT_ID(N&apos;[dbo].[usp_DeleteBangdiem]&apos;) IS NOT NULL
+        ///	DROP PROCEDURE [dbo].[usp_DeleteBangdiem]
+        ///
+        ///IF OBJECT_ID(N&apos;[dbo].[usp_SelectBangdiem]&apos;) IS NOT  [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string StoredProcedures {
+            get {
+                return ResourceManager.GetString("StoredProcedures", resourceCulture);
             }
         }
     }

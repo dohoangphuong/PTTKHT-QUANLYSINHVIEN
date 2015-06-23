@@ -33,8 +33,25 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="DevComponents.DotNetBar2, Version=12.0.0.1, Culture=neutral, PublicKeyToken=c39c3242a43eee2b, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.SqlServer.ConnectionInfo, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\Microsoft SQL Server\110\SDK\Assemblies\Microsoft.SqlServer.ConnectionInfo.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Management.Sdk.Sfc, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\Microsoft SQL Server\110\SDK\Assemblies\Microsoft.SqlServer.Management.Sdk.Sfc.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Smo, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\Microsoft SQL Server\110\SDK\Assemblies\Microsoft.SqlServer.Smo.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.SmoExtended, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\Microsoft SQL Server\110\SDK\Assemblies\Microsoft.SqlServer.SmoExtended.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -45,123 +62,140 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FmMain.cs">
+    <Compile Include="DAL\QLDT.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QLDT.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\FmConnectDatabase.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FmMain.Designer.cs">
+    <Compile Include="GUI\FmConnectDatabase.Designer.cs">
+      <DependentUpon>FmConnectDatabase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\FmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FmMain.Designer.cs">
       <DependentUpon>FmMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="FmQuanLy.cs">
+    <Compile Include="GUI\FmQuanLy.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FmQuanLy.Designer.cs">
+    <Compile Include="GUI\FmQuanLy.Designer.cs">
       <DependentUpon>FmQuanLy.cs</DependentUpon>
     </Compile>
-    <Compile Include="FmQuanLyDangKyHocPhan.cs">
+    <Compile Include="GUI\FmQuanLyDangKyHocPhan.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FmQuanLyDangKyHocPhan.Designer.cs">
+    <Compile Include="GUI\FmQuanLyDangKyHocPhan.Designer.cs">
       <DependentUpon>FmQuanLyDangKyHocPhan.cs</DependentUpon>
     </Compile>
-    <Compile Include="FmQuanLyLop.cs">
+    <Compile Include="GUI\FmQuanLyLop.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FmQuanLyLop.Designer.cs">
+    <Compile Include="GUI\FmQuanLyLop.Designer.cs">
       <DependentUpon>FmQuanLyLop.cs</DependentUpon>
     </Compile>
-    <Compile Include="FmQuanLyGiaoVien.cs">
+    <Compile Include="GUI\FmQuanLyGiaoVien.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FmQuanLyGiaoVien.Designer.cs">
+    <Compile Include="GUI\FmQuanLyGiaoVien.Designer.cs">
       <DependentUpon>FmQuanLyGiaoVien.cs</DependentUpon>
     </Compile>
-    <Compile Include="FmQuanLyMonHocTienQuyet.cs">
+    <Compile Include="GUI\FmQuanLyMonHocTienQuyet.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FmQuanLyMonHocTienQuyet.Designer.cs">
+    <Compile Include="GUI\FmQuanLyMonHocTienQuyet.Designer.cs">
       <DependentUpon>FmQuanLyMonHocTienQuyet.cs</DependentUpon>
     </Compile>
-    <Compile Include="FmQuanLyMonHoc.cs">
+    <Compile Include="GUI\FmQuanLyMonHoc.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FmQuanLyMonHoc.Designer.cs">
+    <Compile Include="GUI\FmQuanLyMonHoc.Designer.cs">
       <DependentUpon>FmQuanLyMonHoc.cs</DependentUpon>
     </Compile>
-    <Compile Include="FmQuanLySinhVien.cs">
+    <Compile Include="GUI\FmQuanLySinhVien.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FmQuanLySinhVien.Designer.cs">
+    <Compile Include="GUI\FmQuanLySinhVien.Designer.cs">
       <DependentUpon>FmQuanLySinhVien.cs</DependentUpon>
     </Compile>
-    <Compile Include="FmQuanLyDiemLopCT.cs">
+    <Compile Include="GUI\FmQuanLyDiemLopCT.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FmQuanLyDiemLopCT.Designer.cs">
+    <Compile Include="GUI\FmQuanLyDiemLopCT.Designer.cs">
       <DependentUpon>FmQuanLyDiemLopCT.cs</DependentUpon>
     </Compile>
-    <Compile Include="FmQuanLyDiemSinhVienCT.cs">
+    <Compile Include="GUI\FmQuanLyDiemSinhVienCT.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FmQuanLyDiemSinhVienCT.designer.cs">
+    <Compile Include="GUI\FmQuanLyDiemSinhVienCT.designer.cs">
       <DependentUpon>FmQuanLyDiemSinhVienCT.cs</DependentUpon>
     </Compile>
-    <Compile Include="FmQuanLyGiangDay.cs">
+    <Compile Include="GUI\FmQuanLyGiangDay.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FmQuanLyGiangDay.Designer.cs">
+    <Compile Include="GUI\FmQuanLyGiangDay.Designer.cs">
       <DependentUpon>FmQuanLyGiangDay.cs</DependentUpon>
     </Compile>
-    <Compile Include="FmThongTinDangKyHocPhanHieuChinh.cs">
+    <Compile Include="GUI\FmThongTinDangKyHocPhanHieuChinh.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FmThongTinDangKyHocPhanHieuChinh.Designer.cs">
+    <Compile Include="GUI\FmThongTinDangKyHocPhanHieuChinh.Designer.cs">
       <DependentUpon>FmThongTinDangKyHocPhanHieuChinh.cs</DependentUpon>
     </Compile>
-    <Compile Include="FmThongTinDangKyHocPhan.cs">
+    <Compile Include="GUI\FmThongTinDangKyHocPhan.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FmThongTinDangKyHocPhan.Designer.cs">
+    <Compile Include="GUI\FmThongTinDangKyHocPhan.Designer.cs">
       <DependentUpon>FmThongTinDangKyHocPhan.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="FmMain.resx">
+    <None Include="DAL\QLDT.dbml.layout">
+      <DependentUpon>QLDT.dbml</DependentUpon>
+    </None>
+    <EmbeddedResource Include="GUI\FmConnectDatabase.resx">
+      <DependentUpon>FmConnectDatabase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FmMain.resx">
       <DependentUpon>FmMain.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FmQuanLy.resx">
+    <EmbeddedResource Include="GUI\FmQuanLy.resx">
       <DependentUpon>FmQuanLy.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FmQuanLyDangKyHocPhan.resx">
+    <EmbeddedResource Include="GUI\FmQuanLyDangKyHocPhan.resx">
       <DependentUpon>FmQuanLyDangKyHocPhan.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FmQuanLyLop.resx">
+    <EmbeddedResource Include="GUI\FmQuanLyLop.resx">
       <DependentUpon>FmQuanLyLop.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FmQuanLyGiaoVien.resx">
+    <EmbeddedResource Include="GUI\FmQuanLyGiaoVien.resx">
       <DependentUpon>FmQuanLyGiaoVien.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FmQuanLyMonHocTienQuyet.resx">
+    <EmbeddedResource Include="GUI\FmQuanLyMonHocTienQuyet.resx">
       <DependentUpon>FmQuanLyMonHocTienQuyet.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FmQuanLyMonHoc.resx">
+    <EmbeddedResource Include="GUI\FmQuanLyMonHoc.resx">
       <DependentUpon>FmQuanLyMonHoc.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FmQuanLySinhVien.resx">
+    <EmbeddedResource Include="GUI\FmQuanLySinhVien.resx">
       <DependentUpon>FmQuanLySinhVien.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FmQuanLyDiemLopCT.resx">
+    <EmbeddedResource Include="GUI\FmQuanLyDiemLopCT.resx">
       <DependentUpon>FmQuanLyDiemLopCT.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FmQuanLyDiemSinhVienCT.resx">
+    <EmbeddedResource Include="GUI\FmQuanLyDiemSinhVienCT.resx">
       <DependentUpon>FmQuanLyDiemSinhVienCT.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FmQuanLyGiangDay.resx">
+    <EmbeddedResource Include="GUI\FmQuanLyGiangDay.resx">
       <DependentUpon>FmQuanLyGiangDay.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FmThongTinDangKyHocPhanHieuChinh.resx">
+    <EmbeddedResource Include="GUI\FmThongTinDangKyHocPhanHieuChinh.resx">
       <DependentUpon>FmThongTinDangKyHocPhanHieuChinh.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FmThongTinDangKyHocPhan.resx">
+    <EmbeddedResource Include="GUI\FmThongTinDangKyHocPhan.resx">
       <DependentUpon>FmThongTinDangKyHocPhan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -172,7 +206,13 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="DAL\QLDT.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>QLDT.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -185,6 +225,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="DataBase\CheckTable.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="DataBase\CreateDatabase.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="DataBase\InitData.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="DataBase\StoredProcedures.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
