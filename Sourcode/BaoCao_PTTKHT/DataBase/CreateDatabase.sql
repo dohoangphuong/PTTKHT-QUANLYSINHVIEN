@@ -12,20 +12,20 @@ create table HOCKY
 	MaHocKy int primary key,
 	MaNamHoc int FOREIGN KEY REFERENCES NamHoc(MaNamHoc) ON DELETE CASCADE,
 	HocKy nvarchar(10) not null,
-
 )
 
 create table KHOA
 (
-	MaKhoa int primary key,
+	MaKhoa varchar(10) primary key,
 	TenKhoa nvarchar(30) not null,
 )
 
 create table LOP
 (
-	MaLop int primary key,
+	MaLop varchar(10) primary key,
 	TenLop nvarchar(30) not null,
-	MaKhoa int FOREIGN KEY REFERENCES Khoa(MaKhoa) ON DELETE CASCADE,
+	MaKhoa varchar(10) FOREIGN KEY REFERENCES Khoa(MaKhoa) ON DELETE CASCADE,
+	MaNamHoc int FOREIGN KEY REFERENCES NamHoc(MaNamHoc) ON DELETE CASCADE,
 )
 
 create table SINHVIEN
@@ -36,7 +36,7 @@ create table SINHVIEN
 	DiaChi nvarchar(100) not null,
 	GioiTinh varchar(5) not null,
 	DienThoai varchar(12) not null,
-	MaLop int FOREIGN KEY REFERENCES LOP(MaLop) ON DELETE CASCADE,
+	MaLop varchar(10) FOREIGN KEY REFERENCES LOP(MaLop) ON DELETE CASCADE,
 )
 
 create table GIANGVIEN
@@ -47,7 +47,7 @@ create table GIANGVIEN
 	DiaChi nvarchar(100) not null,
 	GioiTinh varchar(5) not null,
 	ChucVu varchar(50) not null,
-	MaKhoa int FOREIGN KEY REFERENCES KHOA(MaKhoa) ON DELETE CASCADE,
+	MaKhoa varchar(10) FOREIGN KEY REFERENCES KHOA(MaKhoa) ON DELETE CASCADE,
 )
 
 create table MONHOC

@@ -116,5 +116,25 @@ namespace BaoCao_PTTKHT.Properties {
                 return ((string)(this["QLDTConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=NHAT\\SQLEXPRESS;Initial Catalog=QLDT2;Integrated Security=True")]
+        public string QLDT2ConnectionString {
+            get {
+                return ((string)(this["QLDT2ConnectionString"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=NHAT\\SQLEXPRESS;Initial Catalog=PlaceHolder;Integrated Security=True")]
+        public string PlaceHolderConnectionString {
+            get {
+                return ((string)(this["PlaceHolderConnectionString"]));
+            }
+        }
     }
 }

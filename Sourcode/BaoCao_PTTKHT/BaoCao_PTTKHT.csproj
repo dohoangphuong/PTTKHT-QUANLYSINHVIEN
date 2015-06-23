@@ -62,6 +62,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BLL\BLL_BangDiem.cs" />
+    <Compile Include="BLL\BLL_GiangVien.cs" />
+    <Compile Include="BLL\BLL_LopHoc.cs" />
+    <Compile Include="BLL\BLL_NamHoc.cs" />
+    <Compile Include="BLL\BLL_SinhVien.cs" />
     <Compile Include="DAL\QLDT.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
