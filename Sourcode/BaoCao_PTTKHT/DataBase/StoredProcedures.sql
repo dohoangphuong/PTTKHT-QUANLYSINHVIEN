@@ -1611,7 +1611,7 @@ CREATE PROCEDURE [dbo].[usp_InsertGiangvien]
 	@DiaChi nvarchar(100),
 	@GioiTinh varchar(5),
 	@ChucVu varchar(50),
-	@MaKhoa int
+	@MaKhoa varchar(10)
 AS
 
 SET NOCOUNT ON
@@ -1654,7 +1654,7 @@ CREATE PROCEDURE [dbo].[usp_UpdateGiangvien]
 	@DiaChi nvarchar(100),
 	@GioiTinh varchar(5),
 	@ChucVu varchar(50),
-	@MaKhoa int
+	@MaKhoa varchar(10)
 AS
 
 SET NOCOUNT ON
@@ -1689,7 +1689,7 @@ CREATE PROCEDURE [dbo].[usp_InsertUpdateGiangvien]
 	@DiaChi nvarchar(100),
 	@GioiTinh varchar(5),
 	@ChucVu varchar(50),
-	@MaKhoa int
+	@MaKhoa varchar(10)
 AS
 
 SET NOCOUNT ON
@@ -1764,7 +1764,7 @@ GO
 ------------------------------------------------------------------------------------------------------------------------
 
 CREATE PROCEDURE [dbo].[usp_DeleteGiangviensByMaKhoa]
-	@MaKhoa int
+	@MaKhoa varchar(10)
 AS
 
 SET NOCOUNT ON
@@ -1822,7 +1822,7 @@ GO
 ------------------------------------------------------------------------------------------------------------------------
 
 CREATE PROCEDURE [dbo].[usp_SelectGiangviensByMaKhoa]
-	@MaKhoa int
+	@MaKhoa varchar(10)
 AS
 
 SET NOCOUNT ON
@@ -2233,7 +2233,7 @@ GO
 ------------------------------------------------------------------------------------------------------------------------
 
 CREATE PROCEDURE [dbo].[usp_InsertKhoa]
-	@MaKhoa int,
+	@MaKhoa varchar(10),
 	@TenKhoa nvarchar(30)
 AS
 
@@ -2261,7 +2261,7 @@ GO
 ------------------------------------------------------------------------------------------------------------------------
 
 CREATE PROCEDURE [dbo].[usp_UpdateKhoa]
-	@MaKhoa int,
+	@MaKhoa varchar(10),
 	@TenKhoa nvarchar(30)
 AS
 
@@ -2286,7 +2286,7 @@ GO
 ------------------------------------------------------------------------------------------------------------------------
 
 CREATE PROCEDURE [dbo].[usp_InsertUpdateKhoa]
-	@MaKhoa int,
+	@MaKhoa varchar(10),
 	@TenKhoa nvarchar(30)
 AS
 
@@ -2324,7 +2324,7 @@ GO
 ------------------------------------------------------------------------------------------------------------------------
 
 CREATE PROCEDURE [dbo].[usp_DeleteKhoa]
-	@MaKhoa int
+	@MaKhoa varchar(10)
 AS
 
 SET NOCOUNT ON
@@ -2347,7 +2347,7 @@ GO
 ------------------------------------------------------------------------------------------------------------------------
 
 CREATE PROCEDURE [dbo].[usp_SelectKhoa]
-	@MaKhoa int
+	@MaKhoa varchar(10)
 AS
 
 SET NOCOUNT ON
@@ -2441,8 +2441,14 @@ IF OBJECT_ID(N'[dbo].[usp_SelectLopsAll]') IS NOT NULL
 IF OBJECT_ID(N'[dbo].[usp_SelectLopsByMaKhoa]') IS NOT NULL
 	DROP PROCEDURE [dbo].[usp_SelectLopsByMaKhoa]
 
+IF OBJECT_ID(N'[dbo].[usp_SelectLopsByMaNamHoc]') IS NOT NULL
+	DROP PROCEDURE [dbo].[usp_SelectLopsByMaNamHoc]
+
 IF OBJECT_ID(N'[dbo].[usp_DeleteLopsByMaKhoa]') IS NOT NULL
 	DROP PROCEDURE [dbo].[usp_DeleteLopsByMaKhoa]
+
+IF OBJECT_ID(N'[dbo].[usp_DeleteLopsByMaNamHoc]') IS NOT NULL
+	DROP PROCEDURE [dbo].[usp_DeleteLopsByMaNamHoc]
 
 --endregion
 
@@ -2458,9 +2464,10 @@ GO
 ------------------------------------------------------------------------------------------------------------------------
 
 CREATE PROCEDURE [dbo].[usp_InsertLop]
-	@MaLop int,
+	@MaLop varchar(10),
 	@TenLop nvarchar(30),
-	@MaKhoa int
+	@MaKhoa varchar(10),
+	@MaNamHoc int
 AS
 
 SET NOCOUNT ON
@@ -2468,11 +2475,13 @@ SET NOCOUNT ON
 INSERT INTO [dbo].[LOP] (
 	[MaLop],
 	[TenLop],
-	[MaKhoa]
+	[MaKhoa],
+	[MaNamHoc]
 ) VALUES (
 	@MaLop,
 	@TenLop,
-	@MaKhoa
+	@MaKhoa,
+	@MaNamHoc
 )
 
 --endregion
@@ -2489,16 +2498,18 @@ GO
 ------------------------------------------------------------------------------------------------------------------------
 
 CREATE PROCEDURE [dbo].[usp_UpdateLop]
-	@MaLop int,
+	@MaLop varchar(10),
 	@TenLop nvarchar(30),
-	@MaKhoa int
+	@MaKhoa varchar(10),
+	@MaNamHoc int
 AS
 
 SET NOCOUNT ON
 
 UPDATE [dbo].[LOP] SET
 	[TenLop] = @TenLop,
-	[MaKhoa] = @MaKhoa
+	[MaKhoa] = @MaKhoa,
+	[MaNamHoc] = @MaNamHoc
 WHERE
 	[MaLop] = @MaLop
 
@@ -2516,9 +2527,10 @@ GO
 ------------------------------------------------------------------------------------------------------------------------
 
 CREATE PROCEDURE [dbo].[usp_InsertUpdateLop]
-	@MaLop int,
+	@MaLop varchar(10),
 	@TenLop nvarchar(30),
-	@MaKhoa int
+	@MaKhoa varchar(10),
+	@MaNamHoc int
 AS
 
 SET NOCOUNT ON
@@ -2527,7 +2539,8 @@ IF EXISTS(SELECT [MaLop] FROM [dbo].[LOP] WHERE [MaLop] = @MaLop)
 BEGIN
 	UPDATE [dbo].[LOP] SET
 		[TenLop] = @TenLop,
-		[MaKhoa] = @MaKhoa
+		[MaKhoa] = @MaKhoa,
+		[MaNamHoc] = @MaNamHoc
 	WHERE
 		[MaLop] = @MaLop
 END
@@ -2536,11 +2549,13 @@ BEGIN
 	INSERT INTO [dbo].[LOP] (
 		[MaLop],
 		[TenLop],
-		[MaKhoa]
+		[MaKhoa],
+		[MaNamHoc]
 	) VALUES (
 		@MaLop,
 		@TenLop,
-		@MaKhoa
+		@MaKhoa,
+		@MaNamHoc
 	)
 END
 
@@ -2558,7 +2573,7 @@ GO
 ------------------------------------------------------------------------------------------------------------------------
 
 CREATE PROCEDURE [dbo].[usp_DeleteLop]
-	@MaLop int
+	@MaLop varchar(10)
 AS
 
 SET NOCOUNT ON
@@ -2581,7 +2596,7 @@ GO
 ------------------------------------------------------------------------------------------------------------------------
 
 CREATE PROCEDURE [dbo].[usp_DeleteLopsByMaKhoa]
-	@MaKhoa int
+	@MaKhoa varchar(10)
 AS
 
 SET NOCOUNT ON
@@ -2589,6 +2604,31 @@ SET NOCOUNT ON
 DELETE FROM [dbo].[LOP]
 WHERE
 	[MaKhoa] = @MaKhoa
+
+GO
+
+--endregion
+
+GO
+
+--region [dbo].[usp_DeleteLopsByMaNamHoc]
+
+------------------------------------------------------------------------------------------------------------------------
+-- Generated By:   Belshazzar using CodeSmith 6.0.0.0
+-- Template:       StoreProceduce.cst
+-- Procedure Name: [dbo].[usp_DeleteLopsByMaNamHoc]
+-- Date Generated: Tuesday, June 23, 2015
+------------------------------------------------------------------------------------------------------------------------
+
+CREATE PROCEDURE [dbo].[usp_DeleteLopsByMaNamHoc]
+	@MaNamHoc int
+AS
+
+SET NOCOUNT ON
+
+DELETE FROM [dbo].[LOP]
+WHERE
+	[MaNamHoc] = @MaNamHoc
 
 GO
 
@@ -2606,7 +2646,7 @@ GO
 ------------------------------------------------------------------------------------------------------------------------
 
 CREATE PROCEDURE [dbo].[usp_SelectLop]
-	@MaLop int
+	@MaLop varchar(10)
 AS
 
 SET NOCOUNT ON
@@ -2615,7 +2655,8 @@ SET TRANSACTION ISOLATION LEVEL READ COMMITTED
 SELECT
 	[MaLop],
 	[TenLop],
-	[MaKhoa]
+	[MaKhoa],
+	[MaNamHoc]
 FROM
 	[dbo].[LOP]
 WHERE
@@ -2635,7 +2676,7 @@ GO
 ------------------------------------------------------------------------------------------------------------------------
 
 CREATE PROCEDURE [dbo].[usp_SelectLopsByMaKhoa]
-	@MaKhoa int
+	@MaKhoa varchar(10)
 AS
 
 SET NOCOUNT ON
@@ -2644,11 +2685,42 @@ SET TRANSACTION ISOLATION LEVEL READ COMMITTED
 SELECT
 	[MaLop],
 	[TenLop],
-	[MaKhoa]
+	[MaKhoa],
+	[MaNamHoc]
 FROM
 	[dbo].[LOP]
 WHERE
 	[MaKhoa] = @MaKhoa
+
+--endregion
+
+GO
+
+--region [dbo].[usp_SelectLopsByMaNamHoc]
+
+------------------------------------------------------------------------------------------------------------------------
+-- Generated By:   Belshazzar using CodeSmith 6.0.0.0
+-- Template:       StoreProceduce.cst
+-- Procedure Name: [dbo].[usp_SelectLopsByMaNamHoc]
+-- Date Generated: Tuesday, June 23, 2015
+------------------------------------------------------------------------------------------------------------------------
+
+CREATE PROCEDURE [dbo].[usp_SelectLopsByMaNamHoc]
+	@MaNamHoc int
+AS
+
+SET NOCOUNT ON
+SET TRANSACTION ISOLATION LEVEL READ COMMITTED
+
+SELECT
+	[MaLop],
+	[TenLop],
+	[MaKhoa],
+	[MaNamHoc]
+FROM
+	[dbo].[LOP]
+WHERE
+	[MaNamHoc] = @MaNamHoc
 
 --endregion
 
@@ -2672,7 +2744,8 @@ SET TRANSACTION ISOLATION LEVEL READ COMMITTED
 SELECT
 	[MaLop],
 	[TenLop],
-	[MaKhoa]
+	[MaKhoa],
+	[MaNamHoc]
 FROM
 	[dbo].[LOP]
 
@@ -2698,13 +2771,16 @@ SET TRANSACTION ISOLATION LEVEL READ COMMITTED
 SELECT
 	[MaLop],
 	[TenLop],
-	[MaKhoa]
+	[MaKhoa],
+	[MaNamHoc]
 FROM
 	[dbo].[LOP]
 
 --endregion
 
 GO
+
+
 
 --region Drop Existing Procedures
 
@@ -3929,6 +4005,9 @@ IF OBJECT_ID(N'[dbo].[usp_SelectSinhviensByMaLop]') IS NOT NULL
 IF OBJECT_ID(N'[dbo].[usp_DeleteSinhviensByMaLop]') IS NOT NULL
 	DROP PROCEDURE [dbo].[usp_DeleteSinhviensByMaLop]
 
+IF OBJECT_ID(N'[dbo].[usp_SelectLastSinhviensByNam]') IS NOT NULL
+DROP PROCEDURE [dbo].[usp_SelectLastSinhviensByNam]
+
 --endregion
 
 GO
@@ -3949,7 +4028,7 @@ CREATE PROCEDURE [dbo].[usp_InsertSinhvien]
 	@DiaChi nvarchar(100),
 	@GioiTinh varchar(5),
 	@DienThoai varchar(12),
-	@MaLop int
+	@MaLop varchar(10)
 AS
 
 SET NOCOUNT ON
@@ -3992,7 +4071,7 @@ CREATE PROCEDURE [dbo].[usp_UpdateSinhvien]
 	@DiaChi nvarchar(100),
 	@GioiTinh varchar(5),
 	@DienThoai varchar(12),
-	@MaLop int
+	@MaLop varchar(10)
 AS
 
 SET NOCOUNT ON
@@ -4027,7 +4106,7 @@ CREATE PROCEDURE [dbo].[usp_InsertUpdateSinhvien]
 	@DiaChi nvarchar(100),
 	@GioiTinh varchar(5),
 	@DienThoai varchar(12),
-	@MaLop int
+	@MaLop varchar(10)
 AS
 
 SET NOCOUNT ON
@@ -4102,7 +4181,7 @@ GO
 ------------------------------------------------------------------------------------------------------------------------
 
 CREATE PROCEDURE [dbo].[usp_DeleteSinhviensByMaLop]
-	@MaLop int
+	@MaLop varchar(10)
 AS
 
 SET NOCOUNT ON
@@ -4160,7 +4239,7 @@ GO
 ------------------------------------------------------------------------------------------------------------------------
 
 CREATE PROCEDURE [dbo].[usp_SelectSinhviensByMaLop]
-	@MaLop int
+	@MaLop varchar(10)
 AS
 
 SET NOCOUNT ON
@@ -4239,8 +4318,24 @@ SELECT
 FROM
 	[dbo].[SINHVIEN]
 
---endregion
+GO
+CREATE PROCEDURE [dbo].[usp_SelectLastSinhviensByNam]
+@NamHoc int
+AS
 
+SET NOCOUNT ON
+SET TRANSACTION ISOLATION LEVEL READ COMMITTED
+
+SELECT
+	TOP 1 [MSSV]
+FROM
+	[dbo].[SINHVIEN], [dbo].[Lop], [dbo].[NamHoc]
+WHERE 
+	[dbo].[SINHVIEN].MaLop = [dbo].[Lop].MaLop
+	AND [dbo].[Lop].MaNamHoc = [dbo].[NamHoc].MaNamHoc
+	AND [dbo].[NamHoc].NamHoc = @NamHoc
+ORDER BY 
+	MSSV DESC
 GO
 
 --region Drop Existing Procedures

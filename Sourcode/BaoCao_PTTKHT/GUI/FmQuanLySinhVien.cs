@@ -26,5 +26,17 @@ namespace BaoCao_PTTKHT.GUI
         {
 
         }
+
+        private void FmQuanLySinhVien_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cbNam_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            String temp = cbNam.Text.Substring(2, 2);
+            temp += tbMSSV.Text.Substring(2, tbMSSV.Text.Length - 2);
+            tbMSSV.Text = temp;
+        }
     }
 }

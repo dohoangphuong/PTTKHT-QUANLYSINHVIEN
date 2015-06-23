@@ -1,5 +1,5 @@
-﻿<?xml version="1.0" encoding="utf-8"?><Database Name="QLDT" Class="QLDTDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=NHAT\SQLEXPRESS;Initial Catalog=QLDT;Integrated Security=True" SettingsObjectName="BaoCao_PTTKHT.Properties.Settings" SettingsPropertyName="QLDTConnectionString" Provider="System.Data.SqlClient" />
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="PlaceHolder" Class="QLDTDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=NHAT\SQLEXPRESS;Initial Catalog=PlaceHolder;Integrated Security=True" SettingsObjectName="BaoCao_PTTKHT.Properties.Settings" SettingsPropertyName="PlaceHolderConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.BANGDIEM" Member="BANGDIEMs">
     <Type Name="BANGDIEM">
       <Column Name="MaBangDiem" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -59,7 +59,7 @@
       <Column Name="DiaChi" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
       <Column Name="GioiTinh" Type="System.String" DbType="VarChar(5) NOT NULL" CanBeNull="false" />
       <Column Name="ChucVu" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="MaKhoa" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MaKhoa" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
       <Association Name="GIANGVIEN_GIANGDAY" Member="GIANGDAYs" ThisKey="MaGiangVien" OtherKey="MaGiangVien" Type="GIANGDAY" />
       <Association Name="KHOA_GIANGVIEN" Member="KHOA" ThisKey="MaKhoa" OtherKey="MaKhoa" Type="KHOA" IsForeignKey="true" DeleteRule="CASCADE" />
     </Type>
@@ -75,7 +75,7 @@
   </Table>
   <Table Name="dbo.KHOA" Member="KHOAs">
     <Type Name="KHOA">
-      <Column Name="MaKhoa" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MaKhoa" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="TenKhoa" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
       <Association Name="KHOA_GIANGVIEN" Member="GIANGVIENs" ThisKey="MaKhoa" OtherKey="MaKhoa" Type="GIANGVIEN" />
       <Association Name="KHOA_LOP" Member="LOPs" ThisKey="MaKhoa" OtherKey="MaKhoa" Type="LOP" />
@@ -83,11 +83,13 @@
   </Table>
   <Table Name="dbo.LOP" Member="LOPs">
     <Type Name="LOP">
-      <Column Name="MaLop" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MaLop" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="TenLop" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
-      <Column Name="MaKhoa" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MaKhoa" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="MaNamHoc" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Association Name="LOP_SINHVIEN" Member="SINHVIENs" ThisKey="MaLop" OtherKey="MaLop" Type="SINHVIEN" />
       <Association Name="KHOA_LOP" Member="KHOA" ThisKey="MaKhoa" OtherKey="MaKhoa" Type="KHOA" IsForeignKey="true" DeleteRule="CASCADE" />
+      <Association Name="NAMHOC_LOP" Member="NAMHOC" ThisKey="MaNamHoc" OtherKey="MaNamHoc" Type="NAMHOC" IsForeignKey="true" DeleteRule="CASCADE" />
     </Type>
   </Table>
   <Table Name="dbo.LOPHOC" Member="LOPHOCs">
@@ -129,6 +131,7 @@
       <Column Name="MaNamHoc" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="NamHoc" Member="NamHoc1" Type="System.String" DbType="NVarChar(9) NOT NULL" CanBeNull="false" />
       <Association Name="NAMHOC_HOCKY" Member="HOCKies" ThisKey="MaNamHoc" OtherKey="MaNamHoc" Type="HOCKY" />
+      <Association Name="NAMHOC_LOP" Member="LOPs" ThisKey="MaNamHoc" OtherKey="MaNamHoc" Type="LOP" />
     </Type>
   </Table>
   <Table Name="dbo.SINHVIEN" Member="SINHVIENs">
@@ -139,7 +142,7 @@
       <Column Name="DiaChi" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
       <Column Name="GioiTinh" Type="System.String" DbType="VarChar(5) NOT NULL" CanBeNull="false" />
       <Column Name="DienThoai" Type="System.String" DbType="VarChar(12) NOT NULL" CanBeNull="false" />
-      <Column Name="MaLop" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MaLop" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
       <Association Name="SINHVIEN_CHITIETLOPHOC" Member="CHITIETLOPHOCs" ThisKey="MSSV" OtherKey="MSSV" Type="CHITIETLOPHOC" />
       <Association Name="LOP_SINHVIEN" Member="LOP" ThisKey="MaLop" OtherKey="MaLop" Type="LOP" IsForeignKey="true" DeleteRule="CASCADE" />
     </Type>
@@ -204,7 +207,7 @@
     <Return Type="System.Int32" />
   </Function>
   <Function Name="dbo.usp_DeleteGiangviensByMaKhoa" Method="usp_DeleteGiangviensByMaKhoa">
-    <Parameter Name="MaKhoa" Parameter="maKhoa" Type="System.Int32" DbType="Int" />
+    <Parameter Name="MaKhoa" Parameter="maKhoa" Type="System.String" DbType="VarChar(10)" />
     <Return Type="System.Int32" />
   </Function>
   <Function Name="dbo.usp_DeleteHockiesByMaNamHoc" Method="usp_DeleteHockiesByMaNamHoc">
@@ -216,11 +219,11 @@
     <Return Type="System.Int32" />
   </Function>
   <Function Name="dbo.usp_DeleteKhoa" Method="usp_DeleteKhoa">
-    <Parameter Name="MaKhoa" Parameter="maKhoa" Type="System.Int32" DbType="Int" />
+    <Parameter Name="MaKhoa" Parameter="maKhoa" Type="System.String" DbType="VarChar(10)" />
     <Return Type="System.Int32" />
   </Function>
   <Function Name="dbo.usp_DeleteLop" Method="usp_DeleteLop">
-    <Parameter Name="MaLop" Parameter="maLop" Type="System.Int32" DbType="Int" />
+    <Parameter Name="MaLop" Parameter="maLop" Type="System.String" DbType="VarChar(10)" />
     <Return Type="System.Int32" />
   </Function>
   <Function Name="dbo.usp_DeleteLophoc" Method="usp_DeleteLophoc">
@@ -236,7 +239,11 @@
     <Return Type="System.Int32" />
   </Function>
   <Function Name="dbo.usp_DeleteLopsByMaKhoa" Method="usp_DeleteLopsByMaKhoa">
-    <Parameter Name="MaKhoa" Parameter="maKhoa" Type="System.Int32" DbType="Int" />
+    <Parameter Name="MaKhoa" Parameter="maKhoa" Type="System.String" DbType="VarChar(10)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.usp_DeleteLopsByMaNamHoc" Method="usp_DeleteLopsByMaNamHoc">
+    <Parameter Name="MaNamHoc" Parameter="maNamHoc" Type="System.Int32" DbType="Int" />
     <Return Type="System.Int32" />
   </Function>
   <Function Name="dbo.usp_DeleteMonhoc" Method="usp_DeleteMonhoc">
@@ -264,7 +271,7 @@
     <Return Type="System.Int32" />
   </Function>
   <Function Name="dbo.usp_DeleteSinhviensByMaLop" Method="usp_DeleteSinhviensByMaLop">
-    <Parameter Name="MaLop" Parameter="maLop" Type="System.Int32" DbType="Int" />
+    <Parameter Name="MaLop" Parameter="maLop" Type="System.String" DbType="VarChar(10)" />
     <Return Type="System.Int32" />
   </Function>
   <Function Name="dbo.usp_DeleteTaikhoan" Method="usp_DeleteTaikhoan">
@@ -307,7 +314,7 @@
     <Parameter Name="DiaChi" Parameter="diaChi" Type="System.String" DbType="NVarChar(100)" />
     <Parameter Name="GioiTinh" Parameter="gioiTinh" Type="System.String" DbType="VarChar(5)" />
     <Parameter Name="ChucVu" Parameter="chucVu" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="MaKhoa" Parameter="maKhoa" Type="System.Int32" DbType="Int" />
+    <Parameter Name="MaKhoa" Parameter="maKhoa" Type="System.String" DbType="VarChar(10)" />
     <Return Type="System.Int32" />
   </Function>
   <Function Name="dbo.usp_InsertHocky" Method="usp_InsertHocky">
@@ -317,14 +324,15 @@
     <Return Type="System.Int32" />
   </Function>
   <Function Name="dbo.usp_InsertKhoa" Method="usp_InsertKhoa">
-    <Parameter Name="MaKhoa" Parameter="maKhoa" Type="System.Int32" DbType="Int" />
+    <Parameter Name="MaKhoa" Parameter="maKhoa" Type="System.String" DbType="VarChar(10)" />
     <Parameter Name="TenKhoa" Parameter="tenKhoa" Type="System.String" DbType="NVarChar(30)" />
     <Return Type="System.Int32" />
   </Function>
   <Function Name="dbo.usp_InsertLop" Method="usp_InsertLop">
-    <Parameter Name="MaLop" Parameter="maLop" Type="System.Int32" DbType="Int" />
+    <Parameter Name="MaLop" Parameter="maLop" Type="System.String" DbType="VarChar(10)" />
     <Parameter Name="TenLop" Parameter="tenLop" Type="System.String" DbType="NVarChar(30)" />
-    <Parameter Name="MaKhoa" Parameter="maKhoa" Type="System.Int32" DbType="Int" />
+    <Parameter Name="MaKhoa" Parameter="maKhoa" Type="System.String" DbType="VarChar(10)" />
+    <Parameter Name="MaNamHoc" Parameter="maNamHoc" Type="System.Int32" DbType="Int" />
     <Return Type="System.Int32" />
   </Function>
   <Function Name="dbo.usp_InsertLophoc" Method="usp_InsertLophoc">
@@ -360,7 +368,7 @@
     <Parameter Name="DiaChi" Parameter="diaChi" Type="System.String" DbType="NVarChar(100)" />
     <Parameter Name="GioiTinh" Parameter="gioiTinh" Type="System.String" DbType="VarChar(5)" />
     <Parameter Name="DienThoai" Parameter="dienThoai" Type="System.String" DbType="VarChar(12)" />
-    <Parameter Name="MaLop" Parameter="maLop" Type="System.Int32" DbType="Int" />
+    <Parameter Name="MaLop" Parameter="maLop" Type="System.String" DbType="VarChar(10)" />
     <Return Type="System.Int32" />
   </Function>
   <Function Name="dbo.usp_InsertTaikhoan" Method="usp_InsertTaikhoan">
@@ -406,7 +414,7 @@
     <Parameter Name="DiaChi" Parameter="diaChi" Type="System.String" DbType="NVarChar(100)" />
     <Parameter Name="GioiTinh" Parameter="gioiTinh" Type="System.String" DbType="VarChar(5)" />
     <Parameter Name="ChucVu" Parameter="chucVu" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="MaKhoa" Parameter="maKhoa" Type="System.Int32" DbType="Int" />
+    <Parameter Name="MaKhoa" Parameter="maKhoa" Type="System.String" DbType="VarChar(10)" />
     <Return Type="System.Int32" />
   </Function>
   <Function Name="dbo.usp_InsertUpdateHocky" Method="usp_InsertUpdateHocky">
@@ -416,14 +424,15 @@
     <Return Type="System.Int32" />
   </Function>
   <Function Name="dbo.usp_InsertUpdateKhoa" Method="usp_InsertUpdateKhoa">
-    <Parameter Name="MaKhoa" Parameter="maKhoa" Type="System.Int32" DbType="Int" />
+    <Parameter Name="MaKhoa" Parameter="maKhoa" Type="System.String" DbType="VarChar(10)" />
     <Parameter Name="TenKhoa" Parameter="tenKhoa" Type="System.String" DbType="NVarChar(30)" />
     <Return Type="System.Int32" />
   </Function>
   <Function Name="dbo.usp_InsertUpdateLop" Method="usp_InsertUpdateLop">
-    <Parameter Name="MaLop" Parameter="maLop" Type="System.Int32" DbType="Int" />
+    <Parameter Name="MaLop" Parameter="maLop" Type="System.String" DbType="VarChar(10)" />
     <Parameter Name="TenLop" Parameter="tenLop" Type="System.String" DbType="NVarChar(30)" />
-    <Parameter Name="MaKhoa" Parameter="maKhoa" Type="System.Int32" DbType="Int" />
+    <Parameter Name="MaKhoa" Parameter="maKhoa" Type="System.String" DbType="VarChar(10)" />
+    <Parameter Name="MaNamHoc" Parameter="maNamHoc" Type="System.Int32" DbType="Int" />
     <Return Type="System.Int32" />
   </Function>
   <Function Name="dbo.usp_InsertUpdateLophoc" Method="usp_InsertUpdateLophoc">
@@ -459,7 +468,7 @@
     <Parameter Name="DiaChi" Parameter="diaChi" Type="System.String" DbType="NVarChar(100)" />
     <Parameter Name="GioiTinh" Parameter="gioiTinh" Type="System.String" DbType="VarChar(5)" />
     <Parameter Name="DienThoai" Parameter="dienThoai" Type="System.String" DbType="VarChar(12)" />
-    <Parameter Name="MaLop" Parameter="maLop" Type="System.Int32" DbType="Int" />
+    <Parameter Name="MaLop" Parameter="maLop" Type="System.String" DbType="VarChar(10)" />
     <Return Type="System.Int32" />
   </Function>
   <Function Name="dbo.usp_InsertUpdateTaikhoan" Method="usp_InsertUpdateTaikhoan">
@@ -640,7 +649,7 @@
       <Column Name="DiaChi" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
       <Column Name="GioiTinh" Type="System.String" DbType="VarChar(5) NOT NULL" CanBeNull="false" />
       <Column Name="ChucVu" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="MaKhoa" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MaKhoa" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
     </ElementType>
   </Function>
   <Function Name="dbo.usp_SelectGiangviensAll" Method="usp_SelectGiangviensAll">
@@ -651,11 +660,11 @@
       <Column Name="DiaChi" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
       <Column Name="GioiTinh" Type="System.String" DbType="VarChar(5) NOT NULL" CanBeNull="false" />
       <Column Name="ChucVu" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="MaKhoa" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MaKhoa" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
     </ElementType>
   </Function>
   <Function Name="dbo.usp_SelectGiangviensByMaKhoa" Method="usp_SelectGiangviensByMaKhoa">
-    <Parameter Name="MaKhoa" Parameter="maKhoa" Type="System.Int32" DbType="Int" />
+    <Parameter Name="MaKhoa" Parameter="maKhoa" Type="System.String" DbType="VarChar(10)" />
     <ElementType Name="usp_SelectGiangviensByMaKhoaResult">
       <Column Name="MaGiangVien" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
       <Column Name="TenGiangVien" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
@@ -663,7 +672,7 @@
       <Column Name="DiaChi" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
       <Column Name="GioiTinh" Type="System.String" DbType="VarChar(5) NOT NULL" CanBeNull="false" />
       <Column Name="ChucVu" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="MaKhoa" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MaKhoa" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
     </ElementType>
   </Function>
   <Function Name="dbo.usp_SelectGiangviensPaged" Method="usp_SelectGiangviensPaged">
@@ -674,7 +683,7 @@
       <Column Name="DiaChi" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
       <Column Name="GioiTinh" Type="System.String" DbType="VarChar(5) NOT NULL" CanBeNull="false" />
       <Column Name="ChucVu" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="MaKhoa" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MaKhoa" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
     </ElementType>
   </Function>
   <Function Name="dbo.usp_SelectHockiesAll" Method="usp_SelectHockiesAll">
@@ -708,30 +717,37 @@
     </ElementType>
   </Function>
   <Function Name="dbo.usp_SelectKhoa" Method="usp_SelectKhoa">
-    <Parameter Name="MaKhoa" Parameter="maKhoa" Type="System.Int32" DbType="Int" />
+    <Parameter Name="MaKhoa" Parameter="maKhoa" Type="System.String" DbType="VarChar(10)" />
     <ElementType Name="usp_SelectKhoaResult">
-      <Column Name="MaKhoa" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MaKhoa" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
       <Column Name="TenKhoa" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
   <Function Name="dbo.usp_SelectKhoasAll" Method="usp_SelectKhoasAll">
     <ElementType Name="usp_SelectKhoasAllResult">
-      <Column Name="MaKhoa" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MaKhoa" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
       <Column Name="TenKhoa" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
   <Function Name="dbo.usp_SelectKhoasPaged" Method="usp_SelectKhoasPaged">
     <ElementType Name="usp_SelectKhoasPagedResult">
-      <Column Name="MaKhoa" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MaKhoa" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
       <Column Name="TenKhoa" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
+  <Function Name="dbo.usp_SelectLastSinhviensByNam" Method="usp_SelectLastSinhviensByNam">
+    <Parameter Name="NamHoc" Parameter="namHoc" Type="System.Int32" DbType="Int" />
+    <ElementType Name="usp_SelectLastSinhviensByNamResult">
+      <Column Name="MSSV" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
   <Function Name="dbo.usp_SelectLop" Method="usp_SelectLop">
-    <Parameter Name="MaLop" Parameter="maLop" Type="System.Int32" DbType="Int" />
+    <Parameter Name="MaLop" Parameter="maLop" Type="System.String" DbType="VarChar(10)" />
     <ElementType Name="usp_SelectLopResult">
-      <Column Name="MaLop" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MaLop" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
       <Column Name="TenLop" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
-      <Column Name="MaKhoa" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MaKhoa" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="MaNamHoc" Type="System.Int32" DbType="Int" CanBeNull="true" />
     </ElementType>
   </Function>
   <Function Name="dbo.usp_SelectLophoc" Method="usp_SelectLophoc">
@@ -789,24 +805,36 @@
   </Function>
   <Function Name="dbo.usp_SelectLopsAll" Method="usp_SelectLopsAll">
     <ElementType Name="usp_SelectLopsAllResult">
-      <Column Name="MaLop" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MaLop" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
       <Column Name="TenLop" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
-      <Column Name="MaKhoa" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MaKhoa" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="MaNamHoc" Type="System.Int32" DbType="Int" CanBeNull="true" />
     </ElementType>
   </Function>
   <Function Name="dbo.usp_SelectLopsByMaKhoa" Method="usp_SelectLopsByMaKhoa">
-    <Parameter Name="MaKhoa" Parameter="maKhoa" Type="System.Int32" DbType="Int" />
+    <Parameter Name="MaKhoa" Parameter="maKhoa" Type="System.String" DbType="VarChar(10)" />
     <ElementType Name="usp_SelectLopsByMaKhoaResult">
-      <Column Name="MaLop" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MaLop" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
       <Column Name="TenLop" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
-      <Column Name="MaKhoa" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MaKhoa" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="MaNamHoc" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.usp_SelectLopsByMaNamHoc" Method="usp_SelectLopsByMaNamHoc">
+    <Parameter Name="MaNamHoc" Parameter="maNamHoc" Type="System.Int32" DbType="Int" />
+    <ElementType Name="usp_SelectLopsByMaNamHocResult">
+      <Column Name="MaLop" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="TenLop" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="MaKhoa" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="MaNamHoc" Type="System.Int32" DbType="Int" CanBeNull="true" />
     </ElementType>
   </Function>
   <Function Name="dbo.usp_SelectLopsPaged" Method="usp_SelectLopsPaged">
     <ElementType Name="usp_SelectLopsPagedResult">
-      <Column Name="MaLop" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MaLop" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
       <Column Name="TenLop" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
-      <Column Name="MaKhoa" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MaKhoa" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="MaNamHoc" Type="System.Int32" DbType="Int" CanBeNull="true" />
     </ElementType>
   </Function>
   <Function Name="dbo.usp_SelectMonhoc" Method="usp_SelectMonhoc">
@@ -897,7 +925,7 @@
       <Column Name="DiaChi" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
       <Column Name="GioiTinh" Type="System.String" DbType="VarChar(5) NOT NULL" CanBeNull="false" />
       <Column Name="DienThoai" Type="System.String" DbType="VarChar(12) NOT NULL" CanBeNull="false" />
-      <Column Name="MaLop" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MaLop" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
     </ElementType>
   </Function>
   <Function Name="dbo.usp_SelectSinhviensAll" Method="usp_SelectSinhviensAll">
@@ -908,11 +936,11 @@
       <Column Name="DiaChi" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
       <Column Name="GioiTinh" Type="System.String" DbType="VarChar(5) NOT NULL" CanBeNull="false" />
       <Column Name="DienThoai" Type="System.String" DbType="VarChar(12) NOT NULL" CanBeNull="false" />
-      <Column Name="MaLop" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MaLop" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
     </ElementType>
   </Function>
   <Function Name="dbo.usp_SelectSinhviensByMaLop" Method="usp_SelectSinhviensByMaLop">
-    <Parameter Name="MaLop" Parameter="maLop" Type="System.Int32" DbType="Int" />
+    <Parameter Name="MaLop" Parameter="maLop" Type="System.String" DbType="VarChar(10)" />
     <ElementType Name="usp_SelectSinhviensByMaLopResult">
       <Column Name="MSSV" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
       <Column Name="TenSinhVien" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
@@ -920,7 +948,7 @@
       <Column Name="DiaChi" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
       <Column Name="GioiTinh" Type="System.String" DbType="VarChar(5) NOT NULL" CanBeNull="false" />
       <Column Name="DienThoai" Type="System.String" DbType="VarChar(12) NOT NULL" CanBeNull="false" />
-      <Column Name="MaLop" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MaLop" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
     </ElementType>
   </Function>
   <Function Name="dbo.usp_SelectSinhviensPaged" Method="usp_SelectSinhviensPaged">
@@ -931,7 +959,7 @@
       <Column Name="DiaChi" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
       <Column Name="GioiTinh" Type="System.String" DbType="VarChar(5) NOT NULL" CanBeNull="false" />
       <Column Name="DienThoai" Type="System.String" DbType="VarChar(12) NOT NULL" CanBeNull="false" />
-      <Column Name="MaLop" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MaLop" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
     </ElementType>
   </Function>
   <Function Name="dbo.usp_SelectTaikhoan" Method="usp_SelectTaikhoan">
@@ -995,7 +1023,7 @@
     <Parameter Name="DiaChi" Parameter="diaChi" Type="System.String" DbType="NVarChar(100)" />
     <Parameter Name="GioiTinh" Parameter="gioiTinh" Type="System.String" DbType="VarChar(5)" />
     <Parameter Name="ChucVu" Parameter="chucVu" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="MaKhoa" Parameter="maKhoa" Type="System.Int32" DbType="Int" />
+    <Parameter Name="MaKhoa" Parameter="maKhoa" Type="System.String" DbType="VarChar(10)" />
     <Return Type="System.Int32" />
   </Function>
   <Function Name="dbo.usp_UpdateHocky" Method="usp_UpdateHocky">
@@ -1005,14 +1033,15 @@
     <Return Type="System.Int32" />
   </Function>
   <Function Name="dbo.usp_UpdateKhoa" Method="usp_UpdateKhoa">
-    <Parameter Name="MaKhoa" Parameter="maKhoa" Type="System.Int32" DbType="Int" />
+    <Parameter Name="MaKhoa" Parameter="maKhoa" Type="System.String" DbType="VarChar(10)" />
     <Parameter Name="TenKhoa" Parameter="tenKhoa" Type="System.String" DbType="NVarChar(30)" />
     <Return Type="System.Int32" />
   </Function>
   <Function Name="dbo.usp_UpdateLop" Method="usp_UpdateLop">
-    <Parameter Name="MaLop" Parameter="maLop" Type="System.Int32" DbType="Int" />
+    <Parameter Name="MaLop" Parameter="maLop" Type="System.String" DbType="VarChar(10)" />
     <Parameter Name="TenLop" Parameter="tenLop" Type="System.String" DbType="NVarChar(30)" />
-    <Parameter Name="MaKhoa" Parameter="maKhoa" Type="System.Int32" DbType="Int" />
+    <Parameter Name="MaKhoa" Parameter="maKhoa" Type="System.String" DbType="VarChar(10)" />
+    <Parameter Name="MaNamHoc" Parameter="maNamHoc" Type="System.Int32" DbType="Int" />
     <Return Type="System.Int32" />
   </Function>
   <Function Name="dbo.usp_UpdateLophoc" Method="usp_UpdateLophoc">
@@ -1048,7 +1077,7 @@
     <Parameter Name="DiaChi" Parameter="diaChi" Type="System.String" DbType="NVarChar(100)" />
     <Parameter Name="GioiTinh" Parameter="gioiTinh" Type="System.String" DbType="VarChar(5)" />
     <Parameter Name="DienThoai" Parameter="dienThoai" Type="System.String" DbType="VarChar(12)" />
-    <Parameter Name="MaLop" Parameter="maLop" Type="System.Int32" DbType="Int" />
+    <Parameter Name="MaLop" Parameter="maLop" Type="System.String" DbType="VarChar(10)" />
     <Return Type="System.Int32" />
   </Function>
 </Database>
