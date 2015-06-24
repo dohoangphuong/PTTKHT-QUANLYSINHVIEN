@@ -20,7 +20,7 @@ namespace BaoCao_PTTKHT.BLL
         }
 
         //Lay sv theo mssv
-        public ISingleResult<usp_SelectSinhvienResult> SelectByMSSV(String _MSSV)
+        public ISingleResult<usp_SelectSinhvienResult> Select(String _MSSV)
         {
             return DB.usp_SelectSinhvien(_MSSV);
         }

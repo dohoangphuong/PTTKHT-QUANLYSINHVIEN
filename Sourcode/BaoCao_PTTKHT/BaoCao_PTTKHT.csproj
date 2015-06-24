@@ -63,10 +63,20 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BLL\BLL_BangDiem.cs" />
+    <Compile Include="BLL\BLL_ChiTietBangDiem.cs" />
+    <Compile Include="BLL\BLL_ChiTietLopHoc.cs" />
+    <Compile Include="BLL\BLL_Diem.cs" />
+    <Compile Include="BLL\BLL_GiangDay.cs" />
     <Compile Include="BLL\BLL_GiangVien.cs" />
+    <Compile Include="BLL\BLL_HocKy.cs" />
+    <Compile Include="BLL\BLL_Khoa.cs" />
+    <Compile Include="BLL\BLL_Lop.cs" />
     <Compile Include="BLL\BLL_LopHoc.cs" />
+    <Compile Include="BLL\BLL_MonHoc.cs" />
+    <Compile Include="BLL\BLL_MonTienQuyet.cs" />
     <Compile Include="BLL\BLL_NamHoc.cs" />
     <Compile Include="BLL\BLL_SinhVien.cs" />
+    <Compile Include="BLL\BLL_TaiKhoan.cs" />
     <Compile Include="DAL\QLDT.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

@@ -20,7 +20,7 @@ namespace BaoCao_PTTKHT.BLL
         }
 
         //Lay nam hoc the ma nam
-        public ISingleResult<usp_SelectNamhocResult> SelectByMSSV(int _MaNam)
+        public ISingleResult<usp_SelectNamhocResult> Select(int _MaNam)
         {
             return DB.usp_SelectNamhoc(_MaNam);
         }
@@ -31,13 +31,13 @@ namespace BaoCao_PTTKHT.BLL
             DB.usp_InsertNamhoc(_MaNam, _NamHoc);
         }
 
-        //Cap nhat sv
+        //Cap nhat nam hoc
         public void Update(int _MaNam, String _NamHoc)
         {
             DB.usp_UpdateNamhoc(_MaNam, _NamHoc);
         }
 
-        //Xoa sv
+        //Xoa nam hoc
         public void Delete(int _MaNam)
         {
             DB.usp_DeleteNamhoc(_MaNam);

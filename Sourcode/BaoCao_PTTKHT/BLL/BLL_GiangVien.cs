@@ -20,7 +20,7 @@ namespace BaoCao_PTTKHT.BLL
         }
 
         //Lay gv theo ma giang vien
-        public ISingleResult<usp_SelectGiangvienResult> SelectByMSSV(String _MaGiangVien)
+        public ISingleResult<usp_SelectGiangvienResult> Select(String _MaGiangVien)
         {
             return DB.usp_SelectGiangvien(_MaGiangVien);
         }
@@ -38,9 +38,9 @@ namespace BaoCao_PTTKHT.BLL
         }
 
         //Xoa gv
-        public void Delete(String MSSV)
+        public void Delete(String _MaGiangVien)
         {
-            DB.usp_DeleteGiangvien(MSSV);
+            DB.usp_DeleteGiangvien(_MaGiangVien);
         }
     }
 }
