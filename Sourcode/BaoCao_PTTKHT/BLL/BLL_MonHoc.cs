@@ -26,15 +26,15 @@ namespace BaoCao_PTTKHT.BLL
         }
 
         //Insert mon hoc moi
-        public void Insert(String _MaMon, String _TenMon, int  _SoTinChi)
+        public void Insert(String _MaMon, String _TenMon, int  _SoTinChi, String _MaKhoa)
         {
-            DB.usp_InsertMonhoc(_MaMon, _TenMon, _SoTinChi);
+            DB.usp_InsertMonhoc(_MaMon, _TenMon, _SoTinChi, _MaKhoa);
         }
 
         //Cap nhat mon hoc
-        public void Update(String _MaMon, String _TenMon, int _SoTinChi)
+        public void Update(String _MaMon, String _TenMon, int _SoTinChi, String _MaKhoa)
         {
-            DB.usp_UpdateMonhoc(_MaMon, _TenMon, _SoTinChi);
+            DB.usp_UpdateMonhoc(_MaMon, _TenMon, _SoTinChi, _MaKhoa);
         }
 
         //Xoa mon hoc

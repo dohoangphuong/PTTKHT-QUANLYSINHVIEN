@@ -49,7 +49,7 @@ namespace BaoCao_PTTKHT.GUI
 
         private void button6_Click(object sender, EventArgs e)
         {
-            FmQuanLyGiaoVien a = new FmQuanLyGiaoVien();
+            FmQuanLyGiangVien a = new FmQuanLyGiangVien();
             a.Show();
         }
 

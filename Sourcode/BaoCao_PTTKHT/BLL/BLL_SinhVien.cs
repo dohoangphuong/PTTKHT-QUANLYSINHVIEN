@@ -25,6 +25,12 @@ namespace BaoCao_PTTKHT.BLL
             return DB.usp_SelectSinhvien(_MSSV);
         }
 
+        //Lay sv theo ma lop
+        public ISingleResult<usp_SelectSinhviensByMaLopResult> SelectSinhVienByMaLop(String _MaLop)
+        {
+            return DB.usp_SelectSinhviensByMaLop(_MaLop);
+        }
+
         //Insert sv moi
         public void Insert(String _MSSV, String _HoTen, String _DiaChi, DateTime _NgaySinh, String _GioiTinh, String _DienThoai, String _MaLop)
         {
@@ -44,7 +50,7 @@ namespace BaoCao_PTTKHT.BLL
         }
 
         //Lay ma sinh vien cuoi theo nam
-        public String SelectMssvByNam(int _Nam)
+        public String SelectLastMssvByNam(int _Nam)
         {
             try
             {

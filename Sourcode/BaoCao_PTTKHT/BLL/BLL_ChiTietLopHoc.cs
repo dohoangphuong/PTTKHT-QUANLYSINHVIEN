@@ -50,7 +50,7 @@ namespace BaoCao_PTTKHT.BLL
         }
 
         //Xoa lop hoc theo ma lop hoc
-        public void Delete(int _MaLopHoc)
+        public void DeleteByMaLopHoc(int _MaLopHoc)
         {
             DB.usp_DeleteChitietlophocsByMaLopHoc(_MaLopHoc);
         }

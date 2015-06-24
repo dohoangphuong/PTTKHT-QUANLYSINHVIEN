@@ -19,13 +19,32 @@ namespace BaoCao_PTTKHT.BLL
             return DB.LOPs.ToList();
         }
 
-        //Lay lop hoc theo ma lop
+        //Lay lop theo ma lop
         public ISingleResult<usp_SelectLopResult> Select(String _MaLop)
         {
             return DB.usp_SelectLop(_MaLop);
         }
 
-        //Insert lop hoc moi
+        //Lay lop theo nam hoc
+        public ISingleResult<usp_SelectLopsByMaNamHocResult> SelectLopByMaNamHoc(int _MaNam)
+        {
+            try
+            {
+                return DB.usp_SelectLopsByMaNamHoc(_MaNam);
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+        //Lay lop theo ma khoa
+        public ISingleResult<usp_SelectLopsByMaKhoaResult> SelectLopByMaKhoa(String _MaKhoa)
+        {
+            return DB.usp_SelectLopsByMaKhoa(_MaKhoa);
+        }
+
+        //Insert lop moi
         public void Insert(String _MaLop, String _TenLop, String _MaKhoa, int _MaNamHoc)
         {
             DB.usp_InsertLop(_MaLop, _TenLop, _MaKhoa, _MaNamHoc);

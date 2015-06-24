@@ -13,6 +13,12 @@ namespace BaoCao_PTTKHT.BLL
     {
         DAL.QLDTDataContext DB = new DAL.QLDTDataContext(Settings.Default.ConnectString);
 
+        //Lay tat ca mon tien quyet
+        public List<MONTIENQUYET> SelectAll()
+        {
+            return DB.MONTIENQUYETs.ToList();
+        }
+
         //Lay mon tien quyet theo ma mon
         public ISingleResult<usp_SelectMontienquyetsByMaMonHocResult> SelectMonTienQuyetByMaMon(String _MaMon)
         {
@@ -31,10 +37,10 @@ namespace BaoCao_PTTKHT.BLL
             DB.usp_UpdateMontienquyet(_MaMTQ, _TenMon, _TenMonTienQuyet);
         }
 
-        //Xoa mon hoc
-        public void Delete(String _MaMon)
+        //Xoa mon tien quyet
+        public void Delete(int _MaMTQ)
         {
-            DB.usp_DeleteMonhoc(_MaMon);
+            DB.usp_DeleteMontienquyet(_MaMTQ);
         }
     }
 }

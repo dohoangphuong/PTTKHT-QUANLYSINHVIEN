@@ -63,6 +63,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BLL\BLL_BangDiem.cs" />
+    <Compile Include="BLL\BLL_BoDem.cs" />
     <Compile Include="BLL\BLL_ChiTietBangDiem.cs" />
     <Compile Include="BLL\BLL_ChiTietLopHoc.cs" />
     <Compile Include="BLL\BLL_Diem.cs" />
@@ -112,11 +113,11 @@
     <Compile Include="GUI\FmQuanLyLop.Designer.cs">
       <DependentUpon>FmQuanLyLop.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\FmQuanLyGiaoVien.cs">
+    <Compile Include="GUI\FmQuanLyGiangVien.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\FmQuanLyGiaoVien.Designer.cs">
-      <DependentUpon>FmQuanLyGiaoVien.cs</DependentUpon>
+    <Compile Include="GUI\FmQuanLyGiangVien.Designer.cs">
+      <DependentUpon>FmQuanLyGiangVien.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\FmQuanLyMonHocTienQuyet.cs">
       <SubType>Form</SubType>
@@ -186,8 +187,8 @@
     <EmbeddedResource Include="GUI\FmQuanLyLop.resx">
       <DependentUpon>FmQuanLyLop.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\FmQuanLyGiaoVien.resx">
-      <DependentUpon>FmQuanLyGiaoVien.cs</DependentUpon>
+    <EmbeddedResource Include="GUI\FmQuanLyGiangVien.resx">
+      <DependentUpon>FmQuanLyGiangVien.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\FmQuanLyMonHocTienQuyet.resx">
       <DependentUpon>FmQuanLyMonHocTienQuyet.cs</DependentUpon>
