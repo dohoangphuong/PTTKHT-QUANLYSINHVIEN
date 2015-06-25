@@ -51,14 +51,6 @@
             this.label12 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.buttonX7 = new DevComponents.DotNetBar.ButtonX();
-<<<<<<< HEAD
-            this.buttonX6 = new DevComponents.DotNetBar.ButtonX();
-            this.buttonX5 = new DevComponents.DotNetBar.ButtonX();
-            this.buttonX4 = new DevComponents.DotNetBar.ButtonX();
-            this.buttonX3 = new DevComponents.DotNetBar.ButtonX();
-            this.buttonX1 = new DevComponents.DotNetBar.ButtonX();
-            this.slidePanel1 = new DevComponents.DotNetBar.Controls.SlidePanel();
-=======
             this.btnXoa = new DevComponents.DotNetBar.ButtonX();
             this.btnSua = new DevComponents.DotNetBar.ButtonX();
             this.btnThem = new DevComponents.DotNetBar.ButtonX();
@@ -75,7 +67,6 @@
             this.MaLop = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MaHocKy = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MaNamHoc = new System.Windows.Forms.DataGridViewTextBoxColumn();
->>>>>>> aa79a81e4cd02adaeefcbadadabbdf5380675407
             this.slidePanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.slidePanel3.SuspendLayout();
@@ -314,15 +305,6 @@
             // panel2
             // 
             this.panel2.Controls.Add(this.buttonX7);
-<<<<<<< HEAD
-            this.panel2.Controls.Add(this.buttonX6);
-            this.panel2.Controls.Add(this.buttonX5);
-            this.panel2.Controls.Add(this.buttonX4);
-            this.panel2.Controls.Add(this.buttonX3);
-            this.panel2.Controls.Add(this.buttonX1);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 205);
-=======
             this.panel2.Controls.Add(this.btnXoa);
             this.panel2.Controls.Add(this.btnSua);
             this.panel2.Controls.Add(this.btnThem);
@@ -330,7 +312,6 @@
             this.panel2.Controls.Add(this.buttonX1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel2.Location = new System.Drawing.Point(0, 148);
->>>>>>> aa79a81e4cd02adaeefcbadadabbdf5380675407
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1285, 71);
             this.panel2.TabIndex = 12;
@@ -347,55 +328,6 @@
             this.buttonX7.TabIndex = 6;
             this.buttonX7.Text = "LƯU";
             // 
-<<<<<<< HEAD
-            // buttonX6
-            // 
-            this.buttonX6.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.buttonX6.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.buttonX6.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonX6.Location = new System.Drawing.Point(491, 18);
-            this.buttonX6.Name = "buttonX6";
-            this.buttonX6.Size = new System.Drawing.Size(143, 37);
-            this.buttonX6.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.buttonX6.TabIndex = 5;
-            this.buttonX6.Text = "XÓA";
-            // 
-            // buttonX5
-            // 
-            this.buttonX5.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.buttonX5.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.buttonX5.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonX5.Location = new System.Drawing.Point(295, 18);
-            this.buttonX5.Name = "buttonX5";
-            this.buttonX5.Size = new System.Drawing.Size(143, 37);
-            this.buttonX5.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.buttonX5.TabIndex = 4;
-            this.buttonX5.Text = "SỬA";
-            // 
-            // buttonX4
-            // 
-            this.buttonX4.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.buttonX4.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.buttonX4.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonX4.Location = new System.Drawing.Point(102, 18);
-            this.buttonX4.Name = "buttonX4";
-            this.buttonX4.Size = new System.Drawing.Size(143, 37);
-            this.buttonX4.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.buttonX4.TabIndex = 3;
-            this.buttonX4.Text = "THÊM";
-            // 
-            // buttonX3
-            // 
-            this.buttonX3.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.buttonX3.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.buttonX3.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonX3.Location = new System.Drawing.Point(1085, 18);
-            this.buttonX3.Name = "buttonX3";
-            this.buttonX3.Size = new System.Drawing.Size(143, 37);
-            this.buttonX3.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.buttonX3.TabIndex = 2;
-            this.buttonX3.Text = "THOÁT";
-=======
             // btnXoa
             // 
             this.btnXoa.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
@@ -447,7 +379,6 @@
             this.btnThoat.TabIndex = 2;
             this.btnThoat.Text = "THOÁT";
             this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
->>>>>>> aa79a81e4cd02adaeefcbadadabbdf5380675407
             // 
             // buttonX1
             // 
@@ -471,8 +402,6 @@
             this.slidePanel1.Text = "slidePanel1";
             this.slidePanel1.UsesBlockingAnimation = false;
             // 
-<<<<<<< HEAD
-=======
             // STT
             // 
             this.STT.HeaderText = "STT";
@@ -543,7 +472,6 @@
             this.MaNamHoc.ReadOnly = true;
             this.MaNamHoc.Visible = false;
             // 
->>>>>>> aa79a81e4cd02adaeefcbadadabbdf5380675407
             // FmQuanLyGiangDay
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
