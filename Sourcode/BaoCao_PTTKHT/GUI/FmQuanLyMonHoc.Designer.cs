@@ -50,14 +50,14 @@
             this.buttonX1 = new DevComponents.DotNetBar.ButtonX();
             this.slidePanel2 = new DevComponents.DotNetBar.Controls.SlidePanel();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.tabLop = new DevComponents.DotNetBar.TabItem(this.components);
+            this.tabSV = new DevComponents.DotNetBar.TabItem(this.components);
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MaMH = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TenMH = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SoTC = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SoTinChi = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Khoa = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MaKhoa = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tabLop = new DevComponents.DotNetBar.TabItem(this.components);
-            this.tabSV = new DevComponents.DotNetBar.TabItem(this.components);
             this.slidePanel3.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -305,7 +305,7 @@
             this.dataGridViewTextBoxColumn1,
             this.MaMH,
             this.TenMH,
-            this.SoTC,
+            this.SoTinChi,
             this.Khoa,
             this.MaKhoa});
             this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -316,6 +316,16 @@
             this.dataGridView2.Size = new System.Drawing.Size(1346, 164);
             this.dataGridView2.TabIndex = 10;
             this.dataGridView2.CurrentCellChanged += new System.EventHandler(this.dataGridView2_CurrentCellChanged);
+            // 
+            // tabLop
+            // 
+            this.tabLop.Name = "tabLop";
+            this.tabLop.Text = "ĐIỂM LỚP HỌC";
+            // 
+            // tabSV
+            // 
+            this.tabSV.Name = "tabSV";
+            this.tabSV.Text = "ĐIỂM SINH VIÊN";
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -337,11 +347,11 @@
             this.TenMH.Name = "TenMH";
             this.TenMH.ReadOnly = true;
             // 
-            // SoTC
+            // SoTinChi
             // 
-            this.SoTC.HeaderText = "SỐ TÍN CHỈ";
-            this.SoTC.Name = "SoTC";
-            this.SoTC.ReadOnly = true;
+            this.SoTinChi.HeaderText = "SỐ TÍN CHỈ";
+            this.SoTinChi.Name = "SoTinChi";
+            this.SoTinChi.ReadOnly = true;
             // 
             // Khoa
             // 
@@ -356,16 +366,6 @@
             this.MaKhoa.Name = "MaKhoa";
             this.MaKhoa.ReadOnly = true;
             this.MaKhoa.Visible = false;
-            // 
-            // tabLop
-            // 
-            this.tabLop.Name = "tabLop";
-            this.tabLop.Text = "ĐIỂM LỚP HỌC";
-            // 
-            // tabSV
-            // 
-            this.tabSV.Name = "tabSV";
-            this.tabSV.Text = "ĐIỂM SINH VIÊN";
             // 
             // FmQuanLyMonHoc
             // 
@@ -420,7 +420,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaMH;
         private System.Windows.Forms.DataGridViewTextBoxColumn TenMH;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SoTC;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SoTinChi;
         private System.Windows.Forms.DataGridViewTextBoxColumn Khoa;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaKhoa;
     }

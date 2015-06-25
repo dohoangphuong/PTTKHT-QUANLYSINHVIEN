@@ -121,5 +121,10 @@ namespace BaoCao_PTTKHT.GUI
                 LoadLopHoc();
             }
         }
+
+        private void buttonX3_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

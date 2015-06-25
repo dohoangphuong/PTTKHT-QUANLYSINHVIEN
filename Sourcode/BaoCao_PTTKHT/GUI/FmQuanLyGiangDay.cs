@@ -60,16 +60,17 @@ namespace BaoCao_PTTKHT.GUI
             {
                 _comboItems.Add(new Data { Name = hk.HocKy, ID = hk.MaHocKy.ToString() });
             }
-            cbNamHoc.DisplayMember = "Name";
-            cbNamHoc.ValueMember = "ID";
-            cbNamHoc.DataSource = _comboItems;
-            if (cbNamHoc.Items.Count > 0)
-                cbNamHoc.SelectedIndex = 0;
+            cbHocKy.DisplayMember = "Name";
+            cbHocKy.ValueMember = "ID";
+            cbHocKy.DataSource = _comboItems;
+            if (cbHocKy.Items.Count > 0)
+                cbHocKy.SelectedIndex = 0;
         }
 
         //Load Lop hoc
         public void LoadLopHoc()
         {
+            dataGridView1.Rows.Clear();
             BindingList<Data> _comboItems = new BindingList<Data>();
             BindingList<Data> _comboItems2 = new BindingList<Data>();
             int stt = 0;
@@ -85,7 +86,7 @@ namespace BaoCao_PTTKHT.GUI
                         TenGiangVien = gv.TenGiangVien;
                     }
                     stt++;
-                    dataGridView1.Rows.Add(stt, lophoc.TenLopHoc, giangday.MaGiangVien, TenGV, cbNamHoc.Text, cbHocKy.Text, giangday.MaGiangDay, lophoc.MaLopHoc, cbHocKy.SelectedValue.ToString(), cbNamHoc.SelectedValue.ToString());
+                    dataGridView1.Rows.Add(stt, lophoc.TenLopHoc, giangday.MaGiangVien, TenGiangVien, cbNamHoc.Text, cbHocKy.Text, giangday.MaGiangDay, lophoc.MaLopHoc, cbHocKy.SelectedValue.ToString(), cbNamHoc.SelectedValue.ToString());
                 }
             }
 
@@ -140,6 +141,7 @@ namespace BaoCao_PTTKHT.GUI
         private void FmQuanLyGiangDay_Load(object sender, EventArgs e)
         {
             LoadNamHoc();
+            LoadGiangVien();
         }
 
         private void cbHocKy_SelectedIndexChanged(object sender, EventArgs e)

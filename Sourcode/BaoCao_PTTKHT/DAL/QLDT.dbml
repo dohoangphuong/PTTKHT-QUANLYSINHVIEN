@@ -770,12 +770,6 @@
       <Column Name="TenKhoa" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
-  <Function Name="dbo.usp_SelectLastSinhviensByNam" Method="usp_SelectLastSinhviensByNam">
-    <Parameter Name="NamHoc" Parameter="namHoc" Type="System.Int32" DbType="Int" />
-    <ElementType Name="usp_SelectLastSinhviensByNamResult">
-      <Column Name="MSSV" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
-    </ElementType>
-  </Function>
   <Function Name="dbo.usp_SelectLop" Method="usp_SelectLop">
     <Parameter Name="MaLop" Parameter="maLop" Type="System.String" DbType="VarChar(10)" />
     <ElementType Name="usp_SelectLopResult">
@@ -1129,5 +1123,11 @@
     <Parameter Name="DienThoai" Parameter="dienThoai" Type="System.String" DbType="VarChar(12)" />
     <Parameter Name="MaLop" Parameter="maLop" Type="System.String" DbType="VarChar(10)" />
     <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.usp_SelectLastSinhviensByNam" Method="usp_SelectLastSinhviensByNam">
+    <Parameter Name="MaNamHoc" Parameter="maNamHoc" Type="System.Int32" DbType="Int" />
+    <ElementType Name="usp_SelectLastSinhviensByNamResult">
+      <Column Name="MSSV" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+    </ElementType>
   </Function>
 </Database>

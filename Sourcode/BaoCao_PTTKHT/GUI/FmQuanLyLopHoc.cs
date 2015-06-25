@@ -113,6 +113,10 @@ namespace BaoCao_PTTKHT.GUI
         //Check checkedListItem
         public void CheckListItem(String Tiet)
         {
+            foreach(int i in checkedListBox1.CheckedIndices)
+            {
+                checkedListBox1.SetItemCheckState(i, CheckState.Unchecked);
+            }
             String[] tiets = Tiet.Split('-');
             foreach (String tiet in tiets)
             {
@@ -159,7 +163,7 @@ namespace BaoCao_PTTKHT.GUI
                 {
                     temp += obj.ToString() + "-";
                 }
-                temp.Remove(temp.Length - 2);
+                temp = temp.Remove(temp.Length - 1);
                 bll_LopHoc.Insert(bll_BoDem.SelectSoDem("LOPHOC") + 1, tbTenLop.Text, temp, cbThu.Text, cbMonHoc.SelectedValue.ToString(), int.Parse(cbHocKy.SelectedValue.ToString()));
                 LoadLopHoc();
             }
@@ -180,7 +184,7 @@ namespace BaoCao_PTTKHT.GUI
                 {
                     temp += obj.ToString() + "-";
                 }
-                temp.Remove(temp.Length - 2);
+                temp = temp.Remove(temp.Length - 1);
                 bll_LopHoc.Update(int.Parse(dataGridView2.CurrentRow.Cells["MaLopHoc"].Value.ToString()), tbTenLop.Text, temp, cbThu.Text, cbMonHoc.SelectedValue.ToString(), int.Parse(cbHocKy.SelectedValue.ToString()));
                 LoadLopHoc();
             }

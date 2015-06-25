@@ -74,7 +74,7 @@ namespace BaoCao_PTTKHT.GUI
         {
             String temp = "gv000000";
             String soDem = (bll_BoDem.SelectSoDem("GIANGVIEN") +1 ).ToString();
-            temp.Remove(temp.Length - soDem.Length - 1);
+            temp = temp.Remove(temp.Length - soDem.Length);
             temp += soDem;
             return temp;
         }
@@ -149,21 +149,24 @@ namespace BaoCao_PTTKHT.GUI
 
         private void dataGridView2_CurrentCellChanged(object sender, EventArgs e)
         {
-            try
+            if (dataGridView2.CurrentRow != null)
             {
-                tbHoTen.Text = Convert.ToString(dataGridView2.CurrentRow.Cells["TenGV"].Value.ToString().Trim());
-                cbGioiTinh.Text = Convert.ToString(dataGridView2.CurrentRow.Cells["GioiTinh"].Value.ToString().Trim());
-                tbDiaChi.Text = Convert.ToString(dataGridView2.CurrentRow.Cells["DiaChi"].Value.ToString().Trim());
-                tbMaGV.Text = Convert.ToString(dataGridView2.CurrentRow.Cells["MaGV"].Value.ToString().Trim());
-                dtpNgaySinh.Text = dataGridView2.CurrentRow.Cells["NgaySinh"].Value.ToString();
-                tbChucVu.Text = Convert.ToString(dataGridView2.CurrentRow.Cells["ChucVu"].Value.ToString().Trim());
-                cbKhoa.SelectedValue = Convert.ToString(dataGridView2.CurrentRow.Cells["MaKhoa"].Value.ToString().Trim());
-                tbDienThoai.Text = Convert.ToString(dataGridView2.CurrentRow.Cells["DienThoai"].Value.ToString().Trim());
-                tbTrinhDo.Text = Convert.ToString(dataGridView2.CurrentRow.Cells["TrinhDo"].Value.ToString().Trim());
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                try
+                {
+                    tbHoTen.Text = Convert.ToString(dataGridView2.CurrentRow.Cells["TenGV"].Value.ToString().Trim());
+                    cbGioiTinh.Text = Convert.ToString(dataGridView2.CurrentRow.Cells["GioiTinh"].Value.ToString().Trim());
+                    tbDiaChi.Text = Convert.ToString(dataGridView2.CurrentRow.Cells["DiaChi"].Value.ToString().Trim());
+                    tbMaGV.Text = Convert.ToString(dataGridView2.CurrentRow.Cells["MaGV"].Value.ToString().Trim());
+                    dtpNgaySinh.Text = dataGridView2.CurrentRow.Cells["NgaySinh"].Value.ToString();
+                    tbChucVu.Text = Convert.ToString(dataGridView2.CurrentRow.Cells["ChucVu"].Value.ToString().Trim());
+                    cbKhoa.SelectedValue = Convert.ToString(dataGridView2.CurrentRow.Cells["MaKhoa"].Value.ToString().Trim());
+                    tbDienThoai.Text = Convert.ToString(dataGridView2.CurrentRow.Cells["DienThoai"].Value.ToString().Trim());
+                    tbTrinhDo.Text = Convert.ToString(dataGridView2.CurrentRow.Cells["TrinhDo"].Value.ToString().Trim());
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 

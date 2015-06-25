@@ -917,13 +917,6 @@ namespace BaoCao_PTTKHT.DAL
 			return ((ISingleResult<usp_SelectKhoasPagedResult>)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.usp_SelectLastSinhviensByNam")]
-		public ISingleResult<usp_SelectLastSinhviensByNamResult> usp_SelectLastSinhviensByNam([global::System.Data.Linq.Mapping.ParameterAttribute(Name="NamHoc", DbType="Int")] System.Nullable<int> namHoc)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), namHoc);
-			return ((ISingleResult<usp_SelectLastSinhviensByNamResult>)(result.ReturnValue));
-		}
-		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.usp_SelectLop")]
 		public ISingleResult<usp_SelectLopResult> usp_SelectLop([global::System.Data.Linq.Mapping.ParameterAttribute(Name="MaLop", DbType="VarChar(10)")] string maLop)
 		{
@@ -1223,6 +1216,13 @@ namespace BaoCao_PTTKHT.DAL
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), mSSV, tenSinhVien, ngaySinh, diaChi, gioiTinh, dienThoai, maLop);
 			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.usp_SelectLastSinhviensByNam")]
+		public ISingleResult<usp_SelectLastSinhviensByNamResult> usp_SelectLastSinhviensByNam([global::System.Data.Linq.Mapping.ParameterAttribute(Name="MaNamHoc", DbType="Int")] System.Nullable<int> maNamHoc)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), maNamHoc);
+			return ((ISingleResult<usp_SelectLastSinhviensByNamResult>)(result.ReturnValue));
 		}
 	}
 	
@@ -6825,32 +6825,6 @@ namespace BaoCao_PTTKHT.DAL
 		}
 	}
 	
-	public partial class usp_SelectLastSinhviensByNamResult
-	{
-		
-		private string _MSSV;
-		
-		public usp_SelectLastSinhviensByNamResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MSSV", DbType="VarChar(10) NOT NULL", CanBeNull=false)]
-		public string MSSV
-		{
-			get
-			{
-				return this._MSSV;
-			}
-			set
-			{
-				if ((this._MSSV != value))
-				{
-					this._MSSV = value;
-				}
-			}
-		}
-	}
-	
 	public partial class usp_SelectLopResult
 	{
 		
@@ -9364,6 +9338,32 @@ namespace BaoCao_PTTKHT.DAL
 				if ((this._LoaiTaiKhoan != value))
 				{
 					this._LoaiTaiKhoan = value;
+				}
+			}
+		}
+	}
+	
+	public partial class usp_SelectLastSinhviensByNamResult
+	{
+		
+		private string _MSSV;
+		
+		public usp_SelectLastSinhviensByNamResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MSSV", DbType="VarChar(10) NOT NULL", CanBeNull=false)]
+		public string MSSV
+		{
+			get
+			{
+				return this._MSSV;
+			}
+			set
+			{
+				if ((this._MSSV != value))
+				{
+					this._MSSV = value;
 				}
 			}
 		}

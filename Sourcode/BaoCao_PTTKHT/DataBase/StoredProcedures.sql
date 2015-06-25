@@ -4419,7 +4419,7 @@ FROM
 
 GO
 CREATE PROCEDURE [dbo].[usp_SelectLastSinhviensByNam]
-@NamHoc int
+@MaNamHoc int
 AS
 
 SET NOCOUNT ON
@@ -4432,7 +4432,7 @@ FROM
 WHERE 
 	[dbo].[SINHVIEN].MaLop = [dbo].[Lop].MaLop
 	AND [dbo].[Lop].MaNamHoc = [dbo].[NamHoc].MaNamHoc
-	AND [dbo].[NamHoc].NamHoc = @NamHoc
+	AND [dbo].[NamHoc].MaNamHoc = @MaNamHoc
 ORDER BY 
 	MSSV DESC
 GO

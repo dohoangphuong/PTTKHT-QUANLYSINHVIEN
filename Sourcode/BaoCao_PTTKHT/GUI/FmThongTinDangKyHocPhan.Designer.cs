@@ -35,10 +35,6 @@
             this.btnXem = new DevComponents.DotNetBar.ButtonX();
             this.buttonX3 = new DevComponents.DotNetBar.ButtonX();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.tabSV = new DevComponents.DotNetBar.TabItem(this.components);
-            this.slidePanel1 = new DevComponents.DotNetBar.Controls.SlidePanel();
-            this.slidePanel2 = new DevComponents.DotNetBar.Controls.SlidePanel();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.cbHocKy = new System.Windows.Forms.ComboBox();
             this.cbNamHoc = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -47,6 +43,10 @@
             this.label2 = new System.Windows.Forms.Label();
             this.tbMaSinhVien = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.tabSV = new DevComponents.DotNetBar.TabItem(this.components);
+            this.slidePanel1 = new DevComponents.DotNetBar.Controls.SlidePanel();
+            this.slidePanel2 = new DevComponents.DotNetBar.Controls.SlidePanel();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MaLop = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TenLop = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -113,6 +113,7 @@
             this.buttonX3.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.buttonX3.TabIndex = 2;
             this.buttonX3.Text = "THOÁT";
+            this.buttonX3.Click += new System.EventHandler(this.buttonX3_Click);
             // 
             // groupBox2
             // 
@@ -132,51 +133,6 @@
             this.groupBox2.TabIndex = 6;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "THÔNG TIN CẦN XEM";
-            // 
-            // tabSV
-            // 
-            this.tabSV.Name = "tabSV";
-            this.tabSV.Text = "ĐIỂM SINH VIÊN";
-            // 
-            // slidePanel1
-            // 
-            this.slidePanel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.slidePanel1.Location = new System.Drawing.Point(0, 0);
-            this.slidePanel1.Name = "slidePanel1";
-            this.slidePanel1.Size = new System.Drawing.Size(1212, 82);
-            this.slidePanel1.TabIndex = 7;
-            this.slidePanel1.Text = "slidePanel1";
-            this.slidePanel1.UsesBlockingAnimation = false;
-            // 
-            // slidePanel2
-            // 
-            this.slidePanel2.BackColor = System.Drawing.Color.Transparent;
-            this.slidePanel2.Controls.Add(this.dataGridView2);
-            this.slidePanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.slidePanel2.Location = new System.Drawing.Point(0, 315);
-            this.slidePanel2.Name = "slidePanel2";
-            this.slidePanel2.Size = new System.Drawing.Size(1212, 264);
-            this.slidePanel2.TabIndex = 10;
-            this.slidePanel2.Text = "slidePanel2";
-            this.slidePanel2.UsesBlockingAnimation = false;
-            // 
-            // dataGridView2
-            // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.MaLop,
-            this.TenLop,
-            this.TenMon,
-            this.TenGiaoVien,
-            this.SoTC,
-            this.Thu,
-            this.Tiet});
-            this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView2.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(1212, 264);
-            this.dataGridView2.TabIndex = 13;
             // 
             // cbHocKy
             // 
@@ -257,6 +213,51 @@
             this.label3.Size = new System.Drawing.Size(82, 21);
             this.label3.TabIndex = 35;
             this.label3.Text = "Năm học:";
+            // 
+            // tabSV
+            // 
+            this.tabSV.Name = "tabSV";
+            this.tabSV.Text = "ĐIỂM SINH VIÊN";
+            // 
+            // slidePanel1
+            // 
+            this.slidePanel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.slidePanel1.Location = new System.Drawing.Point(0, 0);
+            this.slidePanel1.Name = "slidePanel1";
+            this.slidePanel1.Size = new System.Drawing.Size(1212, 82);
+            this.slidePanel1.TabIndex = 7;
+            this.slidePanel1.Text = "slidePanel1";
+            this.slidePanel1.UsesBlockingAnimation = false;
+            // 
+            // slidePanel2
+            // 
+            this.slidePanel2.BackColor = System.Drawing.Color.Transparent;
+            this.slidePanel2.Controls.Add(this.dataGridView2);
+            this.slidePanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.slidePanel2.Location = new System.Drawing.Point(0, 315);
+            this.slidePanel2.Name = "slidePanel2";
+            this.slidePanel2.Size = new System.Drawing.Size(1212, 264);
+            this.slidePanel2.TabIndex = 10;
+            this.slidePanel2.Text = "slidePanel2";
+            this.slidePanel2.UsesBlockingAnimation = false;
+            // 
+            // dataGridView2
+            // 
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.MaLop,
+            this.TenLop,
+            this.TenMon,
+            this.TenGiaoVien,
+            this.SoTC,
+            this.Thu,
+            this.Tiet});
+            this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView2.Location = new System.Drawing.Point(0, 0);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.Size = new System.Drawing.Size(1212, 264);
+            this.dataGridView2.TabIndex = 13;
             // 
             // dataGridViewTextBoxColumn1
             // 

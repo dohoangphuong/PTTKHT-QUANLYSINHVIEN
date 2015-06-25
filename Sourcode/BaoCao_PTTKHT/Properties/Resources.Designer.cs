@@ -108,7 +108,21 @@ namespace BaoCao_PTTKHT.Properties {
         ///   Looks up a localized string similar to USE [PlaceHolder]
         ///GO
         ///
-        ///SET DATEFORMAT DMY.
+        ///SET DATEFORMAT DMY
+        ///
+        ///insert into NAMHOC values(1, &apos;2012-2013&apos;)
+        ///insert into NAMHOC values(2, &apos;2014-2015&apos;)
+        ///
+        ///insert into HOCKY values(1, 1, N&apos;HK I&apos;)
+        ///insert into HOCKY values(2, 1, N&apos;HK II&apos;)
+        ///insert into HOCKY values(3, 1, N&apos;HK Hè&apos;)
+        ///insert into HOCKY values(4, 2, N&apos;HK I&apos;)
+        ///insert into HOCKY values(5, 2, N&apos;HK II&apos;)
+        ///insert into HOCKY values(6, 2, N&apos;HK Hè&apos;)
+        ///
+        ///insert into KHOA values(&apos;SE&apos;, N&apos;Kỹ Thuật Phần Mềm&apos;)
+        ///insert into KHOA values(&apos;CE&apos;, N&apos;Kỹ Thuật Máy Tính&apos;)
+        ///insert into KHOA va [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string InitData {
             get {

@@ -24,6 +24,7 @@ namespace BaoCao_PTTKHT.GUI
         BLL_NamHoc bll_NamHoc = new BLL_NamHoc();
         BLL_Khoa bll_Khoa = new BLL_Khoa();
         BLL_Lop bll_Lop = new BLL_Lop();
+        BLL_BoDem bll_BoDem = new BLL_BoDem();
         #endregion
 
         #region wrapper
@@ -44,9 +45,9 @@ namespace BaoCao_PTTKHT.GUI
             {
                 _comboItems.Add(new Data { Name = namhoc.NamHoc1, ID = namhoc.MaNamHoc.ToString() });
             }
-            cbNam.DataSource = _comboItems;
             cbNam.DisplayMember = "Name";
             cbNam.ValueMember = "ID";
+            cbNam.DataSource = _comboItems;
             if (cbNam.Items.Count > 0)
                 cbNam.SelectedIndex = 0;
         }
@@ -60,9 +61,9 @@ namespace BaoCao_PTTKHT.GUI
             {
                 _comboItems.Add(new Data { Name = khoa.TenKhoa, ID = khoa.MaKhoa });
             }
-            cbKhoa.DataSource = _comboItems;
             cbKhoa.DisplayMember = "Name";
             cbKhoa.ValueMember = "ID";
+            cbKhoa.DataSource = _comboItems;
             if (cbKhoa.Items.Count > 0)
                 cbKhoa.SelectedIndex = 0;
         }
@@ -75,9 +76,9 @@ namespace BaoCao_PTTKHT.GUI
             {
                 _comboItems.Add(new Data { Name = lop.TenLop, ID = lop.MaLop });
             }
-            cbLopKhoa.DataSource = _comboItems;
             cbLopKhoa.DisplayMember = "Name";
             cbLopKhoa.ValueMember = "ID";
+            cbLopKhoa.DataSource = _comboItems;
             if (cbLopKhoa.Items.Count > 0)
                 cbLopKhoa.SelectedIndex = 0;
         }
@@ -99,7 +100,7 @@ namespace BaoCao_PTTKHT.GUI
                         {
                             tenKhoa = khoa.TenKhoa;
                         }
-                        dataGridView2.Rows.Add(sv.MSSV, sv.TenSinhVien, sv.GioiTinh, sv.DiaChi, sv.NgaySinh.ToShortDateString(), sv.DienThoai, lop.TenLop, tenKhoa, lop.MaKhoa, lop.MaLop);
+                        dataGridView2.Rows.Add(stt, sv.MSSV, sv.TenSinhVien, sv.GioiTinh, sv.DiaChi, sv.NgaySinh.ToShortDateString(), sv.DienThoai, lop.TenLop, tenKhoa, lop.MaKhoa, lop.MaLop);
                     }
                 }
             }
@@ -107,19 +108,16 @@ namespace BaoCao_PTTKHT.GUI
 
         //Tao ma sv
         public String CreateMSSV()
-        { 
-            String temp = cbNam.Text.Substring(2, 2);
-            temp += tbMSSV.Text.Substring(2, tbMSSV.Text.Length - 6);
-            String lastMSSV = bll_SinhVien.SelectLastMssvByNam(int.Parse(cbNam.Text));
-            if (lastMSSV != "-1")
+        {
+            if (cbNam.SelectedIndex != -1)
             {
-                temp += lastMSSV.Substring(lastMSSV.Length - 5, 4);
+                String temp = cbNam.Text.Substring(2, 2) + "520000";
+                String soDem = (bll_BoDem.SelectSoDem("SINHVIEN") + 1).ToString();
+                temp = temp.Remove(temp.Length - soDem.Length);
+                temp += soDem;
+                return temp;
             }
-            else
-            {
-                temp += "0001";
-            }
-            return temp;
+            return "00000000";
         }
         #endregion
 
@@ -135,15 +133,14 @@ namespace BaoCao_PTTKHT.GUI
 
         private void FmQuanLySinhVien_Load(object sender, EventArgs e)
         {
-            LoadNam();
             LoadKhoa();
+            LoadNam();
             cbGioiTinh.SelectedIndex = 0;
         }
 
         private void cbNam_SelectedIndexChanged(object sender, EventArgs e)
         {
-            tbMSSV.Text = CreateMSSV();
-            LoadSinhVien(int.Parse(cbNam.Text));
+            LoadSinhVien(int.Parse(cbNam.SelectedValue.ToString()));
         }
 
         private void cbKhoa_SelectedIndexChanged(object sender, EventArgs e)
@@ -154,47 +151,52 @@ namespace BaoCao_PTTKHT.GUI
         private void btnThem_Click(object sender, EventArgs e)
         {
             if (!(String.IsNullOrEmpty(tbHoTen.Text) || String.IsNullOrEmpty(tbDiaChi.Text) || String.IsNullOrEmpty(tbDienThoai.Text)
-                || String.IsNullOrEmpty(cbGioiTinh.Text)))
+                || String.IsNullOrEmpty(cbGioiTinh.Text) || String.IsNullOrEmpty(cbNam.Text) || String.IsNullOrEmpty(cbKhoa.Text)
+                || String.IsNullOrEmpty(cbLopKhoa.Text)))
             {
                 bll_SinhVien.Insert(CreateMSSV(), tbHoTen.Text, tbDiaChi.Text, dtpNgaySinh.Value, cbGioiTinh.Text, tbDienThoai.Text, cbLopKhoa.SelectedValue.ToString());
+                LoadSinhVien(int.Parse(cbNam.SelectedValue.ToString()));            
             }
             else
             {
                 MessageBox.Show("Vui lòng nhập đầy đủ thông tin", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            LoadSinhVien(int.Parse(cbNam.SelectedValue.ToString()));
+            }   
         }
 
         private void btnSua_Click(object sender, EventArgs e)
         {
             if (!(String.IsNullOrEmpty(tbHoTen.Text) || String.IsNullOrEmpty(tbDiaChi.Text) || String.IsNullOrEmpty(tbDienThoai.Text)
-                || String.IsNullOrEmpty(cbGioiTinh.Text)))
+                || String.IsNullOrEmpty(cbGioiTinh.Text) || String.IsNullOrEmpty(cbNam.Text) || String.IsNullOrEmpty(cbKhoa.Text)
+                || String.IsNullOrEmpty(cbLopKhoa.Text)))
             {
                 bll_SinhVien.Update(tbMSSV.Text, tbHoTen.Text, tbDiaChi.Text, dtpNgaySinh.Value, cbGioiTinh.Text, tbDienThoai.Text, cbLopKhoa.SelectedValue.ToString());
+                LoadSinhVien(int.Parse(cbNam.SelectedValue.ToString()));
             }
             else
             {
                 MessageBox.Show("Vui lòng nhập đầy đủ thông tin", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            LoadSinhVien(int.Parse(cbNam.SelectedValue.ToString()));
         }
 
         private void dataGridView2_CurrentCellChanged(object sender, EventArgs e)
         {
-            try
+            if (dataGridView2.CurrentRow != null)
             {
-                tbHoTen.Text = Convert.ToString(dataGridView2.CurrentRow.Cells["TenSV"].Value.ToString().Trim());
-                cbGioiTinh.Text = Convert.ToString(dataGridView2.CurrentRow.Cells["GioiTinh"].Value.ToString().Trim());
-                tbDiaChi.Text = Convert.ToString(dataGridView2.CurrentRow.Cells["DiaChi"].Value.ToString().Trim());
-                tbMSSV.Text = Convert.ToString(dataGridView2.CurrentRow.Cells["MSSV"].Value.ToString().Trim());
-                dtpNgaySinh.Text = dataGridView2.CurrentRow.Cells["NgaySinh"].Value.ToString();
-                tbDienThoai.Text = Convert.ToString(dataGridView2.CurrentRow.Cells["DiemThoai"].Value.ToString().Trim());
-                cbKhoa.SelectedValue = Convert.ToString(dataGridView2.CurrentRow.Cells["MaKhoa"].Value.ToString().Trim());
-                cbLopKhoa.SelectedValue = Convert.ToString(dataGridView2.CurrentRow.Cells["MaLop"].Value.ToString().Trim());
-            }
-            catch(Exception ex) 
-            {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                try
+                {
+                    tbHoTen.Text = Convert.ToString(dataGridView2.CurrentRow.Cells["TenSV"].Value.ToString().Trim());
+                    cbGioiTinh.Text = Convert.ToString(dataGridView2.CurrentRow.Cells["GioiTinh"].Value.ToString().Trim());
+                    tbDiaChi.Text = Convert.ToString(dataGridView2.CurrentRow.Cells["DiaChi"].Value.ToString().Trim());
+                    tbMSSV.Text = Convert.ToString(dataGridView2.CurrentRow.Cells["MSSV"].Value.ToString().Trim());
+                    dtpNgaySinh.Value = DateTime.Parse(dataGridView2.CurrentRow.Cells["NgaySinh"].Value.ToString());
+                    tbDienThoai.Text = Convert.ToString(dataGridView2.CurrentRow.Cells["DienThoai"].Value.ToString().Trim());
+                    cbKhoa.SelectedValue = Convert.ToString(dataGridView2.CurrentRow.Cells["MaKhoa"].Value.ToString().Trim());
+                    cbLopKhoa.SelectedValue = Convert.ToString(dataGridView2.CurrentRow.Cells["MaLop"].Value.ToString().Trim());
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 

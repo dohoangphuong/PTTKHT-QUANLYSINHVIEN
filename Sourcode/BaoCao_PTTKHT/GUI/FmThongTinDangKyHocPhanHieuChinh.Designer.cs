@@ -34,7 +34,7 @@
             this.slidePanel3 = new DevComponents.DotNetBar.Controls.SlidePanel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnHieuChinh = new DevComponents.DotNetBar.ButtonX();
-            this.buttonX3 = new DevComponents.DotNetBar.ButtonX();
+            this.btnThoat = new DevComponents.DotNetBar.ButtonX();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.cbHocKy = new System.Windows.Forms.ComboBox();
             this.cbNamHoc = new System.Windows.Forms.ComboBox();
@@ -94,7 +94,7 @@
             // panel2
             // 
             this.panel2.Controls.Add(this.btnHieuChinh);
-            this.panel2.Controls.Add(this.buttonX3);
+            this.panel2.Controls.Add(this.btnThoat);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 159);
             this.panel2.Name = "panel2";
@@ -114,17 +114,18 @@
             this.btnHieuChinh.Text = "HIỆU CHỈNH";
             this.btnHieuChinh.Click += new System.EventHandler(this.btnHieuChinh_Click);
             // 
-            // buttonX3
+            // btnThoat
             // 
-            this.buttonX3.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.buttonX3.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.buttonX3.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonX3.Location = new System.Drawing.Point(769, 17);
-            this.buttonX3.Name = "buttonX3";
-            this.buttonX3.Size = new System.Drawing.Size(179, 37);
-            this.buttonX3.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.buttonX3.TabIndex = 2;
-            this.buttonX3.Text = "THOÁT";
+            this.btnThoat.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnThoat.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnThoat.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnThoat.Location = new System.Drawing.Point(769, 17);
+            this.btnThoat.Name = "btnThoat";
+            this.btnThoat.Size = new System.Drawing.Size(179, 37);
+            this.btnThoat.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.btnThoat.TabIndex = 2;
+            this.btnThoat.Text = "THOÁT";
+            this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
             // 
             // groupBox2
             // 
@@ -352,7 +353,7 @@
         private DevComponents.DotNetBar.Controls.SlidePanel slidePanel1;
         private System.Windows.Forms.Panel panel2;
         private DevComponents.DotNetBar.ButtonX btnHieuChinh;
-        private DevComponents.DotNetBar.ButtonX buttonX3;
+        private DevComponents.DotNetBar.ButtonX btnThoat;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox tbTenSinhVien;
         private System.Windows.Forms.Label label2;

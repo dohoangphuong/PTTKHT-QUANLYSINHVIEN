@@ -107,6 +107,7 @@ namespace BaoCao_PTTKHT.GUI
                 tbMaMon.Text = Convert.ToString(dataGridView2.CurrentRow.Cells["MaMH"].Value.ToString().Trim());
                 tbTenMon.Text = Convert.ToString(dataGridView2.CurrentRow.Cells["TenMH"].Value.ToString().Trim());
                 cbKhoa.SelectedValue = dataGridView2.CurrentRow.Cells["MaKhoa"].Value.ToString();
+                tbSoTinChi.Text = dataGridView2.CurrentRow.Cells["SoTinChi"].Value.ToString();
             }
         }
 
@@ -114,8 +115,8 @@ namespace BaoCao_PTTKHT.GUI
         {
             try
             {
-                if (!(String.IsNullOrEmpty(tbMaMon.Text) && String.IsNullOrEmpty(tbTenMon.Text) && String.IsNullOrEmpty(tbSoTinChi.Text)
-                    && String.IsNullOrEmpty(cbKhoa.Text)))
+                if (!(String.IsNullOrEmpty(tbMaMon.Text) || String.IsNullOrEmpty(tbTenMon.Text) || String.IsNullOrEmpty(tbSoTinChi.Text)
+                    || String.IsNullOrEmpty(cbKhoa.Text)))
                 {
                     bll_MonHoc.Update(dataGridView2.CurrentRow.Cells["MaMH"].Value.ToString(), tbTenMon.Text, int.Parse(tbSoTinChi.Text), cbKhoa.SelectedValue.ToString());
                     LoadMonHoc();
