@@ -20,12 +20,12 @@ namespace BaoCao_PTTKHT.BLL
         }
 
         //Lay bang diem theo ma bang diem
-        public ISingleResult<usp_SelectBangdiemResult> SelectByMSSV(int _MaBangDiem)
+        public ISingleResult<usp_SelectBangdiemResult> Select(int _MaBangDiem)
         {
             return DB.usp_SelectBangdiem(_MaBangDiem);
         }
 
-        //Insert sv moi
+        //Insert bang diem moi
         public void Insert(int _MaBangDiem, int _MaLopHoc)
         {
             DB.usp_InsertBangdiem(_MaBangDiem, _MaLopHoc);

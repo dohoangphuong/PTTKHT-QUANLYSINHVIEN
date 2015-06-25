@@ -20,27 +20,27 @@ namespace BaoCao_PTTKHT.BLL
         }
 
         //Lay gv theo ma giang vien
-        public ISingleResult<usp_SelectGiangvienResult> SelectByMSSV(String _MaGiangVien)
+        public ISingleResult<usp_SelectGiangvienResult> Select(String _MaGiangVien)
         {
             return DB.usp_SelectGiangvien(_MaGiangVien);
         }
 
         //Insert gv moi
-        public void Insert(String MSSV, String _HoTen, String _DiaChi, DateTime _NgaySinh, String _GioiTinh, String _ChucVu, String _MaLop)
+        public void Insert(String MaGV, String _HoTen, String _DiaChi, DateTime _NgaySinh, String _GioiTinh, String _DienThoai, String _ChucVu, String _TrinhDo, String _MaKhoa)
         {
-            DB.usp_InsertGiangvien(MSSV, _HoTen, _NgaySinh, _DiaChi, _GioiTinh, _ChucVu, _MaLop);
+            DB.usp_InsertGiangvien(MaGV, _HoTen, _NgaySinh, _DiaChi, _GioiTinh, _DienThoai, _ChucVu, _TrinhDo, _MaKhoa);
         }
 
         //Cap nhat gv
-        public void Update(String MSSV, String _HoTen, String _DiaChi, DateTime _NgaySinh, String _GioiTinh, String _ChucVu, String _MaLop)
+        public void Update(String MaGV, String _HoTen, String _DiaChi, DateTime _NgaySinh, String _GioiTinh, String _DienThoai, String _ChucVu, String _TrinhDo, String _MaKhoa)
         {
-            DB.usp_UpdateGiangvien(MSSV, _HoTen, _NgaySinh, _DiaChi, _GioiTinh, _ChucVu, _MaLop);
+            DB.usp_UpdateGiangvien(MaGV, _HoTen, _NgaySinh, _DiaChi, _GioiTinh, _DienThoai, _ChucVu, _TrinhDo, _MaKhoa);
         }
 
         //Xoa gv
-        public void Delete(String MSSV)
+        public void Delete(String _MaGiangVien)
         {
-            DB.usp_DeleteGiangvien(MSSV);
+            DB.usp_DeleteGiangvien(_MaGiangVien);
         }
     }
 }

@@ -82,26 +82,21 @@ namespace BaoCao_PTTKHT.Properties {
         ///create table HOCKY
         ///(
         ///	MaHocKy int primary key,
+        ///	MaNamHoc int FOREIGN KEY REFERENCES NamHoc(MaNamHoc) ON DELETE CASCADE,
         ///	HocKy nvarchar(10) not null,
         ///)
         ///
         ///create table KHOA
         ///(
-        ///	MaKhoa int primary key,
+        ///	MaKhoa varchar(10) primary key,
         ///	TenKhoa nvarchar(30) not null,
         ///)
         ///
         ///create table LOP
         ///(
-        ///	MaLop int primary key,
+        ///	MaLop varchar(10) primary key,
         ///	TenLop nvarchar(30) not null,
-        ///	MaKhoa int FOREIGN KEY REFERENCES Khoa(MaKhoa) ON DELETE CASCADE,
-        ///)
-        ///
-        ///create table SINHVIEN
-        ///(
-        ///	MSSV varchar(10) primary key,
-        ///	TenSinhVien nvarc [rest of string was truncated]&quot;;.
+        ///	MaKhoa varchar(10) FOREIGN KEY REFERENCES Khoa(MaKhoa) ON  [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string CreateDatabase {
             get {
@@ -122,7 +117,9 @@ namespace BaoCao_PTTKHT.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to --region Drop Existing Procedures
+        ///   Looks up a localized string similar to USE [PlaceHolder]
+        ///GO
+        ///--region Drop Existing Procedures
         ///
         ///IF OBJECT_ID(N&apos;[dbo].[usp_InsertBangdiem]&apos;) IS NOT NULL
         ///	DROP PROCEDURE [dbo].[usp_InsertBangdiem]
@@ -136,7 +133,7 @@ namespace BaoCao_PTTKHT.Properties {
         ///IF OBJECT_ID(N&apos;[dbo].[usp_DeleteBangdiem]&apos;) IS NOT NULL
         ///	DROP PROCEDURE [dbo].[usp_DeleteBangdiem]
         ///
-        ///IF OBJECT_ID(N&apos;[dbo].[usp_SelectBangdiem]&apos;) IS NOT  [rest of string was truncated]&quot;;.
+        ///IF OBJECT_ID(N&apos;[dbo].[usp_Se [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string StoredProcedures {
             get {

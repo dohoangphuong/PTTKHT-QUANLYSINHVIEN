@@ -22,7 +22,7 @@ namespace BaoCao_PTTKHT.DAL
 	using System;
 	
 	
-	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="PlaceHolder")]
+	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="QLDT")]
 	public partial class QLDTDataContext : System.Data.Linq.DataContext
 	{
 		
@@ -36,6 +36,9 @@ namespace BaoCao_PTTKHT.DAL
     partial void InsertTAIKHOAN(TAIKHOAN instance);
     partial void UpdateTAIKHOAN(TAIKHOAN instance);
     partial void DeleteTAIKHOAN(TAIKHOAN instance);
+    partial void InsertBODEM(BODEM instance);
+    partial void UpdateBODEM(BODEM instance);
+    partial void DeleteBODEM(BODEM instance);
     partial void InsertCHITIETBANGDIEM(CHITIETBANGDIEM instance);
     partial void UpdateCHITIETBANGDIEM(CHITIETBANGDIEM instance);
     partial void DeleteCHITIETBANGDIEM(CHITIETBANGDIEM instance);
@@ -78,7 +81,7 @@ namespace BaoCao_PTTKHT.DAL
     #endregion
 		
 		public QLDTDataContext() : 
-				base(global::BaoCao_PTTKHT.Properties.Settings.Default.PlaceHolderConnectionString, mappingSource)
+				base(global::BaoCao_PTTKHT.Properties.Settings.Default.QLDTConnectionString, mappingSource)
 		{
 			OnCreated();
 		}
@@ -120,6 +123,14 @@ namespace BaoCao_PTTKHT.DAL
 			get
 			{
 				return this.GetTable<TAIKHOAN>();
+			}
+		}
+		
+		public System.Data.Linq.Table<BODEM> BODEMs
+		{
+			get
+			{
+				return this.GetTable<BODEM>();
 			}
 		}
 		
@@ -402,6 +413,13 @@ namespace BaoCao_PTTKHT.DAL
 			return ((int)(result.ReturnValue));
 		}
 		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.usp_DeleteMonhocsByMaKhoa")]
+		public int usp_DeleteMonhocsByMaKhoa([global::System.Data.Linq.Mapping.ParameterAttribute(Name="MaKhoa", DbType="VarChar(10)")] string maKhoa)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), maKhoa);
+			return ((int)(result.ReturnValue));
+		}
+		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.usp_DeleteMontienquyet")]
 		public int usp_DeleteMontienquyet([global::System.Data.Linq.Mapping.ParameterAttribute(Name="MaMTQ", DbType="Int")] System.Nullable<int> maMTQ)
 		{
@@ -487,9 +505,9 @@ namespace BaoCao_PTTKHT.DAL
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.usp_InsertGiangvien")]
-		public int usp_InsertGiangvien([global::System.Data.Linq.Mapping.ParameterAttribute(Name="MaGiangVien", DbType="VarChar(10)")] string maGiangVien, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="TenGiangVien", DbType="NVarChar(50)")] string tenGiangVien, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="NgaySinh", DbType="SmallDateTime")] System.Nullable<System.DateTime> ngaySinh, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="DiaChi", DbType="NVarChar(100)")] string diaChi, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="GioiTinh", DbType="VarChar(5)")] string gioiTinh, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ChucVu", DbType="VarChar(50)")] string chucVu, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MaKhoa", DbType="VarChar(10)")] string maKhoa)
+		public int usp_InsertGiangvien([global::System.Data.Linq.Mapping.ParameterAttribute(Name="MaGiangVien", DbType="VarChar(10)")] string maGiangVien, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="TenGiangVien", DbType="NVarChar(50)")] string tenGiangVien, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="NgaySinh", DbType="SmallDateTime")] System.Nullable<System.DateTime> ngaySinh, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="DiaChi", DbType="NVarChar(100)")] string diaChi, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="GioiTinh", DbType="VarChar(5)")] string gioiTinh, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="DienThoai", DbType="NVarChar(50)")] string dienThoai, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ChucVu", DbType="NVarChar(50)")] string chucVu, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="TrinhDo", DbType="NVarChar(50)")] string trinhDo, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MaKhoa", DbType="VarChar(10)")] string maKhoa)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), maGiangVien, tenGiangVien, ngaySinh, diaChi, gioiTinh, chucVu, maKhoa);
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), maGiangVien, tenGiangVien, ngaySinh, diaChi, gioiTinh, dienThoai, chucVu, trinhDo, maKhoa);
 			return ((int)(result.ReturnValue));
 		}
 		
@@ -515,16 +533,16 @@ namespace BaoCao_PTTKHT.DAL
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.usp_InsertLophoc")]
-		public int usp_InsertLophoc([global::System.Data.Linq.Mapping.ParameterAttribute(Name="MaLopHoc", DbType="Int")] System.Nullable<int> maLopHoc, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="TenLopHoc", DbType="NVarChar(50)")] string tenLopHoc, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Tiet", DbType="Int")] System.Nullable<int> tiet, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Thu", DbType="NVarChar(30)")] string thu, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MaMonHoc", DbType="VarChar(10)")] string maMonHoc, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MaHocKy", DbType="Int")] System.Nullable<int> maHocKy)
+		public int usp_InsertLophoc([global::System.Data.Linq.Mapping.ParameterAttribute(Name="MaLopHoc", DbType="Int")] System.Nullable<int> maLopHoc, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="TenLopHoc", DbType="NVarChar(50)")] string tenLopHoc, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Tiet", DbType="VarChar(50)")] string tiet, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Thu", DbType="NVarChar(30)")] string thu, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MaMonHoc", DbType="VarChar(10)")] string maMonHoc, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MaHocKy", DbType="Int")] System.Nullable<int> maHocKy)
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), maLopHoc, tenLopHoc, tiet, thu, maMonHoc, maHocKy);
 			return ((int)(result.ReturnValue));
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.usp_InsertMonhoc")]
-		public int usp_InsertMonhoc([global::System.Data.Linq.Mapping.ParameterAttribute(Name="MaMonHoc", DbType="VarChar(10)")] string maMonHoc, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="TenMonHoc", DbType="NVarChar(30)")] string tenMonHoc, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SoTinChi", DbType="Int")] System.Nullable<int> soTinChi)
+		public int usp_InsertMonhoc([global::System.Data.Linq.Mapping.ParameterAttribute(Name="MaMonHoc", DbType="VarChar(10)")] string maMonHoc, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="TenMonHoc", DbType="NVarChar(30)")] string tenMonHoc, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SoTinChi", DbType="Int")] System.Nullable<int> soTinChi, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MaKhoa", DbType="VarChar(10)")] string maKhoa)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), maMonHoc, tenMonHoc, soTinChi);
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), maMonHoc, tenMonHoc, soTinChi, maKhoa);
 			return ((int)(result.ReturnValue));
 		}
 		
@@ -592,9 +610,9 @@ namespace BaoCao_PTTKHT.DAL
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.usp_InsertUpdateGiangvien")]
-		public int usp_InsertUpdateGiangvien([global::System.Data.Linq.Mapping.ParameterAttribute(Name="MaGiangVien", DbType="VarChar(10)")] string maGiangVien, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="TenGiangVien", DbType="NVarChar(50)")] string tenGiangVien, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="NgaySinh", DbType="SmallDateTime")] System.Nullable<System.DateTime> ngaySinh, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="DiaChi", DbType="NVarChar(100)")] string diaChi, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="GioiTinh", DbType="VarChar(5)")] string gioiTinh, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ChucVu", DbType="VarChar(50)")] string chucVu, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MaKhoa", DbType="VarChar(10)")] string maKhoa)
+		public int usp_InsertUpdateGiangvien([global::System.Data.Linq.Mapping.ParameterAttribute(Name="MaGiangVien", DbType="VarChar(10)")] string maGiangVien, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="TenGiangVien", DbType="NVarChar(50)")] string tenGiangVien, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="NgaySinh", DbType="SmallDateTime")] System.Nullable<System.DateTime> ngaySinh, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="DiaChi", DbType="NVarChar(100)")] string diaChi, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="GioiTinh", DbType="VarChar(5)")] string gioiTinh, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="DienThoai", DbType="NVarChar(50)")] string dienThoai, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ChucVu", DbType="NVarChar(50)")] string chucVu, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="TrinhDo", DbType="NVarChar(50)")] string trinhDo, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MaKhoa", DbType="VarChar(10)")] string maKhoa)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), maGiangVien, tenGiangVien, ngaySinh, diaChi, gioiTinh, chucVu, maKhoa);
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), maGiangVien, tenGiangVien, ngaySinh, diaChi, gioiTinh, dienThoai, chucVu, trinhDo, maKhoa);
 			return ((int)(result.ReturnValue));
 		}
 		
@@ -620,16 +638,16 @@ namespace BaoCao_PTTKHT.DAL
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.usp_InsertUpdateLophoc")]
-		public int usp_InsertUpdateLophoc([global::System.Data.Linq.Mapping.ParameterAttribute(Name="MaLopHoc", DbType="Int")] System.Nullable<int> maLopHoc, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="TenLopHoc", DbType="NVarChar(50)")] string tenLopHoc, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Tiet", DbType="Int")] System.Nullable<int> tiet, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Thu", DbType="NVarChar(30)")] string thu, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MaMonHoc", DbType="VarChar(10)")] string maMonHoc, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MaHocKy", DbType="Int")] System.Nullable<int> maHocKy)
+		public int usp_InsertUpdateLophoc([global::System.Data.Linq.Mapping.ParameterAttribute(Name="MaLopHoc", DbType="Int")] System.Nullable<int> maLopHoc, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="TenLopHoc", DbType="NVarChar(50)")] string tenLopHoc, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Tiet", DbType="VarChar(50)")] string tiet, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Thu", DbType="NVarChar(30)")] string thu, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MaMonHoc", DbType="VarChar(10)")] string maMonHoc, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MaHocKy", DbType="Int")] System.Nullable<int> maHocKy)
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), maLopHoc, tenLopHoc, tiet, thu, maMonHoc, maHocKy);
 			return ((int)(result.ReturnValue));
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.usp_InsertUpdateMonhoc")]
-		public int usp_InsertUpdateMonhoc([global::System.Data.Linq.Mapping.ParameterAttribute(Name="MaMonHoc", DbType="VarChar(10)")] string maMonHoc, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="TenMonHoc", DbType="NVarChar(30)")] string tenMonHoc, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SoTinChi", DbType="Int")] System.Nullable<int> soTinChi)
+		public int usp_InsertUpdateMonhoc([global::System.Data.Linq.Mapping.ParameterAttribute(Name="MaMonHoc", DbType="VarChar(10)")] string maMonHoc, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="TenMonHoc", DbType="NVarChar(30)")] string tenMonHoc, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SoTinChi", DbType="Int")] System.Nullable<int> soTinChi, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MaKhoa", DbType="VarChar(10)")] string maKhoa)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), maMonHoc, tenMonHoc, soTinChi);
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), maMonHoc, tenMonHoc, soTinChi, maKhoa);
 			return ((int)(result.ReturnValue));
 		}
 		
@@ -687,6 +705,13 @@ namespace BaoCao_PTTKHT.DAL
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
 			return ((ISingleResult<usp_SelectBangdiemsPagedResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.usp_SelectBodem")]
+		public ISingleResult<usp_SelectBodemResult> usp_SelectBodem([global::System.Data.Linq.Mapping.ParameterAttribute(Name="TenBang", DbType="VarChar(30)")] string tenBang)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), tenBang);
+			return ((ISingleResult<usp_SelectBodemResult>)(result.ReturnValue));
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.usp_SelectChitietbangdiem")]
@@ -983,6 +1008,13 @@ namespace BaoCao_PTTKHT.DAL
 			return ((ISingleResult<usp_SelectMonhocsAllResult>)(result.ReturnValue));
 		}
 		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.usp_SelectMonhocsByMaKhoa")]
+		public ISingleResult<usp_SelectMonhocsByMaKhoaResult> usp_SelectMonhocsByMaKhoa([global::System.Data.Linq.Mapping.ParameterAttribute(Name="MaKhoa", DbType="VarChar(10)")] string maKhoa)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), maKhoa);
+			return ((ISingleResult<usp_SelectMonhocsByMaKhoaResult>)(result.ReturnValue));
+		}
+		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.usp_SelectMonhocsPaged")]
 		public ISingleResult<usp_SelectMonhocsPagedResult> usp_SelectMonhocsPaged()
 		{
@@ -1131,9 +1163,9 @@ namespace BaoCao_PTTKHT.DAL
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.usp_UpdateGiangvien")]
-		public int usp_UpdateGiangvien([global::System.Data.Linq.Mapping.ParameterAttribute(Name="MaGiangVien", DbType="VarChar(10)")] string maGiangVien, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="TenGiangVien", DbType="NVarChar(50)")] string tenGiangVien, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="NgaySinh", DbType="SmallDateTime")] System.Nullable<System.DateTime> ngaySinh, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="DiaChi", DbType="NVarChar(100)")] string diaChi, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="GioiTinh", DbType="VarChar(5)")] string gioiTinh, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ChucVu", DbType="VarChar(50)")] string chucVu, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MaKhoa", DbType="VarChar(10)")] string maKhoa)
+		public int usp_UpdateGiangvien([global::System.Data.Linq.Mapping.ParameterAttribute(Name="MaGiangVien", DbType="VarChar(10)")] string maGiangVien, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="TenGiangVien", DbType="NVarChar(50)")] string tenGiangVien, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="NgaySinh", DbType="SmallDateTime")] System.Nullable<System.DateTime> ngaySinh, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="DiaChi", DbType="NVarChar(100)")] string diaChi, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="GioiTinh", DbType="VarChar(5)")] string gioiTinh, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="DienThoai", DbType="NVarChar(50)")] string dienThoai, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ChucVu", DbType="NVarChar(50)")] string chucVu, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="TrinhDo", DbType="NVarChar(50)")] string trinhDo, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MaKhoa", DbType="VarChar(10)")] string maKhoa)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), maGiangVien, tenGiangVien, ngaySinh, diaChi, gioiTinh, chucVu, maKhoa);
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), maGiangVien, tenGiangVien, ngaySinh, diaChi, gioiTinh, dienThoai, chucVu, trinhDo, maKhoa);
 			return ((int)(result.ReturnValue));
 		}
 		
@@ -1159,16 +1191,16 @@ namespace BaoCao_PTTKHT.DAL
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.usp_UpdateLophoc")]
-		public int usp_UpdateLophoc([global::System.Data.Linq.Mapping.ParameterAttribute(Name="MaLopHoc", DbType="Int")] System.Nullable<int> maLopHoc, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="TenLopHoc", DbType="NVarChar(50)")] string tenLopHoc, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Tiet", DbType="Int")] System.Nullable<int> tiet, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Thu", DbType="NVarChar(30)")] string thu, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MaMonHoc", DbType="VarChar(10)")] string maMonHoc, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MaHocKy", DbType="Int")] System.Nullable<int> maHocKy)
+		public int usp_UpdateLophoc([global::System.Data.Linq.Mapping.ParameterAttribute(Name="MaLopHoc", DbType="Int")] System.Nullable<int> maLopHoc, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="TenLopHoc", DbType="NVarChar(50)")] string tenLopHoc, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Tiet", DbType="VarChar(50)")] string tiet, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Thu", DbType="NVarChar(30)")] string thu, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MaMonHoc", DbType="VarChar(10)")] string maMonHoc, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MaHocKy", DbType="Int")] System.Nullable<int> maHocKy)
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), maLopHoc, tenLopHoc, tiet, thu, maMonHoc, maHocKy);
 			return ((int)(result.ReturnValue));
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.usp_UpdateMonhoc")]
-		public int usp_UpdateMonhoc([global::System.Data.Linq.Mapping.ParameterAttribute(Name="MaMonHoc", DbType="VarChar(10)")] string maMonHoc, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="TenMonHoc", DbType="NVarChar(30)")] string tenMonHoc, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SoTinChi", DbType="Int")] System.Nullable<int> soTinChi)
+		public int usp_UpdateMonhoc([global::System.Data.Linq.Mapping.ParameterAttribute(Name="MaMonHoc", DbType="VarChar(10)")] string maMonHoc, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="TenMonHoc", DbType="NVarChar(30)")] string tenMonHoc, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SoTinChi", DbType="Int")] System.Nullable<int> soTinChi, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MaKhoa", DbType="VarChar(10)")] string maKhoa)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), maMonHoc, tenMonHoc, soTinChi);
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), maMonHoc, tenMonHoc, soTinChi, maKhoa);
 			return ((int)(result.ReturnValue));
 		}
 		
@@ -1458,6 +1490,92 @@ namespace BaoCao_PTTKHT.DAL
 					this._LoaiTaiKhoan = value;
 					this.SendPropertyChanged("LoaiTaiKhoan");
 					this.OnLoaiTaiKhoanChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.BODEM")]
+	public partial class BODEM : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private string _TenBang;
+		
+		private System.Nullable<int> _SoDem;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnTenBangChanging(string value);
+    partial void OnTenBangChanged();
+    partial void OnSoDemChanging(System.Nullable<int> value);
+    partial void OnSoDemChanged();
+    #endregion
+		
+		public BODEM()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TenBang", DbType="VarChar(30) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string TenBang
+		{
+			get
+			{
+				return this._TenBang;
+			}
+			set
+			{
+				if ((this._TenBang != value))
+				{
+					this.OnTenBangChanging(value);
+					this.SendPropertyChanging();
+					this._TenBang = value;
+					this.SendPropertyChanged("TenBang");
+					this.OnTenBangChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SoDem", DbType="Int")]
+		public System.Nullable<int> SoDem
+		{
+			get
+			{
+				return this._SoDem;
+			}
+			set
+			{
+				if ((this._SoDem != value))
+				{
+					this.OnSoDemChanging(value);
+					this.SendPropertyChanging();
+					this._SoDem = value;
+					this.SendPropertyChanged("SoDem");
+					this.OnSoDemChanged();
 				}
 			}
 		}
@@ -2108,7 +2226,7 @@ namespace BaoCao_PTTKHT.DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="GIANGVIEN_GIANGDAY", Storage="_GIANGVIEN", ThisKey="MaGiangVien", OtherKey="MaGiangVien", IsForeignKey=true, DeleteRule="CASCADE")]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="GIANGVIEN_GIANGDAY", Storage="_GIANGVIEN", ThisKey="MaGiangVien", OtherKey="MaGiangVien", IsForeignKey=true)]
 		public GIANGVIEN GIANGVIEN
 		{
 			get
@@ -2213,7 +2331,11 @@ namespace BaoCao_PTTKHT.DAL
 		
 		private string _GioiTinh;
 		
+		private string _DienThoai;
+		
 		private string _ChucVu;
+		
+		private string _TrinhDo;
 		
 		private string _MaKhoa;
 		
@@ -2235,8 +2357,12 @@ namespace BaoCao_PTTKHT.DAL
     partial void OnDiaChiChanged();
     partial void OnGioiTinhChanging(string value);
     partial void OnGioiTinhChanged();
+    partial void OnDienThoaiChanging(string value);
+    partial void OnDienThoaiChanged();
     partial void OnChucVuChanging(string value);
     partial void OnChucVuChanged();
+    partial void OnTrinhDoChanging(string value);
+    partial void OnTrinhDoChanged();
     partial void OnMaKhoaChanging(string value);
     partial void OnMaKhoaChanged();
     #endregion
@@ -2348,7 +2474,27 @@ namespace BaoCao_PTTKHT.DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ChucVu", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DienThoai", DbType="NVarChar(50)")]
+		public string DienThoai
+		{
+			get
+			{
+				return this._DienThoai;
+			}
+			set
+			{
+				if ((this._DienThoai != value))
+				{
+					this.OnDienThoaiChanging(value);
+					this.SendPropertyChanging();
+					this._DienThoai = value;
+					this.SendPropertyChanged("DienThoai");
+					this.OnDienThoaiChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ChucVu", DbType="NVarChar(50)")]
 		public string ChucVu
 		{
 			get
@@ -2364,6 +2510,26 @@ namespace BaoCao_PTTKHT.DAL
 					this._ChucVu = value;
 					this.SendPropertyChanged("ChucVu");
 					this.OnChucVuChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TrinhDo", DbType="NVarChar(50)")]
+		public string TrinhDo
+		{
+			get
+			{
+				return this._TrinhDo;
+			}
+			set
+			{
+				if ((this._TrinhDo != value))
+				{
+					this.OnTrinhDoChanging(value);
+					this.SendPropertyChanging();
+					this._TrinhDo = value;
+					this.SendPropertyChanged("TrinhDo");
+					this.OnTrinhDoChanged();
 				}
 			}
 		}
@@ -2665,6 +2831,8 @@ namespace BaoCao_PTTKHT.DAL
 		
 		private EntitySet<LOP> _LOPs;
 		
+		private EntitySet<MONHOC> _MONHOCs;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -2679,6 +2847,7 @@ namespace BaoCao_PTTKHT.DAL
 		{
 			this._GIANGVIENs = new EntitySet<GIANGVIEN>(new Action<GIANGVIEN>(this.attach_GIANGVIENs), new Action<GIANGVIEN>(this.detach_GIANGVIENs));
 			this._LOPs = new EntitySet<LOP>(new Action<LOP>(this.attach_LOPs), new Action<LOP>(this.detach_LOPs));
+			this._MONHOCs = new EntitySet<MONHOC>(new Action<MONHOC>(this.attach_MONHOCs), new Action<MONHOC>(this.detach_MONHOCs));
 			OnCreated();
 		}
 		
@@ -2748,6 +2917,19 @@ namespace BaoCao_PTTKHT.DAL
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="KHOA_MONHOC", Storage="_MONHOCs", ThisKey="MaKhoa", OtherKey="MaKhoa")]
+		public EntitySet<MONHOC> MONHOCs
+		{
+			get
+			{
+				return this._MONHOCs;
+			}
+			set
+			{
+				this._MONHOCs.Assign(value);
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -2787,6 +2969,18 @@ namespace BaoCao_PTTKHT.DAL
 		}
 		
 		private void detach_LOPs(LOP entity)
+		{
+			this.SendPropertyChanging();
+			entity.KHOA = null;
+		}
+		
+		private void attach_MONHOCs(MONHOC entity)
+		{
+			this.SendPropertyChanging();
+			entity.KHOA = this;
+		}
+		
+		private void detach_MONHOCs(MONHOC entity)
 		{
 			this.SendPropertyChanging();
 			entity.KHOA = null;
@@ -3047,7 +3241,7 @@ namespace BaoCao_PTTKHT.DAL
 		
 		private string _TenLopHoc;
 		
-		private System.Nullable<int> _Tiet;
+		private string _Tiet;
 		
 		private string _Thu;
 		
@@ -3073,7 +3267,7 @@ namespace BaoCao_PTTKHT.DAL
     partial void OnMaLopHocChanged();
     partial void OnTenLopHocChanging(string value);
     partial void OnTenLopHocChanged();
-    partial void OnTietChanging(System.Nullable<int> value);
+    partial void OnTietChanging(string value);
     partial void OnTietChanged();
     partial void OnThuChanging(string value);
     partial void OnThuChanged();
@@ -3133,8 +3327,8 @@ namespace BaoCao_PTTKHT.DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Tiet", DbType="Int")]
-		public System.Nullable<int> Tiet
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Tiet", DbType="VarChar(50)")]
+		public string Tiet
 		{
 			get
 			{
@@ -3397,11 +3591,15 @@ namespace BaoCao_PTTKHT.DAL
 		
 		private int _SoTinChi;
 		
+		private string _MaKhoa;
+		
 		private EntitySet<LOPHOC> _LOPHOCs;
 		
 		private EntitySet<MONTIENQUYET> _MONTIENQUYETs;
 		
 		private EntitySet<MONTIENQUYET> _MONTIENQUYETs1;
+		
+		private EntityRef<KHOA> _KHOA;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -3413,6 +3611,8 @@ namespace BaoCao_PTTKHT.DAL
     partial void OnTenMonHocChanged();
     partial void OnSoTinChiChanging(int value);
     partial void OnSoTinChiChanged();
+    partial void OnMaKhoaChanging(string value);
+    partial void OnMaKhoaChanged();
     #endregion
 		
 		public MONHOC()
@@ -3420,6 +3620,7 @@ namespace BaoCao_PTTKHT.DAL
 			this._LOPHOCs = new EntitySet<LOPHOC>(new Action<LOPHOC>(this.attach_LOPHOCs), new Action<LOPHOC>(this.detach_LOPHOCs));
 			this._MONTIENQUYETs = new EntitySet<MONTIENQUYET>(new Action<MONTIENQUYET>(this.attach_MONTIENQUYETs), new Action<MONTIENQUYET>(this.detach_MONTIENQUYETs));
 			this._MONTIENQUYETs1 = new EntitySet<MONTIENQUYET>(new Action<MONTIENQUYET>(this.attach_MONTIENQUYETs1), new Action<MONTIENQUYET>(this.detach_MONTIENQUYETs1));
+			this._KHOA = default(EntityRef<KHOA>);
 			OnCreated();
 		}
 		
@@ -3483,6 +3684,30 @@ namespace BaoCao_PTTKHT.DAL
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaKhoa", DbType="VarChar(10)")]
+		public string MaKhoa
+		{
+			get
+			{
+				return this._MaKhoa;
+			}
+			set
+			{
+				if ((this._MaKhoa != value))
+				{
+					if (this._KHOA.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnMaKhoaChanging(value);
+					this.SendPropertyChanging();
+					this._MaKhoa = value;
+					this.SendPropertyChanged("MaKhoa");
+					this.OnMaKhoaChanged();
+				}
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="MONHOC_LOPHOC", Storage="_LOPHOCs", ThisKey="MaMonHoc", OtherKey="MaMonHoc")]
 		public EntitySet<LOPHOC> LOPHOCs
 		{
@@ -3519,6 +3744,40 @@ namespace BaoCao_PTTKHT.DAL
 			set
 			{
 				this._MONTIENQUYETs1.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="KHOA_MONHOC", Storage="_KHOA", ThisKey="MaKhoa", OtherKey="MaKhoa", IsForeignKey=true, DeleteRule="CASCADE")]
+		public KHOA KHOA
+		{
+			get
+			{
+				return this._KHOA.Entity;
+			}
+			set
+			{
+				KHOA previousValue = this._KHOA.Entity;
+				if (((previousValue != value) 
+							|| (this._KHOA.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._KHOA.Entity = null;
+						previousValue.MONHOCs.Remove(this);
+					}
+					this._KHOA.Entity = value;
+					if ((value != null))
+					{
+						value.MONHOCs.Add(this);
+						this._MaKhoa = value.MaKhoa;
+					}
+					else
+					{
+						this._MaKhoa = default(string);
+					}
+					this.SendPropertyChanged("KHOA");
+				}
 			}
 		}
 		
@@ -4359,6 +4618,32 @@ namespace BaoCao_PTTKHT.DAL
 				if ((this._MaLopHoc != value))
 				{
 					this._MaLopHoc = value;
+				}
+			}
+		}
+	}
+	
+	public partial class usp_SelectBodemResult
+	{
+		
+		private System.Nullable<int> _SoDem;
+		
+		public usp_SelectBodemResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SoDem", DbType="Int")]
+		public System.Nullable<int> SoDem
+		{
+			get
+			{
+				return this._SoDem;
+			}
+			set
+			{
+				if ((this._SoDem != value))
+				{
+					this._SoDem = value;
 				}
 			}
 		}
@@ -5493,7 +5778,11 @@ namespace BaoCao_PTTKHT.DAL
 		
 		private string _GioiTinh;
 		
+		private string _DienThoai;
+		
 		private string _ChucVu;
+		
+		private string _TrinhDo;
 		
 		private string _MaKhoa;
 		
@@ -5581,7 +5870,23 @@ namespace BaoCao_PTTKHT.DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ChucVu", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DienThoai", DbType="NVarChar(50)")]
+		public string DienThoai
+		{
+			get
+			{
+				return this._DienThoai;
+			}
+			set
+			{
+				if ((this._DienThoai != value))
+				{
+					this._DienThoai = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ChucVu", DbType="NVarChar(50)")]
 		public string ChucVu
 		{
 			get
@@ -5593,6 +5898,22 @@ namespace BaoCao_PTTKHT.DAL
 				if ((this._ChucVu != value))
 				{
 					this._ChucVu = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TrinhDo", DbType="NVarChar(50)")]
+		public string TrinhDo
+		{
+			get
+			{
+				return this._TrinhDo;
+			}
+			set
+			{
+				if ((this._TrinhDo != value))
+				{
+					this._TrinhDo = value;
 				}
 			}
 		}
@@ -5627,7 +5948,11 @@ namespace BaoCao_PTTKHT.DAL
 		
 		private string _GioiTinh;
 		
+		private string _DienThoai;
+		
 		private string _ChucVu;
+		
+		private string _TrinhDo;
 		
 		private string _MaKhoa;
 		
@@ -5715,7 +6040,23 @@ namespace BaoCao_PTTKHT.DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ChucVu", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DienThoai", DbType="NVarChar(50)")]
+		public string DienThoai
+		{
+			get
+			{
+				return this._DienThoai;
+			}
+			set
+			{
+				if ((this._DienThoai != value))
+				{
+					this._DienThoai = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ChucVu", DbType="NVarChar(50)")]
 		public string ChucVu
 		{
 			get
@@ -5727,6 +6068,22 @@ namespace BaoCao_PTTKHT.DAL
 				if ((this._ChucVu != value))
 				{
 					this._ChucVu = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TrinhDo", DbType="NVarChar(50)")]
+		public string TrinhDo
+		{
+			get
+			{
+				return this._TrinhDo;
+			}
+			set
+			{
+				if ((this._TrinhDo != value))
+				{
+					this._TrinhDo = value;
 				}
 			}
 		}
@@ -5761,7 +6118,11 @@ namespace BaoCao_PTTKHT.DAL
 		
 		private string _GioiTinh;
 		
+		private string _DienThoai;
+		
 		private string _ChucVu;
+		
+		private string _TrinhDo;
 		
 		private string _MaKhoa;
 		
@@ -5849,7 +6210,23 @@ namespace BaoCao_PTTKHT.DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ChucVu", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DienThoai", DbType="NVarChar(50)")]
+		public string DienThoai
+		{
+			get
+			{
+				return this._DienThoai;
+			}
+			set
+			{
+				if ((this._DienThoai != value))
+				{
+					this._DienThoai = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ChucVu", DbType="NVarChar(50)")]
 		public string ChucVu
 		{
 			get
@@ -5861,6 +6238,22 @@ namespace BaoCao_PTTKHT.DAL
 				if ((this._ChucVu != value))
 				{
 					this._ChucVu = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TrinhDo", DbType="NVarChar(50)")]
+		public string TrinhDo
+		{
+			get
+			{
+				return this._TrinhDo;
+			}
+			set
+			{
+				if ((this._TrinhDo != value))
+				{
+					this._TrinhDo = value;
 				}
 			}
 		}
@@ -5895,7 +6288,11 @@ namespace BaoCao_PTTKHT.DAL
 		
 		private string _GioiTinh;
 		
+		private string _DienThoai;
+		
 		private string _ChucVu;
+		
+		private string _TrinhDo;
 		
 		private string _MaKhoa;
 		
@@ -5983,7 +6380,23 @@ namespace BaoCao_PTTKHT.DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ChucVu", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DienThoai", DbType="NVarChar(50)")]
+		public string DienThoai
+		{
+			get
+			{
+				return this._DienThoai;
+			}
+			set
+			{
+				if ((this._DienThoai != value))
+				{
+					this._DienThoai = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ChucVu", DbType="NVarChar(50)")]
 		public string ChucVu
 		{
 			get
@@ -5995,6 +6408,22 @@ namespace BaoCao_PTTKHT.DAL
 				if ((this._ChucVu != value))
 				{
 					this._ChucVu = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TrinhDo", DbType="NVarChar(50)")]
+		public string TrinhDo
+		{
+			get
+			{
+				return this._TrinhDo;
+			}
+			set
+			{
+				if ((this._TrinhDo != value))
+				{
+					this._TrinhDo = value;
 				}
 			}
 		}
@@ -6509,7 +6938,7 @@ namespace BaoCao_PTTKHT.DAL
 		
 		private string _TenLopHoc;
 		
-		private System.Nullable<int> _Tiet;
+		private string _Tiet;
 		
 		private string _Thu;
 		
@@ -6553,8 +6982,8 @@ namespace BaoCao_PTTKHT.DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Tiet", DbType="Int")]
-		public System.Nullable<int> Tiet
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Tiet", DbType="VarChar(50)")]
+		public string Tiet
 		{
 			get
 			{
@@ -6625,7 +7054,7 @@ namespace BaoCao_PTTKHT.DAL
 		
 		private string _TenLopHoc;
 		
-		private System.Nullable<int> _Tiet;
+		private string _Tiet;
 		
 		private string _Thu;
 		
@@ -6669,8 +7098,8 @@ namespace BaoCao_PTTKHT.DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Tiet", DbType="Int")]
-		public System.Nullable<int> Tiet
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Tiet", DbType="VarChar(50)")]
+		public string Tiet
 		{
 			get
 			{
@@ -6741,7 +7170,7 @@ namespace BaoCao_PTTKHT.DAL
 		
 		private string _TenLopHoc;
 		
-		private System.Nullable<int> _Tiet;
+		private string _Tiet;
 		
 		private string _Thu;
 		
@@ -6785,8 +7214,8 @@ namespace BaoCao_PTTKHT.DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Tiet", DbType="Int")]
-		public System.Nullable<int> Tiet
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Tiet", DbType="VarChar(50)")]
+		public string Tiet
 		{
 			get
 			{
@@ -6857,7 +7286,7 @@ namespace BaoCao_PTTKHT.DAL
 		
 		private string _TenLopHoc;
 		
-		private System.Nullable<int> _Tiet;
+		private string _Tiet;
 		
 		private string _Thu;
 		
@@ -6901,8 +7330,8 @@ namespace BaoCao_PTTKHT.DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Tiet", DbType="Int")]
-		public System.Nullable<int> Tiet
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Tiet", DbType="VarChar(50)")]
+		public string Tiet
 		{
 			get
 			{
@@ -6973,7 +7402,7 @@ namespace BaoCao_PTTKHT.DAL
 		
 		private string _TenLopHoc;
 		
-		private System.Nullable<int> _Tiet;
+		private string _Tiet;
 		
 		private string _Thu;
 		
@@ -7017,8 +7446,8 @@ namespace BaoCao_PTTKHT.DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Tiet", DbType="Int")]
-		public System.Nullable<int> Tiet
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Tiet", DbType="VarChar(50)")]
+		public string Tiet
 		{
 			get
 			{
@@ -7411,6 +7840,8 @@ namespace BaoCao_PTTKHT.DAL
 		
 		private int _SoTinChi;
 		
+		private string _MaKhoa;
+		
 		public usp_SelectMonhocResult()
 		{
 		}
@@ -7462,6 +7893,22 @@ namespace BaoCao_PTTKHT.DAL
 				}
 			}
 		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaKhoa", DbType="VarChar(10)")]
+		public string MaKhoa
+		{
+			get
+			{
+				return this._MaKhoa;
+			}
+			set
+			{
+				if ((this._MaKhoa != value))
+				{
+					this._MaKhoa = value;
+				}
+			}
+		}
 	}
 	
 	public partial class usp_SelectMonhocsAllResult
@@ -7472,6 +7919,8 @@ namespace BaoCao_PTTKHT.DAL
 		private string _TenMonHoc;
 		
 		private int _SoTinChi;
+		
+		private string _MaKhoa;
 		
 		public usp_SelectMonhocsAllResult()
 		{
@@ -7524,6 +7973,102 @@ namespace BaoCao_PTTKHT.DAL
 				}
 			}
 		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaKhoa", DbType="VarChar(10)")]
+		public string MaKhoa
+		{
+			get
+			{
+				return this._MaKhoa;
+			}
+			set
+			{
+				if ((this._MaKhoa != value))
+				{
+					this._MaKhoa = value;
+				}
+			}
+		}
+	}
+	
+	public partial class usp_SelectMonhocsByMaKhoaResult
+	{
+		
+		private string _MaMonHoc;
+		
+		private string _TenMonHoc;
+		
+		private int _SoTinChi;
+		
+		private string _MaKhoa;
+		
+		public usp_SelectMonhocsByMaKhoaResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaMonHoc", DbType="VarChar(10) NOT NULL", CanBeNull=false)]
+		public string MaMonHoc
+		{
+			get
+			{
+				return this._MaMonHoc;
+			}
+			set
+			{
+				if ((this._MaMonHoc != value))
+				{
+					this._MaMonHoc = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TenMonHoc", DbType="NVarChar(30) NOT NULL", CanBeNull=false)]
+		public string TenMonHoc
+		{
+			get
+			{
+				return this._TenMonHoc;
+			}
+			set
+			{
+				if ((this._TenMonHoc != value))
+				{
+					this._TenMonHoc = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SoTinChi", DbType="Int NOT NULL")]
+		public int SoTinChi
+		{
+			get
+			{
+				return this._SoTinChi;
+			}
+			set
+			{
+				if ((this._SoTinChi != value))
+				{
+					this._SoTinChi = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaKhoa", DbType="VarChar(10)")]
+		public string MaKhoa
+		{
+			get
+			{
+				return this._MaKhoa;
+			}
+			set
+			{
+				if ((this._MaKhoa != value))
+				{
+					this._MaKhoa = value;
+				}
+			}
+		}
 	}
 	
 	public partial class usp_SelectMonhocsPagedResult
@@ -7534,6 +8079,8 @@ namespace BaoCao_PTTKHT.DAL
 		private string _TenMonHoc;
 		
 		private int _SoTinChi;
+		
+		private string _MaKhoa;
 		
 		public usp_SelectMonhocsPagedResult()
 		{
@@ -7583,6 +8130,22 @@ namespace BaoCao_PTTKHT.DAL
 				if ((this._SoTinChi != value))
 				{
 					this._SoTinChi = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaKhoa", DbType="VarChar(10)")]
+		public string MaKhoa
+		{
+			get
+			{
+				return this._MaKhoa;
+			}
+			set
+			{
+				if ((this._MaKhoa != value))
+				{
+					this._MaKhoa = value;
 				}
 			}
 		}
