@@ -26,15 +26,15 @@ namespace BaoCao_PTTKHT.BLL
         }
 
         //Insert diem
-        public void Insert(int _MaDiem, int _MaBangDiem, double _SoDiem, int _HeSo)
+        public void Insert(int _MaDiem, double _SoDiem, int _HeSo)
         {
-            DB.usp_InsertDiem(_MaDiem, _MaBangDiem, _SoDiem, _HeSo);
+            DB.usp_InsertDiem(_MaDiem, _SoDiem, _HeSo);
         }
 
         //Cap nhat diem
-        public void Update(int _MaDiem, int _MaBangDiem, double _SoDiem, int _HeSo)
+        public void Update(int _MaDiem, double _SoDiem, int _HeSo)
         {
-            DB.usp_UpdateDiem(_MaDiem, _MaBangDiem, _SoDiem, _HeSo);
+            DB.usp_UpdateDiem(_MaDiem, _SoDiem, _HeSo);
         }
 
         //Xoa diem

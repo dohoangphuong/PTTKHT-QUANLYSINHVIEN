@@ -64,6 +64,7 @@
   <ItemGroup>
     <Compile Include="BLL\BLL_BangDiem.cs" />
     <Compile Include="BLL\BLL_BoDem.cs" />
+    <Compile Include="BLL\BLL_ChiTietBangDiem.cs" />
     <Compile Include="BLL\BLL_ChiTietLopHoc.cs" />
     <Compile Include="BLL\BLL_Diem.cs" />
     <Compile Include="BLL\BLL_GiangDay.cs" />

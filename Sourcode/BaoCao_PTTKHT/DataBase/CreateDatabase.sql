@@ -1,5 +1,3 @@
-create database [PlaceHolder]
-go
 USE [PlaceHolder]
 GO
 
@@ -14,8 +12,6 @@ create table HOCKY
 	MaHocKy int primary key,
 	MaNamHoc int FOREIGN KEY REFERENCES NamHoc(MaNamHoc) ON DELETE CASCADE,
 	HocKy nvarchar(10) not null,
-	NgayBatDau datetime,
-	NgayKetThuc datetime,
 )
 
 create table KHOA
@@ -95,18 +91,24 @@ create table CHITIETLOPHOC
 	MSSV varchar(10) FOREIGN KEY REFERENCES SINHVIEN(MSSV) ON DELETE CASCADE,
 )
 
+create table DIEM
+(
+	MaDiem int primary key,
+	SoDiem float not null,
+	HeSo int not null,
+)
+
 create table BANGDIEM
 (
 	MaBangDiem int primary key,
 	MaLopHoc int FOREIGN KEY REFERENCES LOPHOC(MaLopHoc) ON DELETE CASCADE,
 )
 
-create table DIEM
+create table CHITIETBANGDIEM
 (
-	MaDiem int primary key,
+	MaCTBangDiem int primary key,
 	MaBangDiem int FOREIGN KEY REFERENCES BANGDIEM(MaBangDiem) ON DELETE CASCADE,
-	SoDiem float not null,
-	HeSo int not null,
+	MaDiem int FOREIGN KEY REFERENCES DIEM(MaDiem) ON DELETE CASCADE,
 )
 
 create table TAIKHOAN
@@ -156,6 +158,14 @@ AS
 	WHERE TenBang = 'BANGDIEM'
 
 GO
+CREATE TRIGGER TRIGGER_CTBD ON CHITIETBANGDIEM
+FOR INSERT
+AS
+	UPDATE BODEM
+	SET SoDem = SoDem + 1
+	WHERE TenBang = 'CHITIETBANGDIEM'
+
+GO
 CREATE TRIGGER TRIGGER_D ON DIEM
 FOR INSERT
 AS
@@ -202,6 +212,7 @@ insert into BODEM values('HOCKY', 0)
 insert into BODEM values('BANGDIEM', 0)
 insert into BODEM values('DIEM', 0)
 insert into BODEM values('GIANGDAY', 0)
+insert into BODEM values('CHITIETBANGDIEM', 0)
 insert into BODEM values('CHITIETLOPHOC', 0)
 insert into BODEM values('LOPHOC', 0)
 insert into BODEM values('GIANGVIEN', 0)
