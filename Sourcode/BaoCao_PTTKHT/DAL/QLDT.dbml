@@ -1,10 +1,10 @@
-﻿<?xml version="1.0" encoding="utf-8"?><Database Name="QLDT" Class="QLDTDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=NHAT\SQLEXPRESS;Initial Catalog=QLDT;Integrated Security=True" SettingsObjectName="BaoCao_PTTKHT.Properties.Settings" SettingsPropertyName="QLDTConnectionString" Provider="System.Data.SqlClient" />
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="PlaceHolder" Class="QLDTDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=NHAT\SQLEXPRESS;Initial Catalog=PlaceHolder;Integrated Security=True" SettingsObjectName="BaoCao_PTTKHT.Properties.Settings" SettingsPropertyName="PlaceHolderConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.BANGDIEM" Member="BANGDIEMs">
     <Type Name="BANGDIEM">
       <Column Name="MaBangDiem" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="MaLopHoc" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Association Name="BANGDIEM_CHITIETBANGDIEM" Member="CHITIETBANGDIEMs" ThisKey="MaBangDiem" OtherKey="MaBangDiem" Type="CHITIETBANGDIEM" />
+      <Association Name="BANGDIEM_DIEM" Member="DIEMs" ThisKey="MaBangDiem" OtherKey="MaBangDiem" Type="DIEM" />
       <Association Name="LOPHOC_BANGDIEM" Member="LOPHOC" ThisKey="MaLopHoc" OtherKey="MaLopHoc" Type="LOPHOC" IsForeignKey="true" DeleteRule="CASCADE" />
     </Type>
   </Table>
@@ -22,15 +22,6 @@
       <Column Name="SoDem" Type="System.Int32" DbType="Int" CanBeNull="true" />
     </Type>
   </Table>
-  <Table Name="dbo.CHITIETBANGDIEM" Member="CHITIETBANGDIEMs">
-    <Type Name="CHITIETBANGDIEM">
-      <Column Name="MaCTBangDiem" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="MaBangDiem" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="MaDiem" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Association Name="BANGDIEM_CHITIETBANGDIEM" Member="BANGDIEM" ThisKey="MaBangDiem" OtherKey="MaBangDiem" Type="BANGDIEM" IsForeignKey="true" DeleteRule="CASCADE" />
-      <Association Name="DIEM_CHITIETBANGDIEM" Member="DIEM" ThisKey="MaDiem" OtherKey="MaDiem" Type="DIEM" IsForeignKey="true" DeleteRule="CASCADE" />
-    </Type>
-  </Table>
   <Table Name="dbo.CHITIETLOPHOC" Member="CHITIETLOPHOCs">
     <Type Name="CHITIETLOPHOC">
       <Column Name="MaCTLopHoc" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -43,9 +34,10 @@
   <Table Name="dbo.DIEM" Member="DIEMs">
     <Type Name="DIEM">
       <Column Name="MaDiem" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MaBangDiem" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="SoDiem" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
       <Column Name="HeSo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Association Name="DIEM_CHITIETBANGDIEM" Member="CHITIETBANGDIEMs" ThisKey="MaDiem" OtherKey="MaDiem" Type="CHITIETBANGDIEM" />
+      <Association Name="BANGDIEM_DIEM" Member="BANGDIEM" ThisKey="MaBangDiem" OtherKey="MaBangDiem" Type="BANGDIEM" IsForeignKey="true" DeleteRule="CASCADE" />
     </Type>
   </Table>
   <Table Name="dbo.GIANGDAY" Member="GIANGDAYs">
@@ -77,6 +69,8 @@
       <Column Name="MaHocKy" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="MaNamHoc" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="HocKy" Member="HocKy1" Type="System.String" DbType="NVarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="NgayBatDau" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="NgayKetThuc" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Association Name="HOCKY_LOPHOC" Member="LOPHOCs" ThisKey="MaHocKy" OtherKey="MaHocKy" Type="LOPHOC" />
       <Association Name="NAMHOC_HOCKY" Member="NAMHOC" ThisKey="MaNamHoc" OtherKey="MaNamHoc" Type="NAMHOC" IsForeignKey="true" DeleteRule="CASCADE" />
     </Type>
@@ -173,18 +167,6 @@
     <Parameter Name="MaLopHoc" Parameter="maLopHoc" Type="System.Int32" DbType="Int" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Name="dbo.usp_DeleteChitietbangdiem" Method="usp_DeleteChitietbangdiem">
-    <Parameter Name="MaCTBangDiem" Parameter="maCTBangDiem" Type="System.Int32" DbType="Int" />
-    <Return Type="System.Int32" />
-  </Function>
-  <Function Name="dbo.usp_DeleteChitietbangdiemsByMaBangDiem" Method="usp_DeleteChitietbangdiemsByMaBangDiem">
-    <Parameter Name="MaBangDiem" Parameter="maBangDiem" Type="System.Int32" DbType="Int" />
-    <Return Type="System.Int32" />
-  </Function>
-  <Function Name="dbo.usp_DeleteChitietbangdiemsByMaDiem" Method="usp_DeleteChitietbangdiemsByMaDiem">
-    <Parameter Name="MaDiem" Parameter="maDiem" Type="System.Int32" DbType="Int" />
-    <Return Type="System.Int32" />
-  </Function>
   <Function Name="dbo.usp_DeleteChitietlophoc" Method="usp_DeleteChitietlophoc">
     <Parameter Name="MaCTLopHoc" Parameter="maCTLopHoc" Type="System.Int32" DbType="Int" />
     <Return Type="System.Int32" />
@@ -199,6 +181,10 @@
   </Function>
   <Function Name="dbo.usp_DeleteDiem" Method="usp_DeleteDiem">
     <Parameter Name="MaDiem" Parameter="maDiem" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.usp_DeleteDiemsByMaBangDiem" Method="usp_DeleteDiemsByMaBangDiem">
+    <Parameter Name="MaBangDiem" Parameter="maBangDiem" Type="System.Int32" DbType="Int" />
     <Return Type="System.Int32" />
   </Function>
   <Function Name="dbo.usp_DeleteGiangday" Method="usp_DeleteGiangday">
@@ -298,12 +284,6 @@
     <Parameter Name="MaLopHoc" Parameter="maLopHoc" Type="System.Int32" DbType="Int" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Name="dbo.usp_InsertChitietbangdiem" Method="usp_InsertChitietbangdiem">
-    <Parameter Name="MaCTBangDiem" Parameter="maCTBangDiem" Type="System.Int32" DbType="Int" />
-    <Parameter Name="MaBangDiem" Parameter="maBangDiem" Type="System.Int32" DbType="Int" />
-    <Parameter Name="MaDiem" Parameter="maDiem" Type="System.Int32" DbType="Int" />
-    <Return Type="System.Int32" />
-  </Function>
   <Function Name="dbo.usp_InsertChitietlophoc" Method="usp_InsertChitietlophoc">
     <Parameter Name="MaCTLopHoc" Parameter="maCTLopHoc" Type="System.Int32" DbType="Int" />
     <Parameter Name="MaLopHoc" Parameter="maLopHoc" Type="System.Int32" DbType="Int" />
@@ -312,6 +292,7 @@
   </Function>
   <Function Name="dbo.usp_InsertDiem" Method="usp_InsertDiem">
     <Parameter Name="MaDiem" Parameter="maDiem" Type="System.Int32" DbType="Int" />
+    <Parameter Name="MaBangDiem" Parameter="maBangDiem" Type="System.Int32" DbType="Int" />
     <Parameter Name="SoDiem" Parameter="soDiem" Type="System.Double" DbType="Float" />
     <Parameter Name="HeSo" Parameter="heSo" Type="System.Int32" DbType="Int" />
     <Return Type="System.Int32" />
@@ -401,12 +382,6 @@
     <Parameter Name="MaLopHoc" Parameter="maLopHoc" Type="System.Int32" DbType="Int" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Name="dbo.usp_InsertUpdateChitietbangdiem" Method="usp_InsertUpdateChitietbangdiem">
-    <Parameter Name="MaCTBangDiem" Parameter="maCTBangDiem" Type="System.Int32" DbType="Int" />
-    <Parameter Name="MaBangDiem" Parameter="maBangDiem" Type="System.Int32" DbType="Int" />
-    <Parameter Name="MaDiem" Parameter="maDiem" Type="System.Int32" DbType="Int" />
-    <Return Type="System.Int32" />
-  </Function>
   <Function Name="dbo.usp_InsertUpdateChitietlophoc" Method="usp_InsertUpdateChitietlophoc">
     <Parameter Name="MaCTLopHoc" Parameter="maCTLopHoc" Type="System.Int32" DbType="Int" />
     <Parameter Name="MaLopHoc" Parameter="maLopHoc" Type="System.Int32" DbType="Int" />
@@ -415,6 +390,7 @@
   </Function>
   <Function Name="dbo.usp_InsertUpdateDiem" Method="usp_InsertUpdateDiem">
     <Parameter Name="MaDiem" Parameter="maDiem" Type="System.Int32" DbType="Int" />
+    <Parameter Name="MaBangDiem" Parameter="maBangDiem" Type="System.Int32" DbType="Int" />
     <Parameter Name="SoDiem" Parameter="soDiem" Type="System.Double" DbType="Float" />
     <Parameter Name="HeSo" Parameter="heSo" Type="System.Int32" DbType="Int" />
     <Return Type="System.Int32" />
@@ -531,44 +507,6 @@
       <Column Name="SoDem" Type="System.Int32" DbType="Int" CanBeNull="true" />
     </ElementType>
   </Function>
-  <Function Name="dbo.usp_SelectChitietbangdiem" Method="usp_SelectChitietbangdiem">
-    <Parameter Name="MaCTBangDiem" Parameter="maCTBangDiem" Type="System.Int32" DbType="Int" />
-    <ElementType Name="usp_SelectChitietbangdiemResult">
-      <Column Name="MaCTBangDiem" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="MaBangDiem" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="MaDiem" Type="System.Int32" DbType="Int" CanBeNull="true" />
-    </ElementType>
-  </Function>
-  <Function Name="dbo.usp_SelectChitietbangdiemsAll" Method="usp_SelectChitietbangdiemsAll">
-    <ElementType Name="usp_SelectChitietbangdiemsAllResult">
-      <Column Name="MaCTBangDiem" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="MaBangDiem" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="MaDiem" Type="System.Int32" DbType="Int" CanBeNull="true" />
-    </ElementType>
-  </Function>
-  <Function Name="dbo.usp_SelectChitietbangdiemsByMaBangDiem" Method="usp_SelectChitietbangdiemsByMaBangDiem">
-    <Parameter Name="MaBangDiem" Parameter="maBangDiem" Type="System.Int32" DbType="Int" />
-    <ElementType Name="usp_SelectChitietbangdiemsByMaBangDiemResult">
-      <Column Name="MaCTBangDiem" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="MaBangDiem" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="MaDiem" Type="System.Int32" DbType="Int" CanBeNull="true" />
-    </ElementType>
-  </Function>
-  <Function Name="dbo.usp_SelectChitietbangdiemsByMaDiem" Method="usp_SelectChitietbangdiemsByMaDiem">
-    <Parameter Name="MaDiem" Parameter="maDiem" Type="System.Int32" DbType="Int" />
-    <ElementType Name="usp_SelectChitietbangdiemsByMaDiemResult">
-      <Column Name="MaCTBangDiem" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="MaBangDiem" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="MaDiem" Type="System.Int32" DbType="Int" CanBeNull="true" />
-    </ElementType>
-  </Function>
-  <Function Name="dbo.usp_SelectChitietbangdiemsPaged" Method="usp_SelectChitietbangdiemsPaged">
-    <ElementType Name="usp_SelectChitietbangdiemsPagedResult">
-      <Column Name="MaCTBangDiem" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="MaBangDiem" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="MaDiem" Type="System.Int32" DbType="Int" CanBeNull="true" />
-    </ElementType>
-  </Function>
   <Function Name="dbo.usp_SelectChitietlophoc" Method="usp_SelectChitietlophoc">
     <Parameter Name="MaCTLopHoc" Parameter="maCTLopHoc" Type="System.Int32" DbType="Int" />
     <ElementType Name="usp_SelectChitietlophocResult">
@@ -611,6 +549,7 @@
     <Parameter Name="MaDiem" Parameter="maDiem" Type="System.Int32" DbType="Int" />
     <ElementType Name="usp_SelectDiemResult">
       <Column Name="MaDiem" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MaBangDiem" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="SoDiem" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
       <Column Name="HeSo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
     </ElementType>
@@ -618,6 +557,16 @@
   <Function Name="dbo.usp_SelectDiemsAll" Method="usp_SelectDiemsAll">
     <ElementType Name="usp_SelectDiemsAllResult">
       <Column Name="MaDiem" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MaBangDiem" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SoDiem" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="HeSo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.usp_SelectDiemsByMaBangDiem" Method="usp_SelectDiemsByMaBangDiem">
+    <Parameter Name="MaBangDiem" Parameter="maBangDiem" Type="System.Int32" DbType="Int" />
+    <ElementType Name="usp_SelectDiemsByMaBangDiemResult">
+      <Column Name="MaDiem" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MaBangDiem" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="SoDiem" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
       <Column Name="HeSo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
     </ElementType>
@@ -625,6 +574,7 @@
   <Function Name="dbo.usp_SelectDiemsPaged" Method="usp_SelectDiemsPaged">
     <ElementType Name="usp_SelectDiemsPagedResult">
       <Column Name="MaDiem" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MaBangDiem" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="SoDiem" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
       <Column Name="HeSo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
     </ElementType>
@@ -1039,12 +989,6 @@
     <Parameter Name="MaLopHoc" Parameter="maLopHoc" Type="System.Int32" DbType="Int" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Name="dbo.usp_UpdateChitietbangdiem" Method="usp_UpdateChitietbangdiem">
-    <Parameter Name="MaCTBangDiem" Parameter="maCTBangDiem" Type="System.Int32" DbType="Int" />
-    <Parameter Name="MaBangDiem" Parameter="maBangDiem" Type="System.Int32" DbType="Int" />
-    <Parameter Name="MaDiem" Parameter="maDiem" Type="System.Int32" DbType="Int" />
-    <Return Type="System.Int32" />
-  </Function>
   <Function Name="dbo.usp_UpdateChitietlophoc" Method="usp_UpdateChitietlophoc">
     <Parameter Name="MaCTLopHoc" Parameter="maCTLopHoc" Type="System.Int32" DbType="Int" />
     <Parameter Name="MaLopHoc" Parameter="maLopHoc" Type="System.Int32" DbType="Int" />
@@ -1053,6 +997,7 @@
   </Function>
   <Function Name="dbo.usp_UpdateDiem" Method="usp_UpdateDiem">
     <Parameter Name="MaDiem" Parameter="maDiem" Type="System.Int32" DbType="Int" />
+    <Parameter Name="MaBangDiem" Parameter="maBangDiem" Type="System.Int32" DbType="Int" />
     <Parameter Name="SoDiem" Parameter="soDiem" Type="System.Double" DbType="Float" />
     <Parameter Name="HeSo" Parameter="heSo" Type="System.Int32" DbType="Int" />
     <Return Type="System.Int32" />

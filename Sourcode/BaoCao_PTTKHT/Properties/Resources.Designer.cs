@@ -61,7 +61,7 @@ namespace BaoCao_PTTKHT.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to select * from sys.tables where        ///exists (select * from sys.tables where name = &apos;BANGDIEM&apos;)         ///and exists (select * from sys.tables where name = &apos;CHITIETBANGDIEM&apos;)         ///and exists (select * from sys.tables where name = &apos;CHITIETLOPHOC&apos;)         ///and exists (select * from sys.tables where name = &apos;DIEM&apos;)         ///and exists (select * from sys.tables where name = &apos;GIANGVIEN&apos;)         ///and exists (select * from sys.tables where name = &apos;HOCKY&apos;)         ///and exists (select * from sys.tables where name = &apos;KHOA&apos;)         ///and exists (select * from sys.tables where [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to select * from sys.tables where        ///exists (select * from sys.tables where name = &apos;BANGDIEM&apos;)          ///and exists (select * from sys.tables where name = &apos;CHITIETLOPHOC&apos;)         ///and exists (select * from sys.tables where name = &apos;DIEM&apos;)         ///and exists (select * from sys.tables where name = &apos;GIANGVIEN&apos;)         ///and exists (select * from sys.tables where name = &apos;HOCKY&apos;)         ///and exists (select * from sys.tables where name = &apos;KHOA&apos;)         ///and exists (select * from sys.tables where name = &apos;LOP&apos;)         ///and exists (select * from sys.tables where name = &apos;LO [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string CheckTable {
             get {
@@ -70,7 +70,9 @@ namespace BaoCao_PTTKHT.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to USE [PlaceHolder]
+        ///   Looks up a localized string similar to create database [PlaceHolder]
+        ///go
+        ///USE [PlaceHolder]
         ///GO
         ///
         ///create table NAMHOC
@@ -84,6 +86,8 @@ namespace BaoCao_PTTKHT.Properties {
         ///	MaHocKy int primary key,
         ///	MaNamHoc int FOREIGN KEY REFERENCES NamHoc(MaNamHoc) ON DELETE CASCADE,
         ///	HocKy nvarchar(10) not null,
+        ///	NgayBatDau datetime,
+        ///	NgayKetThuc datetime,
         ///)
         ///
         ///create table KHOA
@@ -95,8 +99,7 @@ namespace BaoCao_PTTKHT.Properties {
         ///create table LOP
         ///(
         ///	MaLop varchar(10) primary key,
-        ///	TenLop nvarchar(30) not null,
-        ///	MaKhoa varchar(10) FOREIGN KEY REFERENCES Khoa(MaKhoa) ON  [rest of string was truncated]&quot;;.
+        ///	TenLop n [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string CreateDatabase {
             get {

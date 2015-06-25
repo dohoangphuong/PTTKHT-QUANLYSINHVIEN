@@ -22,7 +22,7 @@ namespace BaoCao_PTTKHT.DAL
 	using System;
 	
 	
-	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="QLDT")]
+	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="PlaceHolder")]
 	public partial class QLDTDataContext : System.Data.Linq.DataContext
 	{
 		
@@ -39,9 +39,6 @@ namespace BaoCao_PTTKHT.DAL
     partial void InsertBODEM(BODEM instance);
     partial void UpdateBODEM(BODEM instance);
     partial void DeleteBODEM(BODEM instance);
-    partial void InsertCHITIETBANGDIEM(CHITIETBANGDIEM instance);
-    partial void UpdateCHITIETBANGDIEM(CHITIETBANGDIEM instance);
-    partial void DeleteCHITIETBANGDIEM(CHITIETBANGDIEM instance);
     partial void InsertCHITIETLOPHOC(CHITIETLOPHOC instance);
     partial void UpdateCHITIETLOPHOC(CHITIETLOPHOC instance);
     partial void DeleteCHITIETLOPHOC(CHITIETLOPHOC instance);
@@ -81,7 +78,7 @@ namespace BaoCao_PTTKHT.DAL
     #endregion
 		
 		public QLDTDataContext() : 
-				base(global::BaoCao_PTTKHT.Properties.Settings.Default.QLDTConnectionString, mappingSource)
+				base(global::BaoCao_PTTKHT.Properties.Settings.Default.PlaceHolderConnectionString, mappingSource)
 		{
 			OnCreated();
 		}
@@ -131,14 +128,6 @@ namespace BaoCao_PTTKHT.DAL
 			get
 			{
 				return this.GetTable<BODEM>();
-			}
-		}
-		
-		public System.Data.Linq.Table<CHITIETBANGDIEM> CHITIETBANGDIEMs
-		{
-			get
-			{
-				return this.GetTable<CHITIETBANGDIEM>();
 			}
 		}
 		
@@ -259,27 +248,6 @@ namespace BaoCao_PTTKHT.DAL
 			return ((int)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.usp_DeleteChitietbangdiem")]
-		public int usp_DeleteChitietbangdiem([global::System.Data.Linq.Mapping.ParameterAttribute(Name="MaCTBangDiem", DbType="Int")] System.Nullable<int> maCTBangDiem)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), maCTBangDiem);
-			return ((int)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.usp_DeleteChitietbangdiemsByMaBangDiem")]
-		public int usp_DeleteChitietbangdiemsByMaBangDiem([global::System.Data.Linq.Mapping.ParameterAttribute(Name="MaBangDiem", DbType="Int")] System.Nullable<int> maBangDiem)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), maBangDiem);
-			return ((int)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.usp_DeleteChitietbangdiemsByMaDiem")]
-		public int usp_DeleteChitietbangdiemsByMaDiem([global::System.Data.Linq.Mapping.ParameterAttribute(Name="MaDiem", DbType="Int")] System.Nullable<int> maDiem)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), maDiem);
-			return ((int)(result.ReturnValue));
-		}
-		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.usp_DeleteChitietlophoc")]
 		public int usp_DeleteChitietlophoc([global::System.Data.Linq.Mapping.ParameterAttribute(Name="MaCTLopHoc", DbType="Int")] System.Nullable<int> maCTLopHoc)
 		{
@@ -305,6 +273,13 @@ namespace BaoCao_PTTKHT.DAL
 		public int usp_DeleteDiem([global::System.Data.Linq.Mapping.ParameterAttribute(Name="MaDiem", DbType="Int")] System.Nullable<int> maDiem)
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), maDiem);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.usp_DeleteDiemsByMaBangDiem")]
+		public int usp_DeleteDiemsByMaBangDiem([global::System.Data.Linq.Mapping.ParameterAttribute(Name="MaBangDiem", DbType="Int")] System.Nullable<int> maBangDiem)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), maBangDiem);
 			return ((int)(result.ReturnValue));
 		}
 		
@@ -476,13 +451,6 @@ namespace BaoCao_PTTKHT.DAL
 			return ((int)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.usp_InsertChitietbangdiem")]
-		public int usp_InsertChitietbangdiem([global::System.Data.Linq.Mapping.ParameterAttribute(Name="MaCTBangDiem", DbType="Int")] System.Nullable<int> maCTBangDiem, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MaBangDiem", DbType="Int")] System.Nullable<int> maBangDiem, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MaDiem", DbType="Int")] System.Nullable<int> maDiem)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), maCTBangDiem, maBangDiem, maDiem);
-			return ((int)(result.ReturnValue));
-		}
-		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.usp_InsertChitietlophoc")]
 		public int usp_InsertChitietlophoc([global::System.Data.Linq.Mapping.ParameterAttribute(Name="MaCTLopHoc", DbType="Int")] System.Nullable<int> maCTLopHoc, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MaLopHoc", DbType="Int")] System.Nullable<int> maLopHoc, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MSSV", DbType="VarChar(10)")] string mSSV)
 		{
@@ -491,9 +459,9 @@ namespace BaoCao_PTTKHT.DAL
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.usp_InsertDiem")]
-		public int usp_InsertDiem([global::System.Data.Linq.Mapping.ParameterAttribute(Name="MaDiem", DbType="Int")] System.Nullable<int> maDiem, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SoDiem", DbType="Float")] System.Nullable<double> soDiem, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="HeSo", DbType="Int")] System.Nullable<int> heSo)
+		public int usp_InsertDiem([global::System.Data.Linq.Mapping.ParameterAttribute(Name="MaDiem", DbType="Int")] System.Nullable<int> maDiem, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MaBangDiem", DbType="Int")] System.Nullable<int> maBangDiem, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SoDiem", DbType="Float")] System.Nullable<double> soDiem, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="HeSo", DbType="Int")] System.Nullable<int> heSo)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), maDiem, soDiem, heSo);
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), maDiem, maBangDiem, soDiem, heSo);
 			return ((int)(result.ReturnValue));
 		}
 		
@@ -581,13 +549,6 @@ namespace BaoCao_PTTKHT.DAL
 			return ((int)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.usp_InsertUpdateChitietbangdiem")]
-		public int usp_InsertUpdateChitietbangdiem([global::System.Data.Linq.Mapping.ParameterAttribute(Name="MaCTBangDiem", DbType="Int")] System.Nullable<int> maCTBangDiem, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MaBangDiem", DbType="Int")] System.Nullable<int> maBangDiem, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MaDiem", DbType="Int")] System.Nullable<int> maDiem)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), maCTBangDiem, maBangDiem, maDiem);
-			return ((int)(result.ReturnValue));
-		}
-		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.usp_InsertUpdateChitietlophoc")]
 		public int usp_InsertUpdateChitietlophoc([global::System.Data.Linq.Mapping.ParameterAttribute(Name="MaCTLopHoc", DbType="Int")] System.Nullable<int> maCTLopHoc, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MaLopHoc", DbType="Int")] System.Nullable<int> maLopHoc, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MSSV", DbType="VarChar(10)")] string mSSV)
 		{
@@ -596,9 +557,9 @@ namespace BaoCao_PTTKHT.DAL
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.usp_InsertUpdateDiem")]
-		public int usp_InsertUpdateDiem([global::System.Data.Linq.Mapping.ParameterAttribute(Name="MaDiem", DbType="Int")] System.Nullable<int> maDiem, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SoDiem", DbType="Float")] System.Nullable<double> soDiem, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="HeSo", DbType="Int")] System.Nullable<int> heSo)
+		public int usp_InsertUpdateDiem([global::System.Data.Linq.Mapping.ParameterAttribute(Name="MaDiem", DbType="Int")] System.Nullable<int> maDiem, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MaBangDiem", DbType="Int")] System.Nullable<int> maBangDiem, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SoDiem", DbType="Float")] System.Nullable<double> soDiem, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="HeSo", DbType="Int")] System.Nullable<int> heSo)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), maDiem, soDiem, heSo);
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), maDiem, maBangDiem, soDiem, heSo);
 			return ((int)(result.ReturnValue));
 		}
 		
@@ -714,41 +675,6 @@ namespace BaoCao_PTTKHT.DAL
 			return ((ISingleResult<usp_SelectBodemResult>)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.usp_SelectChitietbangdiem")]
-		public ISingleResult<usp_SelectChitietbangdiemResult> usp_SelectChitietbangdiem([global::System.Data.Linq.Mapping.ParameterAttribute(Name="MaCTBangDiem", DbType="Int")] System.Nullable<int> maCTBangDiem)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), maCTBangDiem);
-			return ((ISingleResult<usp_SelectChitietbangdiemResult>)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.usp_SelectChitietbangdiemsAll")]
-		public ISingleResult<usp_SelectChitietbangdiemsAllResult> usp_SelectChitietbangdiemsAll()
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
-			return ((ISingleResult<usp_SelectChitietbangdiemsAllResult>)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.usp_SelectChitietbangdiemsByMaBangDiem")]
-		public ISingleResult<usp_SelectChitietbangdiemsByMaBangDiemResult> usp_SelectChitietbangdiemsByMaBangDiem([global::System.Data.Linq.Mapping.ParameterAttribute(Name="MaBangDiem", DbType="Int")] System.Nullable<int> maBangDiem)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), maBangDiem);
-			return ((ISingleResult<usp_SelectChitietbangdiemsByMaBangDiemResult>)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.usp_SelectChitietbangdiemsByMaDiem")]
-		public ISingleResult<usp_SelectChitietbangdiemsByMaDiemResult> usp_SelectChitietbangdiemsByMaDiem([global::System.Data.Linq.Mapping.ParameterAttribute(Name="MaDiem", DbType="Int")] System.Nullable<int> maDiem)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), maDiem);
-			return ((ISingleResult<usp_SelectChitietbangdiemsByMaDiemResult>)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.usp_SelectChitietbangdiemsPaged")]
-		public ISingleResult<usp_SelectChitietbangdiemsPagedResult> usp_SelectChitietbangdiemsPaged()
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
-			return ((ISingleResult<usp_SelectChitietbangdiemsPagedResult>)(result.ReturnValue));
-		}
-		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.usp_SelectChitietlophoc")]
 		public ISingleResult<usp_SelectChitietlophocResult> usp_SelectChitietlophoc([global::System.Data.Linq.Mapping.ParameterAttribute(Name="MaCTLopHoc", DbType="Int")] System.Nullable<int> maCTLopHoc)
 		{
@@ -796,6 +722,13 @@ namespace BaoCao_PTTKHT.DAL
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
 			return ((ISingleResult<usp_SelectDiemsAllResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.usp_SelectDiemsByMaBangDiem")]
+		public ISingleResult<usp_SelectDiemsByMaBangDiemResult> usp_SelectDiemsByMaBangDiem([global::System.Data.Linq.Mapping.ParameterAttribute(Name="MaBangDiem", DbType="Int")] System.Nullable<int> maBangDiem)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), maBangDiem);
+			return ((ISingleResult<usp_SelectDiemsByMaBangDiemResult>)(result.ReturnValue));
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.usp_SelectDiemsPaged")]
@@ -1134,13 +1067,6 @@ namespace BaoCao_PTTKHT.DAL
 			return ((int)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.usp_UpdateChitietbangdiem")]
-		public int usp_UpdateChitietbangdiem([global::System.Data.Linq.Mapping.ParameterAttribute(Name="MaCTBangDiem", DbType="Int")] System.Nullable<int> maCTBangDiem, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MaBangDiem", DbType="Int")] System.Nullable<int> maBangDiem, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MaDiem", DbType="Int")] System.Nullable<int> maDiem)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), maCTBangDiem, maBangDiem, maDiem);
-			return ((int)(result.ReturnValue));
-		}
-		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.usp_UpdateChitietlophoc")]
 		public int usp_UpdateChitietlophoc([global::System.Data.Linq.Mapping.ParameterAttribute(Name="MaCTLopHoc", DbType="Int")] System.Nullable<int> maCTLopHoc, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MaLopHoc", DbType="Int")] System.Nullable<int> maLopHoc, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MSSV", DbType="VarChar(10)")] string mSSV)
 		{
@@ -1149,9 +1075,9 @@ namespace BaoCao_PTTKHT.DAL
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.usp_UpdateDiem")]
-		public int usp_UpdateDiem([global::System.Data.Linq.Mapping.ParameterAttribute(Name="MaDiem", DbType="Int")] System.Nullable<int> maDiem, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SoDiem", DbType="Float")] System.Nullable<double> soDiem, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="HeSo", DbType="Int")] System.Nullable<int> heSo)
+		public int usp_UpdateDiem([global::System.Data.Linq.Mapping.ParameterAttribute(Name="MaDiem", DbType="Int")] System.Nullable<int> maDiem, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MaBangDiem", DbType="Int")] System.Nullable<int> maBangDiem, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SoDiem", DbType="Float")] System.Nullable<double> soDiem, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="HeSo", DbType="Int")] System.Nullable<int> heSo)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), maDiem, soDiem, heSo);
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), maDiem, maBangDiem, soDiem, heSo);
 			return ((int)(result.ReturnValue));
 		}
 		
@@ -1236,7 +1162,7 @@ namespace BaoCao_PTTKHT.DAL
 		
 		private System.Nullable<int> _MaLopHoc;
 		
-		private EntitySet<CHITIETBANGDIEM> _CHITIETBANGDIEMs;
+		private EntitySet<DIEM> _DIEMs;
 		
 		private EntityRef<LOPHOC> _LOPHOC;
 		
@@ -1252,7 +1178,7 @@ namespace BaoCao_PTTKHT.DAL
 		
 		public BANGDIEM()
 		{
-			this._CHITIETBANGDIEMs = new EntitySet<CHITIETBANGDIEM>(new Action<CHITIETBANGDIEM>(this.attach_CHITIETBANGDIEMs), new Action<CHITIETBANGDIEM>(this.detach_CHITIETBANGDIEMs));
+			this._DIEMs = new EntitySet<DIEM>(new Action<DIEM>(this.attach_DIEMs), new Action<DIEM>(this.detach_DIEMs));
 			this._LOPHOC = default(EntityRef<LOPHOC>);
 			OnCreated();
 		}
@@ -1301,16 +1227,16 @@ namespace BaoCao_PTTKHT.DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="BANGDIEM_CHITIETBANGDIEM", Storage="_CHITIETBANGDIEMs", ThisKey="MaBangDiem", OtherKey="MaBangDiem")]
-		public EntitySet<CHITIETBANGDIEM> CHITIETBANGDIEMs
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="BANGDIEM_DIEM", Storage="_DIEMs", ThisKey="MaBangDiem", OtherKey="MaBangDiem")]
+		public EntitySet<DIEM> DIEMs
 		{
 			get
 			{
-				return this._CHITIETBANGDIEMs;
+				return this._DIEMs;
 			}
 			set
 			{
-				this._CHITIETBANGDIEMs.Assign(value);
+				this._DIEMs.Assign(value);
 			}
 		}
 		
@@ -1368,13 +1294,13 @@ namespace BaoCao_PTTKHT.DAL
 			}
 		}
 		
-		private void attach_CHITIETBANGDIEMs(CHITIETBANGDIEM entity)
+		private void attach_DIEMs(DIEM entity)
 		{
 			this.SendPropertyChanging();
 			entity.BANGDIEM = this;
 		}
 		
-		private void detach_CHITIETBANGDIEMs(CHITIETBANGDIEM entity)
+		private void detach_DIEMs(DIEM entity)
 		{
 			this.SendPropertyChanging();
 			entity.BANGDIEM = null;
@@ -1601,198 +1527,6 @@ namespace BaoCao_PTTKHT.DAL
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.CHITIETBANGDIEM")]
-	public partial class CHITIETBANGDIEM : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _MaCTBangDiem;
-		
-		private System.Nullable<int> _MaBangDiem;
-		
-		private System.Nullable<int> _MaDiem;
-		
-		private EntityRef<BANGDIEM> _BANGDIEM;
-		
-		private EntityRef<DIEM> _DIEM;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnMaCTBangDiemChanging(int value);
-    partial void OnMaCTBangDiemChanged();
-    partial void OnMaBangDiemChanging(System.Nullable<int> value);
-    partial void OnMaBangDiemChanged();
-    partial void OnMaDiemChanging(System.Nullable<int> value);
-    partial void OnMaDiemChanged();
-    #endregion
-		
-		public CHITIETBANGDIEM()
-		{
-			this._BANGDIEM = default(EntityRef<BANGDIEM>);
-			this._DIEM = default(EntityRef<DIEM>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaCTBangDiem", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int MaCTBangDiem
-		{
-			get
-			{
-				return this._MaCTBangDiem;
-			}
-			set
-			{
-				if ((this._MaCTBangDiem != value))
-				{
-					this.OnMaCTBangDiemChanging(value);
-					this.SendPropertyChanging();
-					this._MaCTBangDiem = value;
-					this.SendPropertyChanged("MaCTBangDiem");
-					this.OnMaCTBangDiemChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaBangDiem", DbType="Int")]
-		public System.Nullable<int> MaBangDiem
-		{
-			get
-			{
-				return this._MaBangDiem;
-			}
-			set
-			{
-				if ((this._MaBangDiem != value))
-				{
-					if (this._BANGDIEM.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnMaBangDiemChanging(value);
-					this.SendPropertyChanging();
-					this._MaBangDiem = value;
-					this.SendPropertyChanged("MaBangDiem");
-					this.OnMaBangDiemChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaDiem", DbType="Int")]
-		public System.Nullable<int> MaDiem
-		{
-			get
-			{
-				return this._MaDiem;
-			}
-			set
-			{
-				if ((this._MaDiem != value))
-				{
-					if (this._DIEM.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnMaDiemChanging(value);
-					this.SendPropertyChanging();
-					this._MaDiem = value;
-					this.SendPropertyChanged("MaDiem");
-					this.OnMaDiemChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="BANGDIEM_CHITIETBANGDIEM", Storage="_BANGDIEM", ThisKey="MaBangDiem", OtherKey="MaBangDiem", IsForeignKey=true, DeleteRule="CASCADE")]
-		public BANGDIEM BANGDIEM
-		{
-			get
-			{
-				return this._BANGDIEM.Entity;
-			}
-			set
-			{
-				BANGDIEM previousValue = this._BANGDIEM.Entity;
-				if (((previousValue != value) 
-							|| (this._BANGDIEM.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._BANGDIEM.Entity = null;
-						previousValue.CHITIETBANGDIEMs.Remove(this);
-					}
-					this._BANGDIEM.Entity = value;
-					if ((value != null))
-					{
-						value.CHITIETBANGDIEMs.Add(this);
-						this._MaBangDiem = value.MaBangDiem;
-					}
-					else
-					{
-						this._MaBangDiem = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("BANGDIEM");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="DIEM_CHITIETBANGDIEM", Storage="_DIEM", ThisKey="MaDiem", OtherKey="MaDiem", IsForeignKey=true, DeleteRule="CASCADE")]
-		public DIEM DIEM
-		{
-			get
-			{
-				return this._DIEM.Entity;
-			}
-			set
-			{
-				DIEM previousValue = this._DIEM.Entity;
-				if (((previousValue != value) 
-							|| (this._DIEM.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._DIEM.Entity = null;
-						previousValue.CHITIETBANGDIEMs.Remove(this);
-					}
-					this._DIEM.Entity = value;
-					if ((value != null))
-					{
-						value.CHITIETBANGDIEMs.Add(this);
-						this._MaDiem = value.MaDiem;
-					}
-					else
-					{
-						this._MaDiem = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("DIEM");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.CHITIETLOPHOC")]
 	public partial class CHITIETLOPHOC : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -1993,11 +1727,13 @@ namespace BaoCao_PTTKHT.DAL
 		
 		private int _MaDiem;
 		
+		private System.Nullable<int> _MaBangDiem;
+		
 		private double _SoDiem;
 		
 		private int _HeSo;
 		
-		private EntitySet<CHITIETBANGDIEM> _CHITIETBANGDIEMs;
+		private EntityRef<BANGDIEM> _BANGDIEM;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -2005,6 +1741,8 @@ namespace BaoCao_PTTKHT.DAL
     partial void OnCreated();
     partial void OnMaDiemChanging(int value);
     partial void OnMaDiemChanged();
+    partial void OnMaBangDiemChanging(System.Nullable<int> value);
+    partial void OnMaBangDiemChanged();
     partial void OnSoDiemChanging(double value);
     partial void OnSoDiemChanged();
     partial void OnHeSoChanging(int value);
@@ -2013,7 +1751,7 @@ namespace BaoCao_PTTKHT.DAL
 		
 		public DIEM()
 		{
-			this._CHITIETBANGDIEMs = new EntitySet<CHITIETBANGDIEM>(new Action<CHITIETBANGDIEM>(this.attach_CHITIETBANGDIEMs), new Action<CHITIETBANGDIEM>(this.detach_CHITIETBANGDIEMs));
+			this._BANGDIEM = default(EntityRef<BANGDIEM>);
 			OnCreated();
 		}
 		
@@ -2033,6 +1771,30 @@ namespace BaoCao_PTTKHT.DAL
 					this._MaDiem = value;
 					this.SendPropertyChanged("MaDiem");
 					this.OnMaDiemChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaBangDiem", DbType="Int")]
+		public System.Nullable<int> MaBangDiem
+		{
+			get
+			{
+				return this._MaBangDiem;
+			}
+			set
+			{
+				if ((this._MaBangDiem != value))
+				{
+					if (this._BANGDIEM.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnMaBangDiemChanging(value);
+					this.SendPropertyChanging();
+					this._MaBangDiem = value;
+					this.SendPropertyChanged("MaBangDiem");
+					this.OnMaBangDiemChanged();
 				}
 			}
 		}
@@ -2077,16 +1839,37 @@ namespace BaoCao_PTTKHT.DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="DIEM_CHITIETBANGDIEM", Storage="_CHITIETBANGDIEMs", ThisKey="MaDiem", OtherKey="MaDiem")]
-		public EntitySet<CHITIETBANGDIEM> CHITIETBANGDIEMs
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="BANGDIEM_DIEM", Storage="_BANGDIEM", ThisKey="MaBangDiem", OtherKey="MaBangDiem", IsForeignKey=true, DeleteRule="CASCADE")]
+		public BANGDIEM BANGDIEM
 		{
 			get
 			{
-				return this._CHITIETBANGDIEMs;
+				return this._BANGDIEM.Entity;
 			}
 			set
 			{
-				this._CHITIETBANGDIEMs.Assign(value);
+				BANGDIEM previousValue = this._BANGDIEM.Entity;
+				if (((previousValue != value) 
+							|| (this._BANGDIEM.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._BANGDIEM.Entity = null;
+						previousValue.DIEMs.Remove(this);
+					}
+					this._BANGDIEM.Entity = value;
+					if ((value != null))
+					{
+						value.DIEMs.Add(this);
+						this._MaBangDiem = value.MaBangDiem;
+					}
+					else
+					{
+						this._MaBangDiem = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("BANGDIEM");
+				}
 			}
 		}
 		
@@ -2108,18 +1891,6 @@ namespace BaoCao_PTTKHT.DAL
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
-		}
-		
-		private void attach_CHITIETBANGDIEMs(CHITIETBANGDIEM entity)
-		{
-			this.SendPropertyChanging();
-			entity.DIEM = this;
-		}
-		
-		private void detach_CHITIETBANGDIEMs(CHITIETBANGDIEM entity)
-		{
-			this.SendPropertyChanging();
-			entity.DIEM = null;
 		}
 	}
 	
@@ -2650,6 +2421,10 @@ namespace BaoCao_PTTKHT.DAL
 		
 		private string _HocKy1;
 		
+		private System.Nullable<System.DateTime> _NgayBatDau;
+		
+		private System.Nullable<System.DateTime> _NgayKetThuc;
+		
 		private EntitySet<LOPHOC> _LOPHOCs;
 		
 		private EntityRef<NAMHOC> _NAMHOC;
@@ -2664,6 +2439,10 @@ namespace BaoCao_PTTKHT.DAL
     partial void OnMaNamHocChanged();
     partial void OnHocKy1Changing(string value);
     partial void OnHocKy1Changed();
+    partial void OnNgayBatDauChanging(System.Nullable<System.DateTime> value);
+    partial void OnNgayBatDauChanged();
+    partial void OnNgayKetThucChanging(System.Nullable<System.DateTime> value);
+    partial void OnNgayKetThucChanged();
     #endregion
 		
 		public HOCKY()
@@ -2733,6 +2512,46 @@ namespace BaoCao_PTTKHT.DAL
 					this._HocKy1 = value;
 					this.SendPropertyChanged("HocKy1");
 					this.OnHocKy1Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NgayBatDau", DbType="DateTime")]
+		public System.Nullable<System.DateTime> NgayBatDau
+		{
+			get
+			{
+				return this._NgayBatDau;
+			}
+			set
+			{
+				if ((this._NgayBatDau != value))
+				{
+					this.OnNgayBatDauChanging(value);
+					this.SendPropertyChanging();
+					this._NgayBatDau = value;
+					this.SendPropertyChanged("NgayBatDau");
+					this.OnNgayBatDauChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NgayKetThuc", DbType="DateTime")]
+		public System.Nullable<System.DateTime> NgayKetThuc
+		{
+			get
+			{
+				return this._NgayKetThuc;
+			}
+			set
+			{
+				if ((this._NgayKetThuc != value))
+				{
+					this.OnNgayKetThucChanging(value);
+					this.SendPropertyChanging();
+					this._NgayKetThuc = value;
+					this.SendPropertyChanged("NgayKetThuc");
+					this.OnNgayKetThucChanged();
 				}
 			}
 		}
@@ -4649,316 +4468,6 @@ namespace BaoCao_PTTKHT.DAL
 		}
 	}
 	
-	public partial class usp_SelectChitietbangdiemResult
-	{
-		
-		private int _MaCTBangDiem;
-		
-		private System.Nullable<int> _MaBangDiem;
-		
-		private System.Nullable<int> _MaDiem;
-		
-		public usp_SelectChitietbangdiemResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaCTBangDiem", DbType="Int NOT NULL")]
-		public int MaCTBangDiem
-		{
-			get
-			{
-				return this._MaCTBangDiem;
-			}
-			set
-			{
-				if ((this._MaCTBangDiem != value))
-				{
-					this._MaCTBangDiem = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaBangDiem", DbType="Int")]
-		public System.Nullable<int> MaBangDiem
-		{
-			get
-			{
-				return this._MaBangDiem;
-			}
-			set
-			{
-				if ((this._MaBangDiem != value))
-				{
-					this._MaBangDiem = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaDiem", DbType="Int")]
-		public System.Nullable<int> MaDiem
-		{
-			get
-			{
-				return this._MaDiem;
-			}
-			set
-			{
-				if ((this._MaDiem != value))
-				{
-					this._MaDiem = value;
-				}
-			}
-		}
-	}
-	
-	public partial class usp_SelectChitietbangdiemsAllResult
-	{
-		
-		private int _MaCTBangDiem;
-		
-		private System.Nullable<int> _MaBangDiem;
-		
-		private System.Nullable<int> _MaDiem;
-		
-		public usp_SelectChitietbangdiemsAllResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaCTBangDiem", DbType="Int NOT NULL")]
-		public int MaCTBangDiem
-		{
-			get
-			{
-				return this._MaCTBangDiem;
-			}
-			set
-			{
-				if ((this._MaCTBangDiem != value))
-				{
-					this._MaCTBangDiem = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaBangDiem", DbType="Int")]
-		public System.Nullable<int> MaBangDiem
-		{
-			get
-			{
-				return this._MaBangDiem;
-			}
-			set
-			{
-				if ((this._MaBangDiem != value))
-				{
-					this._MaBangDiem = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaDiem", DbType="Int")]
-		public System.Nullable<int> MaDiem
-		{
-			get
-			{
-				return this._MaDiem;
-			}
-			set
-			{
-				if ((this._MaDiem != value))
-				{
-					this._MaDiem = value;
-				}
-			}
-		}
-	}
-	
-	public partial class usp_SelectChitietbangdiemsByMaBangDiemResult
-	{
-		
-		private int _MaCTBangDiem;
-		
-		private System.Nullable<int> _MaBangDiem;
-		
-		private System.Nullable<int> _MaDiem;
-		
-		public usp_SelectChitietbangdiemsByMaBangDiemResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaCTBangDiem", DbType="Int NOT NULL")]
-		public int MaCTBangDiem
-		{
-			get
-			{
-				return this._MaCTBangDiem;
-			}
-			set
-			{
-				if ((this._MaCTBangDiem != value))
-				{
-					this._MaCTBangDiem = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaBangDiem", DbType="Int")]
-		public System.Nullable<int> MaBangDiem
-		{
-			get
-			{
-				return this._MaBangDiem;
-			}
-			set
-			{
-				if ((this._MaBangDiem != value))
-				{
-					this._MaBangDiem = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaDiem", DbType="Int")]
-		public System.Nullable<int> MaDiem
-		{
-			get
-			{
-				return this._MaDiem;
-			}
-			set
-			{
-				if ((this._MaDiem != value))
-				{
-					this._MaDiem = value;
-				}
-			}
-		}
-	}
-	
-	public partial class usp_SelectChitietbangdiemsByMaDiemResult
-	{
-		
-		private int _MaCTBangDiem;
-		
-		private System.Nullable<int> _MaBangDiem;
-		
-		private System.Nullable<int> _MaDiem;
-		
-		public usp_SelectChitietbangdiemsByMaDiemResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaCTBangDiem", DbType="Int NOT NULL")]
-		public int MaCTBangDiem
-		{
-			get
-			{
-				return this._MaCTBangDiem;
-			}
-			set
-			{
-				if ((this._MaCTBangDiem != value))
-				{
-					this._MaCTBangDiem = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaBangDiem", DbType="Int")]
-		public System.Nullable<int> MaBangDiem
-		{
-			get
-			{
-				return this._MaBangDiem;
-			}
-			set
-			{
-				if ((this._MaBangDiem != value))
-				{
-					this._MaBangDiem = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaDiem", DbType="Int")]
-		public System.Nullable<int> MaDiem
-		{
-			get
-			{
-				return this._MaDiem;
-			}
-			set
-			{
-				if ((this._MaDiem != value))
-				{
-					this._MaDiem = value;
-				}
-			}
-		}
-	}
-	
-	public partial class usp_SelectChitietbangdiemsPagedResult
-	{
-		
-		private int _MaCTBangDiem;
-		
-		private System.Nullable<int> _MaBangDiem;
-		
-		private System.Nullable<int> _MaDiem;
-		
-		public usp_SelectChitietbangdiemsPagedResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaCTBangDiem", DbType="Int NOT NULL")]
-		public int MaCTBangDiem
-		{
-			get
-			{
-				return this._MaCTBangDiem;
-			}
-			set
-			{
-				if ((this._MaCTBangDiem != value))
-				{
-					this._MaCTBangDiem = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaBangDiem", DbType="Int")]
-		public System.Nullable<int> MaBangDiem
-		{
-			get
-			{
-				return this._MaBangDiem;
-			}
-			set
-			{
-				if ((this._MaBangDiem != value))
-				{
-					this._MaBangDiem = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaDiem", DbType="Int")]
-		public System.Nullable<int> MaDiem
-		{
-			get
-			{
-				return this._MaDiem;
-			}
-			set
-			{
-				if ((this._MaDiem != value))
-				{
-					this._MaDiem = value;
-				}
-			}
-		}
-	}
-	
 	public partial class usp_SelectChitietlophocResult
 	{
 		
@@ -5274,6 +4783,8 @@ namespace BaoCao_PTTKHT.DAL
 		
 		private int _MaDiem;
 		
+		private System.Nullable<int> _MaBangDiem;
+		
 		private double _SoDiem;
 		
 		private int _HeSo;
@@ -5294,6 +4805,22 @@ namespace BaoCao_PTTKHT.DAL
 				if ((this._MaDiem != value))
 				{
 					this._MaDiem = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaBangDiem", DbType="Int")]
+		public System.Nullable<int> MaBangDiem
+		{
+			get
+			{
+				return this._MaBangDiem;
+			}
+			set
+			{
+				if ((this._MaBangDiem != value))
+				{
+					this._MaBangDiem = value;
 				}
 			}
 		}
@@ -5336,6 +4863,8 @@ namespace BaoCao_PTTKHT.DAL
 		
 		private int _MaDiem;
 		
+		private System.Nullable<int> _MaBangDiem;
+		
 		private double _SoDiem;
 		
 		private int _HeSo;
@@ -5356,6 +4885,102 @@ namespace BaoCao_PTTKHT.DAL
 				if ((this._MaDiem != value))
 				{
 					this._MaDiem = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaBangDiem", DbType="Int")]
+		public System.Nullable<int> MaBangDiem
+		{
+			get
+			{
+				return this._MaBangDiem;
+			}
+			set
+			{
+				if ((this._MaBangDiem != value))
+				{
+					this._MaBangDiem = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SoDiem", DbType="Float NOT NULL")]
+		public double SoDiem
+		{
+			get
+			{
+				return this._SoDiem;
+			}
+			set
+			{
+				if ((this._SoDiem != value))
+				{
+					this._SoDiem = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HeSo", DbType="Int NOT NULL")]
+		public int HeSo
+		{
+			get
+			{
+				return this._HeSo;
+			}
+			set
+			{
+				if ((this._HeSo != value))
+				{
+					this._HeSo = value;
+				}
+			}
+		}
+	}
+	
+	public partial class usp_SelectDiemsByMaBangDiemResult
+	{
+		
+		private int _MaDiem;
+		
+		private System.Nullable<int> _MaBangDiem;
+		
+		private double _SoDiem;
+		
+		private int _HeSo;
+		
+		public usp_SelectDiemsByMaBangDiemResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaDiem", DbType="Int NOT NULL")]
+		public int MaDiem
+		{
+			get
+			{
+				return this._MaDiem;
+			}
+			set
+			{
+				if ((this._MaDiem != value))
+				{
+					this._MaDiem = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaBangDiem", DbType="Int")]
+		public System.Nullable<int> MaBangDiem
+		{
+			get
+			{
+				return this._MaBangDiem;
+			}
+			set
+			{
+				if ((this._MaBangDiem != value))
+				{
+					this._MaBangDiem = value;
 				}
 			}
 		}
@@ -5398,6 +5023,8 @@ namespace BaoCao_PTTKHT.DAL
 		
 		private int _MaDiem;
 		
+		private System.Nullable<int> _MaBangDiem;
+		
 		private double _SoDiem;
 		
 		private int _HeSo;
@@ -5418,6 +5045,22 @@ namespace BaoCao_PTTKHT.DAL
 				if ((this._MaDiem != value))
 				{
 					this._MaDiem = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaBangDiem", DbType="Int")]
+		public System.Nullable<int> MaBangDiem
+		{
+			get
+			{
+				return this._MaBangDiem;
+			}
+			set
+			{
+				if ((this._MaBangDiem != value))
+				{
+					this._MaBangDiem = value;
 				}
 			}
 		}
