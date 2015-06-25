@@ -94,5 +94,11 @@ namespace BaoCao_PTTKHT.GUI
             FmConnectDatabase fmConnectDatabase = new FmConnectDatabase();
             fmConnectDatabase.Show();
         }
+
+        private void button13_Click(object sender, EventArgs e)
+        {
+            FmQuanLyTaiKhoan a = new FmQuanLyTaiKhoan();
+            a.Show();
+        }
     }
 }

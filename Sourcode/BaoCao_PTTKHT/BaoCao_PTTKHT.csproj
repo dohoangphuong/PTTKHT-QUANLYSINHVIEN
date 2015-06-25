@@ -78,6 +78,12 @@
     <Compile Include="GUI\FmConnectDatabase.Designer.cs">
       <DependentUpon>FmConnectDatabase.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\FmDangNhap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FmDangNhap.Designer.cs">
+      <DependentUpon>FmDangNhap.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\FmMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -120,6 +126,24 @@
     <Compile Include="GUI\FmQuanLyMonHoc.Designer.cs">
       <DependentUpon>FmQuanLyMonHoc.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\FmQuanLyHocKy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FmQuanLyHocKy.Designer.cs">
+      <DependentUpon>FmQuanLyHocKy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\FmQuanLyLopKhoa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FmQuanLyLopKhoa.Designer.cs">
+      <DependentUpon>FmQuanLyLopKhoa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\FmQuanLyNamHoc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FmQuanLyNamHoc.Designer.cs">
+      <DependentUpon>FmQuanLyNamHoc.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\FmQuanLySinhVien.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -144,6 +168,12 @@
     <Compile Include="GUI\FmQuanLyGiangDay.Designer.cs">
       <DependentUpon>FmQuanLyGiangDay.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\FmQuanLyTaiKhoan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FmQuanLyTaiKhoan.Designer.cs">
+      <DependentUpon>FmQuanLyTaiKhoan.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\FmThongTinDangKyHocPhanHieuChinh.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -163,6 +193,9 @@
     </None>
     <EmbeddedResource Include="GUI\FmConnectDatabase.resx">
       <DependentUpon>FmConnectDatabase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FmDangNhap.resx">
+      <DependentUpon>FmDangNhap.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\FmMain.resx">
       <DependentUpon>FmMain.cs</DependentUpon>
@@ -185,6 +218,15 @@
     <EmbeddedResource Include="GUI\FmQuanLyMonHoc.resx">
       <DependentUpon>FmQuanLyMonHoc.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FmQuanLyHocKy.resx">
+      <DependentUpon>FmQuanLyHocKy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FmQuanLyLopKhoa.resx">
+      <DependentUpon>FmQuanLyLopKhoa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FmQuanLyNamHoc.resx">
+      <DependentUpon>FmQuanLyNamHoc.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\FmQuanLySinhVien.resx">
       <DependentUpon>FmQuanLySinhVien.cs</DependentUpon>
     </EmbeddedResource>
@@ -196,6 +238,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\FmQuanLyGiangDay.resx">
       <DependentUpon>FmQuanLyGiangDay.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FmQuanLyTaiKhoan.resx">
+      <DependentUpon>FmQuanLyTaiKhoan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\FmThongTinDangKyHocPhanHieuChinh.resx">
       <DependentUpon>FmThongTinDangKyHocPhanHieuChinh.cs</DependentUpon>

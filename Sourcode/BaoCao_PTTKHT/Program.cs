@@ -19,31 +19,32 @@ namespace BaoCao_PTTKHT.GUI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            Application.Run(new FmMain());
 
-            if (String.IsNullOrEmpty(Settings.Default.ConnectString))
-            {
-                Application.Run(new GUI.FmConnectDatabase());
-            }
-            else
-            {
-                try
-                {
-                    using (SqlConnection connection = new SqlConnection(Settings.Default.ConnectString))
-                    {
-                        connection.Open();
-                        connection.Close();
-                    }
-                }
-                catch
-                {
-                    Settings.Default.ConnectString = null;
-                    MessageBox.Show("Cơ sở dữ liệu của bạn đã bị lỗi, vui lòng tạo cơ sở dữ liệu mới", "Error");
-                    Application.Run(new FmConnectDatabase());
-                }
-            }
+            //if (String.IsNullOrEmpty(Settings.Default.ConnectString))
+            //{
+            //    Application.Run(new GUI.FmConnectDatabase());
+            //}
+            //else
+            //{
+            //    try
+            //    {
+            //        using (SqlConnection connection = new SqlConnection(Settings.Default.ConnectString))
+            //        {
+            //            connection.Open();
+            //            connection.Close();
+            //        }
+            //    }
+            //    catch
+            //    {
+            //        Settings.Default.ConnectString = null;
+            //        MessageBox.Show("Cơ sở dữ liệu của bạn đã bị lỗi, vui lòng tạo cơ sở dữ liệu mới", "Error");
+            //        Application.Run(new FmConnectDatabase());
+            //    }
+            //}
 
-            if (!String.IsNullOrEmpty(Settings.Default.ConnectString))
-                Application.Run(new FmMain());
+            //if (!String.IsNullOrEmpty(Settings.Default.ConnectString))
+            //    Application.Run(new FmMain());
         }
     }
 }
