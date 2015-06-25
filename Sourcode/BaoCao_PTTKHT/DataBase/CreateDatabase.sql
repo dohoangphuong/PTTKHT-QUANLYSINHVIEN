@@ -23,7 +23,7 @@ create table KHOA
 create table LOP
 (
 	MaLop varchar(10) primary key,
-	TenLop nvarchar(30) not null,
+	TenLop nvarchar(50) not null,
 	MaKhoa varchar(10) FOREIGN KEY REFERENCES Khoa(MaKhoa) ON DELETE CASCADE,
 	MaNamHoc int FOREIGN KEY REFERENCES NamHoc(MaNamHoc) ON DELETE CASCADE,
 )
@@ -206,6 +206,14 @@ AS
 	WHERE TenBang = 'GIANGVIEN'
 
 GO
+CREATE TRIGGER TRIGGER_SV ON SINHVIEN
+FOR INSERT
+AS
+	UPDATE BODEM
+	SET SoDem = SoDem + 1
+	WHERE TenBang = 'SINHVIEN'
+
+GO
 insert into BODEM values('MONTIENQUYET', 0)
 insert into BODEM values('NAMHOC', 0)
 insert into BODEM values('HOCKY', 0)
@@ -216,3 +224,4 @@ insert into BODEM values('CHITIETBANGDIEM', 0)
 insert into BODEM values('CHITIETLOPHOC', 0)
 insert into BODEM values('LOPHOC', 0)
 insert into BODEM values('GIANGVIEN', 0)
+insert into BODEM values('SINHVIEN', 0)

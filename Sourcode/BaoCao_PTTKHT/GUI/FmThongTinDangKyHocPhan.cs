@@ -68,12 +68,12 @@ namespace BaoCao_PTTKHT.GUI
         public void LoadLopHoc()
         {
             dataGridView2.Rows.Clear();
-            String TenMonHoc = null;
-            String TenGiangVien = null;
-            int SoTinChi = -1;
             int stt = 0;
             foreach (usp_SelectChitietlophocsByMSSVResult ctlh in bll_ChiTietLopHoc.SelectChiTietLopHocByMSSV(tbMaSinhVien.Text))
-            { 
+            {
+                String TenGiangVien = null;
+                String TenMonHoc = null;
+                int SoTinChi = -1;           
                 foreach(usp_SelectLophocResult lophoc in bll_LopHoc.SelectByMaLopHoc(ctlh.MaLopHoc))
                 {
                     if (lophoc.MaHocKy.ToString() == cbHocKy.SelectedValue.ToString())
@@ -87,9 +87,10 @@ namespace BaoCao_PTTKHT.GUI
                         {
                             foreach (usp_SelectGiangvienResult gv in bll_GiangVien.Select(gd.MaGiangVien))
                             {
-                                TenGiangVien += gv.TenGiangVien;
-                            }
+                                TenGiangVien += (gv.TenGiangVien + "-");
+                            }                  
                         }
+                        TenGiangVien = TenGiangVien.Remove(TenGiangVien.Length - 1);
                         stt++;
                         dataGridView2.Rows.Add(stt, lophoc.MaLopHoc, lophoc.TenLopHoc, TenMonHoc, TenGiangVien, SoTinChi, lophoc.Thu, lophoc.Tiet);
                     }
@@ -102,6 +103,13 @@ namespace BaoCao_PTTKHT.GUI
         public FmThongTinDangKyHocPhan()
         {
             InitializeComponent();
+        }
+
+        public FmThongTinDangKyHocPhan(String _MSSV, String _TenSinhVien)
+        {
+            InitializeComponent();
+            tbMaSinhVien.Text = _MSSV;
+            tbTenSinhVien.Text = _TenSinhVien;
         }
 
         private void FmThongTinDangKyHocPhan_Load(object sender, EventArgs e)

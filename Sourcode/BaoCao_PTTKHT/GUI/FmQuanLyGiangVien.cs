@@ -72,7 +72,7 @@ namespace BaoCao_PTTKHT.GUI
         //Tao ma giang vien
         public String CreateMaGV()
         {
-            String temp = "gv000000";
+            String temp = "GV0000";
             String soDem = (bll_BoDem.SelectSoDem("GIANGVIEN") +1 ).ToString();
             temp = temp.Remove(temp.Length - soDem.Length);
             temp += soDem;

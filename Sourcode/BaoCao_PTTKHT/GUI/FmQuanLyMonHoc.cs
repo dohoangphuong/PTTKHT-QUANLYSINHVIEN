@@ -43,9 +43,9 @@ namespace BaoCao_PTTKHT.GUI
             {
                 _comboItems.Add(new Data{ Name = khoa.TenKhoa, ID = khoa.MaKhoa });
             }
-            cbKhoa.DataSource = _comboItems;
             cbKhoa.DisplayMember = "Name";
             cbKhoa.ValueMember = "ID";
+            cbKhoa.DataSource = _comboItems;
             if (cbKhoa.Items.Count > 0)
                 cbKhoa.SelectedIndex = 0;
         }

@@ -79,13 +79,13 @@ namespace BaoCao_PTTKHT.GUI
 
         private void button11_Click(object sender, EventArgs e)
         {
-            FmThongTinDangKyHocPhan a = new FmThongTinDangKyHocPhan();
+            FmThongTinDangKyHocPhan a = new FmThongTinDangKyHocPhan("12520001", "Lê Quang Nhật");
             a.Show();
         }
 
         private void button12_Click(object sender, EventArgs e)
         {
-            FmThongTinDangKyHocPhanHieuChinh a = new FmThongTinDangKyHocPhanHieuChinh();
+            FmThongTinDangKyHocPhanHieuChinh a = new FmThongTinDangKyHocPhanHieuChinh("12520001","Lê Quang Nhật");
             a.Show();
         }
 
@@ -98,6 +98,18 @@ namespace BaoCao_PTTKHT.GUI
         private void button13_Click(object sender, EventArgs e)
         {
             FmQuanLyTaiKhoan a = new FmQuanLyTaiKhoan();
+            a.Show();
+        }
+
+        private void btnNamHoc_Click(object sender, EventArgs e)
+        {
+            FmQuanLyNamHoc qlnh = new FmQuanLyNamHoc();
+            qlnh.Show();
+        }
+
+        private void button14_Click(object sender, EventArgs e)
+        {
+            FmQuanLyLopKhoa a = new FmQuanLyLopKhoa();
             a.Show();
         }
     }

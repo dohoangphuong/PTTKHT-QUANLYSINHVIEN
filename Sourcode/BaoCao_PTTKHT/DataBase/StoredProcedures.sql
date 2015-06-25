@@ -2491,7 +2491,7 @@ GO
 
 CREATE PROCEDURE [dbo].[usp_InsertLop]
 	@MaLop varchar(10),
-	@TenLop nvarchar(30),
+	@TenLop nvarchar(50),
 	@MaKhoa varchar(10),
 	@MaNamHoc int
 AS
@@ -2525,7 +2525,7 @@ GO
 
 CREATE PROCEDURE [dbo].[usp_UpdateLop]
 	@MaLop varchar(10),
-	@TenLop nvarchar(30),
+	@TenLop nvarchar(50),
 	@MaKhoa varchar(10),
 	@MaNamHoc int
 AS
@@ -2554,7 +2554,7 @@ GO
 
 CREATE PROCEDURE [dbo].[usp_InsertUpdateLop]
 	@MaLop varchar(10),
-	@TenLop nvarchar(30),
+	@TenLop nvarchar(50),
 	@MaKhoa varchar(10),
 	@MaNamHoc int
 AS

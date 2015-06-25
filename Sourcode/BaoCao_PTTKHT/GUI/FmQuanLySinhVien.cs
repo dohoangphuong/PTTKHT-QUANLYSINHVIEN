@@ -112,7 +112,7 @@ namespace BaoCao_PTTKHT.GUI
             if (cbNam.SelectedIndex != -1)
             {
                 String temp = cbNam.Text.Substring(2, 2) + "520000";
-                String soDem = (bll_BoDem.SelectSoDem("SINHVIEN") + 1).ToString();
+                String soDem = (int.Parse(bll_SinhVien.SelectLastMssvByNam(int.Parse(cbNam.SelectedValue.ToString())).Substring(4)) + 1).ToString();
                 temp = temp.Remove(temp.Length - soDem.Length);
                 temp += soDem;
                 return temp;

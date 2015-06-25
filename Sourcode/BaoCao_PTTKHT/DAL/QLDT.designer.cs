@@ -22,7 +22,7 @@ namespace BaoCao_PTTKHT.DAL
 	using System;
 	
 	
-	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="QLDT")]
+	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="PlaceHolder")]
 	public partial class QLDTDataContext : System.Data.Linq.DataContext
 	{
 		
@@ -81,7 +81,7 @@ namespace BaoCao_PTTKHT.DAL
     #endregion
 		
 		public QLDTDataContext() : 
-				base(global::BaoCao_PTTKHT.Properties.Settings.Default.QLDTConnectionString, mappingSource)
+				base(global::BaoCao_PTTKHT.Properties.Settings.Default.PlaceHolderConnectionString, mappingSource)
 		{
 			OnCreated();
 		}
@@ -526,7 +526,7 @@ namespace BaoCao_PTTKHT.DAL
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.usp_InsertLop")]
-		public int usp_InsertLop([global::System.Data.Linq.Mapping.ParameterAttribute(Name="MaLop", DbType="VarChar(10)")] string maLop, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="TenLop", DbType="NVarChar(30)")] string tenLop, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MaKhoa", DbType="VarChar(10)")] string maKhoa, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MaNamHoc", DbType="Int")] System.Nullable<int> maNamHoc)
+		public int usp_InsertLop([global::System.Data.Linq.Mapping.ParameterAttribute(Name="MaLop", DbType="VarChar(10)")] string maLop, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="TenLop", DbType="NVarChar(50)")] string tenLop, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MaKhoa", DbType="VarChar(10)")] string maKhoa, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MaNamHoc", DbType="Int")] System.Nullable<int> maNamHoc)
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), maLop, tenLop, maKhoa, maNamHoc);
 			return ((int)(result.ReturnValue));
@@ -631,7 +631,7 @@ namespace BaoCao_PTTKHT.DAL
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.usp_InsertUpdateLop")]
-		public int usp_InsertUpdateLop([global::System.Data.Linq.Mapping.ParameterAttribute(Name="MaLop", DbType="VarChar(10)")] string maLop, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="TenLop", DbType="NVarChar(30)")] string tenLop, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MaKhoa", DbType="VarChar(10)")] string maKhoa, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MaNamHoc", DbType="Int")] System.Nullable<int> maNamHoc)
+		public int usp_InsertUpdateLop([global::System.Data.Linq.Mapping.ParameterAttribute(Name="MaLop", DbType="VarChar(10)")] string maLop, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="TenLop", DbType="NVarChar(50)")] string tenLop, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MaKhoa", DbType="VarChar(10)")] string maKhoa, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MaNamHoc", DbType="Int")] System.Nullable<int> maNamHoc)
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), maLop, tenLop, maKhoa, maNamHoc);
 			return ((int)(result.ReturnValue));
@@ -917,6 +917,13 @@ namespace BaoCao_PTTKHT.DAL
 			return ((ISingleResult<usp_SelectKhoasPagedResult>)(result.ReturnValue));
 		}
 		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.usp_SelectLastSinhviensByNam")]
+		public ISingleResult<usp_SelectLastSinhviensByNamResult> usp_SelectLastSinhviensByNam([global::System.Data.Linq.Mapping.ParameterAttribute(Name="MaNamHoc", DbType="Int")] System.Nullable<int> maNamHoc)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), maNamHoc);
+			return ((ISingleResult<usp_SelectLastSinhviensByNamResult>)(result.ReturnValue));
+		}
+		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.usp_SelectLop")]
 		public ISingleResult<usp_SelectLopResult> usp_SelectLop([global::System.Data.Linq.Mapping.ParameterAttribute(Name="MaLop", DbType="VarChar(10)")] string maLop)
 		{
@@ -1177,7 +1184,7 @@ namespace BaoCao_PTTKHT.DAL
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.usp_UpdateLop")]
-		public int usp_UpdateLop([global::System.Data.Linq.Mapping.ParameterAttribute(Name="MaLop", DbType="VarChar(10)")] string maLop, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="TenLop", DbType="NVarChar(30)")] string tenLop, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MaKhoa", DbType="VarChar(10)")] string maKhoa, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MaNamHoc", DbType="Int")] System.Nullable<int> maNamHoc)
+		public int usp_UpdateLop([global::System.Data.Linq.Mapping.ParameterAttribute(Name="MaLop", DbType="VarChar(10)")] string maLop, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="TenLop", DbType="NVarChar(50)")] string tenLop, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MaKhoa", DbType="VarChar(10)")] string maKhoa, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MaNamHoc", DbType="Int")] System.Nullable<int> maNamHoc)
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), maLop, tenLop, maKhoa, maNamHoc);
 			return ((int)(result.ReturnValue));
@@ -1216,13 +1223,6 @@ namespace BaoCao_PTTKHT.DAL
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), mSSV, tenSinhVien, ngaySinh, diaChi, gioiTinh, dienThoai, maLop);
 			return ((int)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.usp_SelectLastSinhviensByNam")]
-		public ISingleResult<usp_SelectLastSinhviensByNamResult> usp_SelectLastSinhviensByNam([global::System.Data.Linq.Mapping.ParameterAttribute(Name="MaNamHoc", DbType="Int")] System.Nullable<int> maNamHoc)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), maNamHoc);
-			return ((ISingleResult<usp_SelectLastSinhviensByNamResult>)(result.ReturnValue));
 		}
 	}
 	
@@ -3049,7 +3049,7 @@ namespace BaoCao_PTTKHT.DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TenLop", DbType="NVarChar(30) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TenLop", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
 		public string TenLop
 		{
 			get
@@ -6825,6 +6825,32 @@ namespace BaoCao_PTTKHT.DAL
 		}
 	}
 	
+	public partial class usp_SelectLastSinhviensByNamResult
+	{
+		
+		private string _MSSV;
+		
+		public usp_SelectLastSinhviensByNamResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MSSV", DbType="VarChar(10) NOT NULL", CanBeNull=false)]
+		public string MSSV
+		{
+			get
+			{
+				return this._MSSV;
+			}
+			set
+			{
+				if ((this._MSSV != value))
+				{
+					this._MSSV = value;
+				}
+			}
+		}
+	}
+	
 	public partial class usp_SelectLopResult
 	{
 		
@@ -6856,7 +6882,7 @@ namespace BaoCao_PTTKHT.DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TenLop", DbType="NVarChar(30) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TenLop", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
 		public string TenLop
 		{
 			get
@@ -7516,7 +7542,7 @@ namespace BaoCao_PTTKHT.DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TenLop", DbType="NVarChar(30) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TenLop", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
 		public string TenLop
 		{
 			get
@@ -7596,7 +7622,7 @@ namespace BaoCao_PTTKHT.DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TenLop", DbType="NVarChar(30) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TenLop", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
 		public string TenLop
 		{
 			get
@@ -7676,7 +7702,7 @@ namespace BaoCao_PTTKHT.DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TenLop", DbType="NVarChar(30) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TenLop", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
 		public string TenLop
 		{
 			get
@@ -7756,7 +7782,7 @@ namespace BaoCao_PTTKHT.DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TenLop", DbType="NVarChar(30) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TenLop", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
 		public string TenLop
 		{
 			get
@@ -9338,32 +9364,6 @@ namespace BaoCao_PTTKHT.DAL
 				if ((this._LoaiTaiKhoan != value))
 				{
 					this._LoaiTaiKhoan = value;
-				}
-			}
-		}
-	}
-	
-	public partial class usp_SelectLastSinhviensByNamResult
-	{
-		
-		private string _MSSV;
-		
-		public usp_SelectLastSinhviensByNamResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MSSV", DbType="VarChar(10) NOT NULL", CanBeNull=false)]
-		public string MSSV
-		{
-			get
-			{
-				return this._MSSV;
-			}
-			set
-			{
-				if ((this._MSSV != value))
-				{
-					this._MSSV = value;
 				}
 			}
 		}

@@ -51,7 +51,7 @@
             this.MaLop = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TenLop = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TenMon = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TenGiaoVien = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TenGiangVien = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SoTC = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Thu = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Tiet = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -243,19 +243,22 @@
             // 
             // dataGridView2
             // 
+            this.dataGridView2.AllowUserToAddRows = false;
+            this.dataGridView2.AllowUserToDeleteRows = false;
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
             this.MaLop,
             this.TenLop,
             this.TenMon,
-            this.TenGiaoVien,
+            this.TenGiangVien,
             this.SoTC,
             this.Thu,
             this.Tiet});
             this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView2.Location = new System.Drawing.Point(0, 0);
             this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.ReadOnly = true;
             this.dataGridView2.Size = new System.Drawing.Size(1212, 264);
             this.dataGridView2.TabIndex = 13;
             // 
@@ -281,11 +284,11 @@
             this.TenMon.HeaderText = "TÊN MÔN";
             this.TenMon.Name = "TenMon";
             // 
-            // TenGiaoVien
+            // TenGiangVien
             // 
-            this.TenGiaoVien.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.TenGiaoVien.HeaderText = "TÊN GIÁO VIÊN";
-            this.TenGiaoVien.Name = "TenGiaoVien";
+            this.TenGiangVien.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.TenGiangVien.HeaderText = "TÊN GIẢNG VIÊN";
+            this.TenGiangVien.Name = "TenGiangVien";
             // 
             // SoTC
             // 
@@ -350,7 +353,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn MaLop;
         private System.Windows.Forms.DataGridViewTextBoxColumn TenLop;
         private System.Windows.Forms.DataGridViewTextBoxColumn TenMon;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TenGiaoVien;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TenGiangVien;
         private System.Windows.Forms.DataGridViewTextBoxColumn SoTC;
         private System.Windows.Forms.DataGridViewTextBoxColumn Thu;
         private System.Windows.Forms.DataGridViewTextBoxColumn Tiet;

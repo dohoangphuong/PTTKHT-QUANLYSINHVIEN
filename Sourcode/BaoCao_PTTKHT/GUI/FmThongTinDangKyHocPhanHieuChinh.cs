@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -21,6 +21,7 @@ namespace BaoCao_PTTKHT.GUI
         BLL_LopHoc bll_LopHoc = new BLL_LopHoc();
         BLL_ChiTietLopHoc bll_ChiTietLopHoc = new BLL_ChiTietLopHoc();
         BLL_BoDem bll_BoDem = new BLL_BoDem();
+        BLL_MonTienQuyet bll_MonTienQuyet = new BLL_MonTienQuyet();
         #endregion
 
         #region class
@@ -69,6 +70,8 @@ namespace BaoCao_PTTKHT.GUI
             dataGridView2.Rows.Clear();
             String TenMonHoc = null;
             int stt = 0;
+            int SoTinChi = 0;
+            String MaMonHoc = null;
             List<LOPHOC> listLopHoc = bll_LopHoc.SelectAll();
             foreach (usp_SelectLophocsByMaHocKyResult lophoc in bll_LopHoc.SelectByMaHocKy(int.Parse(cbHocKy.SelectedValue.ToString())))
             {
@@ -76,6 +79,8 @@ namespace BaoCao_PTTKHT.GUI
                 foreach (usp_SelectMonhocResult mh in bll_MonHoc.Select(lophoc.MaMonHoc))
                 {
                     TenMonHoc = mh.TenMonHoc;
+                    SoTinChi = mh.SoTinChi;
+                    MaMonHoc = mh.MaMonHoc;
                 }
                 foreach (usp_SelectChitietlophocsByMaLopHocResult ctlh in bll_ChiTietLopHoc.SelectChiTietLopHocByMaLop(lophoc.MaLopHoc))
                 {
@@ -91,14 +96,52 @@ namespace BaoCao_PTTKHT.GUI
                     }
                 }
                 stt++;
-                dataGridView2.Rows.Add(new DataGridViewCheckBoxCell(flag), stt, lophoc.MaLopHoc, lophoc.TenLopHoc, TenMonHoc, lophoc.Thu, lophoc.Tiet, soLuongDK);
+                dataGridView2.Rows.Add(flag, stt, lophoc.MaLopHoc, lophoc.TenLopHoc, TenMonHoc, SoTinChi,lophoc.Thu, lophoc.Tiet, soLuongDK, MaMonHoc);
             }
+        }
+
+        //Check mon tien quyet
+        public bool CheckMonTienQuyet(String _MaMonHoc)
+        {
+            bool result = true;
+            foreach (usp_SelectMontienquyetsByMaMonHocResult mtq in bll_MonTienQuyet.SelectMonTienQuyetByMaMon(_MaMonHoc))
+            {
+                //KT mon tien quyet da co trong danh sach cac lop da hoc
+                bool flag = false;
+                foreach (usp_SelectChitietlophocsByMSSVResult ctlh in bll_ChiTietLopHoc.SelectChiTietLopHocByMSSV(tbMaSinhVien.Text))
+                {
+                    foreach (usp_SelectLophocResult lh in bll_LopHoc.SelectByMaLopHoc(ctlh.MaLopHoc))
+                    {
+                        if (lh.MaMonHoc == mtq.MaMonTienQuyet)
+                        {
+                            flag = true;
+                        }
+                    }
+                    if (flag)
+                        break;
+                }
+
+                //Neu chua hoc tra ve false
+                if (!flag)
+                {
+                    result = false;
+                    break;
+                }
+            }
+            return result;
         }
         #endregion
 
         public FmThongTinDangKyHocPhanHieuChinh()
         {
             InitializeComponent();
+        }
+
+        public FmThongTinDangKyHocPhanHieuChinh(String _MSSV, String _TenSinhVien)
+        {
+            InitializeComponent();
+            tbMaSinhVien.Text = _MSSV;
+            tbTenSinhVien.Text = _TenSinhVien;
         }
 
         private void FmThongTinDangKyHocPhanHieuChinh_Load(object sender, EventArgs e)
@@ -126,7 +169,14 @@ namespace BaoCao_PTTKHT.GUI
                         }
                         if (flagInsert)
                         {
-                            bll_ChiTietLopHoc.Insert(bll_BoDem.SelectSoDem("CHITIETLOPHOC") + 1, int.Parse(row.Cells["MaLop"].Value.ToString()), tbMaSinhVien.Text);
+                            if (CheckMonTienQuyet(row.Cells["MaMH"].Value.ToString()))
+                            {
+                                bll_ChiTietLopHoc.Insert(bll_BoDem.SelectSoDem("CHITIETLOPHOC") + 1, int.Parse(row.Cells["MaLop"].Value.ToString()), tbMaSinhVien.Text);                           
+                            }
+                            else
+                            {
+                                MessageBox.Show("Bạn cần học các môn tiên quyết trước", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
                         }
                     }
                     else
@@ -137,7 +187,7 @@ namespace BaoCao_PTTKHT.GUI
                         {
                             if (ctlh.MaLopHoc.ToString() == row.Cells["MaLop"].Value.ToString())
                             {
-                                flagDelete = false;
+                                flagDelete = true;
                                 MaCTLH = ctlh.MaCTLopHoc;
                                 break;
                             }
@@ -153,6 +203,8 @@ namespace BaoCao_PTTKHT.GUI
                     MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+            MessageBox.Show("Hiệu chỉnh thành công", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            LoadLopHoc();
         }
 
         private void cbNamHoc_SelectedIndexChanged(object sender, EventArgs e)

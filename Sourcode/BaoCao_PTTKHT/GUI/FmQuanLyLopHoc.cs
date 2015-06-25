@@ -128,7 +128,10 @@ namespace BaoCao_PTTKHT.GUI
         public void Clear()
         {
             tbTenLop.Clear();
-            checkedListBox1.ClearSelected();
+            foreach(int i in checkedListBox1.CheckedIndices)
+            {
+                checkedListBox1.SetItemCheckState(i, CheckState.Unchecked);
+            }
         }
         #endregion
 
@@ -166,6 +169,7 @@ namespace BaoCao_PTTKHT.GUI
                 temp = temp.Remove(temp.Length - 1);
                 bll_LopHoc.Insert(bll_BoDem.SelectSoDem("LOPHOC") + 1, tbTenLop.Text, temp, cbThu.Text, cbMonHoc.SelectedValue.ToString(), int.Parse(cbHocKy.SelectedValue.ToString()));
                 LoadLopHoc();
+                Clear();
             }
             else
             {

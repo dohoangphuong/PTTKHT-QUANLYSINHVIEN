@@ -42,6 +42,8 @@
             this.button12 = new System.Windows.Forms.Button();
             this.btnDatabase = new System.Windows.Forms.Button();
             this.button13 = new System.Windows.Forms.Button();
+            this.btnNamHoc = new System.Windows.Forms.Button();
+            this.button14 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button1
@@ -184,11 +186,33 @@
             this.button13.UseVisualStyleBackColor = true;
             this.button13.Click += new System.EventHandler(this.button13_Click);
             // 
+            // btnNamHoc
+            // 
+            this.btnNamHoc.Location = new System.Drawing.Point(228, 360);
+            this.btnNamHoc.Name = "btnNamHoc";
+            this.btnNamHoc.Size = new System.Drawing.Size(127, 36);
+            this.btnNamHoc.TabIndex = 15;
+            this.btnNamHoc.Text = "NĂM HỌC";
+            this.btnNamHoc.UseVisualStyleBackColor = true;
+            this.btnNamHoc.Click += new System.EventHandler(this.btnNamHoc_Click);
+            // 
+            // button14
+            // 
+            this.button14.Location = new System.Drawing.Point(383, 360);
+            this.button14.Name = "button14";
+            this.button14.Size = new System.Drawing.Size(127, 36);
+            this.button14.TabIndex = 16;
+            this.button14.Text = "Lớp";
+            this.button14.UseVisualStyleBackColor = true;
+            this.button14.Click += new System.EventHandler(this.button14_Click);
+            // 
             // FmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(557, 429);
+            this.Controls.Add(this.button14);
+            this.Controls.Add(this.btnNamHoc);
             this.Controls.Add(this.button13);
             this.Controls.Add(this.btnDatabase);
             this.Controls.Add(this.button12);
@@ -225,6 +249,8 @@
         private System.Windows.Forms.Button button12;
         private System.Windows.Forms.Button btnDatabase;
         private System.Windows.Forms.Button button13;
+        private System.Windows.Forms.Button btnNamHoc;
+        private System.Windows.Forms.Button button14;
     }
 }
 

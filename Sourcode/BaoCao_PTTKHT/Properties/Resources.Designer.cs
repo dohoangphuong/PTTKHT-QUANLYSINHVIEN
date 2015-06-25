@@ -95,7 +95,7 @@ namespace BaoCao_PTTKHT.Properties {
         ///create table LOP
         ///(
         ///	MaLop varchar(10) primary key,
-        ///	TenLop nvarchar(30) not null,
+        ///	TenLop nvarchar(50) not null,
         ///	MaKhoa varchar(10) FOREIGN KEY REFERENCES Khoa(MaKhoa) ON  [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string CreateDatabase {
@@ -111,7 +111,8 @@ namespace BaoCao_PTTKHT.Properties {
         ///SET DATEFORMAT DMY
         ///
         ///insert into NAMHOC values(1, &apos;2012-2013&apos;)
-        ///insert into NAMHOC values(2, &apos;2014-2015&apos;)
+        ///insert into NAMHOC values(2, &apos;2013-2014&apos;)
+        ///insert into NAMHOC values(3, &apos;2014-2015&apos;)
         ///
         ///insert into HOCKY values(1, 1, N&apos;HK I&apos;)
         ///insert into HOCKY values(2, 1, N&apos;HK II&apos;)
@@ -119,10 +120,9 @@ namespace BaoCao_PTTKHT.Properties {
         ///insert into HOCKY values(4, 2, N&apos;HK I&apos;)
         ///insert into HOCKY values(5, 2, N&apos;HK II&apos;)
         ///insert into HOCKY values(6, 2, N&apos;HK Hè&apos;)
-        ///
-        ///insert into KHOA values(&apos;SE&apos;, N&apos;Kỹ Thuật Phần Mềm&apos;)
-        ///insert into KHOA values(&apos;CE&apos;, N&apos;Kỹ Thuật Máy Tính&apos;)
-        ///insert into KHOA va [rest of string was truncated]&quot;;.
+        ///insert into HOCKY values(7, 3, N&apos;HK I&apos;)
+        ///insert into HOCKY values(8, 3, N&apos;HK II&apos;)
+        ///i [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string InitData {
             get {

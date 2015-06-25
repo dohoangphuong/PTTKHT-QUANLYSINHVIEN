@@ -47,8 +47,8 @@
             this.slidePanel1 = new DevComponents.DotNetBar.Controls.SlidePanel();
             this.slidePanel2 = new DevComponents.DotNetBar.Controls.SlidePanel();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.Chon = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Chọn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.STT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MaLop = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TenLop = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MonHoc = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -56,6 +56,7 @@
             this.Thu = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Tiet = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DaDK = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaMH = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.slidePanel3.SuspendLayout();
             this.panel2.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -249,31 +250,32 @@
             this.dataGridView2.AllowUserToDeleteRows = false;
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Chon,
-            this.dataGridViewTextBoxColumn1,
+            this.Chọn,
+            this.STT,
             this.MaLop,
             this.TenLop,
             this.MonHoc,
             this.SoTC,
             this.Thu,
             this.Tiet,
-            this.DaDK});
+            this.DaDK,
+            this.MaMH});
             this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView2.Location = new System.Drawing.Point(0, 0);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.Size = new System.Drawing.Size(1212, 280);
             this.dataGridView2.TabIndex = 13;
             // 
-            // Chon
+            // Chọn
             // 
-            this.Chon.HeaderText = "CHỌN";
-            this.Chon.Name = "Chon";
+            this.Chọn.HeaderText = "Chọn";
+            this.Chọn.Name = "Chọn";
             // 
-            // dataGridViewTextBoxColumn1
+            // STT
             // 
-            this.dataGridViewTextBoxColumn1.HeaderText = "STT";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.STT.HeaderText = "STT";
+            this.STT.Name = "STT";
+            this.STT.ReadOnly = true;
             // 
             // MaLop
             // 
@@ -319,6 +321,12 @@
             this.DaDK.Name = "DaDK";
             this.DaDK.ReadOnly = true;
             // 
+            // MaMH
+            // 
+            this.MaMH.HeaderText = "Mã môn học";
+            this.MaMH.Name = "MaMH";
+            this.MaMH.Visible = false;
+            // 
             // FmThongTinDangKyHocPhanHieuChinh
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -363,8 +371,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cbHocKy;
         private System.Windows.Forms.ComboBox cbNamHoc;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn Chon;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn Chọn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn STT;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaLop;
         private System.Windows.Forms.DataGridViewTextBoxColumn TenLop;
         private System.Windows.Forms.DataGridViewTextBoxColumn MonHoc;
@@ -372,5 +380,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Thu;
         private System.Windows.Forms.DataGridViewTextBoxColumn Tiet;
         private System.Windows.Forms.DataGridViewTextBoxColumn DaDK;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MaMH;
     }
 }
