@@ -25,6 +25,12 @@ namespace BaoCao_PTTKHT.BLL
             return DB.usp_SelectGiangdaysByMaGiangVien(_MaGiangVien);
         }
 
+        //Lay giang day theo Ma lop
+        public ISingleResult<usp_SelectGiangdaysByMaLopHocResult> SelectGiangDayByMaLopHoc(int _MaLopHoc)
+        {
+            return DB.usp_SelectGiangdaysByMaLopHoc(_MaLopHoc);
+        }
+
         //Insert giang day
         public void Insert(int _MaGiangDay, int _MaLopHoc, String _MaGiangVien)
         {

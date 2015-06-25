@@ -2859,7 +2859,7 @@ GO
 CREATE PROCEDURE [dbo].[usp_InsertLophoc]
 	@MaLopHoc int,
 	@TenLopHoc nvarchar(50),
-	@Tiet int,
+	@Tiet varchar(50),
 	@Thu nvarchar(30),
 	@MaMonHoc varchar(10),
 	@MaHocKy int
@@ -2899,7 +2899,7 @@ GO
 CREATE PROCEDURE [dbo].[usp_UpdateLophoc]
 	@MaLopHoc int,
 	@TenLopHoc nvarchar(50),
-	@Tiet int,
+	@Tiet varchar(50),
 	@Thu nvarchar(30),
 	@MaMonHoc varchar(10),
 	@MaHocKy int
@@ -2932,7 +2932,7 @@ GO
 CREATE PROCEDURE [dbo].[usp_InsertUpdateLophoc]
 	@MaLopHoc int,
 	@TenLopHoc nvarchar(50),
-	@Tiet int,
+	@Tiet varchar(50),
 	@Thu nvarchar(30),
 	@MaMonHoc varchar(10),
 	@MaHocKy int

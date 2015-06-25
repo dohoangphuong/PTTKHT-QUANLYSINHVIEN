@@ -20,9 +20,15 @@ namespace BaoCao_PTTKHT.BLL
         }
 
         //Lay hoc ky theo ma hoc ky
-        public ISingleResult<usp_SelectHockyResult> Select(int _MaHocKy)
+        public ISingleResult<usp_SelectHockyResult> Select(int? _MaHocKy)
         {
             return DB.usp_SelectHocky(_MaHocKy);
+        }
+
+        //Lay hoc ky theo ma nam hoc
+        public ISingleResult<usp_SelectHockiesByMaNamHocResult> SelectHocKyByMaNamHoc(int _MaNamHoc)
+        {
+            return DB.usp_SelectHockiesByMaNamHoc(_MaNamHoc);
         }
 
         //Insert hoc ky moi

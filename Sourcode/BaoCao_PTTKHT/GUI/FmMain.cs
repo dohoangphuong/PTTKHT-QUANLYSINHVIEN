@@ -37,7 +37,7 @@ namespace BaoCao_PTTKHT.GUI
 
         private void button4_Click(object sender, EventArgs e)
         {
-            FmQuanLyLop a = new FmQuanLyLop();
+            FmQuanLyLopHoc a = new FmQuanLyLopHoc();
             a.Show();
         }
 

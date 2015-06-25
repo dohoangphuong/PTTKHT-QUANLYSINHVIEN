@@ -20,19 +20,25 @@ namespace BaoCao_PTTKHT.BLL
         }
 
         //Lay lop hoc theo ma lop
-        public ISingleResult<usp_SelectLophocResult> SelectByMSSV(int _MaLopHoc)
+        public ISingleResult<usp_SelectLophocResult> SelectByMaLopHoc(int _MaLopHoc)
         {
             return DB.usp_SelectLophoc(_MaLopHoc);
         }
 
+        //Lay lop hoc theo hoc ky
+        public ISingleResult<usp_SelectLophocsByMaHocKyResult> SelectByMaHocKy(int _MaHocKy)
+        {
+            return DB.usp_SelectLophocsByMaHocKy(_MaHocKy);
+        }
+
         //Insert lop hoc moi
-        public void Insert(int _MaLopHoc, String _TenLopHoc, int? _Tiet, String _Thu, String _MaMonHoc, int _MaHocKy)
+        public void Insert(int _MaLopHoc, String _TenLopHoc, String _Tiet, String _Thu, String _MaMonHoc, int _MaHocKy)
         {
             DB.usp_InsertLophoc(_MaLopHoc, _TenLopHoc, _Tiet, _Thu, _MaMonHoc, _MaHocKy);
         }
 
         //Cap nhat lop hoc
-        public void Update(int _MaLopHoc, String _TenLopHoc, int? _Tiet, String _Thu, String _MaMonHoc, int _MaHocKy)
+        public void Update(int _MaLopHoc, String _TenLopHoc, String _Tiet, String _Thu, String _MaMonHoc, int _MaHocKy)
         {
             DB.usp_UpdateLophoc(_MaLopHoc, _TenLopHoc, _Tiet, _Thu, _MaMonHoc, _MaHocKy);
         }

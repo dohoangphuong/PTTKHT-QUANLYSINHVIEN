@@ -107,11 +107,11 @@
     <Compile Include="GUI\FmQuanLyDangKyHocPhan.Designer.cs">
       <DependentUpon>FmQuanLyDangKyHocPhan.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\FmQuanLyLop.cs">
+    <Compile Include="GUI\FmQuanLyLopHoc.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\FmQuanLyLop.Designer.cs">
-      <DependentUpon>FmQuanLyLop.cs</DependentUpon>
+    <Compile Include="GUI\FmQuanLyLopHoc.Designer.cs">
+      <DependentUpon>FmQuanLyLopHoc.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\FmQuanLyGiangVien.cs">
       <SubType>Form</SubType>
@@ -184,8 +184,8 @@
     <EmbeddedResource Include="GUI\FmQuanLyDangKyHocPhan.resx">
       <DependentUpon>FmQuanLyDangKyHocPhan.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\FmQuanLyLop.resx">
-      <DependentUpon>FmQuanLyLop.cs</DependentUpon>
+    <EmbeddedResource Include="GUI\FmQuanLyLopHoc.resx">
+      <DependentUpon>FmQuanLyLopHoc.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\FmQuanLyGiangVien.resx">
       <DependentUpon>FmQuanLyGiangVien.cs</DependentUpon>

@@ -71,7 +71,7 @@ create table LOPHOC
 (
 	MaLopHoc int primary key,
 	TenLopHoc nvarchar(50) not null,
-	Tiet int null,
+	Tiet varchar(50) null,
 	Thu nvarchar(30) null,
 	MaMonHoc varchar(10) FOREIGN KEY REFERENCES MONHOC(MaMonHoc) ON DELETE CASCADE,
 	MaHocKy int FOREIGN KEY REFERENCES HOCKY(MaHocKy),

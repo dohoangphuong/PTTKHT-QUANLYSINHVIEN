@@ -20,7 +20,7 @@ namespace BaoCao_PTTKHT.BLL
         }
 
         //Lay nam hoc the ma nam
-        public ISingleResult<usp_SelectNamhocResult> Select(int _MaNam)
+        public ISingleResult<usp_SelectNamhocResult> Select(int? _MaNam)
         {
             return DB.usp_SelectNamhoc(_MaNam);
         }

@@ -1,5 +1,5 @@
-﻿<?xml version="1.0" encoding="utf-8"?><Database Name="PlaceHolder" Class="QLDTDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=NHAT\SQLEXPRESS;Initial Catalog=PlaceHolder;Integrated Security=True" SettingsObjectName="BaoCao_PTTKHT.Properties.Settings" SettingsPropertyName="PlaceHolderConnectionString" Provider="System.Data.SqlClient" />
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="QLDT" Class="QLDTDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=NHAT\SQLEXPRESS;Initial Catalog=QLDT;Integrated Security=True" SettingsObjectName="BaoCao_PTTKHT.Properties.Settings" SettingsPropertyName="QLDTConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.BANGDIEM" Member="BANGDIEMs">
     <Type Name="BANGDIEM">
       <Column Name="MaBangDiem" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -8,17 +8,12 @@
       <Association Name="LOPHOC_BANGDIEM" Member="LOPHOC" ThisKey="MaLopHoc" OtherKey="MaLopHoc" Type="LOPHOC" IsForeignKey="true" DeleteRule="CASCADE" />
     </Type>
   </Table>
-  <Table Name="dbo.SINHVIEN" Member="SINHVIENs">
-    <Type Name="SINHVIEN">
-      <Column Name="MSSV" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="TenSinhVien" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="NgaySinh" Type="System.DateTime" DbType="SmallDateTime NOT NULL" CanBeNull="false" />
-      <Column Name="DiaChi" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
-      <Column Name="GioiTinh" Type="System.String" DbType="VarChar(5) NOT NULL" CanBeNull="false" />
-      <Column Name="DienThoai" Type="System.String" DbType="VarChar(12) NOT NULL" CanBeNull="false" />
-      <Column Name="MaLop" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
-      <Association Name="SINHVIEN_CHITIETLOPHOC" Member="CHITIETLOPHOCs" ThisKey="MSSV" OtherKey="MSSV" Type="CHITIETLOPHOC" />
-      <Association Name="LOP_SINHVIEN" Member="LOP" ThisKey="MaLop" OtherKey="MaLop" Type="LOP" IsForeignKey="true" DeleteRule="CASCADE" />
+  <Table Name="dbo.TAIKHOAN" Member="TAIKHOANs">
+    <Type Name="TAIKHOAN">
+      <Column Name="TenTaiKhoan" Type="System.String" DbType="VarChar(30) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MatKhau" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="TenNguoiDung" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="LoaiTaiKhoan" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
   <Table Name="dbo.BODEM" Member="BODEMs">
@@ -41,8 +36,8 @@
       <Column Name="MaCTLopHoc" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="MaLopHoc" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="MSSV" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
-      <Association Name="SINHVIEN_CHITIETLOPHOC" Member="SINHVIEN" ThisKey="MSSV" OtherKey="MSSV" Type="SINHVIEN" IsForeignKey="true" DeleteRule="CASCADE" />
       <Association Name="LOPHOC_CHITIETLOPHOC" Member="LOPHOC" ThisKey="MaLopHoc" OtherKey="MaLopHoc" Type="LOPHOC" IsForeignKey="true" />
+      <Association Name="SINHVIEN_CHITIETLOPHOC" Member="SINHVIEN" ThisKey="MSSV" OtherKey="MSSV" Type="SINHVIEN" IsForeignKey="true" DeleteRule="CASCADE" />
     </Type>
   </Table>
   <Table Name="dbo.DIEM" Member="DIEMs">
@@ -110,7 +105,7 @@
     <Type Name="LOPHOC">
       <Column Name="MaLopHoc" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="TenLopHoc" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="Tiet" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Tiet" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="Thu" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
       <Column Name="MaMonHoc" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
       <Column Name="MaHocKy" Type="System.Int32" DbType="Int" CanBeNull="true" />
@@ -150,12 +145,17 @@
       <Association Name="NAMHOC_LOP" Member="LOPs" ThisKey="MaNamHoc" OtherKey="MaNamHoc" Type="LOP" />
     </Type>
   </Table>
-  <Table Name="dbo.TAIKHOAN" Member="TAIKHOANs">
-    <Type Name="TAIKHOAN">
-      <Column Name="TenTaiKhoan" Type="System.String" DbType="VarChar(30) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="MatKhau" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
-      <Column Name="TenNguoiDung" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="LoaiTaiKhoan" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+  <Table Name="dbo.SINHVIEN" Member="SINHVIENs">
+    <Type Name="SINHVIEN">
+      <Column Name="MSSV" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TenSinhVien" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="NgaySinh" Type="System.DateTime" DbType="SmallDateTime NOT NULL" CanBeNull="false" />
+      <Column Name="DiaChi" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="GioiTinh" Type="System.String" DbType="VarChar(5) NOT NULL" CanBeNull="false" />
+      <Column Name="DienThoai" Type="System.String" DbType="VarChar(12) NOT NULL" CanBeNull="false" />
+      <Column Name="MaLop" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Association Name="SINHVIEN_CHITIETLOPHOC" Member="CHITIETLOPHOCs" ThisKey="MSSV" OtherKey="MSSV" Type="CHITIETLOPHOC" />
+      <Association Name="LOP_SINHVIEN" Member="LOP" ThisKey="MaLop" OtherKey="MaLop" Type="LOP" IsForeignKey="true" DeleteRule="CASCADE" />
     </Type>
   </Table>
   <Function Name="dbo.usp_DeleteBangdiem" Method="usp_DeleteBangdiem">
@@ -355,7 +355,7 @@
   <Function Name="dbo.usp_InsertLophoc" Method="usp_InsertLophoc">
     <Parameter Name="MaLopHoc" Parameter="maLopHoc" Type="System.Int32" DbType="Int" />
     <Parameter Name="TenLopHoc" Parameter="tenLopHoc" Type="System.String" DbType="NVarChar(50)" />
-    <Parameter Name="Tiet" Parameter="tiet" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Tiet" Parameter="tiet" Type="System.String" DbType="VarChar(50)" />
     <Parameter Name="Thu" Parameter="thu" Type="System.String" DbType="NVarChar(30)" />
     <Parameter Name="MaMonHoc" Parameter="maMonHoc" Type="System.String" DbType="VarChar(10)" />
     <Parameter Name="MaHocKy" Parameter="maHocKy" Type="System.Int32" DbType="Int" />
@@ -458,7 +458,7 @@
   <Function Name="dbo.usp_InsertUpdateLophoc" Method="usp_InsertUpdateLophoc">
     <Parameter Name="MaLopHoc" Parameter="maLopHoc" Type="System.Int32" DbType="Int" />
     <Parameter Name="TenLopHoc" Parameter="tenLopHoc" Type="System.String" DbType="NVarChar(50)" />
-    <Parameter Name="Tiet" Parameter="tiet" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Tiet" Parameter="tiet" Type="System.String" DbType="VarChar(50)" />
     <Parameter Name="Thu" Parameter="thu" Type="System.String" DbType="NVarChar(30)" />
     <Parameter Name="MaMonHoc" Parameter="maMonHoc" Type="System.String" DbType="VarChar(10)" />
     <Parameter Name="MaHocKy" Parameter="maHocKy" Type="System.Int32" DbType="Int" />
@@ -790,7 +790,7 @@
     <ElementType Name="usp_SelectLophocResult">
       <Column Name="MaLopHoc" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="TenLopHoc" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="Tiet" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Tiet" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="Thu" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
       <Column Name="MaMonHoc" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
       <Column Name="MaHocKy" Type="System.Int32" DbType="Int" CanBeNull="true" />
@@ -800,7 +800,7 @@
     <ElementType Name="usp_SelectLophocsAllResult">
       <Column Name="MaLopHoc" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="TenLopHoc" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="Tiet" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Tiet" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="Thu" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
       <Column Name="MaMonHoc" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
       <Column Name="MaHocKy" Type="System.Int32" DbType="Int" CanBeNull="true" />
@@ -811,7 +811,7 @@
     <ElementType Name="usp_SelectLophocsByMaHocKyResult">
       <Column Name="MaLopHoc" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="TenLopHoc" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="Tiet" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Tiet" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="Thu" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
       <Column Name="MaMonHoc" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
       <Column Name="MaHocKy" Type="System.Int32" DbType="Int" CanBeNull="true" />
@@ -822,7 +822,7 @@
     <ElementType Name="usp_SelectLophocsByMaMonHocResult">
       <Column Name="MaLopHoc" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="TenLopHoc" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="Tiet" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Tiet" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="Thu" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
       <Column Name="MaMonHoc" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
       <Column Name="MaHocKy" Type="System.Int32" DbType="Int" CanBeNull="true" />
@@ -832,7 +832,7 @@
     <ElementType Name="usp_SelectLophocsPagedResult">
       <Column Name="MaLopHoc" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="TenLopHoc" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="Tiet" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Tiet" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="Thu" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
       <Column Name="MaMonHoc" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
       <Column Name="MaHocKy" Type="System.Int32" DbType="Int" CanBeNull="true" />
@@ -1096,7 +1096,7 @@
   <Function Name="dbo.usp_UpdateLophoc" Method="usp_UpdateLophoc">
     <Parameter Name="MaLopHoc" Parameter="maLopHoc" Type="System.Int32" DbType="Int" />
     <Parameter Name="TenLopHoc" Parameter="tenLopHoc" Type="System.String" DbType="NVarChar(50)" />
-    <Parameter Name="Tiet" Parameter="tiet" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Tiet" Parameter="tiet" Type="System.String" DbType="VarChar(50)" />
     <Parameter Name="Thu" Parameter="thu" Type="System.String" DbType="NVarChar(30)" />
     <Parameter Name="MaMonHoc" Parameter="maMonHoc" Type="System.String" DbType="VarChar(10)" />
     <Parameter Name="MaHocKy" Parameter="maHocKy" Type="System.Int32" DbType="Int" />
