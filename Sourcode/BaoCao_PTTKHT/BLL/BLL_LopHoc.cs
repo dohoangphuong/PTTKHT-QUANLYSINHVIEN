@@ -20,7 +20,7 @@ namespace BaoCao_PTTKHT.BLL
         }
 
         //Lay lop hoc theo ma lop
-        public ISingleResult<usp_SelectLophocResult> SelectByMaLopHoc(int _MaLopHoc)
+        public ISingleResult<usp_SelectLophocResult> SelectByMaLopHoc(int? _MaLopHoc)
         {
             return DB.usp_SelectLophoc(_MaLopHoc);
         }

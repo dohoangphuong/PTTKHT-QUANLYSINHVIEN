@@ -25,6 +25,12 @@ namespace BaoCao_PTTKHT.BLL
             return DB.usp_SelectChitietlophocsByMaLopHoc(_MaLopHoc);
         }
 
+        //Lay chi tiet lop hoc theo mssv
+        public ISingleResult<usp_SelectChitietlophocsByMSSVResult> SelectChiTietLopHocByMSSV(String _MSSV)
+        {
+            return DB.usp_SelectChitietlophocsByMSSV(_MSSV);
+        }
+
         //Lay chi tiet lop hoc theo ma chi tiet lop
         public ISingleResult<usp_SelectChitietlophocResult> Select(int _MaCTLopHoc)
         {
