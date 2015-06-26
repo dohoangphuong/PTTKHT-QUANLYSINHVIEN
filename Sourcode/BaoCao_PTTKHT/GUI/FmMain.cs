@@ -25,7 +25,7 @@ namespace BaoCao_PTTKHT.GUI
 
         private void button2_Click(object sender, EventArgs e)
         {
-            FmQuanLyDiemSinhVienCT a = new FmQuanLyDiemSinhVienCT();
+            FmQuanLyDiemSinhVienCT a = new FmQuanLyDiemSinhVienCT("12520001");
             a.Show();
         }
 

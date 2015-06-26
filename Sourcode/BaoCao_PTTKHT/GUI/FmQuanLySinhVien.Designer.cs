@@ -138,7 +138,7 @@
             // 
             this.cbNam.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbNam.FormattingEnabled = true;
-            this.cbNam.Location = new System.Drawing.Point(1055, 94);
+            this.cbNam.Location = new System.Drawing.Point(137, 42);
             this.cbNam.Name = "cbNam";
             this.cbNam.Size = new System.Drawing.Size(262, 30);
             this.cbNam.TabIndex = 22;
@@ -155,7 +155,7 @@
             // 
             // tbDiaChi
             // 
-            this.tbDiaChi.Location = new System.Drawing.Point(133, 137);
+            this.tbDiaChi.Location = new System.Drawing.Point(1055, 42);
             this.tbDiaChi.Multiline = true;
             this.tbDiaChi.Name = "tbDiaChi";
             this.tbDiaChi.Size = new System.Drawing.Size(262, 33);
@@ -175,7 +175,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Times New Roman", 14.25F);
-            this.label7.Location = new System.Drawing.Point(19, 149);
+            this.label7.Location = new System.Drawing.Point(941, 54);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(69, 21);
             this.label7.TabIndex = 17;
@@ -237,7 +237,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Times New Roman", 14.25F);
-            this.label5.Location = new System.Drawing.Point(952, 103);
+            this.label5.Location = new System.Drawing.Point(23, 51);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(82, 21);
             this.label5.TabIndex = 9;
@@ -247,7 +247,7 @@
             // 
             this.cbKhoa.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbKhoa.FormattingEnabled = true;
-            this.cbKhoa.Location = new System.Drawing.Point(1055, 43);
+            this.cbKhoa.Location = new System.Drawing.Point(1055, 93);
             this.cbKhoa.Name = "cbKhoa";
             this.cbKhoa.Size = new System.Drawing.Size(262, 30);
             this.cbKhoa.TabIndex = 8;
@@ -257,7 +257,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Times New Roman", 14.25F);
-            this.label4.Location = new System.Drawing.Point(952, 53);
+            this.label4.Location = new System.Drawing.Point(952, 103);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(54, 21);
             this.label4.TabIndex = 7;
@@ -275,7 +275,7 @@
             // 
             // tbHoTen
             // 
-            this.tbHoTen.Location = new System.Drawing.Point(133, 90);
+            this.tbHoTen.Location = new System.Drawing.Point(137, 138);
             this.tbHoTen.Multiline = true;
             this.tbHoTen.Name = "tbHoTen";
             this.tbHoTen.Size = new System.Drawing.Size(262, 33);
@@ -286,7 +286,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Times New Roman", 14.25F);
-            this.label2.Location = new System.Drawing.Point(19, 102);
+            this.label2.Location = new System.Drawing.Point(23, 150);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(64, 21);
             this.label2.TabIndex = 2;
@@ -294,7 +294,7 @@
             // 
             // tbMSSV
             // 
-            this.tbMSSV.Location = new System.Drawing.Point(133, 39);
+            this.tbMSSV.Location = new System.Drawing.Point(137, 87);
             this.tbMSSV.Multiline = true;
             this.tbMSSV.Name = "tbMSSV";
             this.tbMSSV.ReadOnly = true;
@@ -306,7 +306,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(19, 51);
+            this.label1.Location = new System.Drawing.Point(23, 99);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(108, 21);
             this.label1.TabIndex = 0;
@@ -545,7 +545,6 @@
             this.Controls.Add(this.slidePanel1);
             this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ForeColor = System.Drawing.Color.Black;
             this.Name = "FmQuanLySinhVien";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "QUẢN LÝ SINH VIÊN";
