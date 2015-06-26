@@ -31,19 +31,12 @@ namespace BaoCao_PTTKHT.GUI
         {
             try
             {
-                _quyen = 0;
-               // FmDangNhap idangnhap = new FmDangNhap();
-               // idangnhap.ShowDialog();
-               // int iquyen = idangnhap.Quyen();
-                
-               //_quyen = iquyen;
-                //if (iquyen != -1)
-                //{
-                //    _quyen = iquyen;
-                //}
-                //else
-                //    if (_quyen == -1)
-                //        this.Close();
+               // _quyen = 0;
+                FmDangNhap idangnhap = new FmDangNhap();
+                idangnhap.ShowDialog();
+                int iquyen = idangnhap.Quyen();
+                _quyen = iquyen;
+              
                 KhoiTaoChucNang();
             }
             catch { }
@@ -80,7 +73,7 @@ namespace BaoCao_PTTKHT.GUI
                         hk.Enabled = false;
                         mh.Enabled = false;
                         mtq.Enabled = false;
-                        sv.Enabled = false;
+                        sv.Enabled = true;
                         lk.Enabled = false;
                         lh.Enabled = false;
                         bdsv.Enabled = false;
@@ -114,7 +107,7 @@ namespace BaoCao_PTTKHT.GUI
                         hk.Enabled = false;
                         mh.Enabled = false;
                         mtq.Enabled = false;
-                        sv.Enabled = false;
+                        sv.Enabled = true;
                         lk.Enabled = false;
                         lh.Enabled = false;
                         bdsv.Enabled = false;
@@ -124,14 +117,14 @@ namespace BaoCao_PTTKHT.GUI
                         dk.Enabled = false;
                         ttdk.Enabled = true;
                         hcdk.Enabled = false;
-                        PhanQuyen.Enabled = true;
+                        PhanQuyen.Enabled = false;
                         break;
                     case 3://Cán bộ
                         nh.Enabled = false;
                         hk.Enabled = false;
                         mh.Enabled = false;
                         mtq.Enabled = false;
-                        sv.Enabled = false;
+                        sv.Enabled = true;
                         lk.Enabled = false;
                         lh.Enabled = false;
                         bdsv.Enabled = false;
@@ -141,13 +134,13 @@ namespace BaoCao_PTTKHT.GUI
                         dk.Enabled = false;
                         ttdk.Enabled = false;
                         hcdk.Enabled = false;
-                        PhanQuyen.Enabled = true;
+                        PhanQuyen.Enabled = false;
                         break;
                     case 4://khác
-                        nh.Enabled = true;
-                        hk.Enabled = true;
-                        mh.Enabled = true;
-                        mtq.Enabled = true;
+                        nh.Enabled = false;
+                        hk.Enabled = false;
+                        mh.Enabled = false;
+                        mtq.Enabled = false;
                         sv.Enabled = true;
                         lk.Enabled = false;
                         lh.Enabled = false;
@@ -158,7 +151,7 @@ namespace BaoCao_PTTKHT.GUI
                         dk.Enabled = false;
                         ttdk.Enabled = false;
                         hcdk.Enabled = false;
-                        PhanQuyen.Enabled = true;
+                        PhanQuyen.Enabled = false;
                         break;
                 }
             }
@@ -169,6 +162,90 @@ namespace BaoCao_PTTKHT.GUI
         private void PhanQuyen_Click(object sender, EventArgs e)
         {
             FmQuanLyTaiKhoan a = new FmQuanLyTaiKhoan();
+            a.ShowDialog();
+        }
+
+        private void nh_Click(object sender, EventArgs e)
+        {
+            FmQuanLyNamHoc a = new FmQuanLyNamHoc();
+            a.ShowDialog();
+        }
+
+        private void hk_Click(object sender, EventArgs e)
+        {
+            FmQuanLyHocKy a = new FmQuanLyHocKy();
+            a.ShowDialog();
+        }
+
+        private void mtq_Click(object sender, EventArgs e)
+        {
+            FmQuanLyMonHocTienQuyet a = new FmQuanLyMonHocTienQuyet();
+            a.ShowDialog();
+        }
+
+        private void mh_Click(object sender, EventArgs e)
+        {
+            FmQuanLyMonHoc a = new FmQuanLyMonHoc();
+             a.ShowDialog();
+        }
+
+        private void sv_Click(object sender, EventArgs e)
+        {
+            FmQuanLySinhVien a = new FmQuanLySinhVien();
+            a.ShowDialog();
+        }
+
+        private void lk_Click(object sender, EventArgs e)
+        {
+            FmQuanLyLopKhoa a = new FmQuanLyLopKhoa();
+            a.ShowDialog();
+        }
+
+        private void lh_Click(object sender, EventArgs e)
+        {
+            FmQuanLyLopHoc a = new FmQuanLyLopHoc();
+            a.ShowDialog();
+        }
+
+        private void bdsv_Click(object sender, EventArgs e)
+        {
+            FmQuanLyDiemSinhVienCT a = new FmQuanLyDiemSinhVienCT();
+            a.ShowDialog();
+        }
+
+        private void gv_Click(object sender, EventArgs e)
+        {
+            FmQuanLyGiangVien a = new FmQuanLyGiangVien();
+            a.ShowDialog();
+        }
+
+        private void gd_Click(object sender, EventArgs e)
+        {
+            FmQuanLyGiangDay a = new FmQuanLyGiangDay();
+            a.ShowDialog();
+        }
+
+        private void bdl_Click(object sender, EventArgs e)
+        {
+            FmQuanLyDiemLopCT a = new FmQuanLyDiemLopCT();
+            a.ShowDialog();
+        }
+
+        private void dk_Click(object sender, EventArgs e)
+        {
+            FmQuanLyDangKyHocPhan a = new FmQuanLyDangKyHocPhan();
+            a.ShowDialog();
+        }
+
+        private void ttdk_Click(object sender, EventArgs e)
+        {
+            FmThongTinDangKyHocPhan a = new FmThongTinDangKyHocPhan();
+            a.ShowDialog();
+        }
+
+        private void hcdk_Click(object sender, EventArgs e)
+        {
+            FmThongTinDangKyHocPhanHieuChinh a = new FmThongTinDangKyHocPhanHieuChinh();
             a.ShowDialog();
         }
 

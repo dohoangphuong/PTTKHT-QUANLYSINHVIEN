@@ -684,6 +684,7 @@
             // 
             // 
             this.nh.TileStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.nh.Click += new System.EventHandler(this.nh_Click);
             // 
             // hk
             // 
@@ -695,6 +696,7 @@
             // 
             // 
             this.hk.TileStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.hk.Click += new System.EventHandler(this.hk_Click);
             // 
             // mh
             // 
@@ -706,6 +708,7 @@
             // 
             // 
             this.mh.TileStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.mh.Click += new System.EventHandler(this.mh_Click);
             // 
             // mtq
             // 
@@ -718,6 +721,7 @@
             // 
             // 
             this.mtq.TileStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.mtq.Click += new System.EventHandler(this.mtq_Click);
             // 
             // itemContainer6
             // 
@@ -746,6 +750,7 @@
             // 
             // 
             this.sv.TileStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.sv.Click += new System.EventHandler(this.sv_Click);
             // 
             // lk
             // 
@@ -757,6 +762,7 @@
             // 
             // 
             this.lk.TileStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.lk.Click += new System.EventHandler(this.lk_Click);
             // 
             // lh
             // 
@@ -768,6 +774,7 @@
             // 
             // 
             this.lh.TileStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.lh.Click += new System.EventHandler(this.lh_Click);
             // 
             // bdsv
             // 
@@ -779,6 +786,7 @@
             // 
             // 
             this.bdsv.TileStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.bdsv.Click += new System.EventHandler(this.bdsv_Click);
             // 
             // itemContainer7
             // 
@@ -806,6 +814,7 @@
             // 
             // 
             this.gv.TileStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.gv.Click += new System.EventHandler(this.gv_Click);
             // 
             // gd
             // 
@@ -817,6 +826,7 @@
             // 
             // 
             this.gd.TileStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.gd.Click += new System.EventHandler(this.gd_Click);
             // 
             // bdl
             // 
@@ -828,6 +838,7 @@
             // 
             // 
             this.bdl.TileStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.bdl.Click += new System.EventHandler(this.bdl_Click);
             // 
             // itemContainer8
             // 
@@ -856,6 +867,7 @@
             // 
             // 
             this.dk.TileStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.dk.Click += new System.EventHandler(this.dk_Click);
             // 
             // ttdk
             // 
@@ -867,6 +879,7 @@
             // 
             // 
             this.ttdk.TileStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.ttdk.Click += new System.EventHandler(this.ttdk_Click);
             // 
             // hcdk
             // 
@@ -878,6 +891,7 @@
             // 
             // 
             this.hcdk.TileStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.hcdk.Click += new System.EventHandler(this.hcdk_Click);
             // 
             // metroTabItem3
             // 
