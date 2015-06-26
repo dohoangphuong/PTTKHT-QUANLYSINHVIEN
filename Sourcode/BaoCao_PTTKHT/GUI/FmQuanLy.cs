@@ -24,16 +24,19 @@ namespace BaoCao_PTTKHT.GUI
         private void DN_Click(object sender, EventArgs e)
         {
             DangNhap();
+
         }
         #region Đăng nhập
         private void DangNhap()
         {
             try
             {
-                FmDangNhap idangnhap = new FmDangNhap();
-                idangnhap.ShowDialog();
-                int iquyen = idangnhap.Quyen();
-                _quyen = iquyen;
+                _quyen = 0;
+               // FmDangNhap idangnhap = new FmDangNhap();
+               // idangnhap.ShowDialog();
+               // int iquyen = idangnhap.Quyen();
+                
+               //_quyen = iquyen;
                 //if (iquyen != -1)
                 //{
                 //    _quyen = iquyen;
@@ -162,6 +165,12 @@ namespace BaoCao_PTTKHT.GUI
             catch { }
         }
         #endregion
+
+        private void PhanQuyen_Click(object sender, EventArgs e)
+        {
+            FmQuanLyTaiKhoan a = new FmQuanLyTaiKhoan();
+            a.ShowDialog();
+        }
 
     }
 }

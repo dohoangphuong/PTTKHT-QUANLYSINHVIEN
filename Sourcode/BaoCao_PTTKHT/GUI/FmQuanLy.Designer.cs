@@ -46,6 +46,7 @@
             this.ribbonBar2 = new DevComponents.DotNetBar.RibbonBar();
             this.DN = new DevComponents.DotNetBar.ButtonItem();
             this.ribbonBar1 = new DevComponents.DotNetBar.RibbonBar();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.PhanQuyen = new DevComponents.DotNetBar.ButtonItem();
             this.ribbonPanel2 = new DevComponents.DotNetBar.RibbonPanel();
             this.applicationButton1 = new DevComponents.DotNetBar.ApplicationButton();
@@ -92,7 +93,6 @@
             this.hcdk = new DevComponents.DotNetBar.Metro.MetroTileItem();
             this.metroTabItem3 = new DevComponents.DotNetBar.Metro.MetroTabItem();
             this.styleManager1 = new DevComponents.DotNetBar.StyleManager(this.components);
-            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.ribbonControl1.SuspendLayout();
             this.ribbonPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -355,6 +355,13 @@
             // 
             this.ribbonBar1.TitleStyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             // 
+            // imageList1
+            // 
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "1417949530_key_accept.png");
+            this.imageList1.Images.SetKeyName(1, "1419506144_lock_unlocked.png");
+            // 
             // PhanQuyen
             // 
             this.PhanQuyen.ImageIndex = 0;
@@ -362,6 +369,7 @@
             this.PhanQuyen.Name = "PhanQuyen";
             this.PhanQuyen.SubItemsExpandWidth = 14;
             this.PhanQuyen.Text = "Phân Quyền";
+            this.PhanQuyen.Click += new System.EventHandler(this.PhanQuyen_Click);
             // 
             // ribbonPanel2
             // 
@@ -879,13 +887,6 @@
             // 
             this.styleManager1.ManagerStyle = DevComponents.DotNetBar.eStyle.Office2013;
             this.styleManager1.MetroColorParameters = new DevComponents.DotNetBar.Metro.ColorTables.MetroColorGeneratorParameters(System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255))))), System.Drawing.Color.FromArgb(((int)(((byte)(106)))), ((int)(((byte)(56)))), ((int)(((byte)(137))))));
-            // 
-            // imageList1
-            // 
-            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
-            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList1.Images.SetKeyName(0, "1417949530_key_accept.png");
-            this.imageList1.Images.SetKeyName(1, "1419506144_lock_unlocked.png");
             // 
             // FmQuanLy
             // 

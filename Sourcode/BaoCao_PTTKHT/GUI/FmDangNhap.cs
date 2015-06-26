@@ -79,6 +79,8 @@ namespace BaoCao_PTTKHT.GUI
                 }
                 MessageBox.Show("Tên đăng nhập hoặc mật khẩu không đúng", "Đăng nhập thất bại", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 _quyen = -1;
+                textTen.Clear();
+                textMatKhau.Clear();
             }
             catch { }
            

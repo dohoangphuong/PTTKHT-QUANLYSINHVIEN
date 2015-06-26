@@ -141,7 +141,7 @@ namespace BaoCao_PTTKHT.GUI
                         bool trung = false;
                         bool ok = false;
 
-                        String id = dataPhanQuyen.CurrentRow.Cells["TenTK"].Value.ToString();
+                        String id = dataPhanQuyen.CurrentRow.Cells["TenTaiKhoan"].Value.ToString();
 
                         foreach (TAIKHOAN newTK in ListTK)
                         {
@@ -185,7 +185,7 @@ namespace BaoCao_PTTKHT.GUI
                                     }
                                     if (textTen.Text != _ten)//tên người dùng
                                     {
-                                        newTK.LoaiTaiKhoan = combo.SelectedIndex;
+                                        newTK.TenNguoiDung = textTen.Text;
                                         ok = true;
                                     }
 
@@ -215,12 +215,13 @@ namespace BaoCao_PTTKHT.GUI
         {
             try
             {
-                String id = dataPhanQuyen.CurrentRow.Cells["TenTK"].Value.ToString();
+                String id = dataPhanQuyen.CurrentRow.Cells["TenTaiKhoan"].Value.ToString();
 
                 foreach (TAIKHOAN newtk in ListTK)
                 {
                     if (newtk.TenTaiKhoan == id)
                     {
+                        MessageBox.Show(id);
                         ListHSDelete.Add(newtk);
 
                         ListTK.Remove(newtk);
