@@ -34,7 +34,7 @@ create table SINHVIEN
 	TenSinhVien nvarchar(50) not null,
 	NgaySinh smalldatetime not null,
 	DiaChi nvarchar(100) not null,
-	GioiTinh varchar(5) not null,
+	GioiTinh nvarchar(5) not null,
 	DienThoai varchar(12) not null,
 	MaLop varchar(10) FOREIGN KEY REFERENCES LOP(MaLop) ON DELETE CASCADE,
 )
@@ -45,7 +45,7 @@ create table GIANGVIEN
 	TenGiangVien nvarchar(50) not null,
 	NgaySinh smalldatetime not null,
 	DiaChi nvarchar(100) not null,
-	GioiTinh varchar(5) not null,
+	GioiTinh nvarchar(5) not null,
 	DienThoai nvarchar(50) null,
 	ChucVu nvarchar(50) null,
 	TrinhDo nvarchar(50) null,
@@ -91,24 +91,27 @@ create table CHITIETLOPHOC
 	MSSV varchar(10) FOREIGN KEY REFERENCES SINHVIEN(MSSV) ON DELETE CASCADE,
 )
 
-create table DIEM
+create table HESOLOPHOC
 (
-	MaDiem int primary key,
-	SoDiem float not null,
-	HeSo int not null,
+	MaHeSo int primary key,
+	MaLopHoc int FOREIGN KEY REFERENCES LOPHOC(MaLopHoc) ON DELETE CASCADE,
+	HeSo int,
+	LoaiDiem varchar(5),
 )
 
 create table BANGDIEM
 (
 	MaBangDiem int primary key,
-	MaLopHoc int FOREIGN KEY REFERENCES LOPHOC(MaLopHoc) ON DELETE CASCADE,
+	MaLopHoc int FOREIGN KEY REFERENCES LOPHOC(MaLopHoc),
+	MSSV varchar(10) FOREIGN KEY REFERENCES SINHVIEN(MSSV) ON DELETE CASCADE,
 )
 
-create table CHITIETBANGDIEM
+create table DIEM
 (
-	MaCTBangDiem int primary key,
+	MaDiem int primary key,
+	SoDiem float not null,
+	MaHeSo int FOREIGN KEY REFERENCES HESOLOPHOC(MaHeSo),
 	MaBangDiem int FOREIGN KEY REFERENCES BANGDIEM(MaBangDiem) ON DELETE CASCADE,
-	MaDiem int FOREIGN KEY REFERENCES DIEM(MaDiem) ON DELETE CASCADE,
 )
 
 create table TAIKHOAN
@@ -158,12 +161,12 @@ AS
 	WHERE TenBang = 'BANGDIEM'
 
 GO
-CREATE TRIGGER TRIGGER_CTBD ON CHITIETBANGDIEM
+CREATE TRIGGER TRIGGER_HSLH ON HeSoLopHoc
 FOR INSERT
 AS
 	UPDATE BODEM
 	SET SoDem = SoDem + 1
-	WHERE TenBang = 'CHITIETBANGDIEM'
+	WHERE TenBang = 'HESOLOPHOC'
 
 GO
 CREATE TRIGGER TRIGGER_D ON DIEM
@@ -212,15 +215,15 @@ AS
 	UPDATE BODEM
 	SET SoDem = SoDem + 1
 	WHERE TenBang = 'SINHVIEN'
-
 GO
+
 insert into BODEM values('MONTIENQUYET', 0)
 insert into BODEM values('NAMHOC', 0)
 insert into BODEM values('HOCKY', 0)
 insert into BODEM values('BANGDIEM', 0)
 insert into BODEM values('DIEM', 0)
 insert into BODEM values('GIANGDAY', 0)
-insert into BODEM values('CHITIETBANGDIEM', 0)
+insert into BODEM values('HESOLOPHOC', 0)
 insert into BODEM values('CHITIETLOPHOC', 0)
 insert into BODEM values('LOPHOC', 0)
 insert into BODEM values('GIANGVIEN', 0)

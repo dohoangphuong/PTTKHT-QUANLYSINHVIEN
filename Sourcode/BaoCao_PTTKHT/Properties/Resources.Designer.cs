@@ -61,7 +61,7 @@ namespace BaoCao_PTTKHT.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to select * from sys.tables where        ///exists (select * from sys.tables where name = &apos;BANGDIEM&apos;)         ///and exists (select * from sys.tables where name = &apos;CHITIETBANGDIEM&apos;)         ///and exists (select * from sys.tables where name = &apos;CHITIETLOPHOC&apos;)         ///and exists (select * from sys.tables where name = &apos;DIEM&apos;)         ///and exists (select * from sys.tables where name = &apos;GIANGVIEN&apos;)         ///and exists (select * from sys.tables where name = &apos;HOCKY&apos;)         ///and exists (select * from sys.tables where name = &apos;KHOA&apos;)         ///and exists (select * from sys.tables where [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to select * from sys.tables where        ///exists (select * from sys.tables where name = &apos;BANGDIEM&apos;)         ///and exists (select * from sys.tables where name = &apos;HESOLOPHOC&apos;)         ///and exists (select * from sys.tables where name = &apos;CHITIETLOPHOC&apos;)         ///and exists (select * from sys.tables where name = &apos;DIEM&apos;)         ///and exists (select * from sys.tables where name = &apos;GIANGVIEN&apos;)         ///and exists (select * from sys.tables where name = &apos;HOCKY&apos;)         ///and exists (select * from sys.tables where name = &apos;KHOA&apos;)         ///and exists (select * from sys.tables where name [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string CheckTable {
             get {

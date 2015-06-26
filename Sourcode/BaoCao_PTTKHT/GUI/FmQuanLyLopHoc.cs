@@ -20,6 +20,7 @@ namespace BaoCao_PTTKHT.GUI
         BLL_HocKy bll_HocKy = new BLL_HocKy();
         BLL_LopHoc bll_LopHoc = new BLL_LopHoc();
         BLL_BoDem bll_BoDem = new BLL_BoDem();
+        BLL_HeSoLopHoc bll_HeSoLopHoc = new BLL_HeSoLopHoc();
         #endregion
 
         #region class
@@ -167,7 +168,11 @@ namespace BaoCao_PTTKHT.GUI
                     temp += obj.ToString() + "-";
                 }
                 temp = temp.Remove(temp.Length - 1);
-                bll_LopHoc.Insert(bll_BoDem.SelectSoDem("LOPHOC") + 1, tbTenLop.Text, temp, cbThu.Text, cbMonHoc.SelectedValue.ToString(), int.Parse(cbHocKy.SelectedValue.ToString()));
+                int NewMaLop = bll_BoDem.SelectSoDem("LOPHOC") + 1;
+                bll_LopHoc.Insert(NewMaLop, tbTenLop.Text, temp, cbThu.Text, cbMonHoc.SelectedValue.ToString(), int.Parse(cbHocKy.SelectedValue.ToString()));
+                bll_HeSoLopHoc.Insert(bll_BoDem.SelectSoDem("HESOLOPHOC") + 1, NewMaLop, 2,"GK");
+                bll_HeSoLopHoc.Insert(bll_BoDem.SelectSoDem("HESOLOPHOC") + 1, NewMaLop, 3,"TH");
+                bll_HeSoLopHoc.Insert(bll_BoDem.SelectSoDem("HESOLOPHOC") + 1, NewMaLop, 5,"CK");
                 LoadLopHoc();
                 Clear();
             }
@@ -203,6 +208,7 @@ namespace BaoCao_PTTKHT.GUI
             if (dataGridView2.CurrentRow != null)
             {
                 bll_LopHoc.Delete(int.Parse(dataGridView2.CurrentRow.Cells["MaLopHoc"].Value.ToString()));
+                LoadLopHoc();
             }
         }
 

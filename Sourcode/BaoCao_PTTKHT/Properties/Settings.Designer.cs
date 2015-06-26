@@ -136,5 +136,16 @@ namespace BaoCao_PTTKHT.Properties {
                 return ((string)(this["PlaceHolderConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=NHAT\\SQLEXPRESS;Initial Catalog=QuanLyDaoTao;Integrated Security=True" +
+            "")]
+        public string QuanLyDaoTaoConnectionString {
+            get {
+                return ((string)(this["QuanLyDaoTaoConnectionString"]));
+            }
+        }
     }
 }

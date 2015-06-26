@@ -25,16 +25,22 @@ namespace BaoCao_PTTKHT.BLL
             return DB.usp_SelectDiem(_MaDiem);
         }
 
-        //Insert diem
-        public void Insert(int _MaDiem, double _SoDiem, int _HeSo)
+        //Lay diem theo ma bang diem
+        public ISingleResult<usp_SelectDiemsByMaBangDiemResult> SelectByMaBangDiem(int _MaBangDiem)
         {
-            DB.usp_InsertDiem(_MaDiem, _SoDiem, _HeSo);
+            return DB.usp_SelectDiemsByMaBangDiem(_MaBangDiem);
+        }
+
+        //Insert diem
+        public void Insert(int _MaDiem, double _SoDiem, int _HeSo, int _MaBangDiem)
+        {
+            DB.usp_InsertDiem(_MaDiem, _SoDiem, _HeSo, _MaBangDiem);
         }
 
         //Cap nhat diem
-        public void Update(int _MaDiem, double _SoDiem, int _HeSo)
+        public void Update(int _MaDiem, double _SoDiem, int _HeSo, int _MaBangDiem)
         {
-            DB.usp_UpdateDiem(_MaDiem, _SoDiem, _HeSo);
+            DB.usp_UpdateDiem(_MaDiem, _SoDiem, _HeSo, _MaBangDiem);
         }
 
         //Xoa diem
