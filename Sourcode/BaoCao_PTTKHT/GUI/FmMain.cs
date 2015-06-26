@@ -112,5 +112,11 @@ namespace BaoCao_PTTKHT.GUI
             FmQuanLyLopKhoa a = new FmQuanLyLopKhoa();
             a.Show();
         }
+
+        private void button15_Click(object sender, EventArgs e)
+        {
+            FmLienKetTaiKhoan a = new FmLienKetTaiKhoan();
+            a.Show();
+        }
     }
 }

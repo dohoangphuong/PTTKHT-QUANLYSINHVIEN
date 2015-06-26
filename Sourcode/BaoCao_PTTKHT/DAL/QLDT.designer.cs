@@ -22,7 +22,7 @@ namespace BaoCao_PTTKHT.DAL
 	using System;
 	
 	
-	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="QLDT")]
+	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="PlaceHolder")]
 	public partial class QLDTDataContext : System.Data.Linq.DataContext
 	{
 		
@@ -60,6 +60,9 @@ namespace BaoCao_PTTKHT.DAL
     partial void InsertKHOA(KHOA instance);
     partial void UpdateKHOA(KHOA instance);
     partial void DeleteKHOA(KHOA instance);
+    partial void InsertLIENKETTK(LIENKETTK instance);
+    partial void UpdateLIENKETTK(LIENKETTK instance);
+    partial void DeleteLIENKETTK(LIENKETTK instance);
     partial void InsertLOP(LOP instance);
     partial void UpdateLOP(LOP instance);
     partial void DeleteLOP(LOP instance);
@@ -81,7 +84,7 @@ namespace BaoCao_PTTKHT.DAL
     #endregion
 		
 		public QLDTDataContext() : 
-				base(global::BaoCao_PTTKHT.Properties.Settings.Default.QLDTConnectionString, mappingSource)
+				base(global::BaoCao_PTTKHT.Properties.Settings.Default.PlaceHolderConnectionString, mappingSource)
 		{
 			OnCreated();
 		}
@@ -187,6 +190,14 @@ namespace BaoCao_PTTKHT.DAL
 			get
 			{
 				return this.GetTable<KHOA>();
+			}
+		}
+		
+		public System.Data.Linq.Table<LIENKETTK> LIENKETTKs
+		{
+			get
+			{
+				return this.GetTable<LIENKETTK>();
 			}
 		}
 		
@@ -378,6 +389,34 @@ namespace BaoCao_PTTKHT.DAL
 			return ((int)(result.ReturnValue));
 		}
 		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.usp_DeleteLienKetTK")]
+		public int usp_DeleteLienKetTK([global::System.Data.Linq.Mapping.ParameterAttribute(Name="MaLK", DbType="Int")] System.Nullable<int> maLK)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), maLK);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.usp_DeleteLienKetTKsByMaGiangVien")]
+		public int usp_DeleteLienKetTKsByMaGiangVien([global::System.Data.Linq.Mapping.ParameterAttribute(Name="MaGiangVien", DbType="VarChar(10)")] string maGiangVien)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), maGiangVien);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.usp_DeleteLienKetTKsByMSSV")]
+		public int usp_DeleteLienKetTKsByMSSV([global::System.Data.Linq.Mapping.ParameterAttribute(Name="MSSV", DbType="VarChar(10)")] string mSSV)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), mSSV);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.usp_DeleteLienKetTKsByTenTaiKhoan")]
+		public int usp_DeleteLienKetTKsByTenTaiKhoan([global::System.Data.Linq.Mapping.ParameterAttribute(Name="TenTaiKhoan", DbType="VarChar(30)")] string tenTaiKhoan)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), tenTaiKhoan);
+			return ((int)(result.ReturnValue));
+		}
+		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.usp_DeleteLop")]
 		public int usp_DeleteLop([global::System.Data.Linq.Mapping.ParameterAttribute(Name="MaLop", DbType="VarChar(10)")] string maLop)
 		{
@@ -539,6 +578,13 @@ namespace BaoCao_PTTKHT.DAL
 			return ((int)(result.ReturnValue));
 		}
 		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.usp_InsertLienKetTK")]
+		public int usp_InsertLienKetTK([global::System.Data.Linq.Mapping.ParameterAttribute(Name="MaLK", DbType="Int")] System.Nullable<int> maLK, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="TenTaiKhoan", DbType="VarChar(30)")] string tenTaiKhoan, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MSSV", DbType="VarChar(10)")] string mSSV, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MaGiangVien", DbType="VarChar(10)")] string maGiangVien)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), maLK, tenTaiKhoan, mSSV, maGiangVien);
+			return ((int)(result.ReturnValue));
+		}
+		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.usp_InsertLop")]
 		public int usp_InsertLop([global::System.Data.Linq.Mapping.ParameterAttribute(Name="MaLop", DbType="VarChar(10)")] string maLop, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="TenLop", DbType="NVarChar(50)")] string tenLop, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MaKhoa", DbType="VarChar(10)")] string maKhoa, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MaNamHoc", DbType="Int")] System.Nullable<int> maNamHoc)
 		{
@@ -641,6 +687,13 @@ namespace BaoCao_PTTKHT.DAL
 		public int usp_InsertUpdateKhoa([global::System.Data.Linq.Mapping.ParameterAttribute(Name="MaKhoa", DbType="VarChar(10)")] string maKhoa, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="TenKhoa", DbType="NVarChar(30)")] string tenKhoa)
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), maKhoa, tenKhoa);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.usp_InsertUpdateLienKetTK")]
+		public int usp_InsertUpdateLienKetTK([global::System.Data.Linq.Mapping.ParameterAttribute(Name="MaLK", DbType="Int")] System.Nullable<int> maLK, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="TenTaiKhoan", DbType="VarChar(30)")] string tenTaiKhoan, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MSSV", DbType="VarChar(10)")] string mSSV, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MaGiangVien", DbType="VarChar(10)")] string maGiangVien)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), maLK, tenTaiKhoan, mSSV, maGiangVien);
 			return ((int)(result.ReturnValue));
 		}
 		
@@ -966,6 +1019,48 @@ namespace BaoCao_PTTKHT.DAL
 			return ((ISingleResult<usp_SelectLastSinhviensByNamResult>)(result.ReturnValue));
 		}
 		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.usp_SelectLienKetTK")]
+		public ISingleResult<usp_SelectLienKetTKResult> usp_SelectLienKetTK([global::System.Data.Linq.Mapping.ParameterAttribute(Name="MaLK", DbType="Int")] System.Nullable<int> maLK)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), maLK);
+			return ((ISingleResult<usp_SelectLienKetTKResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.usp_SelectLienKetTKsAll")]
+		public ISingleResult<usp_SelectLienKetTKsAllResult> usp_SelectLienKetTKsAll()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<usp_SelectLienKetTKsAllResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.usp_SelectLienKetTKsByMaGiangVien")]
+		public ISingleResult<usp_SelectLienKetTKsByMaGiangVienResult> usp_SelectLienKetTKsByMaGiangVien([global::System.Data.Linq.Mapping.ParameterAttribute(Name="MaGiangVien", DbType="VarChar(10)")] string maGiangVien)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), maGiangVien);
+			return ((ISingleResult<usp_SelectLienKetTKsByMaGiangVienResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.usp_SelectLienKetTKsByMSSV")]
+		public ISingleResult<usp_SelectLienKetTKsByMSSVResult> usp_SelectLienKetTKsByMSSV([global::System.Data.Linq.Mapping.ParameterAttribute(Name="MSSV", DbType="VarChar(10)")] string mSSV)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), mSSV);
+			return ((ISingleResult<usp_SelectLienKetTKsByMSSVResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.usp_SelectLienKetTKsByTenTaiKhoan")]
+		public ISingleResult<usp_SelectLienKetTKsByTenTaiKhoanResult> usp_SelectLienKetTKsByTenTaiKhoan([global::System.Data.Linq.Mapping.ParameterAttribute(Name="TenTaiKhoan", DbType="VarChar(30)")] string tenTaiKhoan)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), tenTaiKhoan);
+			return ((ISingleResult<usp_SelectLienKetTKsByTenTaiKhoanResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.usp_SelectLienKetTKsPaged")]
+		public ISingleResult<usp_SelectLienKetTKsPagedResult> usp_SelectLienKetTKsPaged()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<usp_SelectLienKetTKsPagedResult>)(result.ReturnValue));
+		}
+		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.usp_SelectLop")]
 		public ISingleResult<usp_SelectLopResult> usp_SelectLop([global::System.Data.Linq.Mapping.ParameterAttribute(Name="MaLop", DbType="VarChar(10)")] string maLop)
 		{
@@ -1222,6 +1317,13 @@ namespace BaoCao_PTTKHT.DAL
 		public int usp_UpdateKhoa([global::System.Data.Linq.Mapping.ParameterAttribute(Name="MaKhoa", DbType="VarChar(10)")] string maKhoa, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="TenKhoa", DbType="NVarChar(30)")] string tenKhoa)
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), maKhoa, tenKhoa);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.usp_UpdateLienKetTK")]
+		public int usp_UpdateLienKetTK([global::System.Data.Linq.Mapping.ParameterAttribute(Name="MaLK", DbType="Int")] System.Nullable<int> maLK, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="TenTaiKhoan", DbType="VarChar(30)")] string tenTaiKhoan, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MSSV", DbType="VarChar(10)")] string mSSV, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MaGiangVien", DbType="VarChar(10)")] string maGiangVien)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), maLK, tenTaiKhoan, mSSV, maGiangVien);
 			return ((int)(result.ReturnValue));
 		}
 		
@@ -1502,6 +1604,8 @@ namespace BaoCao_PTTKHT.DAL
 		
 		private int _LoaiTaiKhoan;
 		
+		private EntitySet<LIENKETTK> _LIENKETTKs;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -1518,6 +1622,7 @@ namespace BaoCao_PTTKHT.DAL
 		
 		public TAIKHOAN()
 		{
+			this._LIENKETTKs = new EntitySet<LIENKETTK>(new Action<LIENKETTK>(this.attach_LIENKETTKs), new Action<LIENKETTK>(this.detach_LIENKETTKs));
 			OnCreated();
 		}
 		
@@ -1601,6 +1706,19 @@ namespace BaoCao_PTTKHT.DAL
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TAIKHOAN_LIENKETTK", Storage="_LIENKETTKs", ThisKey="TenTaiKhoan", OtherKey="TenTaiKhoan")]
+		public EntitySet<LIENKETTK> LIENKETTKs
+		{
+			get
+			{
+				return this._LIENKETTKs;
+			}
+			set
+			{
+				this._LIENKETTKs.Assign(value);
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -1619,6 +1737,18 @@ namespace BaoCao_PTTKHT.DAL
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
+		}
+		
+		private void attach_LIENKETTKs(LIENKETTK entity)
+		{
+			this.SendPropertyChanging();
+			entity.TAIKHOAN = this;
+		}
+		
+		private void detach_LIENKETTKs(LIENKETTK entity)
+		{
+			this.SendPropertyChanging();
+			entity.TAIKHOAN = null;
 		}
 	}
 	
@@ -2334,6 +2464,8 @@ namespace BaoCao_PTTKHT.DAL
 		
 		private EntitySet<GIANGDAY> _GIANGDAYs;
 		
+		private EntitySet<LIENKETTK> _LIENKETTKs;
+		
 		private EntityRef<KHOA> _KHOA;
 		
     #region Extensibility Method Definitions
@@ -2363,6 +2495,7 @@ namespace BaoCao_PTTKHT.DAL
 		public GIANGVIEN()
 		{
 			this._GIANGDAYs = new EntitySet<GIANGDAY>(new Action<GIANGDAY>(this.attach_GIANGDAYs), new Action<GIANGDAY>(this.detach_GIANGDAYs));
+			this._LIENKETTKs = new EntitySet<LIENKETTK>(new Action<LIENKETTK>(this.attach_LIENKETTKs), new Action<LIENKETTK>(this.detach_LIENKETTKs));
 			this._KHOA = default(EntityRef<KHOA>);
 			OnCreated();
 		}
@@ -2564,6 +2697,19 @@ namespace BaoCao_PTTKHT.DAL
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="GIANGVIEN_LIENKETTK", Storage="_LIENKETTKs", ThisKey="MaGiangVien", OtherKey="MaGiangVien")]
+		public EntitySet<LIENKETTK> LIENKETTKs
+		{
+			get
+			{
+				return this._LIENKETTKs;
+			}
+			set
+			{
+				this._LIENKETTKs.Assign(value);
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="KHOA_GIANGVIEN", Storage="_KHOA", ThisKey="MaKhoa", OtherKey="MaKhoa", IsForeignKey=true, DeleteRule="CASCADE")]
 		public KHOA KHOA
 		{
@@ -2625,6 +2771,18 @@ namespace BaoCao_PTTKHT.DAL
 		}
 		
 		private void detach_GIANGDAYs(GIANGDAY entity)
+		{
+			this.SendPropertyChanging();
+			entity.GIANGVIEN = null;
+		}
+		
+		private void attach_LIENKETTKs(LIENKETTK entity)
+		{
+			this.SendPropertyChanging();
+			entity.GIANGVIEN = this;
+		}
+		
+		private void detach_LIENKETTKs(LIENKETTK entity)
 		{
 			this.SendPropertyChanging();
 			entity.GIANGVIEN = null;
@@ -3180,6 +3338,263 @@ namespace BaoCao_PTTKHT.DAL
 		{
 			this.SendPropertyChanging();
 			entity.KHOA = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.LIENKETTK")]
+	public partial class LIENKETTK : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _MaLK;
+		
+		private string _TenTaiKhoan;
+		
+		private string _MSSV;
+		
+		private string _MaGiangVien;
+		
+		private EntityRef<GIANGVIEN> _GIANGVIEN;
+		
+		private EntityRef<TAIKHOAN> _TAIKHOAN;
+		
+		private EntityRef<SINHVIEN> _SINHVIEN;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnMaLKChanging(int value);
+    partial void OnMaLKChanged();
+    partial void OnTenTaiKhoanChanging(string value);
+    partial void OnTenTaiKhoanChanged();
+    partial void OnMSSVChanging(string value);
+    partial void OnMSSVChanged();
+    partial void OnMaGiangVienChanging(string value);
+    partial void OnMaGiangVienChanged();
+    #endregion
+		
+		public LIENKETTK()
+		{
+			this._GIANGVIEN = default(EntityRef<GIANGVIEN>);
+			this._TAIKHOAN = default(EntityRef<TAIKHOAN>);
+			this._SINHVIEN = default(EntityRef<SINHVIEN>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaLK", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int MaLK
+		{
+			get
+			{
+				return this._MaLK;
+			}
+			set
+			{
+				if ((this._MaLK != value))
+				{
+					this.OnMaLKChanging(value);
+					this.SendPropertyChanging();
+					this._MaLK = value;
+					this.SendPropertyChanged("MaLK");
+					this.OnMaLKChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TenTaiKhoan", DbType="VarChar(30)")]
+		public string TenTaiKhoan
+		{
+			get
+			{
+				return this._TenTaiKhoan;
+			}
+			set
+			{
+				if ((this._TenTaiKhoan != value))
+				{
+					if (this._TAIKHOAN.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnTenTaiKhoanChanging(value);
+					this.SendPropertyChanging();
+					this._TenTaiKhoan = value;
+					this.SendPropertyChanged("TenTaiKhoan");
+					this.OnTenTaiKhoanChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MSSV", DbType="VarChar(10)")]
+		public string MSSV
+		{
+			get
+			{
+				return this._MSSV;
+			}
+			set
+			{
+				if ((this._MSSV != value))
+				{
+					if (this._SINHVIEN.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnMSSVChanging(value);
+					this.SendPropertyChanging();
+					this._MSSV = value;
+					this.SendPropertyChanged("MSSV");
+					this.OnMSSVChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaGiangVien", DbType="VarChar(10)")]
+		public string MaGiangVien
+		{
+			get
+			{
+				return this._MaGiangVien;
+			}
+			set
+			{
+				if ((this._MaGiangVien != value))
+				{
+					if (this._GIANGVIEN.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnMaGiangVienChanging(value);
+					this.SendPropertyChanging();
+					this._MaGiangVien = value;
+					this.SendPropertyChanged("MaGiangVien");
+					this.OnMaGiangVienChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="GIANGVIEN_LIENKETTK", Storage="_GIANGVIEN", ThisKey="MaGiangVien", OtherKey="MaGiangVien", IsForeignKey=true)]
+		public GIANGVIEN GIANGVIEN
+		{
+			get
+			{
+				return this._GIANGVIEN.Entity;
+			}
+			set
+			{
+				GIANGVIEN previousValue = this._GIANGVIEN.Entity;
+				if (((previousValue != value) 
+							|| (this._GIANGVIEN.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._GIANGVIEN.Entity = null;
+						previousValue.LIENKETTKs.Remove(this);
+					}
+					this._GIANGVIEN.Entity = value;
+					if ((value != null))
+					{
+						value.LIENKETTKs.Add(this);
+						this._MaGiangVien = value.MaGiangVien;
+					}
+					else
+					{
+						this._MaGiangVien = default(string);
+					}
+					this.SendPropertyChanged("GIANGVIEN");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TAIKHOAN_LIENKETTK", Storage="_TAIKHOAN", ThisKey="TenTaiKhoan", OtherKey="TenTaiKhoan", IsForeignKey=true)]
+		public TAIKHOAN TAIKHOAN
+		{
+			get
+			{
+				return this._TAIKHOAN.Entity;
+			}
+			set
+			{
+				TAIKHOAN previousValue = this._TAIKHOAN.Entity;
+				if (((previousValue != value) 
+							|| (this._TAIKHOAN.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._TAIKHOAN.Entity = null;
+						previousValue.LIENKETTKs.Remove(this);
+					}
+					this._TAIKHOAN.Entity = value;
+					if ((value != null))
+					{
+						value.LIENKETTKs.Add(this);
+						this._TenTaiKhoan = value.TenTaiKhoan;
+					}
+					else
+					{
+						this._TenTaiKhoan = default(string);
+					}
+					this.SendPropertyChanged("TAIKHOAN");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="SINHVIEN_LIENKETTK", Storage="_SINHVIEN", ThisKey="MSSV", OtherKey="MSSV", IsForeignKey=true)]
+		public SINHVIEN SINHVIEN
+		{
+			get
+			{
+				return this._SINHVIEN.Entity;
+			}
+			set
+			{
+				SINHVIEN previousValue = this._SINHVIEN.Entity;
+				if (((previousValue != value) 
+							|| (this._SINHVIEN.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._SINHVIEN.Entity = null;
+						previousValue.LIENKETTKs.Remove(this);
+					}
+					this._SINHVIEN.Entity = value;
+					if ((value != null))
+					{
+						value.LIENKETTKs.Add(this);
+						this._MSSV = value.MSSV;
+					}
+					else
+					{
+						this._MSSV = default(string);
+					}
+					this.SendPropertyChanged("SINHVIEN");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
 		}
 	}
 	
@@ -4420,6 +4835,8 @@ namespace BaoCao_PTTKHT.DAL
 		
 		private EntitySet<CHITIETLOPHOC> _CHITIETLOPHOCs;
 		
+		private EntitySet<LIENKETTK> _LIENKETTKs;
+		
 		private EntityRef<LOP> _LOP;
 		
     #region Extensibility Method Definitions
@@ -4446,6 +4863,7 @@ namespace BaoCao_PTTKHT.DAL
 		{
 			this._BANGDIEMs = new EntitySet<BANGDIEM>(new Action<BANGDIEM>(this.attach_BANGDIEMs), new Action<BANGDIEM>(this.detach_BANGDIEMs));
 			this._CHITIETLOPHOCs = new EntitySet<CHITIETLOPHOC>(new Action<CHITIETLOPHOC>(this.attach_CHITIETLOPHOCs), new Action<CHITIETLOPHOC>(this.detach_CHITIETLOPHOCs));
+			this._LIENKETTKs = new EntitySet<LIENKETTK>(new Action<LIENKETTK>(this.attach_LIENKETTKs), new Action<LIENKETTK>(this.detach_LIENKETTKs));
 			this._LOP = default(EntityRef<LOP>);
 			OnCreated();
 		}
@@ -4620,6 +5038,19 @@ namespace BaoCao_PTTKHT.DAL
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="SINHVIEN_LIENKETTK", Storage="_LIENKETTKs", ThisKey="MSSV", OtherKey="MSSV")]
+		public EntitySet<LIENKETTK> LIENKETTKs
+		{
+			get
+			{
+				return this._LIENKETTKs;
+			}
+			set
+			{
+				this._LIENKETTKs.Assign(value);
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="LOP_SINHVIEN", Storage="_LOP", ThisKey="MaLop", OtherKey="MaLop", IsForeignKey=true, DeleteRule="CASCADE")]
 		public LOP LOP
 		{
@@ -4693,6 +5124,18 @@ namespace BaoCao_PTTKHT.DAL
 		}
 		
 		private void detach_CHITIETLOPHOCs(CHITIETLOPHOC entity)
+		{
+			this.SendPropertyChanging();
+			entity.SINHVIEN = null;
+		}
+		
+		private void attach_LIENKETTKs(LIENKETTK entity)
+		{
+			this.SendPropertyChanging();
+			entity.SINHVIEN = this;
+		}
+		
+		private void detach_LIENKETTKs(LIENKETTK entity)
 		{
 			this.SendPropertyChanging();
 			entity.SINHVIEN = null;
@@ -7544,6 +7987,486 @@ namespace BaoCao_PTTKHT.DAL
 				if ((this._MSSV != value))
 				{
 					this._MSSV = value;
+				}
+			}
+		}
+	}
+	
+	public partial class usp_SelectLienKetTKResult
+	{
+		
+		private int _MaLK;
+		
+		private string _TenTaiKhoan;
+		
+		private string _MSSV;
+		
+		private string _MaGiangVien;
+		
+		public usp_SelectLienKetTKResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaLK", DbType="Int NOT NULL")]
+		public int MaLK
+		{
+			get
+			{
+				return this._MaLK;
+			}
+			set
+			{
+				if ((this._MaLK != value))
+				{
+					this._MaLK = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TenTaiKhoan", DbType="VarChar(30)")]
+		public string TenTaiKhoan
+		{
+			get
+			{
+				return this._TenTaiKhoan;
+			}
+			set
+			{
+				if ((this._TenTaiKhoan != value))
+				{
+					this._TenTaiKhoan = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MSSV", DbType="VarChar(10)")]
+		public string MSSV
+		{
+			get
+			{
+				return this._MSSV;
+			}
+			set
+			{
+				if ((this._MSSV != value))
+				{
+					this._MSSV = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaGiangVien", DbType="VarChar(10)")]
+		public string MaGiangVien
+		{
+			get
+			{
+				return this._MaGiangVien;
+			}
+			set
+			{
+				if ((this._MaGiangVien != value))
+				{
+					this._MaGiangVien = value;
+				}
+			}
+		}
+	}
+	
+	public partial class usp_SelectLienKetTKsAllResult
+	{
+		
+		private int _MaLK;
+		
+		private string _TenTaiKhoan;
+		
+		private string _MSSV;
+		
+		private string _MaGiangVien;
+		
+		public usp_SelectLienKetTKsAllResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaLK", DbType="Int NOT NULL")]
+		public int MaLK
+		{
+			get
+			{
+				return this._MaLK;
+			}
+			set
+			{
+				if ((this._MaLK != value))
+				{
+					this._MaLK = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TenTaiKhoan", DbType="VarChar(30)")]
+		public string TenTaiKhoan
+		{
+			get
+			{
+				return this._TenTaiKhoan;
+			}
+			set
+			{
+				if ((this._TenTaiKhoan != value))
+				{
+					this._TenTaiKhoan = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MSSV", DbType="VarChar(10)")]
+		public string MSSV
+		{
+			get
+			{
+				return this._MSSV;
+			}
+			set
+			{
+				if ((this._MSSV != value))
+				{
+					this._MSSV = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaGiangVien", DbType="VarChar(10)")]
+		public string MaGiangVien
+		{
+			get
+			{
+				return this._MaGiangVien;
+			}
+			set
+			{
+				if ((this._MaGiangVien != value))
+				{
+					this._MaGiangVien = value;
+				}
+			}
+		}
+	}
+	
+	public partial class usp_SelectLienKetTKsByMaGiangVienResult
+	{
+		
+		private int _MaLK;
+		
+		private string _TenTaiKhoan;
+		
+		private string _MSSV;
+		
+		private string _MaGiangVien;
+		
+		public usp_SelectLienKetTKsByMaGiangVienResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaLK", DbType="Int NOT NULL")]
+		public int MaLK
+		{
+			get
+			{
+				return this._MaLK;
+			}
+			set
+			{
+				if ((this._MaLK != value))
+				{
+					this._MaLK = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TenTaiKhoan", DbType="VarChar(30)")]
+		public string TenTaiKhoan
+		{
+			get
+			{
+				return this._TenTaiKhoan;
+			}
+			set
+			{
+				if ((this._TenTaiKhoan != value))
+				{
+					this._TenTaiKhoan = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MSSV", DbType="VarChar(10)")]
+		public string MSSV
+		{
+			get
+			{
+				return this._MSSV;
+			}
+			set
+			{
+				if ((this._MSSV != value))
+				{
+					this._MSSV = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaGiangVien", DbType="VarChar(10)")]
+		public string MaGiangVien
+		{
+			get
+			{
+				return this._MaGiangVien;
+			}
+			set
+			{
+				if ((this._MaGiangVien != value))
+				{
+					this._MaGiangVien = value;
+				}
+			}
+		}
+	}
+	
+	public partial class usp_SelectLienKetTKsByMSSVResult
+	{
+		
+		private int _MaLK;
+		
+		private string _TenTaiKhoan;
+		
+		private string _MSSV;
+		
+		private string _MaGiangVien;
+		
+		public usp_SelectLienKetTKsByMSSVResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaLK", DbType="Int NOT NULL")]
+		public int MaLK
+		{
+			get
+			{
+				return this._MaLK;
+			}
+			set
+			{
+				if ((this._MaLK != value))
+				{
+					this._MaLK = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TenTaiKhoan", DbType="VarChar(30)")]
+		public string TenTaiKhoan
+		{
+			get
+			{
+				return this._TenTaiKhoan;
+			}
+			set
+			{
+				if ((this._TenTaiKhoan != value))
+				{
+					this._TenTaiKhoan = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MSSV", DbType="VarChar(10)")]
+		public string MSSV
+		{
+			get
+			{
+				return this._MSSV;
+			}
+			set
+			{
+				if ((this._MSSV != value))
+				{
+					this._MSSV = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaGiangVien", DbType="VarChar(10)")]
+		public string MaGiangVien
+		{
+			get
+			{
+				return this._MaGiangVien;
+			}
+			set
+			{
+				if ((this._MaGiangVien != value))
+				{
+					this._MaGiangVien = value;
+				}
+			}
+		}
+	}
+	
+	public partial class usp_SelectLienKetTKsByTenTaiKhoanResult
+	{
+		
+		private int _MaLK;
+		
+		private string _TenTaiKhoan;
+		
+		private string _MSSV;
+		
+		private string _MaGiangVien;
+		
+		public usp_SelectLienKetTKsByTenTaiKhoanResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaLK", DbType="Int NOT NULL")]
+		public int MaLK
+		{
+			get
+			{
+				return this._MaLK;
+			}
+			set
+			{
+				if ((this._MaLK != value))
+				{
+					this._MaLK = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TenTaiKhoan", DbType="VarChar(30)")]
+		public string TenTaiKhoan
+		{
+			get
+			{
+				return this._TenTaiKhoan;
+			}
+			set
+			{
+				if ((this._TenTaiKhoan != value))
+				{
+					this._TenTaiKhoan = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MSSV", DbType="VarChar(10)")]
+		public string MSSV
+		{
+			get
+			{
+				return this._MSSV;
+			}
+			set
+			{
+				if ((this._MSSV != value))
+				{
+					this._MSSV = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaGiangVien", DbType="VarChar(10)")]
+		public string MaGiangVien
+		{
+			get
+			{
+				return this._MaGiangVien;
+			}
+			set
+			{
+				if ((this._MaGiangVien != value))
+				{
+					this._MaGiangVien = value;
+				}
+			}
+		}
+	}
+	
+	public partial class usp_SelectLienKetTKsPagedResult
+	{
+		
+		private int _MaLK;
+		
+		private string _TenTaiKhoan;
+		
+		private string _MSSV;
+		
+		private string _MaGiangVien;
+		
+		public usp_SelectLienKetTKsPagedResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaLK", DbType="Int NOT NULL")]
+		public int MaLK
+		{
+			get
+			{
+				return this._MaLK;
+			}
+			set
+			{
+				if ((this._MaLK != value))
+				{
+					this._MaLK = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TenTaiKhoan", DbType="VarChar(30)")]
+		public string TenTaiKhoan
+		{
+			get
+			{
+				return this._TenTaiKhoan;
+			}
+			set
+			{
+				if ((this._TenTaiKhoan != value))
+				{
+					this._TenTaiKhoan = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MSSV", DbType="VarChar(10)")]
+		public string MSSV
+		{
+			get
+			{
+				return this._MSSV;
+			}
+			set
+			{
+				if ((this._MSSV != value))
+				{
+					this._MSSV = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaGiangVien", DbType="VarChar(10)")]
+		public string MaGiangVien
+		{
+			get
+			{
+				return this._MaGiangVien;
+			}
+			set
+			{
+				if ((this._MaGiangVien != value))
+				{
+					this._MaGiangVien = value;
 				}
 			}
 		}

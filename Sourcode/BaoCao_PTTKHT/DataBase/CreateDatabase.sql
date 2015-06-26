@@ -122,6 +122,14 @@ create table TAIKHOAN
 	LoaiTaiKhoan int not null,
 )
 
+create table LIENKETTK
+(
+	MaLK int primary key,
+	TenTaiKhoan varchar(30) FOREIGN KEY REFERENCES TAIKHOAN(TenTaiKhoan),
+	MSSV varchar(10) FOREIGN KEY REFERENCES SINHVIEN(MSSV) null,
+	MaGiangVien varchar(10) FOREIGN KEY REFERENCES GIANGVIEN(MaGiangVien) null,
+)
+
 create table BODEM
 (
 	TenBang varchar(30) primary key,
@@ -217,6 +225,14 @@ AS
 	WHERE TenBang = 'SINHVIEN'
 GO
 
+CREATE TRIGGER TRIGGER_LKTK ON LIENKETTK
+FOR INSERT
+AS
+	UPDATE BODEM
+	SET SoDem = SoDem + 1
+	WHERE TenBang = 'LIENKETTK'
+GO
+
 insert into BODEM values('MONTIENQUYET', 0)
 insert into BODEM values('NAMHOC', 0)
 insert into BODEM values('HOCKY', 0)
@@ -228,3 +244,4 @@ insert into BODEM values('CHITIETLOPHOC', 0)
 insert into BODEM values('LOPHOC', 0)
 insert into BODEM values('GIANGVIEN', 0)
 insert into BODEM values('SINHVIEN', 0)
+insert into BODEM values('LIENKETTK', 0)

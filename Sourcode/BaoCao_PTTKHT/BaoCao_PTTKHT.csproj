@@ -75,6 +75,7 @@
     <Compile Include="BLL\BLL_HeSoLopHoc.cs" />
     <Compile Include="BLL\BLL_HocKy.cs" />
     <Compile Include="BLL\BLL_Khoa.cs" />
+    <Compile Include="BLL\BLL_LienKetTaiKhoan.cs" />
     <Compile Include="BLL\BLL_Lop.cs" />
     <Compile Include="BLL\BLL_LopHoc.cs" />
     <Compile Include="BLL\BLL_MonHoc.cs" />
@@ -98,6 +99,12 @@
     </Compile>
     <Compile Include="GUI\FmDangNhap.Designer.cs">
       <DependentUpon>FmDangNhap.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\FmLienKetTaiKhoan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FmLienKetTaiKhoan.Designer.cs">
+      <DependentUpon>FmLienKetTaiKhoan.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\FmMain.cs">
       <SubType>Form</SubType>
@@ -211,6 +218,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\FmDangNhap.resx">
       <DependentUpon>FmDangNhap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FmLienKetTaiKhoan.resx">
+      <DependentUpon>FmLienKetTaiKhoan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\FmMain.resx">
       <DependentUpon>FmMain.cs</DependentUpon>
