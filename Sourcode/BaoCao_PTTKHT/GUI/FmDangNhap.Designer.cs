@@ -155,8 +155,11 @@
             this.Controls.Add(this.btDN);
             this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ForeColor = System.Drawing.Color.Black;
+            this.KeyPreview = true;
             this.Name = "FmDangNhap";
             this.Text = "ĐĂNG NHẬP";
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.frDangNhap_KeyPress);
             this.ResumeLayout(false);
             this.PerformLayout();
 

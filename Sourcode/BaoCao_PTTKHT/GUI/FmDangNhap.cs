@@ -17,7 +17,7 @@ namespace BaoCao_PTTKHT.GUI
         #region Biến khởi tạo
         BLL_TaiKhoan _taikhoan = new BLL_TaiKhoan();
         List<TAIKHOAN> ListTK;
-        private int _quyen;
+        private int _quyen = -1;
 
 
         public FmDangNhap()
