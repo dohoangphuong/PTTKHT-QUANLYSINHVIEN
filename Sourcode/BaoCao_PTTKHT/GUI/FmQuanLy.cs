@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using DevComponents.DotNetBar;
 
 namespace BaoCao_PTTKHT.GUI
 {
@@ -17,7 +18,7 @@ namespace BaoCao_PTTKHT.GUI
             InitializeComponent();
             DangNhap();
             //_quyen = 0;
-            KhoiTaoChucNang();
+            //KhoiTaoChucNang();
         }
         #endregion
         #region QUAN LY, PHÂN QUYỀN
@@ -37,7 +38,7 @@ namespace BaoCao_PTTKHT.GUI
                 int iquyen = idangnhap.Quyen();
                 _quyen = iquyen;
               
-                KhoiTaoChucNang();
+              //  KhoiTaoChucNang();
             }
             catch { }
         }
