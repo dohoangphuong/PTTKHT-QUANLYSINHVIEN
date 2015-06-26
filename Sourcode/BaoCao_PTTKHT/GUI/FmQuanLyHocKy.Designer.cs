@@ -33,6 +33,9 @@
             this.buttonX3 = new DevComponents.DotNetBar.ButtonX();
             this.slidePanel2 = new DevComponents.DotNetBar.Controls.SlidePanel();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaHK = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NamHoc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.buttonX4 = new DevComponents.DotNetBar.ButtonX();
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.tabSV = new DevComponents.DotNetBar.TabItem(this.components);
@@ -45,9 +48,6 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.slidePanel3 = new DevComponents.DotNetBar.Controls.SlidePanel();
             this.slidePanel1 = new DevComponents.DotNetBar.Controls.SlidePanel();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MaHK = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NamHoc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.slidePanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.panel1.SuspendLayout();
@@ -78,6 +78,7 @@
             this.buttonX3.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.buttonX3.TabIndex = 2;
             this.buttonX3.Text = "THOÁT";
+            this.buttonX3.Click += new System.EventHandler(this.buttonX3_Click);
             // 
             // slidePanel2
             // 
@@ -103,6 +104,23 @@
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.Size = new System.Drawing.Size(743, 107);
             this.dataGridView2.TabIndex = 10;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.HeaderText = "STT";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            // 
+            // MaHK
+            // 
+            this.MaHK.HeaderText = "MÃ HỌC KỲ";
+            this.MaHK.Name = "MaHK";
+            this.MaHK.Width = 150;
+            // 
+            // NamHoc
+            // 
+            this.NamHoc.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.NamHoc.HeaderText = "HỌC KỲ";
+            this.NamHoc.Name = "NamHoc";
             // 
             // buttonX4
             // 
@@ -225,23 +243,6 @@
             this.slidePanel1.TabIndex = 4;
             this.slidePanel1.Text = "slidePanel1";
             this.slidePanel1.UsesBlockingAnimation = false;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.HeaderText = "STT";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            // 
-            // MaHK
-            // 
-            this.MaHK.HeaderText = "MÃ HỌC KỲ";
-            this.MaHK.Name = "MaHK";
-            this.MaHK.Width = 150;
-            // 
-            // NamHoc
-            // 
-            this.NamHoc.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.NamHoc.HeaderText = "HỌC KỲ";
-            this.NamHoc.Name = "NamHoc";
             // 
             // FmQuanLyHocKy
             // 

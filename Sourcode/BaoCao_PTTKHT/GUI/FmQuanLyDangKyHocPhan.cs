@@ -21,5 +21,10 @@ namespace BaoCao_PTTKHT.GUI
             FmThongTinDangKyHocPhanHieuChinh a = new FmThongTinDangKyHocPhanHieuChinh();
             a.Show();
         }
+
+        private void buttonX3_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

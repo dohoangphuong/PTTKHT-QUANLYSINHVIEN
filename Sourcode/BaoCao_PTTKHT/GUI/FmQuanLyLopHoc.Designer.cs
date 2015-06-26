@@ -31,6 +31,17 @@
             this.components = new System.ComponentModel.Container();
             this.slidePanel2 = new DevComponents.DotNetBar.Controls.SlidePanel();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaLopHoc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TenLopHoc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MonHoc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NamHoc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HocKy = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Thu = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Tiet = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaNamHoc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaHocKy = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaMonHoc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabSV = new DevComponents.DotNetBar.TabItem(this.components);
             this.slidePanel3 = new DevComponents.DotNetBar.Controls.SlidePanel();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -58,17 +69,6 @@
             this.label12 = new System.Windows.Forms.Label();
             this.slidePanel1 = new DevComponents.DotNetBar.Controls.SlidePanel();
             this.tabLop = new DevComponents.DotNetBar.TabItem(this.components);
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MaLopHoc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TenLopHoc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MonHoc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NamHoc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.HocKy = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Thu = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Tiet = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MaNamHoc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MaHocKy = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MaMonHoc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.slidePanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.slidePanel3.SuspendLayout();
@@ -83,7 +83,7 @@
             this.slidePanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.slidePanel2.Location = new System.Drawing.Point(0, 288);
             this.slidePanel2.Name = "slidePanel2";
-            this.slidePanel2.Size = new System.Drawing.Size(1362, 212);
+            this.slidePanel2.Size = new System.Drawing.Size(1354, 212);
             this.slidePanel2.TabIndex = 6;
             this.slidePanel2.Text = "slidePanel2";
             this.slidePanel2.UsesBlockingAnimation = false;
@@ -110,9 +110,81 @@
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.ReadOnly = true;
             this.dataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView2.Size = new System.Drawing.Size(1362, 212);
+            this.dataGridView2.Size = new System.Drawing.Size(1354, 212);
             this.dataGridView2.TabIndex = 10;
             this.dataGridView2.CurrentCellChanged += new System.EventHandler(this.dataGridView2_CurrentCellChanged);
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.HeaderText = "STT";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // MaLopHoc
+            // 
+            this.MaLopHoc.HeaderText = "MÃ LỚP";
+            this.MaLopHoc.Name = "MaLopHoc";
+            this.MaLopHoc.ReadOnly = true;
+            this.MaLopHoc.Width = 150;
+            // 
+            // TenLopHoc
+            // 
+            this.TenLopHoc.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.TenLopHoc.HeaderText = "TÊN LỚP";
+            this.TenLopHoc.Name = "TenLopHoc";
+            this.TenLopHoc.ReadOnly = true;
+            // 
+            // MonHoc
+            // 
+            this.MonHoc.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.MonHoc.HeaderText = "MÔN HỌC";
+            this.MonHoc.Name = "MonHoc";
+            this.MonHoc.ReadOnly = true;
+            // 
+            // NamHoc
+            // 
+            this.NamHoc.HeaderText = "NĂM HỌC";
+            this.NamHoc.Name = "NamHoc";
+            this.NamHoc.ReadOnly = true;
+            // 
+            // HocKy
+            // 
+            this.HocKy.HeaderText = "HỌC KỲ";
+            this.HocKy.Name = "HocKy";
+            this.HocKy.ReadOnly = true;
+            // 
+            // Thu
+            // 
+            this.Thu.HeaderText = "THỨ";
+            this.Thu.Name = "Thu";
+            this.Thu.ReadOnly = true;
+            // 
+            // Tiet
+            // 
+            this.Tiet.HeaderText = "TIẾT";
+            this.Tiet.Name = "Tiet";
+            this.Tiet.ReadOnly = true;
+            // 
+            // MaNamHoc
+            // 
+            this.MaNamHoc.HeaderText = "Mã năm học";
+            this.MaNamHoc.Name = "MaNamHoc";
+            this.MaNamHoc.ReadOnly = true;
+            this.MaNamHoc.Visible = false;
+            // 
+            // MaHocKy
+            // 
+            this.MaHocKy.HeaderText = "Mã học kỳ";
+            this.MaHocKy.Name = "MaHocKy";
+            this.MaHocKy.ReadOnly = true;
+            this.MaHocKy.Visible = false;
+            // 
+            // MaMonHoc
+            // 
+            this.MaMonHoc.HeaderText = "Mã môn học";
+            this.MaMonHoc.Name = "MaMonHoc";
+            this.MaMonHoc.ReadOnly = true;
+            this.MaMonHoc.Visible = false;
             // 
             // tabSV
             // 
@@ -127,7 +199,7 @@
             this.slidePanel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.slidePanel3.Location = new System.Drawing.Point(0, 66);
             this.slidePanel3.Name = "slidePanel3";
-            this.slidePanel3.Size = new System.Drawing.Size(1362, 222);
+            this.slidePanel3.Size = new System.Drawing.Size(1354, 222);
             this.slidePanel3.TabIndex = 5;
             this.slidePanel3.Text = "slidePanel3";
             this.slidePanel3.UsesBlockingAnimation = false;
@@ -144,7 +216,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel2.Location = new System.Drawing.Point(0, 151);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1362, 71);
+            this.panel2.Size = new System.Drawing.Size(1354, 71);
             this.panel2.TabIndex = 5;
             // 
             // buttonX7
@@ -255,7 +327,7 @@
             this.groupBox2.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(0, 0);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(1362, 222);
+            this.groupBox2.Size = new System.Drawing.Size(1354, 222);
             this.groupBox2.TabIndex = 4;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "LỚP HỌC";
@@ -381,6 +453,7 @@
             this.tbTenLop.Name = "tbTenLop";
             this.tbTenLop.Size = new System.Drawing.Size(224, 33);
             this.tbTenLop.TabIndex = 3;
+            this.tbTenLop.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbTenLop_KeyPress);
             // 
             // label11
             // 
@@ -416,7 +489,7 @@
             this.slidePanel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.slidePanel1.Location = new System.Drawing.Point(0, 0);
             this.slidePanel1.Name = "slidePanel1";
-            this.slidePanel1.Size = new System.Drawing.Size(1362, 66);
+            this.slidePanel1.Size = new System.Drawing.Size(1354, 66);
             this.slidePanel1.TabIndex = 4;
             this.slidePanel1.Text = "slidePanel1";
             this.slidePanel1.UsesBlockingAnimation = false;
@@ -426,83 +499,11 @@
             this.tabLop.Name = "tabLop";
             this.tabLop.Text = "ĐIỂM LỚP HỌC";
             // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.HeaderText = "STT";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // MaLopHoc
-            // 
-            this.MaLopHoc.HeaderText = "MÃ LỚP";
-            this.MaLopHoc.Name = "MaLopHoc";
-            this.MaLopHoc.ReadOnly = true;
-            this.MaLopHoc.Width = 150;
-            // 
-            // TenLopHoc
-            // 
-            this.TenLopHoc.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.TenLopHoc.HeaderText = "TÊN LỚP";
-            this.TenLopHoc.Name = "TenLopHoc";
-            this.TenLopHoc.ReadOnly = true;
-            // 
-            // MonHoc
-            // 
-            this.MonHoc.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.MonHoc.HeaderText = "MÔN HỌC";
-            this.MonHoc.Name = "MonHoc";
-            this.MonHoc.ReadOnly = true;
-            // 
-            // NamHoc
-            // 
-            this.NamHoc.HeaderText = "NĂM HỌC";
-            this.NamHoc.Name = "NamHoc";
-            this.NamHoc.ReadOnly = true;
-            // 
-            // HocKy
-            // 
-            this.HocKy.HeaderText = "HỌC KỲ";
-            this.HocKy.Name = "HocKy";
-            this.HocKy.ReadOnly = true;
-            // 
-            // Thu
-            // 
-            this.Thu.HeaderText = "THỨ";
-            this.Thu.Name = "Thu";
-            this.Thu.ReadOnly = true;
-            // 
-            // Tiet
-            // 
-            this.Tiet.HeaderText = "TIẾT";
-            this.Tiet.Name = "Tiet";
-            this.Tiet.ReadOnly = true;
-            // 
-            // MaNamHoc
-            // 
-            this.MaNamHoc.HeaderText = "Mã năm học";
-            this.MaNamHoc.Name = "MaNamHoc";
-            this.MaNamHoc.ReadOnly = true;
-            this.MaNamHoc.Visible = false;
-            // 
-            // MaHocKy
-            // 
-            this.MaHocKy.HeaderText = "Mã học kỳ";
-            this.MaHocKy.Name = "MaHocKy";
-            this.MaHocKy.ReadOnly = true;
-            this.MaHocKy.Visible = false;
-            // 
-            // MaMonHoc
-            // 
-            this.MaMonHoc.HeaderText = "Mã môn học";
-            this.MaMonHoc.Name = "MaMonHoc";
-            this.MaMonHoc.ReadOnly = true;
-            this.MaMonHoc.Visible = false;
-            // 
             // FmQuanLyLopHoc
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1362, 500);
+            this.ClientSize = new System.Drawing.Size(1354, 500);
             this.Controls.Add(this.slidePanel2);
             this.Controls.Add(this.slidePanel3);
             this.Controls.Add(this.slidePanel1);

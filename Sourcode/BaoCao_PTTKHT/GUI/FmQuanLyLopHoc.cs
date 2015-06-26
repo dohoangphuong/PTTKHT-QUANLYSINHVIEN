@@ -224,5 +224,15 @@ namespace BaoCao_PTTKHT.GUI
         {
             this.Close();
         }
+
+
+        private void tbTenLop_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            int key = Convert.ToInt16(e.KeyChar);
+            if (tbTenLop.Text.Length >= 50 && key != 8)
+            {
+                e.Handled = true;
+            }
+        }
     }
 }

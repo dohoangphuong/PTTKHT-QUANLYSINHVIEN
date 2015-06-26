@@ -92,6 +92,7 @@
             this.buttonX2.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.buttonX2.TabIndex = 24;
             this.buttonX2.Text = "THOÁT";
+            this.buttonX2.Click += new System.EventHandler(this.buttonX2_Click);
             // 
             // textBox2
             // 
@@ -137,7 +138,6 @@
             this.Controls.Add(this.buttonX4);
             this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ForeColor = System.Drawing.Color.Black;
             this.Name = "FmDangNhap";
             this.Text = "MetroForm";
             this.ResumeLayout(false);

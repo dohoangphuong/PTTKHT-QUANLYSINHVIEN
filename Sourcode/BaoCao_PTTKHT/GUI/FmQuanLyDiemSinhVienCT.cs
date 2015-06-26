@@ -24,5 +24,10 @@ namespace BaoCao_PTTKHT.GUI
         {
 
         }
+
+        private void buttonX3_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

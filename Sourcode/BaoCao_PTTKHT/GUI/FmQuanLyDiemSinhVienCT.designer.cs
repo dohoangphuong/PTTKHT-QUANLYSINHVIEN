@@ -117,6 +117,7 @@
             this.buttonX3.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.buttonX3.TabIndex = 2;
             this.buttonX3.Text = "THOÁT";
+            this.buttonX3.Click += new System.EventHandler(this.buttonX3_Click);
             // 
             // groupBox1
             // 

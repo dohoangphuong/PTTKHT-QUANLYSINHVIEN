@@ -32,6 +32,10 @@
             this.slidePanel1 = new DevComponents.DotNetBar.Controls.SlidePanel();
             this.slidePanel3 = new DevComponents.DotNetBar.Controls.SlidePanel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.tbDienThoai = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.tbTrinhDo = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.cbKhoa = new System.Windows.Forms.ComboBox();
             this.tbChucVu = new System.Windows.Forms.TextBox();
             this.tbDiaChi = new System.Windows.Forms.TextBox();
@@ -56,12 +60,6 @@
             this.buttonX1 = new DevComponents.DotNetBar.ButtonX();
             this.slidePanel2 = new DevComponents.DotNetBar.Controls.SlidePanel();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.tabLop = new DevComponents.DotNetBar.TabItem(this.components);
-            this.tabSV = new DevComponents.DotNetBar.TabItem(this.components);
-            this.tbTrinhDo = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.tbDienThoai = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MaGV = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TenGV = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -73,6 +71,8 @@
             this.TrinhDo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ChucVu = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MaKhoa = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tabLop = new DevComponents.DotNetBar.TabItem(this.components);
+            this.tabSV = new DevComponents.DotNetBar.TabItem(this.components);
             this.slidePanel3.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -132,6 +132,43 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "GIẢNG VIÊN";
             // 
+            // tbDienThoai
+            // 
+            this.tbDienThoai.Location = new System.Drawing.Point(605, 137);
+            this.tbDienThoai.Multiline = true;
+            this.tbDienThoai.Name = "tbDienThoai";
+            this.tbDienThoai.Size = new System.Drawing.Size(262, 33);
+            this.tbDienThoai.TabIndex = 27;
+            this.tbDienThoai.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbDienThoai_KeyPress);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Times New Roman", 14.25F);
+            this.label6.Location = new System.Drawing.Point(491, 149);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(90, 21);
+            this.label6.TabIndex = 26;
+            this.label6.Text = "Điện thoại:";
+            // 
+            // tbTrinhDo
+            // 
+            this.tbTrinhDo.Location = new System.Drawing.Point(1055, 90);
+            this.tbTrinhDo.Multiline = true;
+            this.tbTrinhDo.Name = "tbTrinhDo";
+            this.tbTrinhDo.Size = new System.Drawing.Size(262, 33);
+            this.tbTrinhDo.TabIndex = 25;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Times New Roman", 14.25F);
+            this.label3.Location = new System.Drawing.Point(952, 102);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(80, 21);
+            this.label3.TabIndex = 24;
+            this.label3.Text = "Trình độ:";
+            // 
             // cbKhoa
             // 
             this.cbKhoa.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -160,6 +197,7 @@
             this.tbDiaChi.Name = "tbDiaChi";
             this.tbDiaChi.Size = new System.Drawing.Size(262, 33);
             this.tbDiaChi.TabIndex = 20;
+            this.tbDiaChi.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbDiaChi_KeyPress);
             // 
             // dtpNgaySinh
             // 
@@ -239,6 +277,7 @@
             this.tbHoTen.Name = "tbHoTen";
             this.tbHoTen.Size = new System.Drawing.Size(262, 33);
             this.tbHoTen.TabIndex = 3;
+            this.tbHoTen.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbHoTen_KeyPress);
             // 
             // label2
             // 
@@ -410,52 +449,6 @@
             this.dataGridView2.TabIndex = 10;
             this.dataGridView2.CurrentCellChanged += new System.EventHandler(this.dataGridView2_CurrentCellChanged);
             // 
-            // tabLop
-            // 
-            this.tabLop.Name = "tabLop";
-            this.tabLop.Text = "ĐIỂM LỚP HỌC";
-            // 
-            // tabSV
-            // 
-            this.tabSV.Name = "tabSV";
-            this.tabSV.Text = "ĐIỂM SINH VIÊN";
-            // 
-            // tbTrinhDo
-            // 
-            this.tbTrinhDo.Location = new System.Drawing.Point(1055, 90);
-            this.tbTrinhDo.Multiline = true;
-            this.tbTrinhDo.Name = "tbTrinhDo";
-            this.tbTrinhDo.Size = new System.Drawing.Size(262, 33);
-            this.tbTrinhDo.TabIndex = 25;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Times New Roman", 14.25F);
-            this.label3.Location = new System.Drawing.Point(952, 102);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(80, 21);
-            this.label3.TabIndex = 24;
-            this.label3.Text = "Trình độ:";
-            // 
-            // tbDienThoai
-            // 
-            this.tbDienThoai.Location = new System.Drawing.Point(605, 137);
-            this.tbDienThoai.Multiline = true;
-            this.tbDienThoai.Name = "tbDienThoai";
-            this.tbDienThoai.Size = new System.Drawing.Size(262, 33);
-            this.tbDienThoai.TabIndex = 27;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Times New Roman", 14.25F);
-            this.label6.Location = new System.Drawing.Point(491, 149);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(90, 21);
-            this.label6.TabIndex = 26;
-            this.label6.Text = "Điện thoại:";
-            // 
             // dataGridViewTextBoxColumn1
             // 
             this.dataGridViewTextBoxColumn1.HeaderText = "STT";
@@ -525,6 +518,16 @@
             this.MaKhoa.Name = "MaKhoa";
             this.MaKhoa.ReadOnly = true;
             this.MaKhoa.Visible = false;
+            // 
+            // tabLop
+            // 
+            this.tabLop.Name = "tabLop";
+            this.tabLop.Text = "ĐIỂM LỚP HỌC";
+            // 
+            // tabSV
+            // 
+            this.tabSV.Name = "tabSV";
+            this.tabSV.Text = "ĐIỂM SINH VIÊN";
             // 
             // FmQuanLyGiangVien
             // 

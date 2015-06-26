@@ -32,6 +32,7 @@
             this.slidePanel1 = new DevComponents.DotNetBar.Controls.SlidePanel();
             this.slidePanel3 = new DevComponents.DotNetBar.Controls.SlidePanel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cbNam = new System.Windows.Forms.ComboBox();
             this.tbDienThoai = new System.Windows.Forms.TextBox();
             this.tbDiaChi = new System.Windows.Forms.TextBox();
             this.dtpNgaySinh = new System.Windows.Forms.DateTimePicker();
@@ -72,7 +73,6 @@
             this.MaLop = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabLop = new DevComponents.DotNetBar.TabItem(this.components);
             this.tabSV = new DevComponents.DotNetBar.TabItem(this.components);
-            this.cbNam = new System.Windows.Forms.ComboBox();
             this.slidePanel3.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -134,6 +134,16 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "SINH VIÊN";
             // 
+            // cbNam
+            // 
+            this.cbNam.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbNam.FormattingEnabled = true;
+            this.cbNam.Location = new System.Drawing.Point(1055, 94);
+            this.cbNam.Name = "cbNam";
+            this.cbNam.Size = new System.Drawing.Size(262, 30);
+            this.cbNam.TabIndex = 22;
+            this.cbNam.SelectedIndexChanged += new System.EventHandler(this.cbNam_SelectedIndexChanged);
+            // 
             // tbDienThoai
             // 
             this.tbDienThoai.Location = new System.Drawing.Point(605, 137);
@@ -141,6 +151,7 @@
             this.tbDienThoai.Name = "tbDienThoai";
             this.tbDienThoai.Size = new System.Drawing.Size(262, 33);
             this.tbDienThoai.TabIndex = 21;
+            this.tbDienThoai.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbDienThoai_KeyPress);
             // 
             // tbDiaChi
             // 
@@ -149,6 +160,7 @@
             this.tbDiaChi.Name = "tbDiaChi";
             this.tbDiaChi.Size = new System.Drawing.Size(262, 33);
             this.tbDiaChi.TabIndex = 20;
+            this.tbDiaChi.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbDiaChi_KeyPress);
             // 
             // dtpNgaySinh
             // 
@@ -268,6 +280,7 @@
             this.tbHoTen.Name = "tbHoTen";
             this.tbHoTen.Size = new System.Drawing.Size(262, 33);
             this.tbHoTen.TabIndex = 3;
+            this.tbHoTen.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbHoTen_KeyPress);
             // 
             // label2
             // 
@@ -522,16 +535,6 @@
             this.tabSV.Name = "tabSV";
             this.tabSV.Text = "ĐIỂM SINH VIÊN";
             // 
-            // cbNam
-            // 
-            this.cbNam.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbNam.FormattingEnabled = true;
-            this.cbNam.Location = new System.Drawing.Point(1055, 94);
-            this.cbNam.Name = "cbNam";
-            this.cbNam.Size = new System.Drawing.Size(262, 30);
-            this.cbNam.TabIndex = 22;
-            this.cbNam.SelectedIndexChanged += new System.EventHandler(this.cbNam_SelectedIndexChanged);
-            // 
             // FmQuanLySinhVien
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -542,6 +545,7 @@
             this.Controls.Add(this.slidePanel1);
             this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ForeColor = System.Drawing.Color.Black;
             this.Name = "FmQuanLySinhVien";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "QUẢN LÝ SINH VIÊN";

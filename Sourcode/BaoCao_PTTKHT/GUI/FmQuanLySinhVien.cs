@@ -213,5 +213,51 @@ namespace BaoCao_PTTKHT.GUI
                 LoadSinhVien(int.Parse(cbNam.SelectedValue.ToString()));
             }
         }
+
+ 
+        #region Kiểm soát dữ liệu đầu vào
+        private void tbDienThoai_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            int key = Convert.ToInt16(e.KeyChar);
+            if (key > 47 && key < 58 || key == 8)
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+            if (tbDienThoai.Text.Length >= 12 && key != 8)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void tbHoTen_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            int key = Convert.ToInt16(e.KeyChar);
+            if (key > 47 && key < 58)
+            {
+                e.Handled = true;
+            }
+            else
+            {
+                e.Handled = false;
+            }
+            if (tbHoTen.Text.Length >= 50 && key != 8)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void tbDiaChi_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            int key = Convert.ToInt16(e.KeyChar);
+            if (tbDiaChi.Text.Length >= 100 && key != 8)
+            {
+                e.Handled = true;
+            }
+        }
+        #endregion
     }
 }
