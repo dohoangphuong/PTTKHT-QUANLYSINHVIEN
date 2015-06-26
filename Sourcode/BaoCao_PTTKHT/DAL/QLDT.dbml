@@ -1,5 +1,5 @@
-﻿<?xml version="1.0" encoding="utf-8"?><Database Name="QLDT" Class="QLDTDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=NHAT\SQLEXPRESS;Initial Catalog=QLDT;Integrated Security=True" SettingsObjectName="BaoCao_PTTKHT.Properties.Settings" SettingsPropertyName="QLDTConnectionString" Provider="System.Data.SqlClient" />
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="PlaceHolder" Class="QLDTDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=NHAT\SQLEXPRESS;Initial Catalog=PlaceHolder;Integrated Security=True" SettingsObjectName="BaoCao_PTTKHT.Properties.Settings" SettingsPropertyName="PlaceHolderConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.BANGDIEM" Member="BANGDIEMs">
     <Type Name="BANGDIEM">
       <Column Name="MaBangDiem" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -16,6 +16,7 @@
       <Column Name="MatKhau" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
       <Column Name="TenNguoiDung" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="LoaiTaiKhoan" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="TAIKHOAN_LIENKETTK" Member="LIENKETTKs" ThisKey="TenTaiKhoan" OtherKey="TenTaiKhoan" Type="LIENKETTK" />
     </Type>
   </Table>
   <Table Name="dbo.BODEM" Member="BODEMs">
@@ -64,6 +65,7 @@
       <Column Name="TrinhDo" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="MaKhoa" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
       <Association Name="GIANGVIEN_GIANGDAY" Member="GIANGDAYs" ThisKey="MaGiangVien" OtherKey="MaGiangVien" Type="GIANGDAY" />
+      <Association Name="GIANGVIEN_LIENKETTK" Member="LIENKETTKs" ThisKey="MaGiangVien" OtherKey="MaGiangVien" Type="LIENKETTK" />
       <Association Name="KHOA_GIANGVIEN" Member="KHOA" ThisKey="MaKhoa" OtherKey="MaKhoa" Type="KHOA" IsForeignKey="true" DeleteRule="CASCADE" />
     </Type>
   </Table>
@@ -93,6 +95,17 @@
       <Association Name="KHOA_GIANGVIEN" Member="GIANGVIENs" ThisKey="MaKhoa" OtherKey="MaKhoa" Type="GIANGVIEN" />
       <Association Name="KHOA_LOP" Member="LOPs" ThisKey="MaKhoa" OtherKey="MaKhoa" Type="LOP" />
       <Association Name="KHOA_MONHOC" Member="MONHOCs" ThisKey="MaKhoa" OtherKey="MaKhoa" Type="MONHOC" />
+    </Type>
+  </Table>
+  <Table Name="dbo.LIENKETTK" Member="LIENKETTKs">
+    <Type Name="LIENKETTK">
+      <Column Name="MaLK" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TenTaiKhoan" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="MSSV" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="MaGiangVien" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Association Name="GIANGVIEN_LIENKETTK" Member="GIANGVIEN" ThisKey="MaGiangVien" OtherKey="MaGiangVien" Type="GIANGVIEN" IsForeignKey="true" />
+      <Association Name="TAIKHOAN_LIENKETTK" Member="TAIKHOAN" ThisKey="TenTaiKhoan" OtherKey="TenTaiKhoan" Type="TAIKHOAN" IsForeignKey="true" />
+      <Association Name="SINHVIEN_LIENKETTK" Member="SINHVIEN" ThisKey="MSSV" OtherKey="MSSV" Type="SINHVIEN" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.LOP" Member="LOPs">
@@ -162,6 +175,7 @@
       <Column Name="MaLop" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
       <Association Name="SINHVIEN_BANGDIEM" Member="BANGDIEMs" ThisKey="MSSV" OtherKey="MSSV" Type="BANGDIEM" />
       <Association Name="SINHVIEN_CHITIETLOPHOC" Member="CHITIETLOPHOCs" ThisKey="MSSV" OtherKey="MSSV" Type="CHITIETLOPHOC" />
+      <Association Name="SINHVIEN_LIENKETTK" Member="LIENKETTKs" ThisKey="MSSV" OtherKey="MSSV" Type="LIENKETTK" />
       <Association Name="LOP_SINHVIEN" Member="LOP" ThisKey="MaLop" OtherKey="MaLop" Type="LOP" IsForeignKey="true" DeleteRule="CASCADE" />
     </Type>
   </Table>
@@ -246,6 +260,22 @@
   </Function>
   <Function Name="dbo.usp_DeleteKhoa" Method="usp_DeleteKhoa">
     <Parameter Name="MaKhoa" Parameter="maKhoa" Type="System.String" DbType="VarChar(10)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.usp_DeleteLienKetTK" Method="usp_DeleteLienKetTK">
+    <Parameter Name="MaLK" Parameter="maLK" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.usp_DeleteLienKetTKsByMaGiangVien" Method="usp_DeleteLienKetTKsByMaGiangVien">
+    <Parameter Name="MaGiangVien" Parameter="maGiangVien" Type="System.String" DbType="VarChar(10)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.usp_DeleteLienKetTKsByMSSV" Method="usp_DeleteLienKetTKsByMSSV">
+    <Parameter Name="MSSV" Parameter="mSSV" Type="System.String" DbType="VarChar(10)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.usp_DeleteLienKetTKsByTenTaiKhoan" Method="usp_DeleteLienKetTKsByTenTaiKhoan">
+    <Parameter Name="TenTaiKhoan" Parameter="tenTaiKhoan" Type="System.String" DbType="VarChar(30)" />
     <Return Type="System.Int32" />
   </Function>
   <Function Name="dbo.usp_DeleteLop" Method="usp_DeleteLop">
@@ -363,6 +393,13 @@
     <Parameter Name="TenKhoa" Parameter="tenKhoa" Type="System.String" DbType="NVarChar(30)" />
     <Return Type="System.Int32" />
   </Function>
+  <Function Name="dbo.usp_InsertLienKetTK" Method="usp_InsertLienKetTK">
+    <Parameter Name="MaLK" Parameter="maLK" Type="System.Int32" DbType="Int" />
+    <Parameter Name="TenTaiKhoan" Parameter="tenTaiKhoan" Type="System.String" DbType="VarChar(30)" />
+    <Parameter Name="MSSV" Parameter="mSSV" Type="System.String" DbType="VarChar(10)" />
+    <Parameter Name="MaGiangVien" Parameter="maGiangVien" Type="System.String" DbType="VarChar(10)" />
+    <Return Type="System.Int32" />
+  </Function>
   <Function Name="dbo.usp_InsertLop" Method="usp_InsertLop">
     <Parameter Name="MaLop" Parameter="maLop" Type="System.String" DbType="VarChar(10)" />
     <Parameter Name="TenLop" Parameter="tenLop" Type="System.String" DbType="NVarChar(50)" />
@@ -467,6 +504,13 @@
   <Function Name="dbo.usp_InsertUpdateKhoa" Method="usp_InsertUpdateKhoa">
     <Parameter Name="MaKhoa" Parameter="maKhoa" Type="System.String" DbType="VarChar(10)" />
     <Parameter Name="TenKhoa" Parameter="tenKhoa" Type="System.String" DbType="NVarChar(30)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.usp_InsertUpdateLienKetTK" Method="usp_InsertUpdateLienKetTK">
+    <Parameter Name="MaLK" Parameter="maLK" Type="System.Int32" DbType="Int" />
+    <Parameter Name="TenTaiKhoan" Parameter="tenTaiKhoan" Type="System.String" DbType="VarChar(30)" />
+    <Parameter Name="MSSV" Parameter="mSSV" Type="System.String" DbType="VarChar(10)" />
+    <Parameter Name="MaGiangVien" Parameter="maGiangVien" Type="System.String" DbType="VarChar(10)" />
     <Return Type="System.Int32" />
   </Function>
   <Function Name="dbo.usp_InsertUpdateLop" Method="usp_InsertUpdateLop">
@@ -841,6 +885,58 @@
       <Column Name="MSSV" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
+  <Function Name="dbo.usp_SelectLienKetTK" Method="usp_SelectLienKetTK">
+    <Parameter Name="MaLK" Parameter="maLK" Type="System.Int32" DbType="Int" />
+    <ElementType Name="usp_SelectLienKetTKResult">
+      <Column Name="MaLK" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TenTaiKhoan" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="MSSV" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="MaGiangVien" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.usp_SelectLienKetTKsAll" Method="usp_SelectLienKetTKsAll">
+    <ElementType Name="usp_SelectLienKetTKsAllResult">
+      <Column Name="MaLK" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TenTaiKhoan" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="MSSV" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="MaGiangVien" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.usp_SelectLienKetTKsByMaGiangVien" Method="usp_SelectLienKetTKsByMaGiangVien">
+    <Parameter Name="MaGiangVien" Parameter="maGiangVien" Type="System.String" DbType="VarChar(10)" />
+    <ElementType Name="usp_SelectLienKetTKsByMaGiangVienResult">
+      <Column Name="MaLK" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TenTaiKhoan" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="MSSV" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="MaGiangVien" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.usp_SelectLienKetTKsByMSSV" Method="usp_SelectLienKetTKsByMSSV">
+    <Parameter Name="MSSV" Parameter="mSSV" Type="System.String" DbType="VarChar(10)" />
+    <ElementType Name="usp_SelectLienKetTKsByMSSVResult">
+      <Column Name="MaLK" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TenTaiKhoan" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="MSSV" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="MaGiangVien" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.usp_SelectLienKetTKsByTenTaiKhoan" Method="usp_SelectLienKetTKsByTenTaiKhoan">
+    <Parameter Name="TenTaiKhoan" Parameter="tenTaiKhoan" Type="System.String" DbType="VarChar(30)" />
+    <ElementType Name="usp_SelectLienKetTKsByTenTaiKhoanResult">
+      <Column Name="MaLK" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TenTaiKhoan" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="MSSV" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="MaGiangVien" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.usp_SelectLienKetTKsPaged" Method="usp_SelectLienKetTKsPaged">
+    <ElementType Name="usp_SelectLienKetTKsPagedResult">
+      <Column Name="MaLK" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TenTaiKhoan" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="MSSV" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="MaGiangVien" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+    </ElementType>
+  </Function>
   <Function Name="dbo.usp_SelectLop" Method="usp_SelectLop">
     <Parameter Name="MaLop" Parameter="maLop" Type="System.String" DbType="VarChar(10)" />
     <ElementType Name="usp_SelectLopResult">
@@ -1152,6 +1248,13 @@
   <Function Name="dbo.usp_UpdateKhoa" Method="usp_UpdateKhoa">
     <Parameter Name="MaKhoa" Parameter="maKhoa" Type="System.String" DbType="VarChar(10)" />
     <Parameter Name="TenKhoa" Parameter="tenKhoa" Type="System.String" DbType="NVarChar(30)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.usp_UpdateLienKetTK" Method="usp_UpdateLienKetTK">
+    <Parameter Name="MaLK" Parameter="maLK" Type="System.Int32" DbType="Int" />
+    <Parameter Name="TenTaiKhoan" Parameter="tenTaiKhoan" Type="System.String" DbType="VarChar(30)" />
+    <Parameter Name="MSSV" Parameter="mSSV" Type="System.String" DbType="VarChar(10)" />
+    <Parameter Name="MaGiangVien" Parameter="maGiangVien" Type="System.String" DbType="VarChar(10)" />
     <Return Type="System.Int32" />
   </Function>
   <Function Name="dbo.usp_UpdateLop" Method="usp_UpdateLop">
