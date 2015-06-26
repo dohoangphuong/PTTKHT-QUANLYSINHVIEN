@@ -1,4 +1,4 @@
-USE [PlaceHolder]
+﻿USE [PlaceHolder]
 GO
 --region Drop Existing Procedures
 

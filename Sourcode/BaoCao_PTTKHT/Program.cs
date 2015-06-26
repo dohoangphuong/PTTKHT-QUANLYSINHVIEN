@@ -19,7 +19,7 @@ namespace BaoCao_PTTKHT.GUI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FmMain());
+            Application.Run(new FmQuanLyTaiKhoan());
 
             //if (String.IsNullOrEmpty(Settings.Default.ConnectString))
             //{
