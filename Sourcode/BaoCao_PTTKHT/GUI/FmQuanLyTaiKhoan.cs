@@ -341,5 +341,11 @@ namespace BaoCao_PTTKHT.GUI
                 e.Handled = true;
             }
         }
+
+        private void btnLienKet_Click(object sender, EventArgs e)
+        {
+            FmLienKetTaiKhoan a = new FmLienKetTaiKhoan();
+            a.Show();
+        }
     }
 }

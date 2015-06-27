@@ -6,6 +6,8 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using DevComponents.DotNetBar;
+using BaoCao_PTTKHT.DAL;
+using BaoCao_PTTKHT.BLL;
 
 namespace BaoCao_PTTKHT.GUI
 {
@@ -13,6 +15,9 @@ namespace BaoCao_PTTKHT.GUI
     {
         #region Khởi tạo
         private int _quyen = -1;
+        public static String _TenTaiKhoan = null;
+        private String _MSSV = null;
+        BLL_LienKetTaiKhoan bll_LienKetTaiKhoan = new BLL_LienKetTaiKhoan();
         public FmQuanLy()
         {
             InitializeComponent();
@@ -37,8 +42,11 @@ namespace BaoCao_PTTKHT.GUI
                 idangnhap.ShowDialog();
                 int iquyen = idangnhap.Quyen();
                 _quyen = iquyen;
-              
-              //  KhoiTaoChucNang();
+                foreach (usp_SelectLienKetTKsByTenTaiKhoanResult lk in bll_LienKetTaiKhoan.SelectLienKetTKByTenTaiKhoan(_TenTaiKhoan))
+                {
+                    _MSSV = lk.MSSV;
+                }
+                KhoiTaoChucNang();
             }
             catch { }
         }
@@ -63,25 +71,23 @@ namespace BaoCao_PTTKHT.GUI
                         gv.Enabled = false;
                         bdl.Enabled = false;
                         gd.Enabled = false;
-                        dk.Enabled = false;
                         ttdk.Enabled = false;
                         hcdk.Enabled = false;
                         PhanQuyen.Enabled = false;
-                        
+                        bdsv.Enabled = false;
                         break;
                     case 0://ADmin
                         nh.Enabled = false;
                         hk.Enabled = false;
                         mh.Enabled = false;
                         mtq.Enabled = false;
-                        sv.Enabled = true;
+                        sv.Enabled = false;
                         lk.Enabled = false;
                         lh.Enabled = false;
                         bdsv.Enabled = false;
                         gv.Enabled = false;
                         bdl.Enabled = false;
                         gd.Enabled = false;
-                        dk.Enabled = false;
                         ttdk.Enabled = false;
                         hcdk.Enabled = false;
                         PhanQuyen.Enabled = true;
@@ -91,14 +97,13 @@ namespace BaoCao_PTTKHT.GUI
                         hk.Enabled = false;
                         mh.Enabled = false;
                         mtq.Enabled = false;
-                        sv.Enabled = true;
-                        lk.Enabled = true;
-                        lh.Enabled = true;
+                        sv.Enabled = false;
+                        lk.Enabled = false;
+                        lh.Enabled = false;
                         bdsv.Enabled = true;
                         gv.Enabled = false;
-                        bdl.Enabled = true;
+                        bdl.Enabled = false;
                         gd.Enabled = false;
-                        dk.Enabled = true;
                         ttdk.Enabled = true;
                         hcdk.Enabled = true;
                         PhanQuyen.Enabled = false;
@@ -113,26 +118,24 @@ namespace BaoCao_PTTKHT.GUI
                         lh.Enabled = false;
                         bdsv.Enabled = false;
                         gv.Enabled = false;
-                        bdl.Enabled = false;
+                        bdl.Enabled = true;
                         gd.Enabled = false;
-                        dk.Enabled = false;
                         ttdk.Enabled = true;
                         hcdk.Enabled = false;
                         PhanQuyen.Enabled = false;
                         break;
                     case 3://Cán bộ
-                        nh.Enabled = false;
-                        hk.Enabled = false;
-                        mh.Enabled = false;
-                        mtq.Enabled = false;
+                        nh.Enabled = true;
+                        hk.Enabled = true;
+                        mh.Enabled = true;
+                        mtq.Enabled = true;
                         sv.Enabled = true;
                         lk.Enabled = false;
-                        lh.Enabled = false;
+                        lh.Enabled = true;
                         bdsv.Enabled = false;
                         gv.Enabled = true;
-                        bdl.Enabled = true;
+                        bdl.Enabled = false;
                         gd.Enabled = true;
-                        dk.Enabled = false;
                         ttdk.Enabled = false;
                         hcdk.Enabled = false;
                         PhanQuyen.Enabled = false;
@@ -149,7 +152,6 @@ namespace BaoCao_PTTKHT.GUI
                         gv.Enabled = false;
                         bdl.Enabled = false;
                         gd.Enabled = false;
-                        dk.Enabled = false;
                         ttdk.Enabled = false;
                         hcdk.Enabled = false;
                         PhanQuyen.Enabled = false;
@@ -210,8 +212,15 @@ namespace BaoCao_PTTKHT.GUI
 
         private void bdsv_Click(object sender, EventArgs e)
         {
-            FmQuanLyDiemSinhVienCT a = new FmQuanLyDiemSinhVienCT();
-            a.ShowDialog();
+            if(_MSSV != null)
+            {
+                FmQuanLyDiemSinhVienCT a = new FmQuanLyDiemSinhVienCT(_MSSV);
+                a.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Bạn không thể xem thông tin do tài khoản của bạn chưa được liên kết! Vui lòng liên hệ admin", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void gv_Click(object sender, EventArgs e)
@@ -240,14 +249,33 @@ namespace BaoCao_PTTKHT.GUI
 
         private void ttdk_Click(object sender, EventArgs e)
         {
-            FmThongTinDangKyHocPhan a = new FmThongTinDangKyHocPhan();
-            a.ShowDialog();
+            if (_MSSV != null)
+            {
+                FmThongTinDangKyHocPhan a = new FmThongTinDangKyHocPhan(_MSSV);
+                a.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Bạn không thể xem thông tin do tài khoản của bạn chưa được liên kết! Vui lòng liên hệ admin", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void hcdk_Click(object sender, EventArgs e)
         {
-            FmThongTinDangKyHocPhanHieuChinh a = new FmThongTinDangKyHocPhanHieuChinh();
-            a.ShowDialog();
+            if (_MSSV != null)
+            {
+                FmThongTinDangKyHocPhanHieuChinh a = new FmThongTinDangKyHocPhanHieuChinh(_MSSV);
+                a.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Bạn không thể xem thông tin do tài khoản của bạn chưa được liên kết! Vui lòng liên hệ admin", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void buttonItem17_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
 
     }

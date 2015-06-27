@@ -36,10 +36,6 @@ insert into LOP values ('IS2012', N'Lớp hệ thống thông tin 2012', 'IS', 1
 insert into LOP values ('IS2013', N'Lớp hệ thống thông tin 2013', 'IS', 2)
 insert into LOP values ('IS2014', N'Lớp hệ thống thông tin 2014', 'IS', 3)
 
-insert into TAIKHOAN values('Admin','passadmin',N'nameadmin',1)
-insert into TAIKHOAN values('GiangVien','passGV',N'nameGV',2)
-insert into TAIKHOAN values('user','passuser',N'nameuser',3)
-
 insert into SINHVIEN VALUES('12520001',N'Nguyễn Văn Tú','01/02/1988',N'Long Xuyên',N'Nam', '01234451234', 'SE2012')
 insert into SINHVIEN VALUES('12520002',N'Nguyễn Ngọc An','01/02/1988',N'Bến Tre',	N'Nam', '012347845678', 'SE2012')
 insert into SINHVIEN VALUES('12520003',N'Lê Hoàng Anh','15/04/1988',N'Chợ Mới',	N'Nam', '01234126789', 'SE2012')

@@ -94,7 +94,6 @@
             this.gd = new DevComponents.DotNetBar.Metro.MetroTileItem();
             this.bdl = new DevComponents.DotNetBar.Metro.MetroTileItem();
             this.itemContainer8 = new DevComponents.DotNetBar.ItemContainer();
-            this.dk = new DevComponents.DotNetBar.Metro.MetroTileItem();
             this.ttdk = new DevComponents.DotNetBar.Metro.MetroTileItem();
             this.hcdk = new DevComponents.DotNetBar.Metro.MetroTileItem();
             this.metroTabItem3 = new DevComponents.DotNetBar.Metro.MetroTabItem();
@@ -328,6 +327,7 @@
             this.buttonItem17.Name = "buttonItem17";
             this.buttonItem17.SubItemsExpandWidth = 14;
             this.buttonItem17.Text = "Thoát";
+            this.buttonItem17.Click += new System.EventHandler(this.buttonItem17_Click);
             // 
             // ribbonBar5
             // 
@@ -1012,26 +1012,12 @@
             this.itemContainer8.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.itemContainer8.Name = "itemContainer8";
             this.itemContainer8.SubItems.AddRange(new DevComponents.DotNetBar.BaseItem[] {
-            this.dk,
             this.ttdk,
             this.hcdk});
             // 
             // 
             // 
             this.itemContainer8.TitleStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            // 
-            // dk
-            // 
-            this.dk.Name = "dk";
-            this.dk.SymbolColor = System.Drawing.Color.Empty;
-            this.dk.Tag = "";
-            this.dk.Text = "ĐĂNG KÝ HỌC PHẦN";
-            this.dk.TileColor = DevComponents.DotNetBar.Metro.eMetroTileColor.Green;
-            // 
-            // 
-            // 
-            this.dk.TileStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.dk.Click += new System.EventHandler(this.dk_Click);
             // 
             // ttdk
             // 
@@ -1138,7 +1124,6 @@
         private DevComponents.DotNetBar.Metro.MetroTileItem bdl;
         private DevComponents.DotNetBar.Metro.MetroTileItem gd;
         private DevComponents.DotNetBar.ItemContainer itemContainer8;
-        private DevComponents.DotNetBar.Metro.MetroTileItem dk;
         private DevComponents.DotNetBar.Metro.MetroTileItem ttdk;
         private DevComponents.DotNetBar.Metro.MetroTileItem hcdk;
         private DevComponents.DotNetBar.Metro.MetroTabItem metroTabItem3;

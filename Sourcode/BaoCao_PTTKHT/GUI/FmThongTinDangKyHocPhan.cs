@@ -22,6 +22,7 @@ namespace BaoCao_PTTKHT.GUI
         BLL_ChiTietLopHoc bll_ChiTietLopHoc = new BLL_ChiTietLopHoc();
         BLL_GiangDay bll_GiangDay = new BLL_GiangDay();
         BLL_GiangVien bll_GiangVien = new BLL_GiangVien();
+        BLL_SinhVien bll_SinhVien = new BLL_SinhVien();
         #endregion
 
         #region class
@@ -105,11 +106,14 @@ namespace BaoCao_PTTKHT.GUI
             InitializeComponent();
         }
 
-        public FmThongTinDangKyHocPhan(String _MSSV, String _TenSinhVien)
+        public FmThongTinDangKyHocPhan(String _MSSV)
         {
             InitializeComponent();
             tbMaSinhVien.Text = _MSSV;
-            tbTenSinhVien.Text = _TenSinhVien;
+            foreach (usp_SelectSinhvienResult sv in bll_SinhVien.Select(_MSSV))
+            {
+                tbTenSinhVien.Text = sv.TenSinhVien;
+            }
         }
 
         private void FmThongTinDangKyHocPhan_Load(object sender, EventArgs e)

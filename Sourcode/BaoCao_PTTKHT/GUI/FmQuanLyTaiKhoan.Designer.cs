@@ -33,6 +33,7 @@
             this.tabLop = new DevComponents.DotNetBar.TabItem(this.components);
             this.tabSV = new DevComponents.DotNetBar.TabItem(this.components);
             this.slidePanel2 = new DevComponents.DotNetBar.Controls.SlidePanel();
+            this.dataPhanQuyen = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btSua = new DevComponents.DotNetBar.ButtonX();
             this.btLuu = new DevComponents.DotNetBar.ButtonX();
@@ -41,7 +42,11 @@
             this.btThoat = new DevComponents.DotNetBar.ButtonX();
             this.slidePanel3 = new DevComponents.DotNetBar.Controls.SlidePanel();
             this.groupTK = new System.Windows.Forms.GroupBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.combo = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.textTen = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.checkMK = new System.Windows.Forms.CheckBox();
             this.textMK2 = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -49,17 +54,13 @@
             this.textMK1 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.textTen = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.combo = new System.Windows.Forms.ComboBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.dataPhanQuyen = new System.Windows.Forms.DataGridView();
+            this.btnLienKet = new System.Windows.Forms.Button();
             this.slidePanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataPhanQuyen)).BeginInit();
             this.panel1.SuspendLayout();
             this.slidePanel3.SuspendLayout();
             this.groupTK.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataPhanQuyen)).BeginInit();
             this.SuspendLayout();
             // 
             // slidePanel1
@@ -98,6 +99,20 @@
             this.slidePanel2.TabIndex = 10;
             this.slidePanel2.Text = "slidePanel2";
             this.slidePanel2.UsesBlockingAnimation = false;
+            // 
+            // dataPhanQuyen
+            // 
+            this.dataPhanQuyen.AllowUserToAddRows = false;
+            this.dataPhanQuyen.AllowUserToDeleteRows = false;
+            this.dataPhanQuyen.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataPhanQuyen.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataPhanQuyen.Location = new System.Drawing.Point(0, 327);
+            this.dataPhanQuyen.Name = "dataPhanQuyen";
+            this.dataPhanQuyen.ReadOnly = true;
+            this.dataPhanQuyen.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataPhanQuyen.Size = new System.Drawing.Size(1219, 93);
+            this.dataPhanQuyen.TabIndex = 11;
+            this.dataPhanQuyen.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
             // panel1
             // 
@@ -194,6 +209,7 @@
             // 
             // groupTK
             // 
+            this.groupTK.Controls.Add(this.btnLienKet);
             this.groupTK.Controls.Add(this.label4);
             this.groupTK.Controls.Add(this.combo);
             this.groupTK.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -205,6 +221,33 @@
             this.groupTK.TabIndex = 8;
             this.groupTK.TabStop = false;
             this.groupTK.Text = "LOẠI TÀI KHOẢN";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.Black;
+            this.label4.Location = new System.Drawing.Point(79, 84);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(119, 21);
+            this.label4.TabIndex = 2;
+            this.label4.Text = "Loại tài khoản:";
+            // 
+            // combo
+            // 
+            this.combo.DisplayMember = "1";
+            this.combo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.combo.FormattingEnabled = true;
+            this.combo.ItemHeight = 22;
+            this.combo.Items.AddRange(new object[] {
+            "Quản trị",
+            "Sinh viên",
+            "Giáo viên",
+            "Cán bộ"});
+            this.combo.Location = new System.Drawing.Point(227, 75);
+            this.combo.Name = "combo";
+            this.combo.Size = new System.Drawing.Size(204, 30);
+            this.combo.TabIndex = 5;
             // 
             // groupBox1
             // 
@@ -226,6 +269,27 @@
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "THÔNG TIN TÀI KHOẢN";
+            // 
+            // textTen
+            // 
+            this.textTen.BackColor = System.Drawing.Color.White;
+            this.textTen.ForeColor = System.Drawing.Color.Black;
+            this.textTen.Location = new System.Drawing.Point(273, 200);
+            this.textTen.Multiline = true;
+            this.textTen.Name = "textTen";
+            this.textTen.Size = new System.Drawing.Size(229, 36);
+            this.textTen.TabIndex = 4;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Times New Roman", 14.25F);
+            this.label3.ForeColor = System.Drawing.Color.Black;
+            this.label3.Location = new System.Drawing.Point(90, 215);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(132, 21);
+            this.label3.TabIndex = 30;
+            this.label3.Text = "Tên người dùng:";
             // 
             // checkMK
             // 
@@ -307,67 +371,15 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Tài khoản:";
             // 
-            // textTen
+            // btnLienKet
             // 
-            this.textTen.BackColor = System.Drawing.Color.White;
-            this.textTen.ForeColor = System.Drawing.Color.Black;
-            this.textTen.Location = new System.Drawing.Point(273, 200);
-            this.textTen.Multiline = true;
-            this.textTen.Name = "textTen";
-            this.textTen.Size = new System.Drawing.Size(229, 36);
-            this.textTen.TabIndex = 4;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Times New Roman", 14.25F);
-            this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(90, 215);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(132, 21);
-            this.label3.TabIndex = 30;
-            this.label3.Text = "Tên người dùng:";
-            // 
-            // combo
-            // 
-            this.combo.DisplayMember = "1";
-            this.combo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.combo.FormattingEnabled = true;
-            this.combo.ItemHeight = 22;
-            this.combo.Items.AddRange(new object[] {
-            "Quản trị",
-            "Sinh viên",
-            "Giáo viên",
-            "Cán bộ"});
-            this.combo.Location = new System.Drawing.Point(227, 75);
-            this.combo.Name = "combo";
-            this.combo.Size = new System.Drawing.Size(204, 30);
-            this.combo.TabIndex = 5;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(79, 84);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(119, 21);
-            this.label4.TabIndex = 2;
-            this.label4.Text = "Loại tài khoản:";
-            // 
-            // dataPhanQuyen
-            // 
-            this.dataPhanQuyen.AllowUserToAddRows = false;
-            this.dataPhanQuyen.AllowUserToDeleteRows = false;
-            this.dataPhanQuyen.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataPhanQuyen.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataPhanQuyen.Location = new System.Drawing.Point(0, 327);
-            this.dataPhanQuyen.Name = "dataPhanQuyen";
-            this.dataPhanQuyen.ReadOnly = true;
-            this.dataPhanQuyen.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataPhanQuyen.Size = new System.Drawing.Size(1219, 93);
-            this.dataPhanQuyen.TabIndex = 11;
-            this.dataPhanQuyen.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+            this.btnLienKet.Location = new System.Drawing.Point(161, 149);
+            this.btnLienKet.Name = "btnLienKet";
+            this.btnLienKet.Size = new System.Drawing.Size(189, 45);
+            this.btnLienKet.TabIndex = 6;
+            this.btnLienKet.Text = "Liên kết tài khoản";
+            this.btnLienKet.UseVisualStyleBackColor = true;
+            this.btnLienKet.Click += new System.EventHandler(this.btnLienKet_Click);
             // 
             // FmQuanLyTaiKhoan
             // 
@@ -382,13 +394,13 @@
             this.Text = "MetroForm";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.slidePanel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataPhanQuyen)).EndInit();
             this.panel1.ResumeLayout(false);
             this.slidePanel3.ResumeLayout(false);
             this.groupTK.ResumeLayout(false);
             this.groupTK.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataPhanQuyen)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -420,5 +432,6 @@
         private System.Windows.Forms.ComboBox combo;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DataGridView dataPhanQuyen;
+        private System.Windows.Forms.Button btnLienKet;
     }
 }

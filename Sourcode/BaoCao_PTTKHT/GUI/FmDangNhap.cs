@@ -18,7 +18,7 @@ namespace BaoCao_PTTKHT.GUI
         BLL_TaiKhoan _taikhoan = new BLL_TaiKhoan();
         List<TAIKHOAN> ListTK;
         private int _quyen = -1;
-
+        private String _TenTaiKhoan = null;
 
         public FmDangNhap()
         {
@@ -72,6 +72,7 @@ namespace BaoCao_PTTKHT.GUI
                         {
                             MessageBox.Show("Chào " + textTen.Text + " đến với phần mềm QUẢN LÝ PHÒNG ĐÀO TẠO", "Đăng nhập thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             _quyen = newtk.LoaiTaiKhoan;
+                            FmQuanLy._TenTaiKhoan = newtk.TenTaiKhoan;
                             this.Close();
                             return;
                         }
@@ -107,6 +108,10 @@ namespace BaoCao_PTTKHT.GUI
         public int Quyen()
         {
             return _quyen;
+        }
+        public String TenTaiKhoan()
+        {
+            return _TenTaiKhoan;
         }
         #endregion
         #region Hiển thị mật khẩu
