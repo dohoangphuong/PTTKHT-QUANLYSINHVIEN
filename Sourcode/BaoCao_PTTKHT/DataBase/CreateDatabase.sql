@@ -251,5 +251,3 @@ insert into TAIKHOAN values('admin','74D839D98630E280DF752E8939454A6B',N'nameadm
 insert into TAIKHOAN values('giangvien','6A4C9570B853C5D8499326DA6A49930D',N'nameGV',2)
 insert into TAIKHOAN values('sinhvien','1A0374358D4B1450236562A4AFA3829C',N'nameSinhVien',1)
 insert into TAIKHOAN values('canbo','1A03D8ECB6A17192F75567CA6C20B08D',N'CanBo',3)
-
-insert into LIENKETTK values(0,'sinhvien','12520001',null)

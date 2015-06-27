@@ -96,7 +96,8 @@ namespace BaoCao_PTTKHT.Properties {
         ///(
         ///	MaLop varchar(10) primary key,
         ///	TenLop nvarchar(50) not null,
-        ///	MaKhoa varchar(10) FOREIGN KEY REFERENCES Khoa(MaKhoa) ON  [rest of string was truncated]&quot;;.
+        ///	MaKhoa varchar(10) FOREIGN KEY REFERENCES Khoa(MaKhoa) ON DELETE CASCADE,
+        ///	MaNamHoc  [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string CreateDatabase {
             get {
@@ -122,7 +123,7 @@ namespace BaoCao_PTTKHT.Properties {
         ///insert into HOCKY values(6, 2, N&apos;HK Hè&apos;)
         ///insert into HOCKY values(7, 3, N&apos;HK I&apos;)
         ///insert into HOCKY values(8, 3, N&apos;HK II&apos;)
-        ///i [rest of string was truncated]&quot;;.
+        ///insert into HOCKY  [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string InitData {
             get {
@@ -147,7 +148,7 @@ namespace BaoCao_PTTKHT.Properties {
         ///IF OBJECT_ID(N&apos;[dbo].[usp_DeleteBangdiem]&apos;) IS NOT NULL
         ///	DROP PROCEDURE [dbo].[usp_DeleteBangdiem]
         ///
-        ///IF OBJECT_ID(N&apos;[dbo].[usp_Se [rest of string was truncated]&quot;;.
+        ///IF OBJECT_ID(N&apos;[dbo].[usp_SelectBangdiem]&apos;)  [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string StoredProcedures {
             get {

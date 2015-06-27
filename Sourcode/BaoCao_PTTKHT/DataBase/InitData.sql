@@ -123,3 +123,5 @@ insert into DIEM values(6,4.5,3,2)
 insert into DIEM values(7,5.5,1,3)
 insert into DIEM values(8,4,2,3)
 insert into DIEM values(9,7,3,3)
+
+insert into LIENKETTK values(0,'sinhvien','12520001',null)

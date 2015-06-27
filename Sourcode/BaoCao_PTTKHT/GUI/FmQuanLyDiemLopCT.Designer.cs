@@ -44,6 +44,10 @@
             this.tbHSGiuaKy = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cbHocKy = new System.Windows.Forms.ComboBox();
+            this.cbTenLop = new System.Windows.Forms.ComboBox();
+            this.cbMaLop = new System.Windows.Forms.ComboBox();
+            this.tbMonHoc = new System.Windows.Forms.TextBox();
             this.tbSiSo = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -53,10 +57,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.tbMonHoc = new System.Windows.Forms.TextBox();
-            this.cbMaLop = new System.Windows.Forms.ComboBox();
-            this.cbTenLop = new System.Windows.Forms.ComboBox();
-            this.cbHocKy = new System.Windows.Forms.ComboBox();
             this.STT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MaSV = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TenSV = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -199,6 +199,7 @@
             this.tbHSCuoiKy.Name = "tbHSCuoiKy";
             this.tbHSCuoiKy.Size = new System.Drawing.Size(224, 33);
             this.tbHSCuoiKy.TabIndex = 17;
+            this.tbHSCuoiKy.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbHSCuoiKy_KeyPress);
             // 
             // label11
             // 
@@ -217,6 +218,7 @@
             this.tbHSThucHanh.Name = "tbHSThucHanh";
             this.tbHSThucHanh.Size = new System.Drawing.Size(224, 33);
             this.tbHSThucHanh.TabIndex = 15;
+            this.tbHSThucHanh.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbHSThucHanh_KeyPress);
             // 
             // label8
             // 
@@ -235,6 +237,7 @@
             this.tbHSGiuaKy.Name = "tbHSGiuaKy";
             this.tbHSGiuaKy.Size = new System.Drawing.Size(224, 33);
             this.tbHSGiuaKy.TabIndex = 11;
+            this.tbHSGiuaKy.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbHSGiuaKy_KeyPress);
             // 
             // label10
             // 
@@ -268,6 +271,46 @@
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "LỚP HỌC";
+            // 
+            // cbHocKy
+            // 
+            this.cbHocKy.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbHocKy.FormattingEnabled = true;
+            this.cbHocKy.Location = new System.Drawing.Point(135, 84);
+            this.cbHocKy.Name = "cbHocKy";
+            this.cbHocKy.Size = new System.Drawing.Size(224, 30);
+            this.cbHocKy.TabIndex = 22;
+            this.cbHocKy.SelectedIndexChanged += new System.EventHandler(this.cbHocKy_SelectedIndexChanged);
+            // 
+            // cbTenLop
+            // 
+            this.cbTenLop.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbTenLop.FormattingEnabled = true;
+            this.cbTenLop.Location = new System.Drawing.Point(493, 81);
+            this.cbTenLop.Name = "cbTenLop";
+            this.cbTenLop.Size = new System.Drawing.Size(224, 30);
+            this.cbTenLop.TabIndex = 21;
+            this.cbTenLop.SelectedIndexChanged += new System.EventHandler(this.cbTenLop_SelectedIndexChanged);
+            // 
+            // cbMaLop
+            // 
+            this.cbMaLop.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbMaLop.FormattingEnabled = true;
+            this.cbMaLop.Location = new System.Drawing.Point(493, 38);
+            this.cbMaLop.Name = "cbMaLop";
+            this.cbMaLop.Size = new System.Drawing.Size(224, 30);
+            this.cbMaLop.TabIndex = 20;
+            this.cbMaLop.SelectedIndexChanged += new System.EventHandler(this.cbMaLop_SelectedIndexChanged);
+            // 
+            // tbMonHoc
+            // 
+            this.tbMonHoc.Enabled = false;
+            this.tbMonHoc.Location = new System.Drawing.Point(916, 27);
+            this.tbMonHoc.Multiline = true;
+            this.tbMonHoc.Name = "tbMonHoc";
+            this.tbMonHoc.ReadOnly = true;
+            this.tbMonHoc.Size = new System.Drawing.Size(224, 33);
+            this.tbMonHoc.TabIndex = 19;
             // 
             // tbSiSo
             // 
@@ -373,46 +416,6 @@
             this.dataGridView2.TabIndex = 9;
             this.dataGridView2.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dataGridView2_CellBeginEdit);
             this.dataGridView2.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellEndEdit);
-            // 
-            // tbMonHoc
-            // 
-            this.tbMonHoc.Enabled = false;
-            this.tbMonHoc.Location = new System.Drawing.Point(916, 27);
-            this.tbMonHoc.Multiline = true;
-            this.tbMonHoc.Name = "tbMonHoc";
-            this.tbMonHoc.ReadOnly = true;
-            this.tbMonHoc.Size = new System.Drawing.Size(224, 33);
-            this.tbMonHoc.TabIndex = 19;
-            // 
-            // cbMaLop
-            // 
-            this.cbMaLop.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbMaLop.FormattingEnabled = true;
-            this.cbMaLop.Location = new System.Drawing.Point(493, 38);
-            this.cbMaLop.Name = "cbMaLop";
-            this.cbMaLop.Size = new System.Drawing.Size(224, 30);
-            this.cbMaLop.TabIndex = 20;
-            this.cbMaLop.SelectedIndexChanged += new System.EventHandler(this.cbMaLop_SelectedIndexChanged);
-            // 
-            // cbTenLop
-            // 
-            this.cbTenLop.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbTenLop.FormattingEnabled = true;
-            this.cbTenLop.Location = new System.Drawing.Point(493, 81);
-            this.cbTenLop.Name = "cbTenLop";
-            this.cbTenLop.Size = new System.Drawing.Size(224, 30);
-            this.cbTenLop.TabIndex = 21;
-            this.cbTenLop.SelectedIndexChanged += new System.EventHandler(this.cbTenLop_SelectedIndexChanged);
-            // 
-            // cbHocKy
-            // 
-            this.cbHocKy.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbHocKy.FormattingEnabled = true;
-            this.cbHocKy.Location = new System.Drawing.Point(135, 84);
-            this.cbHocKy.Name = "cbHocKy";
-            this.cbHocKy.Size = new System.Drawing.Size(224, 30);
-            this.cbHocKy.TabIndex = 22;
-            this.cbHocKy.SelectedIndexChanged += new System.EventHandler(this.cbHocKy_SelectedIndexChanged);
             // 
             // STT
             // 

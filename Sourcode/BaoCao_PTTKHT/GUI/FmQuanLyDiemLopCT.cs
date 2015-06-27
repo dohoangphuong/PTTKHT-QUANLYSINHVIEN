@@ -348,5 +348,44 @@ namespace BaoCao_PTTKHT.GUI
                 PreviousValue = null;
             }
         }
+
+        private void tbHSGiuaKy_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            int key = Convert.ToInt16(e.KeyChar);
+            if (key > 47 && key < 58 || key == 8)
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void tbHSThucHanh_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            int key = Convert.ToInt16(e.KeyChar);
+            if (key > 47 && key < 58 || key == 8)
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void tbHSCuoiKy_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            int key = Convert.ToInt16(e.KeyChar);
+            if (key > 47 && key < 58 || key == 8)
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
     }
 }
