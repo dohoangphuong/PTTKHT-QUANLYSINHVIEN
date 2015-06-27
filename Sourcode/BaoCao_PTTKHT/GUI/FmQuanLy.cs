@@ -22,7 +22,7 @@ namespace BaoCao_PTTKHT.GUI
         {
             InitializeComponent();
             DangNhap();
-            //_quyen = 0;
+           // _quyen = 0;
             //KhoiTaoChucNang();
         }
         #endregion
@@ -42,11 +42,12 @@ namespace BaoCao_PTTKHT.GUI
                 idangnhap.ShowDialog();
                 int iquyen = idangnhap.Quyen();
                 _quyen = iquyen;
+                KhoiTaoChucNang();
                 foreach (usp_SelectLienKetTKsByTenTaiKhoanResult lk in bll_LienKetTaiKhoan.SelectLienKetTKByTenTaiKhoan(_TenTaiKhoan))
                 {
                     _MSSV = lk.MSSV;
                 }
-                KhoiTaoChucNang();
+                
             }
             catch { }
         }
